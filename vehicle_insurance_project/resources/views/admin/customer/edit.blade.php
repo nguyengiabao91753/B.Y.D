@@ -5,7 +5,7 @@
                 <h2>Edit Information</h2>
             </div>
             <div class="pull-right">
-                <a class="btn btn-primary" href="{{ route('admin.index') }}">Back</a>
+                <a class="btn btn-primary" href="{{ route('admin.customer.index') }}">Back</a>
             </div>
 
         </div>
@@ -23,41 +23,41 @@
     @endif
 
     
-    <form action="{{ route('admin.customer.update',['id'=>$customer->CustomerID]) }}" method="POST">
+    <form action="{{ route('admin.customer.update',['id'=>$customer->customer_id]) }}" method="POST">
         @csrf
         <div class="row">
             <div class="control-group col-sm-6">
                 <div class="form-group">
-                    <label for="FirstName">First Name:</label>
-                    <input type="text" id="title" class="form-control" name="FirstName" value="{{old('FirstName',$customer->FirstName) }}" >
+                    <label for="firstname">First Name:</label>
+                    <input type="text" id="title" class="form-control" name="firstname" value="{{old('firstname',$customer->firstname) }}" >
                 </div>
             </div>
             
             <div class="control-group col-sm-6">
                 <div class="form-group">
-                    <label for="LastName">Last Name:</label>
-                    <input type="text" id="title" class="form-control" name="LastName" value="{{old('LastName',$customer->LastName) }}" >
+                    <label for="lastname">Last Name:</label>
+                    <input type="text" id="title" class="form-control" name="lastname" value="{{old('lastname',$customer->lastname) }}" >
                 </div>
             </div>
             
             <div class="control-group col-sm-6">
                 <div class="form-group">
-                    <label for="Email">Email:</label>
-                    <input type="text" id="title" class="form-control" name="Email" value="{{old('Email',$customer->Email) }}" >
+                    <label for="email">Email:</label>
+                    <input type="text" id="title" class="form-control" name="email" value="{{old('email',$customer->email) }}" >
                 </div>
             </div>
 
             <div class="control-group col-sm-6">
                 <div class="form-group">
-                    <label for="Phone">Phone:</label>
-                    <input type="text" id="title" class="form-control" name="Phone" value="{{old('Phone',$customer->Phone) }}">
+                    <label for="phone">Phone:</label>
+                    <input type="text" id="title" class="form-control" name="phone" value="{{old('Phone',$customer->phone) }}">
                 </div>
             </div>
 
             <div class="control-group col-sm-6">
                 <div class="form-group">
-                    <label for="Address">Address:</label>
-                    <input type="text" id="title" class="form-control" name="Address" value="{{old('Address',$customer->Address) }}">
+                    <label for="address">Address:</label>
+                    <input type="text" id="title" class="form-control" name="address" value="{{old('Address',$customer->address) }}">
                 </div>
             </div>
 

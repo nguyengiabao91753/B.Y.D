@@ -4,7 +4,7 @@
     <link rel="stylesheet" href="{{asset ('adminstrators/css/style.css')}}">
     <div class="card">
         <div class="card-header">
-                <h1>Customers-Users</h1>
+                <h1 style="color: brown;">Customers-Users</h1>
         </div>
     </div>
 
@@ -21,13 +21,13 @@
         @forelse($customers as $customer)
             <tr>
                 <td>{{$loop->iteration}}</td>
-                <td>{{$customer->FirstName.' '.$customer->LastName}}</td>
-                <td>{{$customer->Email}}</td>
-                <td>{{$customer->Phone}}</td>
-                <td>{{$customer->Address}}</td>
+                <td>{{$customer->firstname.' '.$customer->lastname}}</td>
+                <td>{{$customer->email}}</td>
+                <td>{{$customer->phone}}</td>
+                <td>{{$customer->address}}</td>
                 <td>
-                <a href="{{route('admin.customer.edit',['id'=>$customer->CustomerID] )}}}" class="btn btn-primary">Edit</a>
-                <a href="{{route('admin.customer.destroy',['id'=>$customer->CustomerID] )}}}" class="btn btn-primary" style="background-color:red;">Delete</a>
+                <a href="{{route('admin.customer.edit',['id'=>$customer->customer_id] )}}}" class="btn btn-primary">Edit</a>
+                <a href="{{route('admin.customer.destroy',['id'=>$customer->customer_id] )}}}" class="btn btn-primary" style="background-color:red;">Delete</a>
                 </td>
             </tr>
         @empty
