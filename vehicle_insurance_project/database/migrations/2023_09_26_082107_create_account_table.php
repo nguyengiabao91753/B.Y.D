@@ -13,11 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('providers', function (Blueprint $table) {
-            $table->id('provider_id');
-            $table->string('providername');
-            $table->string('provideraddress');
-            $table->string('provideremail');
+        Schema::create('account', function (Blueprint $table) {
+            $table->id('account_id');
+            $table->bigInteger('customer_id');
+            $table->string('user');
+            $table->string('password');
             $table->timestamps();
         });
     }
@@ -29,6 +29,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('insuranceproviders');
+        Schema::dropIfExists('account');
     }
 };
