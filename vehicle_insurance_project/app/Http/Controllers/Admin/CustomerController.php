@@ -40,11 +40,11 @@ class CustomerController extends Controller
     {
         //
         $customer = new Customer();
-        $customer->FirstName = $request->FirstName;
-        $customer->LastName = $request->LastName;
-        $customer->Email = $request->Email;
-        $customer->Phone = $request->Phone;
-        $customer->Address= $request->Address;
+        $customer->firstname = $request->firstname;
+        $customer->lastname = $request->lastname;
+        $customer->email = $request->email;
+        $customer->phone = $request->phone;
+        $customer->address= $request->address;
         $customer->save();
 
         return redirect()->route('admin.customer.index')->with('success', 'Added Successfully!');
@@ -84,11 +84,12 @@ class CustomerController extends Controller
         //
         $customer = Customer::find($id);    
         
-        $customer->FirstName = $request->FirstName;
-        $customer->LastName = $request->LastName;
-        $customer->Email = $request->Email;
-        $customer->Phone = $request->Phone;
-        $customer->Address= $request->Address;
+        $customer->firstname = $request->firstname;
+        $customer->lastname = $request->lastname;
+        $customer->email = $request->email;
+        $customer->phone = $request->phone;
+        $customer->address= $request->address;
+        $customer->save();
         return redirect()->route('admin.customer.index')->with('success', 'Updated Successfully!');
     }
 

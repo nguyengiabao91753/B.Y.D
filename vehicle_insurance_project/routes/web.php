@@ -57,7 +57,7 @@ Route::prefix('admin')->name('admin.')->group(function(){
             Route::post('update/{id}',[InsurancePolicyController::class,'update'])->name('update');
             Route::delete('destroy/{id}',[InsurancePolicyController::class,'destroy'])->name('destroy');
         });
-        Route::prefix('vehicles')->name('vehicle.')->group(function(){
+        Route::prefix('vehicle')->name('vehicle.')->group(function(){
             Route::get('index',[VehicleController::class,'index'])->name('index');
             Route::get('create',[VehicleController::class,'create'])->name('create');
             Route::post('store',[VehicleController::class,'store'])->name('store');

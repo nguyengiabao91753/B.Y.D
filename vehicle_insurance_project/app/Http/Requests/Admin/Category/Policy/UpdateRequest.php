@@ -24,15 +24,15 @@ class UpdateRequest extends FormRequest
     public function rules()
     {
         return [
-            'PolicyName' => 'required|unique:insurancepolicies,PolicyName,'.$this->PolicyID,
+            'policyname' => 'required|unique:Policy,policyname,'.$this->policy_id,
         ];
     }
 
     public function messages (): array
     {
         return [
-            'PolicyName.required' => 'Please enter Policy Name',
-            'PolicyName.unique' => 'This Policy Name already exists',
+            'policyname.required' => 'Please enter Policy Name',
+            'policyname.unique' => 'This Policy Name already exists',
         ];
     }
 }

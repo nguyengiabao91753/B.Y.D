@@ -28,40 +28,40 @@
         <div class="row">
             <div class="control-group col-sm-6" >
                 <div class="form-group">
-                    <label for="FirstName">First Name:</label>
-                    <input type="text" id="title" class="form-control" name="FirstName"
+                    <label for="firstname">First Name:</label>
+                    <input type="text" id="title" class="form-control" name="firstname"
                         placeholder="Enter First Name" >
                 </div>
             </div>
             
             <div class="control-group col-sm-6">
                 <div class="form-group">
-                    <label for="LastName">Last Name:</label>
-                    <input type="text" id="title" class="form-control" name="LastName"
+                    <label for="lastname">Last Name:</label>
+                    <input type="text" id="title" class="form-control" name="lastname"
                         placeholder="Enter Last Name" >
                 </div>
             </div>
             
             <div class="control-group col-sm-6">
                 <div class="form-group">
-                    <label for="Email">Email:</label>
-                    <input type="text" id="title" class="form-control" name="Email"
+                    <label for="email">Email:</label>
+                    <input type="text" id="title" class="form-control" name="email"
                         placeholder="Enter Email" >
                 </div>
             </div>
 
             <div class="control-group col-sm-6">
                 <div class="form-group">
-                    <label for="Phone">Phone:</label>
-                    <input type="text" id="title" class="form-control" name="Phone"
+                    <label for="phone">Phone:</label>
+                    <input type="text" id="title" class="form-control" name="phone"
                         placeholder="Enter Phone" >
                 </div>
             </div>
 
             <div class="control-group col-sm-6">
                 <div class="form-group">
-                    <label for="Address">Address:</label>
-                    <input type="text" id="title" class="form-control" name="Address"
+                    <label for="address">Address:</label>
+                    <input type="text" id="title" class="form-control" name="address"
                         placeholder="Enter Address">
                 </div>
             </div>
