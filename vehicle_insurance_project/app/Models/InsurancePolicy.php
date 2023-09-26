@@ -14,7 +14,7 @@ class InsurancePolicy extends Model
      *
      * @var string
      */
-    protected $table = 'insurancepolicies';
+    protected $table = 'Policy';
 
     /**
      * The attributes that aren't mass assignable.
@@ -22,4 +22,6 @@ class InsurancePolicy extends Model
      * @var array
      */
     protected $guarded = [];
+
+    public $timestamps = false;
 }

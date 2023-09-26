@@ -5,7 +5,7 @@
 <div class="row">
         <div class="col-lg-12 margin-tb">
             <div class="pull-left">
-                <h2>Add Customer Information</h2>
+                <h2>Add Vehile Type Information</h2>
             </div>
 
         </div>
@@ -23,45 +23,45 @@
     @endif
 
     
-    <form action="{{ route('admin.customer.store') }}" method="POST" >
+    <form action="{{ route('admin.vehicle.store') }}" method="POST" >
         @csrf
         <div class="row">
             <div class="control-group col-sm-6" >
                 <div class="form-group">
-                    <label for="firstname">First Name:</label>
-                    <input type="text" id="title" class="form-control" name="firstname"
+                    <label for="FirstName">First Name:</label>
+                    <input type="text" id="title" class="form-control" name="FirstName"
                         placeholder="Enter First Name" >
                 </div>
             </div>
             
             <div class="control-group col-sm-6">
                 <div class="form-group">
-                    <label for="lastname">Last Name:</label>
-                    <input type="text" id="title" class="form-control" name="lastname"
+                    <label for="LastName">Last Name:</label>
+                    <input type="text" id="title" class="form-control" name="LastName"
                         placeholder="Enter Last Name" >
                 </div>
             </div>
             
             <div class="control-group col-sm-6">
                 <div class="form-group">
-                    <label for="email">Email:</label>
-                    <input type="text" id="title" class="form-control" name="email"
+                    <label for="Email">Email:</label>
+                    <input type="text" id="title" class="form-control" name="Email"
                         placeholder="Enter Email" >
                 </div>
             </div>
 
             <div class="control-group col-sm-6">
                 <div class="form-group">
-                    <label for="phone">Phone:</label>
-                    <input type="text" id="title" class="form-control" name="phone"
+                    <label for="Phone">Phone:</label>
+                    <input type="text" id="title" class="form-control" name="Phone"
                         placeholder="Enter Phone" >
                 </div>
             </div>
 
             <div class="control-group col-sm-6">
                 <div class="form-group">
-                    <label for="address">Address:</label>
-                    <input type="text" id="title" class="form-control" name="address"
+                    <label for="Address">Address:</label>
+                    <input type="text" id="title" class="form-control" name="Address"
                         placeholder="Enter Address">
                 </div>
             </div>

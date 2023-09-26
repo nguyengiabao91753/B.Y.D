@@ -24,15 +24,15 @@ class StoreRequest extends FormRequest
     public function rules()
     {
         return [
-            'PolicyName' => 'required|unique:insurancepolicies,PolicyName',
+            'policy' => 'required|unique:Policy,policyname',
         ];
     }
 
     public function messages (): array
     {
         return [
-            'PolicyName.required' => 'Please enter Policy Name',
-            'PolicyName.unique' => 'This Policy Name already exists',
+            'policy.required' => 'Please enter Policy Name',
+            'policy.unique' => 'This Policy Name already exists',
         ];
     }
 }

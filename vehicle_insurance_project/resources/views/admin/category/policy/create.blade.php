@@ -4,7 +4,7 @@
 <div class="row">
     <div class="col-lg-12 margin-tb">
         <div class="pull-left">
-            <h2>Add Customer Information</h2>
+            <h2>Add Insurance Policy Information</h2>
         </div>
 
     </div>
@@ -33,17 +33,22 @@
     <label for="VehicleType">Vehicle Type:</label>
     <select name="VehicleTypeID" required>
         @foreach($vehicleTypes as $vehicleType)
-        <option value="{{ $vehicleType->VehicleTypeID }}">{{ $vehicleType->TypeName }}</option>
+        <option value="{{ $vehicleType->vehicletype_id }}">{{ $vehicleType->typename }}</option>
         @endforeach
     </select><br>
 
     <label for="EngineDisplacement">Engine Displacement:</label>
     <select name="DisplacementID" required>
         @foreach($engineDisplacements as $engineDisplacement)
-        <option value="{{ $engineDisplacement->DisplacementID }}">{{ $engineDisplacement->Displacement }}</option>
+        <option value="{{ $engineDisplacement->displacement_id }}">{{ $engineDisplacement->value }}</option>
         @endforeach
     </select><br>
 
+    <select name="provider" required>
+        @foreach($providers as $provider)
+        <option value="{{ $provider->provider_id }}">{{ $provider->providername }}</option>
+        @endforeach
+    </select><br>
     <label for="Price">Price:</label>
     <input type="text" name="Price" required><br>
 

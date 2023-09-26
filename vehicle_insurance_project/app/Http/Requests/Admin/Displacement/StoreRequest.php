@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Requests\Admin\Category\Policy;
+namespace App\Http\Requests\Admin\Displacement;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class UpdateRequest extends FormRequest
+class StoreRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,15 +24,15 @@ class UpdateRequest extends FormRequest
     public function rules()
     {
         return [
-            'policyname' => 'required|unique:Policy,policyname,'.$this->policy_id,
+            'calue'=>'required|unique:EngineDisplacement,value'
         ];
     }
 
     public function messages (): array
     {
         return [
-            'policyname.required' => 'Please enter Policy Name',
-            'policyname.unique' => 'This Policy Name already exists',
+            'value.required' => 'Please enter Engine Displacement Value',
+            'value.unique' => 'This Value already exists',
         ];
     }
 }
