@@ -1,3 +1,5 @@
+
+
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
     <a href="index3.html" class="brand-link">
@@ -45,15 +47,13 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="pages/layout/top-nav.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Policy</p>
+                <a href="{{route('admin.category.policy.index')}}" class="nav-link">
+                  <p style="margin-left: 20px;">Policy</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="pages/layout/top-nav-sidebar.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Providers</p>
+                <a href="{{route('admin.category.provider.index')}}" class="nav-link">
+                  <p style="margin-left: 20px;">Providers</p>
                 </a>
               </li>
             </ul>
@@ -68,9 +68,8 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="pages/charts/chartjs.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Account</p>
+                <a href="{{route('admin.account.index')}}" class="nav-link">
+                  <p style="margin-left :20px;">Account</p>
                 </a>
               </li>
               <li class="nav-item">
@@ -122,3 +121,4 @@
     </div>
     <!-- /.sidebar -->
   </aside>
+
