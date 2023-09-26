@@ -13,9 +13,13 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('enginedisplacements', function (Blueprint $table) {
-            $table->id('displacement_id');
-            $table->string('value');
+        Schema::create('customers', function (Blueprint $table) {
+            $table->id('customer_id');
+            $table->string('firstname');
+            $table->string('lastname');
+            $table->string('email');
+            $table->string('phone');
+            $table->string('address');
             $table->timestamps();
         });
     }
@@ -27,6 +31,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('enginedisplacements');
+        Schema::dropIfExists('customers');
     }
 };

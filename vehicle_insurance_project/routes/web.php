@@ -79,7 +79,7 @@ Route::prefix('admin')->name('admin.')->group(function(){
         Route::get('create',[AccountController::class,'create'])->name('create');
         Route::post('store',[AccountController::class,'store'])->name('store');
         Route::get('edit/{id}',[AccountController::class,'edit'])->name('edit');
-        Route::post('update/{id}',[AccountController::class,'update'])->name('update');
+        Route::get('update/{id}',[AccountController::class,'update'])->name('update');
         Route::delete('destroy/{id}',[AccountController::class,'destroy'])->name('destroy');
     });
 

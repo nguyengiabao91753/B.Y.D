@@ -24,6 +24,7 @@ class Customer extends Model
      */
     protected $guarded = [];
     protected $primaryKey = 'CustomerID';
+    public $timestamps = false;
 
     
 }

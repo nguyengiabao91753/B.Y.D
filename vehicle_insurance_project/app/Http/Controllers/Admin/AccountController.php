@@ -1,10 +1,11 @@
 <?php
 
 namespace App\Http\Controllers\Admin;
-
+use App\Http\Requests\Admin\Account\StoreRequest;
 use App\Http\Controllers\Controller;
 use App\Models\Account;
 use Illuminate\Http\Request;
+use function League\Flysystem\delete;
 
 class AccountController extends Controller
 {
@@ -16,6 +17,8 @@ class AccountController extends Controller
     public function index()
     {
         //
+        $accounts=account::all();
+        return view('admin.account.index',compact('accounts'));
     }
 
     /**
@@ -26,6 +29,7 @@ class AccountController extends Controller
     public function create()
     {
         //
+        return view('admin.account.create');
     }
 
     /**
@@ -34,9 +38,16 @@ class AccountController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreRequest $request)
     {
         //
+        $accounts = new account();
+
+        $accounts->customer_id = $request->customer_id;
+        $accounts->user = $request->user;
+        $accounts->password = $request->password;
+        $accounts->save();
+        return redirect()->route('admin.account.index')->with('success','success');
     }
 
     /**
@@ -48,6 +59,7 @@ class AccountController extends Controller
     public function show(Account $account)
     {
         //
+        return view('admin.account.show',compact('account'));
     }
 
     /**
@@ -56,9 +68,11 @@ class AccountController extends Controller
      * @param  \App\Models\Account  $account
      * @return \Illuminate\Http\Response
      */
-    public function edit(Account $account)
+    public function edit(int $id)
     {
         //
+        $accounts = Account::find($id);
+        return view('admin.account.edit',['account'=>$accounts]);
     }
 
     /**
@@ -68,9 +82,15 @@ class AccountController extends Controller
      * @param  \App\Models\Account  $account
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Account $account)
+    public function update(Request $request, int $id)
     {
         //
+        $account = Account::find($id);
+        $account->customer_id = $request->customer_id;
+        $account->user = $request->user;
+        $account->password = $request->password;
+        $account->save();
+        return redirect()->route('admin.account.index')->with('success','success');
     }
 
     /**
@@ -79,8 +99,11 @@ class AccountController extends Controller
      * @param  \App\Models\Account  $account
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Account $account)
+    public function destroy(int $id)
     {
         //
+        $account = Account::find($id);
+        $account -> delete();
+        return redirect()->route('admin.account.index')->with('success','success');
     }
 }

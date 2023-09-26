@@ -22,4 +22,5 @@ class Invoice extends Model
      */
     protected $guarded = [];
     protected $primaryKey = ['InvoiceID','ContractID'];
+    public $timestamps = false;
 }

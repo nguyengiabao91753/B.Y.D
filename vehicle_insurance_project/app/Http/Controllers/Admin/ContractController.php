@@ -16,6 +16,8 @@ class ContractController extends Controller
     public function index()
     {
         //
+        $contract=contract::all();
+        return view('admin.contract.index',compact('contracts'));
     }
 
     /**
@@ -26,6 +28,7 @@ class ContractController extends Controller
     public function create()
     {
         //
+        return view('admin.contract.create');
     }
 
     /**
@@ -34,9 +37,16 @@ class ContractController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreRequest $request)
     {
         //
+        $accounts = new account();
+
+        $contract->contract_id = $request->contract_id;
+        $contract->policy_id = $request->policy_id;
+        $contract->enddate = $request->enddate;
+        $contract->save();
+        return redirect()->route('admin.contract.index')->with('success','success');
     }
 
     /**
@@ -48,6 +58,7 @@ class ContractController extends Controller
     public function show(Contract $contract)
     {
         //
+        return view('admin.account.show',compact('account'));
     }
 
     /**
@@ -56,9 +67,11 @@ class ContractController extends Controller
      * @param  \App\Models\Contract  $contract
      * @return \Illuminate\Http\Response
      */
-    public function edit(Contract $contract)
+    public function edit(int $id)
     {
         //
+        $accounts = Account::find($id);
+        return view('admin.account.edit',['account'=>$accounts]);
     }
 
     /**
@@ -68,9 +81,15 @@ class ContractController extends Controller
      * @param  \App\Models\Contract  $contract
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Contract $contract)
+    public function update(Request $request, int $id)
     {
         //
+        $contract = Contract::find($id);
+        $contract->account_id = $request->account_id;
+        $contract->policy_id = $request->account_id;
+        $contract->enddate = $request->enddate;
+        $contract->save();
+        return redirect()->route('admin.contract.index')->with('success','success');
     }
 
     /**
@@ -79,8 +98,11 @@ class ContractController extends Controller
      * @param  \App\Models\Contract  $contract
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Contract $contract)
+    public function destroy(int $id)
     {
         //
+        $contract = Contract::find($id);
+        $contract -> delete();
+        return redirect()->route('admin.contract.index')->with('success','success');
     }
 }

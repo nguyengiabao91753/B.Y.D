@@ -21,6 +21,8 @@ return new class extends Migration
             $table->BigInteger('displacement_id');
             $table->BigInteger('provider_id');
             $table->decimal('Price');
+            // $table->foreign('VehicleTypeID')->references('VehicleTypeID')->on('VehicleTypes')->onDelete('cascade');
+            // // $table->foreign('DisplacementID')->references('DisplacementID')->on('EngineDisplacement');
             $table->timestamps();
         });
     }
@@ -32,6 +34,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('policies');
+        Schema::dropIfExists('insurancepolicies');
     }
 };
