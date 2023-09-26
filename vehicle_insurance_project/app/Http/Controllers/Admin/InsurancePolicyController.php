@@ -7,6 +7,7 @@ use App\Http\Requests\Admin\Category\Policy\StoreRequest;
 use App\Http\Requests\Admin\Category\Policy\UpdateRequest;
 use App\Models\EngineDisplacement;
 use App\Models\InsurancePolicy;
+use App\Models\Provider;
 use App\Models\Vehicle;
 use Illuminate\Http\Request;
 
@@ -34,9 +35,11 @@ class InsurancePolicyController extends Controller
     {
         $vehicleType = Vehicle::all();
         $engineDisplacement = EngineDisplacement::all();
+        $provider = Provider::all();
         return view('admin.category.policy.create', [
             'vehicleTypes' => $vehicleType,
-            'engineDisplacements' => $engineDisplacement
+            'engineDisplacements' => $engineDisplacement,
+            'providers' => $provider
         ]);
     }
 
@@ -49,19 +52,20 @@ class InsurancePolicyController extends Controller
     public function store(StoreRequest $request)
     {
         $policy = new InsurancePolicy();
-        $policy->PolicyName = $request->PolicyName;
-        $policy->PolicyDescription = $request->PolicyDescription;
-
+        $policy->policyname = $request->policyname;
+        $policy->description = $request->description;
+        
         // Đối chiếu và lấy ID từ bảng VehicleTypes và EngineDisplacement
-        $vehicleType = Vehicle::where('TypeName', $request->input('VehicleType'))->first();
+        $vehicleType = Vehicle::where('typename', $request->input('VehicleTypes'))->first();
         $engineDisplacement = EngineDisplacement::where('Displacement', $request->input('EngineDisplacement'))->first();
-
-        if ($vehicleType && $engineDisplacement) {
-            $policy->VehicleTypeID = $vehicleType->VehicleTypeID;
-            $policy->DisplacementID = $engineDisplacement->DisplacementID;
+        $provider = Provider::where('providername', $request->input('provider'))->first();
+        if ($vehicleType && $engineDisplacement && $provider) {
+            $policy->vehicle_id = $vehicleType->vehicletype_id;
+            $policy->displacement_id = $engineDisplacement->displacement_id;
+            $policy->provider_id = $provider->provider_id;
         }
 
-        $policy->Price = $request->Price;
+        $policy->price = $request->price;
         $policy->save();
 
         return redirect()->route('admin.category.policy.index')->with('success', 'Added Successfully!');
@@ -103,19 +107,21 @@ class InsurancePolicyController extends Controller
     public function update(UpdateRequest $request, InsurancePolicy $insurancePolicy, int $id)
     {
         $policy = InsurancePolicy::find($id);
-        $policy->PolicyName = $request->PolicyName;
-        $policy->PolicyDescription = $request->PolicyDescription;
-
+        $policy->policyname = $request->policyname;
+        $policy->description = $request->description;
+        
         // Đối chiếu và lấy ID từ bảng VehicleTypes và EngineDisplacement
-        $vehicleType = Vehicle::where('TypeName', $request->input('VehicleType'))->first();
+        $vehicleType = Vehicle::where('typename', $request->input('VehicleTypes'))->first();
         $engineDisplacement = EngineDisplacement::where('Displacement', $request->input('EngineDisplacement'))->first();
+        $provider = Provider::where('providername', $request->input('Provider'))->first();
 
-        if ($vehicleType && $engineDisplacement) {
-            $policy->VehicleTypeID = $vehicleType->VehicleTypeID;
-            $policy->DisplacementID = $engineDisplacement->DisplacementID;
+        if ($vehicleType && $engineDisplacement && $provider) {
+            $policy->vehicle_id = $vehicleType->vehicletype_id;
+            $policy->displacement_id = $engineDisplacement->displacement_id;
+            $policy->provider_id = $provider->provider_id;
         }
 
-        $policy->Price = $request->Price;
+        $policy->price = $request->price;
         $policy->save();
 
         return redirect()->route('admin.category.policy.index')->with('success', 'Updated Successfully!');
