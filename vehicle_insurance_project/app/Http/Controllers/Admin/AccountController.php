@@ -6,7 +6,6 @@ use App\Http\Controllers\Controller;
 use App\Models\Account;
 use Illuminate\Http\Request;
 use function League\Flysystem\delete;
-
 class AccountController extends Controller
 {
     /**
@@ -42,7 +41,6 @@ class AccountController extends Controller
     {
         //
         $accounts = new account();
-
         $accounts->customer_id = $request->customer_id;
         $accounts->user = $request->user;
         $accounts->password = $request->password;
@@ -72,7 +70,9 @@ class AccountController extends Controller
     {
         //
         $accounts = Account::find($id);
-        return view('admin.account.edit',['account'=>$accounts]);
+        return view('admin.account.edit',[
+            'account' =>$accounts]
+        );
     }
 
     /**

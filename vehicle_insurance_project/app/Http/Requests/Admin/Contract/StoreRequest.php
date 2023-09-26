@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Requests\Admin\Account;
+namespace App\Http\Requests\Admin\Contract;
 
 use Illuminate\Foundation\Http\FormRequest;
 
@@ -23,10 +23,10 @@ class StoreRequest extends FormRequest
      */
     public function rules(): array
     {
-        // return [
-        //     'enddate' => 'required|unique:accounts,enddate',
-        //     'password'=>'required|unique:accounts,password'
-        // ];
+        return [
+            'enddate' => 'required|unique:accounts,enddate',
+
+        ];
     }
     public function messages() : array
     {

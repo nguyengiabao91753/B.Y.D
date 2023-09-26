@@ -24,18 +24,13 @@ class StoreRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'account_id'=>'required|unique:accounts,account_id',
-            'customer_id'=>'required|unique:accounts,customer_id',
-            'user' => 'required|unique:accounts,user',
-            'password'=>'required|unique:accounts,password',
+            'paymentname.required' =>'Please enter PaymentName',
         ];
     }
     public function messages() : array
     {
         return[
-            'customer_id.required' =>'Please enter Customer',
-            'user.required' =>'Please enter User',
-            'password.required' =>'Please enter Password',
+            'paymentname.required' =>'Please enter PaymentName',
         ];
     }
 }

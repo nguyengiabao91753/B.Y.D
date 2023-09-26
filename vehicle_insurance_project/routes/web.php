@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\CustomerController;
 use App\Http\Controllers\Admin\InsurancePolicyController;
 use App\Http\Controllers\Admin\InvoiceController;
+use App\Http\Controllers\Admin\PaymentController;
 use App\Http\Controllers\Client\About_UsController;
 use App\Http\Controllers\Client\ContactController;
 use App\Http\Controllers\Client\HomeController;
@@ -80,7 +81,15 @@ Route::prefix('admin')->name('admin.')->group(function(){
         Route::post('store',[AccountController::class,'store'])->name('store');
         Route::get('edit/{id}',[AccountController::class,'edit'])->name('edit');
         Route::get('update/{id}',[AccountController::class,'update'])->name('update');
-        Route::delete('destroy/{id}',[AccountController::class,'destroy'])->name('destroy');
+        Route::get('destroy/{id}',[AccountController::class,'destroy'])->name('destroy');
+    });
+    Route::prefix('payment')->name('payment.')->group(function(){
+        Route::get('index',[PaymentController::class,'index'])->name('index');
+        Route::get('create',[PaymentController::class,'create'])->name('create');
+        Route::post('store',[PaymentController::class,'store'])->name('store');
+        Route::get('edit/{id}',[PaymentController::class,'edit'])->name('edit');
+        Route::get('update/{id}',[PaymentController::class,'update'])->name('update');
+        Route::get('destroy/{id}',[PaymentController::class,'destroy'])->name('destroy');
     });
 
     Route::prefix('invoice')->name('invoice.')->group(function(){

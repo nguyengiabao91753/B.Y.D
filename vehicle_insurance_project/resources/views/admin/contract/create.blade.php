@@ -23,40 +23,32 @@
     <form action="{{ route('admin.contract.store') }}" method="POST" >
         @csrf
         <div class="row">
-            <div class="control-group col-sm-6" >
+            <div class="control-group col-sm-12">
                 <div class="form-group">
-                    <label for="FirstName">ContractID :</label>
-                    <input type="text" id="title" class="form-control" name="FirstName"
-                        placeholder="Enter First Name" >
-                </div>
-            </div>
-            
-            <div class="control-group col-sm-6">
-                <div class="form-group">
-                    <label for="LastName">AccountID:</label>
+                    <label for="account_id">AccountID:</label>
                     <input type="text" id="title" class="form-control" name="LastName"
-                        placeholder="Enter Last Name" >
+                        placeholder="Account ID" >
                 </div>
             </div>
             
-            <div class="control-group col-sm-6">
+            <div class="control-group col-sm-12">
                 <div class="form-group">
-                    <label for="Email">PolicyID :</label>
+                    <label for="policy_id">PolicyID :</label>
                     <input type="text" id="title" class="form-control" name="Email"
-                        placeholder="Enter Email" >
+                        placeholder="Policy ID" >
                 </div>
             </div>
 
-            <div class="control-group col-sm-6">
+            <div class="control-group col-sm-12">
                 <div class="form-group">
                     <label for="Phone">EndDate:</label>
                     <input type="text" id="title" class="form-control" name="Phone"
-                        placeholder="Enter Phone" >
+                        placeholder="End Date" >
                 </div>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12 text-left">
                 <br>
-                <button type="submit" class="btn btn-primary">Add Information</button>
+                <button type="submit" class="btn btn-primary" action="{{route('admin.contract.index')}}">Add Information</button>
             </div>
         </div>
     </form>

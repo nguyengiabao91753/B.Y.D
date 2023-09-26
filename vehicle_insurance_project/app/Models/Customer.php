@@ -26,5 +26,4 @@ class Customer extends Model
     protected $primaryKey = 'CustomerID';
     public $timestamps = false;
 
-    
 }

@@ -1,10 +1,11 @@
 <?php
 
 namespace App\Http\Controllers\Admin;
-
+use App\Http\Requests\Admin\Contract\StoreRequest;
 use App\Http\Controllers\Controller;
 use App\Models\Contract;
 use Illuminate\Http\Request;
+use function League\Flysystem\delete;
 
 class ContractController extends Controller
 {
@@ -16,8 +17,8 @@ class ContractController extends Controller
     public function index()
     {
         //
-        $contract=contract::all();
-        return view('admin.contract.index',compact('contracts'));
+        $contract= Contract::all();
+        return view('admin.contract.index',compact('contract'));
     }
 
     /**
@@ -40,10 +41,10 @@ class ContractController extends Controller
     public function store(StoreRequest $request)
     {
         //
-        $accounts = new account();
+        $contract = new Contract();
 
-        $contract->contract_id = $request->contract_id;
-        $contract->policy_id = $request->policy_id;
+        // $contract->contract_id = $request->contract_id;
+        // $contract->policy_id = $request->policy_id;
         $contract->enddate = $request->enddate;
         $contract->save();
         return redirect()->route('admin.contract.index')->with('success','success');
@@ -70,8 +71,8 @@ class ContractController extends Controller
     public function edit(int $id)
     {
         //
-        $accounts = Account::find($id);
-        return view('admin.account.edit',['account'=>$accounts]);
+        $contracs = Contract::find($id);
+        return view('admin.contract.edit',['contract'=>$contracs]);
     }
 
     /**

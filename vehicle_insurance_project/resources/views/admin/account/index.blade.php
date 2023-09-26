@@ -19,13 +19,13 @@
            @forelse ($accounts as $account)
             <tr>
                 <td>{{$loop->iteration}}</td>
-                <td>{{ $account->CustomerID }}</td>
-                <td width="200px">{{ $account->User }}</td>
-                <td width="200px">{{ $account->Password }}</td>
+                <td>{{ $account->customer_id }}</td>
+                <td>{{ $account->User }}</td>
+                <td>{{ $account->password }}</td>
                 <td>
-                    <a class="btn btn-primary" href="{{route('admin.accounts.create',['id'=>$account->account_id] )}}">Create</a>
-                    <a class="btn btn-warning" href="{{route('admin.accounts.edit',['id'=>$account->account_id] )}}">Edit</a>
-                    <a class="btn btn-danger" href="{{route('admin.accounts.destroy',['id'=>$account->account_id] )}}">Delete</a>
+                    <a class="btn btn-primary" href="{{route('admin.account.create',['id'=>$account->account_id] )}}">Create</a>
+                    <a class="btn btn-warning" href="{{route('admin.account.edit',['id'=>$account->account_id] )}}">Edit</a>
+                    <a class="btn btn-danger" href="{{route('admin.account.destroy',['id'=>$account->account_id] )}}">Delete</a>
                 </td>
             </tr>
             @empty

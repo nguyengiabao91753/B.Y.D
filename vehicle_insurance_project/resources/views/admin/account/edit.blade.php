@@ -1,4 +1,4 @@
-@extends('layout')
+@extends('admin.app')
 @section('content')
     <div class="row">
         <div class="col-lg-12 margin-tb">
@@ -6,11 +6,11 @@
                 <h1 class="bd"><b>Edit Account</b></h1><br>
 
                 <div class="pull-right">
-                    <a class="btn btn-primary" href="{{ route('admin.accounts.index') }}">Back</a>
+                    <a class="btn btn-primary" href="{{ route('admin.account.index') }}">Back</a>
                 </div>
         </div>
     </div>
-    <form action="{{ route('admin.accounts.update',['id'=>$account->account_id])}}" method="POTS">
+    <form action="{{ route('admin.account.update',['id'=>$account->account_id])}}" method="POTS">
         @csrf
         <div class="row">
             <div class="col-xs-12 col-sm-12 col-md-12">
@@ -32,7 +32,7 @@
                 </div>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12 text-center">
-                <button type="submit" class="btn btn-primary" action="{{route('admin.accounts.index')}}">Submit</button>
+                <button type="submit" class="btn btn-primary" action="{{route('admin.account.index')}}">Submit</button>
             </div>
         </div>
     </form>
