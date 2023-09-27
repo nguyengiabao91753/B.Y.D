@@ -21,5 +21,7 @@ class EngineDisplacement extends Model
      * @var array
      */
     protected $guarded = [];
+    protected $primaryKey = 'displacement_id';
+    public $timestamps = false;
 }
 

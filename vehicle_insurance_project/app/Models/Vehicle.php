@@ -21,5 +21,6 @@ class Vehicle extends Model
      * @var array
      */
     protected $guarded = [];
+    protected $primaryKey = 'vehicletype_id';
     public $timestamps = false;
 }

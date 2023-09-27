@@ -88,7 +88,6 @@ Route::prefix('admin')->name('admin.')->group(function(){
         Route::get('create',[AccountController::class,'create'])->name('create');
         Route::post('store',[AccountController::class,'store'])->name('store');
         Route::get('edit/{id}',[AccountController::class,'edit'])->name('edit');
-<<<<<<< HEAD
         Route::get('update/{id}',[AccountController::class,'update'])->name('update');
         Route::get('destroy/{id}',[AccountController::class,'destroy'])->name('destroy');
     });
@@ -99,10 +98,7 @@ Route::prefix('admin')->name('admin.')->group(function(){
         Route::get('edit/{id}',[PaymentController::class,'edit'])->name('edit');
         Route::get('update/{id}',[PaymentController::class,'update'])->name('update');
         Route::get('destroy/{id}',[PaymentController::class,'destroy'])->name('destroy');
-=======
-        Route::post('update/{id}',[AccountController::class,'update'])->name('update');
-        Route::get('destroy/{id}',[AccountController::class,'destroy'])->name('destroy');
->>>>>>> 51003afbba539dc33ea508b9a6ad471564175b21
+
     });
 
     Route::prefix('invoice')->name('invoice.')->group(function(){
