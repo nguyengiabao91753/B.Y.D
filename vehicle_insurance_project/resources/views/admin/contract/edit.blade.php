@@ -1,4 +1,4 @@
-@extends('layout')
+@extends('admin.contract.layout')
 @section('content')
     <div class="row">
         <div class="col-lg-12 margin-tb">
@@ -6,17 +6,17 @@
                 <h1 class="bd"><b>Edit Contract</b></h1><br>
 
                 <div class="pull-right">
-                    <a class="btn btn-primary" href="{{ route('admin.accounts.index') }}">Back</a>
+                    <a class="btn btn-primary" href="{{ route('admin.contract.index') }}">Back</a>
                 </div>
         </div>
     </div>
-    <form action="{{ route('admin.accounts.update',['id'=>$account->account_id])}}" method="POTS">
+    <form action="{{ route('admin.contract.update',['id'=>$contract->contracts_id])}}" method="POTS">
         @csrf
         <div class="row">
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div style="width:700px">
                     <strong>ContractID :</strong><br>
-                    <input type="text" name="contract_id" value="{{ old('contract_id',$contract->contract_id)}}"class="form-control">
+                    <input type="text" name="contract_id" value="{{ old('contract_id',$contract->contracts_id)}}"class="form-control">
                 </div>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12">
@@ -33,8 +33,14 @@
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div style="width:700px">
+                    <strong>StartDate :</strong><br>
+                    <input type="text" name="StartDate" value="{{old('StartDate',$contract->StartDate)}}"class="form-control">
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-12">
+                <div style="width:700px">
                     <strong>EndDate :</strong><br>
-                    <input type="text" name="enddate" value="{{old('enddate',$contract->enddate)}}"class="form-control">
+                    <input type="text" name="EndName" value="{{old('EndName',$contract->EndName)}}"class="form-control">
                 </div>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12 text-center">

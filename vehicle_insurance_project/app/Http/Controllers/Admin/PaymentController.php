@@ -17,7 +17,7 @@ class PaymentController extends Controller
     public function index()
     {
         //
-        $payment =Payment::all();
+        $payment = Payment::all();
         return view('admin.payment.index',compact('payment'));
     }
 
@@ -29,6 +29,7 @@ class PaymentController extends Controller
     public function create()
     {
         //
+        return view('admin.payment.create');
     }
 
     /**
@@ -37,9 +38,13 @@ class PaymentController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreRequest $request)
     {
         //
+        $payment = new payment();
+        $payment->paymentname = $request->paymentname;
+        $payment->save();
+        return redirect()->route('admin.payment.index')->with('success','success');
     }
 
     /**
@@ -48,9 +53,10 @@ class PaymentController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Payment $payment)
     {
         //
+        return view('admin.payment.show',compact('payment'));
     }
 
     /**
@@ -62,6 +68,9 @@ class PaymentController extends Controller
     public function edit($id)
     {
         //
+        $payment = Payment::find($id);
+        return view('admin.payment.edit',[
+            'payment'=>$payment]);
     }
 
     /**
@@ -74,6 +83,10 @@ class PaymentController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $payment = Payment::find($id);
+        $payment->paymentname = $request->paymentname;
+        $payment->save();
+        return redirect()->route('admin.payment.index')->with('success','success');
     }
 
     /**
@@ -85,5 +98,8 @@ class PaymentController extends Controller
     public function destroy($id)
     {
         //
+        $payment = Payment::find($id);
+        $payment -> delete();
+        return redirect()->route('admin.payment.index')->with('success','success');
     }
 }

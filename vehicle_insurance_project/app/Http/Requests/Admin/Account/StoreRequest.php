@@ -24,8 +24,8 @@ class StoreRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'account_id'=>'required|unique:accounts,account_id',
-            'customer_id'=>'required|unique:accounts,customer_id',
+            // 'account_id'=>'required|unique:accounts,account_id',
+            // 'customer_id'=>'required|unique:accounts,customer_id',
             'user' => 'required|unique:accounts,user',
             'password'=>'required|unique:accounts,password',
         ];

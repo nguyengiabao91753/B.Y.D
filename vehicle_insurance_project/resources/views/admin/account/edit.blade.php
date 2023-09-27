@@ -1,4 +1,4 @@
-@extends('admin.app')
+@extends('admin.account.layout')
 @section('content')
     <div class="row">
         <div class="col-lg-12 margin-tb">
@@ -16,7 +16,7 @@
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div style="width:700px">
                     <strong>CustomerID :</strong><br>
-                    <input type="text" name="account_id" value="{{ old('account_id',$account->account_id)}}"class="form-control">
+                    <input type="text" name="customer_id" value="{{ old('customer_id',$account->customer_id)}}"class="form-control">
                 </div>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12">

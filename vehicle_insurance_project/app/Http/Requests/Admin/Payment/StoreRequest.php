@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Requests\Admin\Account;
+namespace App\Http\Requests\Admin\Payment;
 
 use Illuminate\Foundation\Http\FormRequest;
 
@@ -24,13 +24,13 @@ class StoreRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'paymentname.required' =>'Please enter PaymentName',
+            'paymentname' => 'required|unique:payment,paymentname',
         ];
     }
     public function messages() : array
     {
         return[
-            'paymentname.required' =>'Please enter PaymentName',
+            'paymentname.required' =>'Please enter Payment Name',
         ];
     }
 }

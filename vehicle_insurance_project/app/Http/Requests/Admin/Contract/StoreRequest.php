@@ -24,14 +24,20 @@ class StoreRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'enddate' => 'required|unique:accounts,enddate',
+            'account_id' => 'required|unique:contract,account_id',
+            'policy_id' => 'required|unique:contract,policy_id',
+            'StartDate' => 'required|unique:contract,StartDate',
+            'EndDate' => 'required|unique:contract,EndDate',
 
         ];
     }
     public function messages() : array
     {
         return[
-            'enddater_id.required' =>'Please enter Enddate',
+            'account_id.required' =>'Please enter AccountID',
+            'policy_id.required' =>'Please enter PolicyID',
+            'StartDate.required' =>'Please enter StartDate',
+            'EndDate.required' =>'Please enter Enddate',
         ];
     }
 }

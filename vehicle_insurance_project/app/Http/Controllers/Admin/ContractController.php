@@ -43,9 +43,10 @@ class ContractController extends Controller
         //
         $contract = new Contract();
 
-        // $contract->contract_id = $request->contract_id;
-        // $contract->policy_id = $request->policy_id;
-        $contract->enddate = $request->enddate;
+        $contract->contracts_id = $request->contracts_id;
+        $contract->policy_id = $request->policy_id;
+        $contract->StartDate = $request->StartDate;       
+        $contract->EndDate = $request->EndDate;
         $contract->save();
         return redirect()->route('admin.contract.index')->with('success','success');
     }
@@ -59,7 +60,7 @@ class ContractController extends Controller
     public function show(Contract $contract)
     {
         //
-        return view('admin.account.show',compact('account'));
+        return view('admin.contract.show',compact('contracts'));
     }
 
     /**
@@ -72,7 +73,7 @@ class ContractController extends Controller
     {
         //
         $contracs = Contract::find($id);
-        return view('admin.contract.edit',['contract'=>$contract]);
+        return view('admin.contract.edit',['contracts'=>$contract]);
     }
 
     /**
@@ -87,8 +88,9 @@ class ContractController extends Controller
         //
         $contract = Contract::find($id);
         $contract->account_id = $request->account_id;
-        $contract->policy_id = $request->account_id;
-        $contract->enddate = $request->enddate;
+        $contract->policy_id = $request->policy_id;
+        $contract->StartDate = $request->StartDate;        
+        $contract->EndDate = $request->EndDate;
         $contract->save();
         return redirect()->route('admin.contract.index')->with('success','success');
     }

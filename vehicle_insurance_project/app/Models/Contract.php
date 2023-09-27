@@ -13,12 +13,12 @@ class Contract extends Model
      *
      * @var string
      */
-    protected $table = 'accounts';
+    protected $table = 'contracts';
     /**
      * The attributes that aren't mass asignable .
      * @var array
      */
     protected $guarded = [];
-    protected $primaryKey = 'account_id';
+    protected $primaryKey = 'contracts_id';
     public $timestamps = false;
 }

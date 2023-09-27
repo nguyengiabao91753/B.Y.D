@@ -19,10 +19,9 @@
             <tr>
                 <td>{{$loop->iteration}}</td>
                 <td>{{ $account->customer_id }}</td>
-                <td>{{ $account->User }}</td>
+                <td>{{ $account->user}}</td>
                 <td>{{ $account->password }}</td>
                 <td>
-                    <a class="btn btn-primary" href="{{route('admin.account.create',['id'=>$account->account_id] )}}">Create</a>
                     <a class="btn btn-warning" href="{{route('admin.account.edit',['id'=>$account->account_id] )}}">Edit</a>
                     <a class="btn btn-danger" href="{{route('admin.account.destroy',['id'=>$account->account_id] )}}">Delete</a>
                 </td>
@@ -32,6 +31,8 @@
                 <td colspan="6" align="center">No Information</td>
             </tr>
             @endforelse
+        </tr>
+        <td><a class="btn btn-primary" href="{{route('admin.account.create')}}">Create</a></td>
      </table>
     </div>
 @endsection

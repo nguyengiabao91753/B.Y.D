@@ -1,4 +1,4 @@
-@extends('layout')
+@extends('admin.app')
 @section('content')
     <div class="row">
         <div class="col-lg-12 margin-tb">
@@ -16,7 +16,7 @@
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div style="width:700px">
                     <strong>Payment ID :</strong><br>
-                    <input type="text" name="payment_id" value="{{ old('payment_id',$account->payment_id)}}"class="form-control">
+                    <input type="text" name="payment_id" value="{{ old('payment_id',$payment->payment_id)}}"class="form-control">
                 </div>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12">
