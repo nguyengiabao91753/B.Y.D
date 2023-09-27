@@ -24,11 +24,11 @@ class StoreRequest extends FormRequest
     public function rules():array
     {
         return [
-            'FirstName'=>'required|unique:customers,FirstName',
-            'LastName'=>'required|unique:customers,LastName',
-            'Email'=>'required|unique:customers,Email',
-            'Phone'=>'required|unique:customers,Phone',
-            'Address'=>'required|unique:customers,Address',
+            'firstname'=>'required|unique:customers,firstname',
+            'lastname'=>'required|unique:customers,lastname',
+            'email'=>'required|unique:customers,email',
+            'phone'=>'required|unique:customers,phone',
+            'address'=>'required|unique:customers,address',
             //
         ];
     }
