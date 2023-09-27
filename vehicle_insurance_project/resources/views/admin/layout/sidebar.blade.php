@@ -100,7 +100,7 @@
               </li>
             </ul>
           <li class="nav-item">
-            <a href="#" class="nav-link">
+            <a href="{{route('admin.invoice.index')}}" class="nav-link">
               <i class="nav-icon fas fa-table"></i>
               <p>
                 Invoices
@@ -108,7 +108,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="#" class="nav-link">
+            <a href="{{route('admin.contract.index')}}" class="nav-link">
               <i class="nav-icon fas fa-book"></i>
               <p>
                 Contracts

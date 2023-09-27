@@ -2,6 +2,7 @@
 
 @section('content')
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+<link rel="stylesheet" href="{{asset('adminstrators/css/style_customer.css')}}">
 <div class="row">
         <div class="col-lg-12 margin-tb">
             <div class="pull-left">
@@ -25,8 +26,8 @@
     
     <form action="{{ route('admin.customer.store') }}" method="POST" >
         @csrf
-        <div class="row">
-            <div class="control-group col-sm-6" >
+        <div class="row" >
+            <div class="control-group col-sm-10" >
                 <div class="form-group">
                     <label for="firstname">First Name:</label>
                     <input type="text" id="title" class="form-control" name="firstname"
@@ -34,7 +35,7 @@
                 </div>
             </div>
             
-            <div class="control-group col-sm-6">
+            <div class="control-group col-sm-10">
                 <div class="form-group">
                     <label for="lastname">Last Name:</label>
                     <input type="text" id="title" class="form-control" name="lastname"
@@ -42,7 +43,7 @@
                 </div>
             </div>
             
-            <div class="control-group col-sm-6">
+            <div class="control-group col-sm-10">
                 <div class="form-group">
                     <label for="email">Email:</label>
                     <input type="text" id="title" class="form-control" name="email"
@@ -50,7 +51,7 @@
                 </div>
             </div>
 
-            <div class="control-group col-sm-6">
+            <div class="control-group col-sm-10">
                 <div class="form-group">
                     <label for="phone">Phone:</label>
                     <input type="text" id="title" class="form-control" name="phone"
@@ -58,7 +59,7 @@
                 </div>
             </div>
 
-            <div class="control-group col-sm-6">
+            <div class="control-group col-sm-10">
                 <div class="form-group">
                     <label for="address">Address:</label>
                     <input type="text" id="title" class="form-control" name="address"

@@ -11,7 +11,7 @@
   @include('admin.layout.navigation')
   @include('admin.layout.sidebar')
   @if ($success = Session::get('success'))
-    <div class="alert-info">
+    <div class="alert-info" align="center">
         <strong>{{ $success }}</strong>
     </div>
   @endif

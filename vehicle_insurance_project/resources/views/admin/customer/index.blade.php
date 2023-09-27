@@ -36,5 +36,4 @@
             </tr>
         @endforelse
      </table>
-    </div>
 @endsection

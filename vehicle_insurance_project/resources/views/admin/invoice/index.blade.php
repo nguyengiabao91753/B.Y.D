@@ -4,7 +4,7 @@
     <link rel="stylesheet" href="{{asset ('adminstrators/css/style.css')}}">
     <div class="card">
         <div class="card-header">
-                <h1>Invoice</h1>
+                <h1 style="color:black">Invoice</h1>
         </div>
     </div>
 
@@ -15,16 +15,16 @@
            <th>Contract ID</th>
            <th>Amount</th>
            <th>Date</th>
-           <th>Actions</th>     
+           <th>Actions</th>          
         </tr>
         @forelse($invoices as $invoice)
             <tr>
                 <td>{{$loop->iteration}}</td>
-                <td>{{$loop->iteration}}</td>
+                <td>{{$invoice->contracts_id}}</td>
                 <td>{{$invoice->Amount}}</td>
                 <td>{{$invoice->DueDate}}</td>
                 <td>
-                <a href="{{route('admin.edit',['id'=>$customer->CustomerID] )}}}" class="btn btn-primary">Edit</a>
+                <a href="{{route('admin.edit',['id'=>$invoice->invoice_id] )}}}" class="btn btn-primary">Edit</a>
                 <a href="{{route('admin.destroy',['id'=>$customer->CustomerID] )}}}" class="btn btn-primary" style="background-color:red;">Delete</a>
                 </td>
             </tr>

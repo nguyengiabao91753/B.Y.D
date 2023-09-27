@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Invoice;
 use Illuminate\Http\Request;
 
 class InvoiceController extends Controller
@@ -12,9 +13,14 @@ class InvoiceController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index() 
     {
         //
+        {
+            //
+            $invoices=Invoice::all();
+            return view('admin.invoice.index',compact('invoices'));
+        }
     }
 
     /**
@@ -25,6 +31,7 @@ class InvoiceController extends Controller
     public function create()
     {
         //
+        return view('admin.invoice.create');
     }
 
     /**
@@ -36,6 +43,15 @@ class InvoiceController extends Controller
     public function store(Request $request)
     {
         //
+        $invoice = new Invoice();
+        $invoice->contracts_id = $request->contracts_id;
+        $invoice->Amount = $request->Amount;
+        $invoice->email = $request->email;
+        $invoice->phone = $request->phone;
+        $invoice->address= $request->address;
+        $invoice->save();
+
+        return redirect()->route('admin.invoice.index')->with('success', 'Added Successfully!');
     }
 
     /**
