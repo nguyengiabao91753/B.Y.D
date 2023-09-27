@@ -9,7 +9,7 @@
                 <h2>Edit Information</h2>
             </div>
             <div class="pull-right">
-                <a class="btn btn-primary" href="{{ route('admin.displacement.index') }}">Back</a>
+                <a class="btn btn-primary" href="{{ route('admin.vehicle.index') }}">Back</a>
             </div>
 
         </div>
@@ -27,13 +27,13 @@
     @endif
 
     
-    <form action="{{ route('admin.displacement.update',['id'=>$displacement->displacement_id]) }}" method="POST">
+    <form action="{{ route('admin.vehicle.update',['id'=>$vehicle->vehicletype_id]) }}" method="POST">
         @csrf
         <div class="row">
             <div class="control-group col-sm-6">
                 <div class="form-group">
-                    <label for="value">Engine Displacement Value:</label>
-                    <input type="text" id="value" class="form-control" name="value" value="{{old('value',$displacement->value)}}" >
+                    <label for="type">Vehicle Type:</label>
+                    <input type="text" id="value" class="form-control" name="type" value="{{old('type',$vehicle->vehicletype_id)}}" >
                 </div>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12 text-left">

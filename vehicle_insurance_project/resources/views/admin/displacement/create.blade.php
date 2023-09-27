@@ -28,7 +28,7 @@
         <div class="row">
             <div class="control-group col-sm-6" >
                 <div class="form-group">
-                    <label for="FirstName">Engine Displacement Value:</label>
+                    <label for="value">Engine Displacement Value:</label>
                     <input type="text" id="title" class="form-control" name="value"
                         placeholder="Enter Engine Displacement Value" >
                 </div>
@@ -36,7 +36,7 @@
 
             <div class="col-xs-12 col-sm-12 col-md-12 text-left">
                 <br>
-                <button type="submit" class="btn btn-primary">Add Information</button>
+                <button type="submit" class="btn btn-primary">Add</button>
             </div>
         </div>
     </form>

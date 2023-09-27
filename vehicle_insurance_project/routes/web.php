@@ -54,7 +54,7 @@ Route::prefix('admin')->name('admin.')->group(function(){
             Route::post('store',[InsurancePolicyController::class,'store'])->name('store');
             Route::get('edit/{id}',[InsurancePolicyController::class,'edit'])->name('edit');
             Route::post('update/{id}',[InsurancePolicyController::class,'update'])->name('update');
-            Route::delete('destroy/{id}',[InsurancePolicyController::class,'destroy'])->name('destroy');
+            Route::get('destroy/{id}',[InsurancePolicyController::class,'destroy'])->name('destroy');
         });
         Route::prefix('vehicles')->name('vehicle.')->group(function(){
             Route::get('index',[VehicleController::class,'index'])->name('index');
@@ -62,7 +62,7 @@ Route::prefix('admin')->name('admin.')->group(function(){
             Route::post('store',[VehicleController::class,'store'])->name('store');
             Route::get('edit/{id}',[VehicleController::class,'edit'])->name('edit');
             Route::post('update/{id}',[VehicleController::class,'update'])->name('update');
-            Route::delete('destroy/{id}',[VehicleController::class,'destroy'])->name('destroy');
+            Route::get('destroy/{id}',[VehicleController::class,'destroy'])->name('destroy');
         });
 
         Route::prefix('provider')->name('provider.')->group(function(){
@@ -71,7 +71,7 @@ Route::prefix('admin')->name('admin.')->group(function(){
             Route::post('store',[ProviderController::class,'store'])->name('store');
             Route::get('edit/{id}',[ProviderController::class,'edit'])->name('edit');
             Route::post('update/{id}',[ProviderController::class,'update'])->name('update');
-            Route::delete('destroy/{id}',[ProviderController::class,'destroy'])->name('destroy');
+            Route::get('destroy/{id}',[ProviderController::class,'destroy'])->name('destroy');
         });
     });
     Route::prefix('account')->name('account.')->group(function(){
@@ -80,7 +80,7 @@ Route::prefix('admin')->name('admin.')->group(function(){
         Route::post('store',[AccountController::class,'store'])->name('store');
         Route::get('edit/{id}',[AccountController::class,'edit'])->name('edit');
         Route::post('update/{id}',[AccountController::class,'update'])->name('update');
-        Route::delete('destroy/{id}',[AccountController::class,'destroy'])->name('destroy');
+        Route::get('destroy/{id}',[AccountController::class,'destroy'])->name('destroy');
     });
 
     Route::prefix('invoice')->name('invoice.')->group(function(){
@@ -89,7 +89,7 @@ Route::prefix('admin')->name('admin.')->group(function(){
         Route::post('store',[InvoiceController::class,'store'])->name('store');
         Route::get('edit/{id}',[InvoiceController::class,'edit'])->name('edit');
         Route::post('update/{id}',[InvoiceController::class,'update'])->name('update');
-        Route::delete('destroy/{id}',[InvoiceController::class,'destroy'])->name('destroy');
+        Route::get('destroy/{id}',[InvoiceController::class,'destroy'])->name('destroy');
     });
 
     Route::prefix('contract')->name('contract.')->group(function(){
@@ -98,7 +98,7 @@ Route::prefix('admin')->name('admin.')->group(function(){
         Route::post('store',[ContractController::class,'store'])->name('store');
         Route::get('edit/{id}',[ContractController::class,'edit'])->name('edit');
         Route::post('update/{id}',[ContractController::class,'update'])->name('update');
-        Route::delete('destroy/{id}',[ContractController::class,'destroy'])->name('destroy');
+        Route::get('destroy/{id}',[ContractController::class,'destroy'])->name('destroy');
     });
 });
 

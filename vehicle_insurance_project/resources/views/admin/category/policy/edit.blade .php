@@ -30,7 +30,7 @@
     <label for="Price">Price:</label>
     <input type="text" name="Price" value="{{old('price',$policy->price)}}" required><br>
 
-    <button type="submit">Add Policy</button>
+    <button type="submit">Edit</button>
 </form>
 
 @section('content')

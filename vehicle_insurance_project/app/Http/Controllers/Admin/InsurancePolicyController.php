@@ -133,10 +133,11 @@ class InsurancePolicyController extends Controller
      *
      *
      */
-    public function destroy(InsurancePolicy $insurancePolicy)
+    public function destroy(int $id)
     {
+        $insurancePolicy= InsurancePolicy::find($id);
         $insurancePolicy->delete();
-        return redirect()->route('admin.category.policy.index')
-            ->with('success','Delete Successfully!');
+
+        return redirect()->route('admin.category.policy.index')->with('success', 'Deleted Successfully!');
     }
 }
