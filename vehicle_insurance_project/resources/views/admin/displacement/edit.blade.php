@@ -25,7 +25,6 @@
         </ul>
     </div>
     @endif
-
     
     <form action="{{ route('admin.displacement.update',['id'=>$displacement->displacement_id]) }}" method="POST">
         @csrf
@@ -38,7 +37,7 @@
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12 text-left">
                 <br>
-                <button type="submit" class="btn btn-primary">Edit Information</button>
+                <button type="submit" class="btn btn-primary">Edit</button>
             </div>
         </div>
     </form>

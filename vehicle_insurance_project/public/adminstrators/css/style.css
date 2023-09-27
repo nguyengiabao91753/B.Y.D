@@ -12,7 +12,7 @@
 h1{
     display: flex;
     justify-content: center;
-    color: azure;
+    color: rgb(10, 10, 10);
 }
 .table-borderd{
     width: 100rem;
@@ -22,3 +22,10 @@ h1{
     display: flex;
     justify-content: center;
 }
+<<<<<<< HEAD
+=======
+.account{
+    text-align: center;
+    margin-left: 300px;
+}
+>>>>>>> b1fb4a6e5c12ac83ed273789843c246fc19170d8

@@ -4,30 +4,25 @@
     <link rel="stylesheet" href="{{asset ('adminstrators/css/style.css')}}">
     <div class="card">
         <div class="card-header">
-                <h1>Customers-Users</h1>
+                <h1>Vehicle Type</h1>
         </div>
     </div>
 
     <div class="card-body">
+    
      <table class="table table-borderd table-sm text-center" style="background-color:azure;">
         <tr>
-           <th>ID</th>
-           <th>Name</th>
-           <th>Email</th>
-           <th>Phone</th>
-           <th>Address</th>
+           <th>Vehicle Type ID</th>
+           <th>Type</th>
            <th>Actions</th>     
         </tr>
-        @forelse($customers as $customer)
+        @forelse($vehicles as $vehicle)
             <tr>
                 <td>{{$loop->iteration}}</td>
-                <td>{{$customer->FirstName.' '.$customer->LastName}}</td>
-                <td>{{$customer->Email}}</td>
-                <td>{{$customer->Phone}}</td>
-                <td>{{$customer->Address}}</td>
+                <td>{{$vehicle->typename}}</td>
                 <td>
-                <a href="{{route('admin.customer.edit',['id'=>$customer->CustomerID] )}}}" class="btn btn-primary">Edit</a>
-                <a href="{{route('admin.customer.destroy',['id'=>$customer->CustomerID] )}}}" class="btn btn-primary" style="background-color:red;">Delete</a>
+                <a href="{{route('admin.vehicle.edit',['id'=>$vehicle->vehicletype_id] )}}" class="btn btn-success">Edit</a>
+                <a href="{{route('admin.vehicle.destroy',['id'=>$vehicle->vehicletype_id] )}}" class="btn btn-danger" style="background-color:red;">Delete</a>
                 </td>
             </tr>
         @empty
@@ -36,5 +31,10 @@
             </tr>
         @endforelse
      </table>
+    <br>
+       
+    </div>
+    <div class="card" style="width: 10%; float:right">
+        <a href="{{route('admin.vehicle.create')}}" class="btn btn-primary">Add</a>
     </div>
 @endsection

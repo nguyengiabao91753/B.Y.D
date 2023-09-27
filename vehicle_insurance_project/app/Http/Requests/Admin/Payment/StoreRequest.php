@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Requests\Admin\Displacement;
+namespace App\Http\Requests\Admin\Payment;
 
 use Illuminate\Foundation\Http\FormRequest;
 
@@ -21,18 +21,16 @@ class StoreRequest extends FormRequest
      *
      * @return array<string, mixed>
      */
-    public function rules()
+    public function rules(): array
     {
         return [
-            'value'=>'required|unique:EngineDisplacement,value'
+            'paymentname' => 'required|unique:payment,paymentname',
         ];
     }
-
-    public function messages (): array
+    public function messages() : array
     {
-        return [
-            'value.required' => 'Please enter Engine Displacement Value',
-            'value.unique' => 'This Value already exists',
+        return[
+            'paymentname.required' =>'Please enter Payment Name',
         ];
     }
 }

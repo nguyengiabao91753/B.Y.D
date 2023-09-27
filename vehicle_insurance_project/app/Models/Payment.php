@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Account extends Model
+class Payment extends Model
 {
     use HasFactory;
         /**
@@ -13,12 +13,12 @@ class Account extends Model
      *
      * @var string
      */
-    protected $table = 'accounts';
+    protected $table = 'payment';
     /**
      * The attributes that aren't mass asignable .
      * @var array
      */
     protected $guarded = [];
-    protected $primaryKey = 'account_id';
+    protected $primaryKey = 'payment_id';
     public $timestamps = false;
 }

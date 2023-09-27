@@ -13,7 +13,7 @@ class EngineDisplacement extends Model
      *
      * @var string
      */
-    protected $table = 'EngineDisplacement';
+    protected $table = 'enginedisplacement';
 
     /**
      * The attributes that aren't mass assignable.
@@ -21,7 +21,7 @@ class EngineDisplacement extends Model
      * @var array
      */
     protected $guarded = [];
-
+    protected $primaryKey = 'displacement_id';
     public $timestamps = false;
 }
 

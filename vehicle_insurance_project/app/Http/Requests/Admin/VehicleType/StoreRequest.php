@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Requests\Admin\Displacement;
+namespace App\Http\Requests\Admin\VehicleType;
 
 use Illuminate\Foundation\Http\FormRequest;
 
@@ -24,15 +24,15 @@ class StoreRequest extends FormRequest
     public function rules()
     {
         return [
-            'value'=>'required|unique:EngineDisplacement,value'
+            'typename'=>'required|unique:vehicletypes,typename'
         ];
     }
 
     public function messages (): array
     {
         return [
-            'value.required' => 'Please enter Engine Displacement Value',
-            'value.unique' => 'This Value already exists',
+            'typename.required' => 'Please enter Vehicle Type',
+            'typename.unique' => 'This type already exists',
         ];
     }
 }

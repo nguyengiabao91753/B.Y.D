@@ -1,10 +1,11 @@
 <?php
 
 namespace App\Http\Controllers\Admin;
-
+use App\Http\Requests\Admin\Contract\StoreRequest;
 use App\Http\Controllers\Controller;
 use App\Models\Contract;
 use Illuminate\Http\Request;
+use function League\Flysystem\delete;
 
 class ContractController extends Controller
 {
@@ -16,6 +17,8 @@ class ContractController extends Controller
     public function index()
     {
         //
+        $contract= Contract::all();
+        return view('admin.contract.index',compact('contract'));
     }
 
     /**
@@ -26,6 +29,7 @@ class ContractController extends Controller
     public function create()
     {
         //
+        return view('admin.contract.create');
     }
 
     /**
@@ -34,9 +38,17 @@ class ContractController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreRequest $request)
     {
         //
+        $contract = new Contract();
+
+        $contract->contracts_id = $request->contracts_id;
+        $contract->policy_id = $request->policy_id;
+        $contract->StartDate = $request->StartDate;       
+        $contract->EndDate = $request->EndDate;
+        $contract->save();
+        return redirect()->route('admin.contract.index')->with('success','success');
     }
 
     /**
@@ -48,6 +60,7 @@ class ContractController extends Controller
     public function show(Contract $contract)
     {
         //
+        return view('admin.contract.show',compact('contracts'));
     }
 
     /**
@@ -56,9 +69,11 @@ class ContractController extends Controller
      * @param  \App\Models\Contract  $contract
      * @return \Illuminate\Http\Response
      */
-    public function edit(Contract $contract)
+    public function edit(int $id)
     {
         //
+        $contracs = Contract::find($id);
+        return view('admin.contract.edit',['contracts'=>$contract]);
     }
 
     /**
@@ -68,9 +83,16 @@ class ContractController extends Controller
      * @param  \App\Models\Contract  $contract
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Contract $contract)
+    public function update(Request $request, int $id)
     {
         //
+        $contract = Contract::find($id);
+        $contract->account_id = $request->account_id;
+        $contract->policy_id = $request->policy_id;
+        $contract->StartDate = $request->StartDate;        
+        $contract->EndDate = $request->EndDate;
+        $contract->save();
+        return redirect()->route('admin.contract.index')->with('success','success');
     }
 
     /**
@@ -79,8 +101,11 @@ class ContractController extends Controller
      * @param  \App\Models\Contract  $contract
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Contract $contract)
+    public function destroy(int $id)
     {
         //
+        $contract = Contract::find($id);
+        $contract -> delete();
+        return redirect()->route('admin.contract.index')->with('success','success');
     }
 }

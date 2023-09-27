@@ -13,7 +13,7 @@ class UpdateRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,15 @@ class UpdateRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'value'=>'required|unique:EngineDisplacement,value'
+        ];
+    }
+
+    public function messages (): array
+    {
+        return [
+            'value.required' => 'Please enter Engine Displacement Value',
+            'value.unique' => 'This Value already exists',
         ];
     }
 }

@@ -36,4 +36,11 @@
             </tr>
         @endforelse
      </table>
+<<<<<<< HEAD
+=======
+    </div>
+    <div class="card" style="width: 10%; float:right">
+        <a href="{{route('admin.customer.create')}}" class="btn btn-primary">Add</a>
+    </div>
+>>>>>>> b1fb4a6e5c12ac83ed273789843c246fc19170d8
 @endsection

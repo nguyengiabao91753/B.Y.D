@@ -1,4 +1,5 @@
 @extends('admin.app')
+
 @section('content')
 
 <div class="row">
@@ -43,7 +44,7 @@
         <option value="{{ $engineDisplacement->displacement_id }}">{{ $engineDisplacement->value }}</option>
         @endforeach
     </select><br>
-
+    <label for="provider">Provider:</label>
     <select name="provider" required>
         @foreach($providers as $provider)
         <option value="{{ $provider->provider_id }}">{{ $provider->providername }}</option>
@@ -52,7 +53,10 @@
     <label for="Price">Price:</label>
     <input type="text" name="Price" required><br>
 
-    <button type="submit">Add Policy</button>
+    <div class="col-xs-12 col-sm-12 col-md-12 text-left">
+        <br>
+        <button type="submit" class="btn btn-primary">Add</button>
+    </div>
 </form>
 
 @section('content')

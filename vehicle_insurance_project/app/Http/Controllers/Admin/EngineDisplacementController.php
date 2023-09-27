@@ -10,16 +10,11 @@ use Illuminate\Http\Request;
 
 class EngineDisplacementController extends Controller
 {
-    public function index()
-    {
-        //
-        {
-            //
-            $displacements=EngineDisplacement::all();
-            return view('admin.displacement.index',[
-                'displacements' => $displacements
-            ]);
-        }
+    public function index(){
+        $displacements = EngineDisplacement::all();
+        return view('admin.displacement.index', [
+            'displacements' => $displacements
+        ]);
     }
 
     /**
@@ -46,7 +41,6 @@ class EngineDisplacementController extends Controller
         $displacement->save();
 
         return redirect()->route('admin.displacement.index')->with('success', 'Added Successfully!');
-
     }
 
     /**
@@ -66,7 +60,7 @@ class EngineDisplacementController extends Controller
      */
     public function edit($id)
     {
-        $displacement= EngineDisplacement::Find($id);
+        $displacement = EngineDisplacement::Find($id);
         return view('admin.customer.edit', [
             'displacement' => $displacement
         ]);
@@ -80,7 +74,7 @@ class EngineDisplacementController extends Controller
     public function update(UpdateRequest $request, $id)
     {
         //
-        $displacement = EngineDisplacement::find($id);    
+        $displacement = EngineDisplacement::find($id);
         $displacement->value = $request->value;
         $displacement->save();
         return redirect()->route('admin.displacement.index')->with('success', 'Updated Successfully!');
@@ -91,10 +85,10 @@ class EngineDisplacementController extends Controller
      *
      * 
      */
-    public function destroy( $id)
+    public function destroy($id)
     {
 
-        $displacement= EngineDisplacement::find($id);
+        $displacement = EngineDisplacement::find($id);
         $displacement->delete();
 
         return redirect()->route('admin.displacement.index')->with('success', 'Deleted Successfully!');

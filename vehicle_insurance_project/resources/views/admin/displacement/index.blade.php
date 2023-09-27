@@ -31,4 +31,7 @@
         @endforelse
      </table>
     </div>
+    <div class="card" style="width: 10%; float:right">
+        <a href="{{route('admin.displacement.create')}}" class="btn btn-primary">Add</a>
+    </div>
 @endsection
