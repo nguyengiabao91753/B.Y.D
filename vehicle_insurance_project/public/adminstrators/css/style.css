@@ -22,3 +22,7 @@ h1{
     display: flex;
     justify-content: center;
 }
+.account{
+    text-align: center;
+    margin-left: 300px;
+}

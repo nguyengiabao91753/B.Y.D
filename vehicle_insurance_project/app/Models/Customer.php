@@ -23,8 +23,6 @@ class Customer extends Model
      * @var array
      */
     protected $guarded = [];
-    protected $primaryKey = 'customer_id';
+    protected $primaryKey = 'CustomerID';
     public $timestamps = false;
-
-
 }
