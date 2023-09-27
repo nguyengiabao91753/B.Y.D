@@ -72,7 +72,7 @@ class ContractController extends Controller
     {
         //
         $contracs = Contract::find($id);
-        return view('admin.contract.edit',['contract'=>$contracs]);
+        return view('admin.contract.edit',['contract'=>$contract]);
     }
 
     /**

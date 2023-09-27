@@ -4,10 +4,9 @@
     <link rel="stylesheet" href="{{asset ('adminstrators/css/style.css')}}">
     <div class="card">
         <div class="card-header">
-                <h1>Account-Users</h1>
+                <h1 style="color: brown;">Account-Users</h1>
         </div>
     </div>
-
     <div class="card-body">
      <table class="table table-borderd table-sm text-center" style="background-color:azure;">
         <tr>
