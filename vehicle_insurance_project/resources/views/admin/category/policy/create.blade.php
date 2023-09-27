@@ -52,7 +52,7 @@
     <label for="Price">Price:</label>
     <input type="text" name="Price" required><br>
 
-    <button type="submit">Add Policy</button>
+    <button type="submit">Add</button>
 </form>
 
 @section('content')

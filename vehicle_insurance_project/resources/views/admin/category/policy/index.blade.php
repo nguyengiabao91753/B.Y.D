@@ -37,12 +37,8 @@
             <td> {{$item->DisplacementID}} </td>
             <td> {{$item->Price}} </td>
             <td>
-                <form action="{{ route('admin.category.policy.destroy', ['id' => $item->PolicyID]) }}" method="POST">
-                    <a href="{{ route('admin.category.policy.edit', ['id' => $item->PolicyID]) }}" class="btn btn-success">Edit</a>
-                    @csrf
-                    @method('DELETE')
-                    <button type="submit" class="btn btn-danger" onClick="return checkDelete('Ban co chac muon xoa thang khua nay khong ?')">Delete</button>
-                </form>
+                <a href="{{route('admin.category.policy.edit',['id'=>$insurancePolicy->policy_id] )}}}" class="btn btn-primary">Edit</a>
+                <a href="{{route('admin.category.policy.destroy',['id'=>$insurancePolicy->policy_id] )}}}" class="btn btn-primary" style="background-color:red;">Delete</a>
             </td>
         </tr>
         @empty
