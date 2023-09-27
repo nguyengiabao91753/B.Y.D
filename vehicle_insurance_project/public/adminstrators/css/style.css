@@ -12,7 +12,7 @@
 h1{
     display: flex;
     justify-content: center;
-    color: azure;
+    color: rgb(10, 10, 10);
 }
 .table-borderd{
     width: 100rem;

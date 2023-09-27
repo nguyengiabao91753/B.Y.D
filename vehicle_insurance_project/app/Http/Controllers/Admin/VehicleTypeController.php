@@ -38,7 +38,7 @@ class VehicleTypeController extends Controller
     {
         //
         $vehicle = new Vehicle();
-        $vehicle->vehicletype = $request->vehicletype;
+        $vehicle->typename = $request->typename;
         $vehicle->save();
 
         return redirect()->route('admin.vehicle.index')->with('success', 'Added Successfully!');
@@ -59,7 +59,7 @@ class VehicleTypeController extends Controller
      *
      * 
      */
-    public function edit($id)
+    public function edit( $id)
     {
         $vehicle = Vehicle::Find($id);
         return view('admin.vehicle.edit', [
@@ -76,7 +76,7 @@ class VehicleTypeController extends Controller
     {
         //
         $vehicle = Vehicle::find($id);
-        $vehicle->vehicletype = $request->vehicletype;
+        $vehicle->typename = $request->typename;
         $vehicle->save();
         return redirect()->route('admin.vehicle.index')->with('success', 'Updated Successfully!');
     }
@@ -86,7 +86,7 @@ class VehicleTypeController extends Controller
      *
      * 
      */
-    public function destroy($id)
+    public function destroy( $id)
     {
         $vehicle = Vehicle::find($id);
         $vehicle->delete();

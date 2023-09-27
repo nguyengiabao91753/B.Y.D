@@ -1,6 +1,7 @@
 @extends('admin.app')
 
 @section('content')
+
 <table class="table table-borderd table-sm text-center" style="background-color:azure;">
     <thead>
         <tr>
@@ -52,4 +53,5 @@
     <div>
     <a href="{{route('admin.category.policy.create')}}" class="btn btn-primary">Add</a>
     </div>
+
 @endsection

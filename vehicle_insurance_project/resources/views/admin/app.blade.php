@@ -15,5 +15,10 @@
         <strong>{{ $success }}</strong>
     </div>
   @endif
-  @yield('content')
+  <div style="display:flex;justify-content:center;align-items:center">
+    <div>
+    @yield('content')
+    </div>
+   
+  </div>
   @include('admin.layout.footer')

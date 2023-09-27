@@ -25,7 +25,6 @@
         </ul>
     </div>
     @endif
-
     
     <form action="{{ route('admin.displacement.update',['id'=>$displacement->displacement_id]) }}" method="POST">
         @csrf

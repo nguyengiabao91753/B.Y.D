@@ -37,4 +37,7 @@
         @endforelse
      </table>
     </div>
+    <div class="card" style="width: 10%; float:right">
+        <a href="{{route('admin.customer.create')}}" class="btn btn-primary">Add</a>
+    </div>
 @endsection

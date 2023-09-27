@@ -1,5 +1,6 @@
 @extends('admin.app')
 @section('content')
+
 <form method="POST" action="{{ route('admin.category.policy.update', ['id' => $policy->policy_id]) }}" enctype="multipart/form-data">
     @csrf
 
@@ -30,7 +31,9 @@
     <label for="Price">Price:</label>
     <input type="text" name="Price" value="{{old('price',$policy->price)}}" required><br>
 
-    <button type="submit">Edit</button>
+    <div class="col-xs-12 col-sm-12 col-md-12 text-left">
+                <br>
+                <button type="submit" class="btn btn-primary">Edit</button>
+            </div>
 </form>
-
 @section('content')

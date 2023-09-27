@@ -24,15 +24,15 @@ class StoreRequest extends FormRequest
     public function rules()
     {
         return [
-            'vehicletype'=>'required|unique:vehicletypes,vehicletype'
+            'typename'=>'required|unique:vehicletypes,typename'
         ];
     }
 
     public function messages (): array
     {
         return [
-            'vehicletype.required' => 'Please enter Vehicle Type',
-            'vehicletype.unique' => 'This type already exists',
+            'typename.required' => 'Please enter Vehicle Type',
+            'typename.unique' => 'This type already exists',
         ];
     }
 }
