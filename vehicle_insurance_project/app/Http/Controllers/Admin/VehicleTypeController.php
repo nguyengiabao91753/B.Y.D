@@ -12,14 +12,10 @@ class VehicleTypeController extends Controller
 {
     public function index()
     {
-        //
-        {
-            //
-            $vehicles=Vehicle::all();
-            return view('admin.vehicle.index',[
-                'vehicles' => $vehicles
-            ]);
-        }
+        $vehicles = Vehicle::all();
+        return view('admin.vehicle.index', [
+            'vehicles' => $vehicles
+        ]);
     }
 
     /**
@@ -46,7 +42,6 @@ class VehicleTypeController extends Controller
         $vehicle->save();
 
         return redirect()->route('admin.vehicle.index')->with('success', 'Added Successfully!');
-
     }
 
     /**
@@ -66,7 +61,7 @@ class VehicleTypeController extends Controller
      */
     public function edit($id)
     {
-        $vehicle= Vehicle::Find($id);
+        $vehicle = Vehicle::Find($id);
         return view('admin.vehicle.edit', [
             'vehicle' => $vehicle
         ]);
@@ -80,7 +75,7 @@ class VehicleTypeController extends Controller
     public function update(UpdateRequest $request, $id)
     {
         //
-        $vehicle = Vehicle::find($id);    
+        $vehicle = Vehicle::find($id);
         $vehicle->vehicletype = $request->vehicletype;
         $vehicle->save();
         return redirect()->route('admin.vehicle.index')->with('success', 'Updated Successfully!');
@@ -91,9 +86,9 @@ class VehicleTypeController extends Controller
      *
      * 
      */
-    public function destroy( $id)
+    public function destroy($id)
     {
-        $vehicle= Vehicle::find($id);
+        $vehicle = Vehicle::find($id);
         $vehicle->delete();
 
         return redirect()->route('admin.vehicle.index')->with('success', 'Deleted Successfully!');

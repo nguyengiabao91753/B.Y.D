@@ -47,13 +47,13 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="{{route('admin.category.policy.index')}}" class="nav-link">
-                  <p style="margin-left: 20px;">Policy</p>
+                <a href="{{route('admin.category.provider.index')}}" class="nav-link">
+                  <p style="margin-left: 20px;">Providers</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="{{route('admin.category.provider.index')}}" class="nav-link">
-                  <p style="margin-left: 20px;">Providers</p>
+                <a href="{{route('admin.category.policy.index')}}" class="nav-link">
+                  <p style="margin-left: 20px;">Policy</p>
                 </a>
               </li>
             </ul>
@@ -89,12 +89,12 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="#" class="nav-link">
-                  <p style="margin-left: 20px;">Type</p>
+                <a href="{{route('admin.vehicle.index')}}" class="nav-link">
+                  <p style="margin-left: 20px;">Vehicle Type</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="#" class="nav-link">
+                <a href="{{route('admin.displacement.index')}}" class="nav-link">
                   <p style="margin-left: 20px;">Engine Displacement</p>
                 </a>
               </li>

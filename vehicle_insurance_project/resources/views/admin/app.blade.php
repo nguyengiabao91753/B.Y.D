@@ -15,5 +15,5 @@
         <strong>{{ $success }}</strong>
     </div>
   @endif
-    @yield('content')
-    @include('admin.layout.footer')
+  @yield('content')
+  @include('admin.layout.footer')
