@@ -1,19 +1,18 @@
 <?php
 
 namespace App\Http\Controllers\Admin;
-
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Admin\Category\StoreRequest;
-use App\Http\Requests\Admin\Category\UpdateRequest;
 
-class CategoryController extends Controller
+use Illuminate\Http\Request;
+
+class ContractController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        return view('admin.modules.category.index');
+        //
     }
 
     /**
@@ -21,15 +20,15 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        return view('admin.modules.category.create');
+        //
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreRequest $request)
+    public function store(Request $request)
     {
-        
+        //
     }
 
     /**
@@ -45,13 +44,13 @@ class CategoryController extends Controller
      */
     public function edit(string $id)
     {
-        return view('admin.modules.category.edit');
+        //
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateRequest $request, string $id)
+    public function update(Request $request, string $id)
     {
         //
     }
