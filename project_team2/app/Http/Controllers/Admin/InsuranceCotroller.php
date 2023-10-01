@@ -114,7 +114,7 @@ class InsuranceCotroller extends Controller
      */
     public function destroy(int $id)
     {
-        $insurance = Policy::find($id);
+        $insurance = Insurance::find($id);
         if($insurance == null){
             abort(404);
         }
