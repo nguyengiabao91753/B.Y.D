@@ -32,7 +32,11 @@
         "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
       }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
     });
-  </script>
+
+    function confirmDelete () {
+        return confirm('Are you sure you want to delete this ${module} ?');
+    }
+</script>
 @endpush
 @section('content')
 <!-- Default box -->
@@ -54,38 +58,33 @@
         <table id="example1" class="table table-bordered table-striped">
             <thead>
                 <tr>
-                    <th>Contract ID</th>
-                    <th>Customer ID</th>
-                    <th>Insurance ID</th>
-                    <th>EndDate</th>
+                    <th style="width: 20px;">ID</th>
+                    <th>FirstName</th>
+                    <th>LastName </th>
+                    <th>Email</th>
+                    <th>Phone</th>
+                    <th>Description</th>
                     <th>Edit</th>
                     <th>Delete</th>
                 </tr>
             </thead>
             <tbody>
+            @forelse($contacts as $contact)
                 <tr>
-                    <td>1</td>
-                    <td>1</td>
-                    <td>1</td>
-                    <td>26/09/2023 - 15:10</td>
-                    <td><a href="">Edit</a></td>
-                    <td><a href="">Delete</a></td>
-                </tr>
+                    <td>{{$loop->iteration}}</td>
+                    <td>{{$contact->firstname}}</td>
+                    <td>{{$contact->lastname}}</td>
+                    <td>{{$contact->email}}</td>
+                    <td>{{$contact->phone}}</td>
+                    <td>{{$contact->description}}</td>
+                    <td><a href="{{route('admin.contact.edit',['id'=> $contact->id])}}">Edit</a></td>
+                    <td><a onclick="return confirmDelete('contact')" href="{{route('admin.contact.destroy',['id'=> $contact->id])}}">Delete</a></td>
+                </td>
+                @empty
+                @endforelse
             </tbody>
-            <tfoot>
-                <tr>
-                    <th>Contract ID</th>
-                    <th>Customer ID</th>
-                    <th>Insurance ID</th>
-                    <th>EndDate</th>
-                    <th>Edit</th>
-                    <th>Delete</th>
-                </tr>
-            </tfoot>
         </table>
     </div>
 </div>
 <!-- /.card -->
-
-
 @endsection

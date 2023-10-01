@@ -1,6 +1,6 @@
 @extends('admin.master')
 
-@section('module', 'Contract')
+@section('module', 'Customer')
 @section('action', 'List')
 
 @push('css')
@@ -32,16 +32,17 @@
         "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
       }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
     });
-    function confirmDelete() {
-        return confirm('Are you sure you want to delete this ${module}');
+
+    function confirmDelete (module) {
+        return confirm('Are you sure you want to delete this ${module} ?');
     }
-  </script>
+</script>
 @endpush
 @section('content')
-<!-- Default box -->
+<!-- Default box --> 
 <div class="card">
     <div class="card-header">
-        <h3 class="card-title">Contract list</h3>
+        <h3 class="card-title">Customer list</h3>
 
         <div class="card-tools">
         <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
@@ -57,35 +58,46 @@
         <table id="example1" class="table table-bordered table-striped">
             <thead>
                 <tr>
-                    <th>Contract ID</th>
-                    <th>Customer ID</th>
-                    <th>Insurance ID</th>
-                    <th>EndDate</th>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Phone</th>
+                    <th>Level</th>
+                    <th>Create At</th>
                     <th>Edit</th>
                     <th>Delete</th>
                 </tr>
             </thead>
             <tbody>
-            @foreach($contracts as $Contract)
-                <tr>
-                    <td>{{$loop->iteration}}</td>
-                    <td>{{$contract->customer_id}}</td>
-                    <td>{{$contract->insurance_id}}</td>
-                    <td>{{$contract->enddate}}</td>
-                    <td><a href="{{route('admin.contract.edit',['id'=> $contracts->id])}}">Edit</a></td>
-                    <td><a onclick="return confirmDelete('contract')" href="{{route('admin.contract.destroy',['id'=> $contracts->id])}}">Delete</a></td>
-                </tr>
+                @foreach($customers as $customer)
+                    <tr>
+                        <td>{{$loop->iteration}}</td>
+                        <td>{{$customer->firstname.' '.$customer->lastname}}</td>
+                        <td>{{$customer->email}}</td>
+                        <td>{{$customer->phone}}</td>
+                        <td>
+                            @if($customer->level ==1)
+                                <span class="right badge badge-success">Admin</span>
+                            @else
+                                <span class="right badge badge-dark">Member</span>
+                            @endif
+                        </td>
+                        <td>{{ date('d/m/Y - H:m:i', strtotime($customer->created_at)) }}</td>
+                        <td><a href="{{route('admin.customer.edit',['id'=> $customer->id])}}">Edit</a></td>
+                        <td><a onclick="return confirmDelete('customer')" href="{{route('admin.customer.destroy',['id'=> $customer->id])}}">Delete</a></td>
+                    </tr>
                 @endforeach
             </tbody>
             <tfoot>
                 <tr>
-                    <th>Contract ID</th>
-                    <th>Customer ID</th>
-                    <th>Insurance ID</th>
-                    <th>EndDate</th>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Phone</th>
+                    <th>Level</th>
+                    <th>Create At</th>
                     <th>Edit</th>
                     <th>Delete</th>
-                </tr>
             </tfoot>
         </table>
     </div>

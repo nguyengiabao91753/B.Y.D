@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Requests\Admin\Contacts;
+namespace App\Http\Requests\Admin\Contact;
 
 use Illuminate\Foundation\Http\FormRequest;
 
@@ -23,7 +23,10 @@ class Storerequest extends FormRequest
     {
         return [
             //
-            // 'id' => 'required|unique:contacts,id',
+            'firstname' => 'required|unique:contacts,firstname',
+            'lastname' => 'required|unique:contacts,lastname',
+            'email' => 'required|unique:contacts,email',
+            'phone' => 'required|unique:contacts,phone',
             'description' => 'required|unique:contacts,description',
         ];
     }

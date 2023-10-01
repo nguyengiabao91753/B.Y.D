@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Requests\Admin\Category;
+namespace App\Http\Requests\Admin\Invoice;
 
 use Illuminate\Foundation\Http\FormRequest;
 
@@ -23,7 +23,13 @@ class StoreRequest extends FormRequest
     {
         return [
             //
-            'name'=>'required'
+            'duedate'=>'required'
+        ];
+    }
+
+    public function messages(): array{
+        return[
+            'duedate.required'=>'Please enter duedate'
         ];
     }
 }

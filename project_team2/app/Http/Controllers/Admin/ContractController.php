@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers\Admin;
 use App\Http\Requests\Admin\Contract\StoreRequest;
+use App\Http\Requests\Admin\Contract\UpdateRequest;
 use App\Http\Controllers\Controller;
 use App\Models\contract;
 use Illuminate\Http\Request;
 use function League\Flysystem\delete;
+
 class ContractController extends Controller
 {
     /**
@@ -14,7 +16,10 @@ class ContractController extends Controller
     public function index()
     {
         //
-        return view('admin.modules.contract.index');
+        $contracts = Contract::orderBy('created_at','DESC')->get();
+        return view('admin.modules.contract.index',[
+            'contracts'=>$contracts
+        ]);
     }
 
     /**
@@ -38,10 +43,10 @@ class ContractController extends Controller
         $contract->customer_id = $request->customer_id;
         $contract->insurance_id = $request->insurance_id;       
         $contract->enddate = $request->enddate;
+        $contract->insurance_id = 1;
         $contract->save();
         return redirect()->route('admin.contract.index')->with('success','success');
     }
-
     /**
      * Display the specified resource.
      */
@@ -50,7 +55,6 @@ class ContractController extends Controller
         //
         return view('admin.contract.show',compact('contracts'));
     }
-
     /**
      * Show the form for editing the specified resource.
      */
@@ -64,18 +68,22 @@ class ContractController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, int $id)
+    public function update(UpdateRequest $request, int $id)
     {
         $contract = Contract::find($id);
-        $contract->customer_id = $request->customer_id;
-        $contract->insurance_id = $request->insurance_id;       
-        $contract->enddate = $request->enddate;
+        if($contract == null){
+            abort(404);
+        }
+        $contract = Contract::find($id);
+        $contract->firstname = $request->firstname;
+        $contract->lastname = $request->lastname;       
+        $contract->email = $request->email;
+        $contract->phone = $request->phone;
+        $contract->description = $request->description;
         $contract->save();
         return redirect()->route('admin.contract.index')->with('success','success');
-        //
-
     }
-
+        //
     /**
      * Remove the specified resource from storage.
      */

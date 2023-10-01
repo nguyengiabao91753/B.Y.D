@@ -1,6 +1,6 @@
 @extends('admin.master')
 
-@section('module', 'Contact')
+@section('module', 'contract')
 @section('action', 'Create')
 
 @section('content')
@@ -22,18 +22,21 @@
         </div>
 
         <div class="card-body">
-            <div class="form-group">
-                <div class="col-md-6">
-                    <div>
-                        <label>First Name</label>
-                        <input type="text" class="form-control" placeholder="Enter First Name " name="firstname">                  
-                    </div>
+        <div class="row">
                 <div class="col-md-6">
                     <div class="form-group">
-                        <label>Last Name</label>
-                        <input type="text" class="form-control" placeholder="Enter Last Name" name="lastname">
+                        <label>First name</label>
+                        <input type="text" class="form-control" placeholder="Enter first name" name="firstname" value="{{ old('firstname')}}">
+                    </div>
+                </div>  
+
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label>Last name</label>
+                        <input type="text" class="form-control" placeholder="last name" name="lastname" value="{{ old('lastname')}}">
                     </div>
                 </div>
+            </div>
                 <div class="row">
                 <div class="col-md-12">
                     <div class="form-group">
@@ -41,18 +44,16 @@
                         <input type="text" class="form-control" placeholder="Enter Email" name="email">
                     </div>
                 </div>
-                <div class="row">
                 <div class="col-md-12">
                     <div class="form-group">
                         <label>Phone</label>
-                        <input type="text" class="form-control" placeholder="Enter Phone" name="phone">
+                        <input type="text" class="form-control" placeholder="Enter Email" name="phone">
                     </div>
                 </div>
-                <div class="row">
                 <div class="col-md-12">
                     <div class="form-group">
                         <label>Description</label>
-                        <input type="text" class="form-control" placeholder="Enter Description" name="description">
+                        <input type="text" class="form-control" placeholder="Enter Email" name="description">
                     </div>
                 </div>
                 <div class="card-footer">

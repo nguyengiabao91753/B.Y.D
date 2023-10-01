@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Requests\Admin\Category;
+namespace App\Http\Requests\Admin\Provider;
 
 use Illuminate\Foundation\Http\FormRequest;
 
@@ -23,7 +23,18 @@ class StoreRequest extends FormRequest
     {
         return [
             //
-            'name'=>'required'
+            'name'=>'required|unique:providers,name',
+            'image'=>'required|mimes:jpg,png,bmp,jpeg'
+        ];
+    }
+
+    public function messages()
+    {
+        return[
+            'name.required'=>'Please enter name provider',
+            'name.unique'=>'Name provider is exist. Please enter again',
+            'image.required'=>'Please enter provider image',
+            'image.mimes'=>'Image must be jpg,png,bmp,jpeg'
         ];
     }
 }
