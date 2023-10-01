@@ -22,7 +22,7 @@ class StoreRequest extends FormRequest
     public function rules(): array
     {
         return [
-<<<<<<< HEAD
+
             'name' => 'required|unique:categories,name',
         ];
     }
@@ -32,10 +32,7 @@ class StoreRequest extends FormRequest
         return [
             'name.required' => 'Please enter Category Name',
             'name.unique' => 'This Name already exists'
-=======
-            //
-            'name'=>'required'
->>>>>>> 97c292d6c4bec799b1212847cc7966f183b6dfa5
+
         ];
     }
 }
