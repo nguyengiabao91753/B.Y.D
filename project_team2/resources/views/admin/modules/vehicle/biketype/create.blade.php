@@ -1,15 +1,15 @@
 @extends('admin.master')
 
-@section('module', 'Policy')
+@section('module', 'Motobike Brand')
 @section('action', 'Create')
 
 @section('content')
-<form method="post" action="{{ route('admin.policy.store') }}">
+<form method="post" action="{{ route('admin.vehicle.biketype.store') }}">
     @csrf
     <!-- Default box -->
     <div class="card">
         <div class="card-header">
-            <h3 class="card-title">Policy create</h3>
+            <h3 class="card-title">Motobike brand create</h3>
 
             <div class="card-tools">
             <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
@@ -23,16 +23,8 @@
 
         <div class="card-body">
             <div class="form-group">
-                <label for="name">Policy Name</label>
-                <input type="text" class="form-control" placeholder="Enter Policy name" name="name" value="{{old('name')}}">
-            </div>
-            <div class="form-group">
-                <label for="description">Description</label>
-                <textarea class="form-control" placeholder="Enter Policy Description" name="description"  id="" cols="30" rows="10" required>{{old('description')}}</textarea>
-            </div>
-            <div class="form-group">
-                <label>Price</label>
-                <input type="text" class="form-control" placeholder="Enter price" name="price" value="{{old('price')}}">
+                <label for="bike_type">Brand</label>
+                <input type="text" class="form-control" placeholder="Enter Motobike Brand" name="bike_type" value="{{old('bike_type')}}" required>
             </div>
         </div>
 

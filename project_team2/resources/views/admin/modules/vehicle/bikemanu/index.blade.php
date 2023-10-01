@@ -1,6 +1,6 @@
 @extends('admin.master')
 
-@section('module', 'Category')
+@section('module', 'Motobike Manufacturing Year')
 @section('action', 'List')
 
 @push('css')
@@ -34,13 +34,17 @@
             "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
         }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
     });
+
+    function confirmDelete() {
+        return confirm('Are you sure you want to delete ?');
+    }
 </script>
 @endpush
 @section('content')
 <!-- Default box -->
 <div class="card">
     <div class="card-header">
-        <h3 class="card-title">Category list</h3>
+        <h3 class="card-title">Motobike Manufacturing Year list</h3>
 
         <div class="card-tools">
             <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
@@ -57,38 +61,29 @@
             <thead>
                 <tr>
                     <th>ID</th>
-                    <th>Parent</th>
-                    <th>Name</th>
+                    <th>Manufacturing Year</th>
                     <th>Create At</th>
                     <th>Edit</th>
                     <th>Delete</th>
                 </tr>
             </thead>
             <tbody>
-                @foreach($categories as $category)
+                @foreach($bikemanus as $bikemanu)
+                @if($bikemanu->bike_manufacture != null)
                 <tr>
                     <td>{{$loop->iteration}}</td>
-                    <td>
-                        @php
-                            
-                            if ($category->parent_id != 0){
-                                $parent_category = DB::table('categories') -> select('parent_id','name')->where('id', $category->parent_id)->first();
-                                echo $parent_category -> name;
-                            }
-                        @endphp
-                    </td>
-                    <td>{{$category->name}}</td>
-                    <td>{{ date('d/m/Y - H:m:i', strtotime($category->created_at)) }}</td>
-                    <td><a href="{{route('admin.category.edit',['id'=> $category->id])}}">Edit</a></td>
-                    <td><a onclick="return confirmDelete()" href="{{route('admin.category.destroy',['id'=> $category->id])}}">Delete</a></td>
+                    <td>{{$bikemanu->bike_manufacture}}</td>
+                    <td>{{ date('d/m/Y - H:m:i', strtotime($bikemanu->created_at)) }}</td>
+                    <td><a href="{{route('admin.vehicle.bikemanu.edit',['id'=> $bikemanu->id])}}">Edit</a></td>
+                    <td><a onclick="return confirmDelete()" href="{{route('admin.vehicle.bikemanu.destroy',['id'=> $bikemanu->id])}}">Delete</a></td>
                 </tr>
+                @endif
                 @endforeach
             </tbody>
             <tfoot>
                 <tr>
                     <th>ID</th>
-                    <th>Parent</th>
-                    <th>Name</th>
+                    <th>Manufacturing Year</th>
                     <th>Create At</th>
                     <th>Edit</th>
                     <th>Delete</th>

@@ -1,6 +1,6 @@
 @extends('admin.master')
 
-@section('module', 'Category')
+@section('module', 'Insurance detail')
 @section('action', 'List')
 
 @push('css')
@@ -40,7 +40,7 @@
 <!-- Default box -->
 <div class="card">
     <div class="card-header">
-        <h3 class="card-title">Category list</h3>
+        <h3 class="card-title">Insurance list</h3>
 
         <div class="card-tools">
             <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
@@ -57,39 +57,48 @@
             <thead>
                 <tr>
                     <th>ID</th>
-                    <th>Parent</th>
+                    <th>Provider</th>
                     <th>Name</th>
-                    <th>Create At</th>
+                    <th>Category</th>
+                    <th>Brand</th>
+                    <th>Model</th>
+                    <th>Value(PKR)</th>
+                    <th>Price</th>
+                    <th>Rate</th>
                     <th>Edit</th>
                     <th>Delete</th>
                 </tr>
             </thead>
             <tbody>
-                @foreach($categories as $category)
+                <tr>
+                    @foreach($insurances as $insurance)
                 <tr>
                     <td>{{$loop->iteration}}</td>
-                    <td>
-                        @php
-                            
-                            if ($category->parent_id != 0){
-                                $parent_category = DB::table('categories') -> select('parent_id','name')->where('id', $category->parent_id)->first();
-                                echo $parent_category -> name;
-                            }
-                        @endphp
-                    </td>
-                    <td>{{$category->name}}</td>
-                    <td>{{ date('d/m/Y - H:m:i', strtotime($category->created_at)) }}</td>
-                    <td><a href="{{route('admin.category.edit',['id'=> $category->id])}}">Edit</a></td>
-                    <td><a onclick="return confirmDelete()" href="{{route('admin.category.destroy',['id'=> $category->id])}}">Delete</a></td>
+                    <td>{{$insurance->provider->name}}</td>
+                    <td>{{$insurance->policy->name}}</td>
+                    <td>{{$insurance->category->name}}</td>
+                    <td>{{$insurance->brand}}</td>
+                    <td>{{$insurance->model}}</td>
+                    <td>{{$insurance->pkr}}</td>
+                    <td>{{$insurance->price}}</td>
+                    <td>{{$insurance->rate}}</td>
+                    <td><a href="{{route('admin.insurance.edit',['id'=> $insurance->id])}}">Edit</a></td>
+                    <td><a onclick="return confirmDelete()" href="{{route('admin.insurance.destroy',['id'=> $insurance->id])}}">Delete</a></td>
                 </tr>
                 @endforeach
+                </tr>
             </tbody>
             <tfoot>
                 <tr>
                     <th>ID</th>
-                    <th>Parent</th>
+                    <th>Provider</th>
                     <th>Name</th>
-                    <th>Create At</th>
+                    <th>Category</th>
+                    <th>Brand</th>
+                    <th>Model</th>
+                    <th>Value(PKR)</th>
+                    <th>Price</th>
+                    <th>Rate</th>
                     <th>Edit</th>
                     <th>Delete</th>
                 </tr>

@@ -23,23 +23,17 @@
 
         <div class="card-body">
             <div class="form-group">
-                <label>Category parent</label>
-                <select class="form-control" name="parent_id">
-                    <option value="0">----- Root -----</option>
+                <label for="">Categories parent</label>
+                <select name="parent_id" id="">
+                    <option value="0">----Root----</option>
+                    @php 
+                        recursiveCategory($categories);
+                    @endphp
                 </select>
             </div>
-
             <div class="form-group">
                 <label>Category name</label>
-                <input type="text" class="form-control" placeholder="Enter category name" name="name">
-            </div>
-
-            <div class="form-group">
-                <label>Status</label>
-                <select class="form-control" name="status">
-                    <option value="1">Show</option>
-                    <option value="2">Hidden</option>
-                </select>
+                <input type="text" class="form-control" placeholder="Enter category name" name="name" value="{{old('name')}}">
             </div>
         </div>
 

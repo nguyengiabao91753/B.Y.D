@@ -1,6 +1,6 @@
 @extends('admin.master')
 
-@section('module', 'Category')
+@section('module', 'Motobike Model')
 @section('action', 'List')
 
 @push('css')
@@ -26,29 +26,31 @@
 
 @push('hanldejs')
 <script>
-    $(function() {
-        $("#example1").DataTable({
-            "responsive": true,
-            "lengthChange": false,
-            "autoWidth": false,
-            "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
-        }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
+    $(function () {
+      $("#example1").DataTable({
+        "responsive": true, "lengthChange": false, "autoWidth": false,
+        "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
+      }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
     });
-</script>
+
+    function confirmDelete() {
+        return confirm('Are you sure you want to delete ?');
+    }
+  </script>
 @endpush
 @section('content')
 <!-- Default box -->
 <div class="card">
     <div class="card-header">
-        <h3 class="card-title">Category list</h3>
+        <h3 class="card-title">Motobike Model list</h3>
 
         <div class="card-tools">
-            <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
-                <i class="fas fa-minus"></i>
-            </button>
-            <button type="button" class="btn btn-tool" data-card-widget="remove" title="Remove">
-                <i class="fas fa-times"></i>
-            </button>
+        <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
+            <i class="fas fa-minus"></i>
+        </button>
+        <button type="button" class="btn btn-tool" data-card-widget="remove" title="Remove">
+            <i class="fas fa-times"></i>
+        </button>
         </div>
     </div>
 
@@ -57,38 +59,30 @@
             <thead>
                 <tr>
                     <th>ID</th>
-                    <th>Parent</th>
-                    <th>Name</th>
+                    <th>Motobike model</th>
                     <th>Create At</th>
                     <th>Edit</th>
                     <th>Delete</th>
                 </tr>
             </thead>
             <tbody>
-                @foreach($categories as $category)
+                @foreach($bikemodels as $bikemodel)
+                @if($bikemodel->bike_model != null)
+
                 <tr>
                     <td>{{$loop->iteration}}</td>
-                    <td>
-                        @php
-                            
-                            if ($category->parent_id != 0){
-                                $parent_category = DB::table('categories') -> select('parent_id','name')->where('id', $category->parent_id)->first();
-                                echo $parent_category -> name;
-                            }
-                        @endphp
-                    </td>
-                    <td>{{$category->name}}</td>
-                    <td>{{ date('d/m/Y - H:m:i', strtotime($category->created_at)) }}</td>
-                    <td><a href="{{route('admin.category.edit',['id'=> $category->id])}}">Edit</a></td>
-                    <td><a onclick="return confirmDelete()" href="{{route('admin.category.destroy',['id'=> $category->id])}}">Delete</a></td>
+                    <td>{{$bikemodel->bike_model}}</td>
+                    <td>{{ date('d/m/Y - H:m:i', strtotime($bikemodel->created_at)) }}</td>
+                    <td><a href="{{route('admin.vehicle.bikemodel.edit',['id'=> $bikemodel->id])}}">Edit</a></td>
+                    <td><a onclick="return confirmDelete()" href="{{route('admin.vehicle.bikemodel.destroy',['id'=> $bikemodel->id])}}">Delete</a></td>
                 </tr>
+                @endif
                 @endforeach
             </tbody>
             <tfoot>
                 <tr>
-                    <th>ID</th>
-                    <th>Parent</th>
-                    <th>Name</th>
+                <th>ID</th>
+                    <th>Motobike model</th>
                     <th>Create At</th>
                     <th>Edit</th>
                     <th>Delete</th>

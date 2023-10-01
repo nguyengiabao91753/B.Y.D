@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Requests\Admin\Category;
+namespace App\Http\Requests\Admin\Insurance;
 
 use Illuminate\Foundation\Http\FormRequest;
 
@@ -22,15 +22,15 @@ class StoreRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name' => 'required|unique:categories,name',
-        ];
-    }
-
-    public function messages (): array
-    {
-        return [
-            'name.required' => 'Please enter Category Name',
-            'name.unique' => 'This Name already exists'
+            'provider_id'=> 'required',
+            'policy_id'=> 'required',
+            'category_id'=> 'required',
+            'brand'=> 'required',
+            'model'=> 'required',
+            'pkr'=> 'required',
+            'price'=> 'required',
+            'rate'=> 'required'
+            
         ];
     }
 }

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Requests\Admin\Category;
+namespace App\Http\Requests\Admin\Type;
 
 use Illuminate\Foundation\Http\FormRequest;
 
@@ -22,15 +22,18 @@ class StoreRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name' => 'required|unique:categories,name',
+            'car_type' => 'unique:type_vehicles,car_type',
+            'bike_type' => 'unique:type_vehicles,bike_type',
         ];
     }
 
     public function messages (): array
     {
         return [
-            'name.required' => 'Please enter Category Name',
-            'name.unique' => 'This Name already exists'
+            // 'car_type.required' => 'Please enter Car Brand',
+            'car_type.unique' => 'This Brand already exists',
+            // 'bike_type.required' => 'Please enter Motobike Brand',
+            'bike_type.unique' => 'This Brand already exists',
         ];
     }
 }
