@@ -270,13 +270,13 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="{{ route('admin.policy.create') }}" class="nav-link">
+                            <a href="{{route('admin.policy.create')}}" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Create</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{ route('admin.policy.index') }}" class="nav-link">
+                            <a href="{{route('admin.policy.index')}}" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>List</p>
                             </a>
@@ -294,13 +294,13 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="{{ route('admin.user.create') }}" class="nav-link">
+                            <a href="{{ route('admin.provider.create') }}" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Create</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{ route('admin.user.index') }}" class="nav-link">
+                            <a href="{{ route('admin.provider.index') }}" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>List</p>
                             </a>
@@ -340,13 +340,13 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="{{ route('admin.user.create') }}" class="nav-link">
+                            <a href="{{ route('admin.contract.create') }}" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Create</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{ route('admin.user.index') }}" class="nav-link">
+                            <a href="{{ route('admin.contract.index') }}" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>List</p>
                             </a>
@@ -363,13 +363,13 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="{{ route('admin.user.create') }}" class="nav-link">
+                            <a href="{{ route('admin.invoice.create') }}" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Create</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{ route('admin.user.index') }}" class="nav-link">
+                            <a href="{{ route('admin.invoice.index') }}" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>List</p>
                             </a>
@@ -386,19 +386,43 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="{{ route('admin.user.create') }}" class="nav-link">
+                            <a href="{{ route('admin.customer.create') }}" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Create</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{ route('admin.user.index') }}" class="nav-link">
+                            <a href="{{ route('admin.customer.index') }}" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>List</p>
                             </a>
                         </li>
                     </ul>
                 </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <i class="nav-icon fas fa-users"></i>
+                        <p>
+                            Contact
+                            <i class="right fas fa-angle-left"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="{{ route('admin.contact.create') }}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Create</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('admin.contact.index') }}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>List</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+
                 
             </ul>
         </nav>

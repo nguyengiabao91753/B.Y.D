@@ -3,10 +3,10 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Admin\Category\Policy\UpdateRequest;
+use App\Http\Requests\Admin\Policy\UpdateRequest;
 use App\Http\Requests\Admin\Policy\StoreRequest;
 use App\Models\Policy;
-use Illuminate\Http\Request;
+use Illuminate\Http\Request;    
 
 class PolicyController extends Controller
 {

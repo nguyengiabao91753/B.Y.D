@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Requests\Admin\Category;
+namespace App\Http\Requests\Admin\Invoice;
 
 use Illuminate\Foundation\Http\FormRequest;
 
@@ -22,20 +22,14 @@ class StoreRequest extends FormRequest
     public function rules(): array
     {
         return [
-<<<<<<< HEAD
-            'name' => 'required|unique:categories,name',
+            //
+            'duedate'=>'required'
         ];
     }
 
-    public function messages (): array
-    {
-        return [
-            'name.required' => 'Please enter Category Name',
-            'name.unique' => 'This Name already exists'
-=======
-            //
-            'name'=>'required'
->>>>>>> 97c292d6c4bec799b1212847cc7966f183b6dfa5
+    public function messages(): array{
+        return[
+            'duedate.required'=>'Please enter duedate'
         ];
     }
 }

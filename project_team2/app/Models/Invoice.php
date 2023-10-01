@@ -4,20 +4,17 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
-class Provider extends Model
+class Invoice extends Model
 {
     use HasFactory;
-<<<<<<< HEAD
      /**
-=======
-    /**
->>>>>>> 97c292d6c4bec799b1212847cc7966f183b6dfa5
      * The table associated with the model.
      *
      * @var string
      */
-    protected $table = 'providers';
+    protected $table = 'invoices';
 
     /**
      * The attributes that aren't mass assignable.
@@ -25,8 +22,10 @@ class Provider extends Model
      * @var array
      */
     protected $guarded = [];
-<<<<<<< HEAD
 
-=======
->>>>>>> 97c292d6c4bec799b1212847cc7966f183b6dfa5
+    public function contract():BelongsTo
+    {
+        return $this->belongsTo(Contract::class);
+    }
+
 }

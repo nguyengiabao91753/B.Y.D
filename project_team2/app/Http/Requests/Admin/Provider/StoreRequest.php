@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Requests\Admin\Category;
+namespace App\Http\Requests\Admin\Provider;
 
 use Illuminate\Foundation\Http\FormRequest;
 
@@ -22,20 +22,19 @@ class StoreRequest extends FormRequest
     public function rules(): array
     {
         return [
-<<<<<<< HEAD
-            'name' => 'required|unique:categories,name',
+            //
+            'name'=>'required|unique:providers,name',
+            'image'=>'required|mimes:jpg,png,bmp,jpeg'
         ];
     }
 
-    public function messages (): array
+    public function messages()
     {
-        return [
-            'name.required' => 'Please enter Category Name',
-            'name.unique' => 'This Name already exists'
-=======
-            //
-            'name'=>'required'
->>>>>>> 97c292d6c4bec799b1212847cc7966f183b6dfa5
+        return[
+            'name.required'=>'Please enter name provider',
+            'name.unique'=>'Name provider is exist. Please enter again',
+            'image.required'=>'Please enter provider image',
+            'image.mimes'=>'Image must be jpg,png,bmp,jpeg'
         ];
     }
 }
