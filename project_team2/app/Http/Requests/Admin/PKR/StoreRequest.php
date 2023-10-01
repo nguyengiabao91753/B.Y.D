@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Requests\Admin\Category;
+namespace App\Http\Requests\Admin\PKR;
 
 use Illuminate\Foundation\Http\FormRequest;
 
@@ -22,17 +22,18 @@ class StoreRequest extends FormRequest
     public function rules(): array
     {
         return [
-
-            'name' => 'required|unique:categories,name',
+            'car_pkr' => 'unique:pkr_vehicles,car_pkr',
+            'bike_pkr' => 'unique:pkr_vehicles,bike_pkr',
         ];
     }
 
     public function messages (): array
     {
         return [
-            'name.required' => 'Please enter Category Name',
-            'name.unique' => 'This Name already exists'
-
+            // 'car_type.required' => 'Please enter Car Brand',
+            'car_pkr.unique' => 'This Value already exists',
+            // 'bike_type.required' => 'Please enter Motobike Brand',
+            'bike_pkr.unique' => 'This Value already exists',
         ];
     }
 }

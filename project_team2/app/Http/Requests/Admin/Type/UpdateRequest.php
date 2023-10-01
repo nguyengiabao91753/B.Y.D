@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Requests\Admin\Category;
+namespace App\Http\Requests\Admin\Type;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class StoreRequest extends FormRequest
+class UpdateRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -22,17 +22,18 @@ class StoreRequest extends FormRequest
     public function rules(): array
     {
         return [
-
-            'name' => 'required|unique:categories,name',
+            'car_type' => 'unique:type_vehicles,car_type,'.$this->id,
+            'bike_type' => 'unique:type_vehicles,bike_type,'.$this->id,
         ];
     }
 
     public function messages (): array
     {
         return [
-            'name.required' => 'Please enter Category Name',
-            'name.unique' => 'This Name already exists'
-
+            // 'car_type.required' => 'Please enter Car Brand',
+            'car_type.unique' => 'This Brand already exists',
+            // 'bike_type.required' => 'Please enter Motobike Brand',
+            'bike_type.unique' => 'This Brand already exists',
         ];
     }
 }

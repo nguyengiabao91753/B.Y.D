@@ -4,7 +4,7 @@
 @section('action', 'Edit')
 
 @section('content')
-<form method="post" action="{{ route('admin.category.update', ['id' => $id]) }}">
+<form method="post" action="{{ route('admin.category.update', ['id' =>$category->id]) }}">
     @csrf
     <!-- Default box -->
     <div class="card">
@@ -22,24 +22,18 @@
         </div>
 
         <div class="card-body">
-            <div class="form-group">
-                <label>Category parent</label>
-                <select class="form-control" name="parent_id">
-                    <option value="0">----- Root -----</option>
+        <div class="form-group">
+                <label for="">Categories parent</label>
+                <select name="parent_id" id="">
+                    <option value="0">----Root----</option>
+                    @php 
+                        recursiveCategory($categories,old('parent_id',$category->parent_id));
+                    @endphp
                 </select>
             </div>
-
             <div class="form-group">
                 <label>Category name</label>
-                <input type="text" class="form-control" placeholder="Enter category name" name="name">
-            </div>
-
-            <div class="form-group">
-                <label>Status</label>
-                <select class="form-control" name="status">
-                    <option value="1">Show</option>
-                    <option value="2">Hidden</option>
-                </select>
+                <input type="text" class="form-control" placeholder="Enter category name" name="name" value="{{old('name',$category->name)}}">
             </div>
         </div>
 

@@ -1,19 +1,19 @@
 <?php
 
-namespace App\Models;
+namespace App\Models\Vehicle;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Provider extends Model
+class Manufacture extends Model
 {
     use HasFactory;
-    /** 
+     /**
      * The table associated with the model.
      *
      * @var string
      */
-    protected $table = 'providers';
+    protected $table = 'manufac_vehicles';
 
     /**
      * The attributes that aren't mass assignable.
@@ -21,5 +21,4 @@ class Provider extends Model
      * @var array
      */
     protected $guarded = [];
-
 }

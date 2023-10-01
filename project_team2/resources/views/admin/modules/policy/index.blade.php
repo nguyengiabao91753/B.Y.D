@@ -34,7 +34,7 @@
     });
 
     function confirmDelete() {
-        return confirm('Are you sure you want to delete this ${module}');
+        return confirm('Are you sure you want to delete this ?');
     }
   </script>
 @endpush
@@ -42,7 +42,7 @@
 <!-- Default box -->
 <div class="card">
     <div class="card-header">
-        <h3 class="card-title">Category list</h3>
+        <h3 class="card-title">Policy list</h3>
 
         <div class="card-tools">
         <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
@@ -76,7 +76,7 @@
                     <td>{{$policy->price}}</td>
                     <td>{{ date('d/m/Y - H:m:i', strtotime($policy->created_at)) }}</td>
                     <td><a href="{{route('admin.policy.edit',['id'=> $policy->id])}}">Edit</a></td>
-                    <td><a onclick="return confirmDelete('policy')" href="{{route('admin.policy.destroy',['id'=> $policy->id])}}">Delete</a></td>
+                    <td><a onclick="return confirmDelete()" href="{{route('admin.policy.destroy',['id'=> $policy->id])}}">Delete</a></td>
                 </tr>
                 @endforeach
             </tbody>

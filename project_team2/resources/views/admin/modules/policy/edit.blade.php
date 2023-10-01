@@ -28,11 +28,11 @@
             </div>
             <div class="form-group">
                 <label for="description">Description</label>
-                <textarea class="form-control" placeholder="Enter Policy Description" name="description"  id="" cols="30" rows="10" value="{{old('description',$policy->description)}}"></textarea>
+                <textarea class="form-control"  name="description"   cols="30" rows="10"  required> {{old('description',$policy->description)}}</textarea>
             </div>
             <div class="form-group">
                 <label>Price</label>
-                <input type="text" class="form-control" placeholder="Enter price" name="price" value="{{old('price',$policy->description)}}">
+                <input type="text" class="form-control" placeholder="Enter price" name="price" value="{{old('price',$policy->price)}}">
             </div>
         </div>
 
