@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class contract extends Model
+class Contract extends Model
 {
     use HasFactory;
         /**
@@ -21,3 +21,4 @@ class contract extends Model
     protected $guarded = [];
     protected $primaryKey = 'id';
 }
+

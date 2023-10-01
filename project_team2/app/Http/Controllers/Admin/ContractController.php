@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Requests\Admin\Contract\StoreRequest;
 use App\Http\Requests\Admin\Contract\UpdateRequest;
 use App\Http\Controllers\Controller;
-use App\Models\contract;
+use App\Models\Contract;
 use Illuminate\Http\Request;
 use function League\Flysystem\delete;
 
@@ -38,8 +38,6 @@ class ContractController extends Controller
     {
         //
         $contract = new Contract();
-
-        $contract->id = $request->id;
         $contract->customer_id = $request->customer_id;
         $contract->insurance_id = $request->insurance_id;       
         $contract->enddate = $request->enddate;
@@ -50,7 +48,7 @@ class ContractController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(contract $contract)
+    public function show(Contract $contract)
     {
         //
         return view('admin.contract.show',compact('contracts'));
@@ -62,7 +60,7 @@ class ContractController extends Controller
     {
         //
         $contract = Contract::find($id);
-        return view('admin.contract.edit',['contracts'=>$contract]);
+        return view('admin.contract.edit',['contract'=>$contract]);
     }
 
     /**
@@ -90,7 +88,7 @@ class ContractController extends Controller
     public function destroy(int $id)
     {
         //
-        $contract= contract::find($id);
+        $contract= Contract::find($id);
         $contract->delete();
 
         return redirect()->route('admin.contract.index')->with('success', 'Deleted Successfully!');
