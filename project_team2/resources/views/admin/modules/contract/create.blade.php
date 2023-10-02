@@ -25,7 +25,7 @@
             <div class="form-group">
                 <div class="col-md-6">
                     <label>Customer ID</label>
-                        <select class="form-control" name="custormer_id">
+                        <select class="form-control" name="customer_id">
                             <option value="0" {{old( 'custormer_id' ) == 0 ? 'selected' : '' }}>----- Root -----</option>
                             @foreach($customers as $customer)
                             <option value="{{$customer->id}}" {{old( 'custormer_id' ) == $customer->id ? 'selected' : '' }}>{{$customer-> email}}</option>
@@ -46,8 +46,8 @@
             </div>
             <div class="form-group">
             <div class="col-md-6">
-                    <label for="duedate" >EndDate</label>
-                    <input type="date" id="duedate" class="form-control" name="duedate" min="2018-09-24" max="2025-10-20"
+                    <label for="enddate" >EndDate</label>
+                    <input type="date" id="duedate" class="form-control" name="enddate" min="2018-09-24" max="2025-10-20"
                             placeholder="Enter Date" value="{{ old('duedate')}}">
             </div>
         <div class="card-footer">

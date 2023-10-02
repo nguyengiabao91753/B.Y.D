@@ -18,7 +18,7 @@ class ContractController extends Controller
     public function index()
     {
         //
-        $contracts = Contract::with('customers','insurance')->orderBy('created_at','DESC')->get();
+        $contracts = Contract::with('customer','insurance')->orderBy('created_at','DESC')->get();
         return view('admin.modules.contract.index',[
             'contracts'=>$contracts
         ]);
@@ -45,10 +45,10 @@ class ContractController extends Controller
     {
         //
         $contract = new Contract();
+        $contract->insurance_id=$request->insurance_id;
         $contract->customer_id = $request->customer_id;
         $contract->insurance_id = $request->insurance_id;       
         $contract->enddate = $request->enddate;
-        $contract->insurance_id = 1;
         $contract->save();
         return redirect()->route('admin.contract.index')->with('success','success');
     }
@@ -86,11 +86,10 @@ class ContractController extends Controller
             abort(404);
         }
         $contract = Contract::find($id);
-        $contract->firstname = $request->firstname;
-        $contract->lastname = $request->lastname;       
-        $contract->email = $request->email;
-        $contract->phone = $request->phone;
-        $contract->description = $request->description;
+        $contract->insurance_id=$request->insurance_id;
+        $contract->customer_id = $request->customer_id;
+        $contract->insurance_id = $request->insurance_id;       
+        $contract->enddate = $request->enddate;
         $contract->save();
         return redirect()->route('admin.contract.index')->with('success','success');
     }
