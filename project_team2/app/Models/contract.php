@@ -19,6 +19,5 @@ class Contract extends Model
      * @var array
      */
     protected $guarded = [];
-    protected $primaryKey = 'id';
 }
 

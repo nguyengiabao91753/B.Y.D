@@ -46,8 +46,8 @@
             </div>
             <div class="form-group">
             <div class="col-md-6">
-                    <label for="duedate" >EndDate</label>
-                    <input type="date" id="duedate" class="form-control" name="duedate" min="2018-09-24" max="2025-10-20"
+                    <label for="enddate" >EndDate</label>
+                    <input type="date" id="duedate" class="form-control" name="enddate" min="2018-09-24" max="2025-10-20"
                             placeholder="Enter Date" value="{{ old('duedate')}}">
             </div>
         <div class="card-footer">

@@ -48,7 +48,6 @@ class ContractController extends Controller
         $contract->customer_id = $request->customer_id;
         $contract->insurance_id = $request->insurance_id;       
         $contract->enddate = $request->enddate;
-        $contract->insurance_id = 1;
         $contract->save();
         return redirect()->route('admin.contract.index')->with('success','success');
     }
