@@ -23,24 +23,32 @@
 
         <div class="card-body">
             <div class="form-group">
-                <label>Customer ID</label>
-                <input type="text" class="form-control" placeholder="Enter Customer ID " name="customer_id" value="{{ old('customer_id')}}">
+                <div class="col-md-6">
+                    <label>Customer ID</label>
+                        <select class="form-control" name="customer_id">
+                            <option value="0" {{old( 'custormer_id' ) == 0 ? 'selected' : '' }}>----- Root -----</option>
+                            @foreach($customers as $customer)
+                            <option value="{{$customer->id}}" {{old( 'custormer_id' ) == $customer->id ? 'selected' : '' }}>{{$customer-> email}}</option>
+                            @endforeach
+                        </select>
+                </div>
             </div>
-
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="form-group">
-                        <label>Insurance ID</label>
-                        <input type="text" class="form-control" placeholder="Enter Insurance ID" name="insurance_id" value="{{ old('insurance_id')}}" >
-                    </div>
+            <div class="form-group">
+                <div class="col-md-6">
+                    <label>Insurance ID</label>
+                        <select class="form-control" name="insurance_id">
+                            <option value="0" {{old( 'insurance_id' ) == 0 ? 'selected' : '' }}>----- Root -----</option>
+                            @foreach($insurances as $insurance)
+                            <option value="{{$insurance->id}}" {{old( 'insurance_id' ) == $insurance->id ? 'selected' : '' }}>{{$insurance->id}}</option>
+                            @endforeach
+                        </select>
                 </div>
-
-                <div class="col-md-12">
-                    <div class="form-group">
-                        <label>EndDate</label>
-                        <input type="text" class="form-control" placeholder="Enter EndDate" name="enddate" value="{{ old('enddate')}}">
-                    </div>
-                </div>
+            </div>
+            <div class="form-group">
+            <div class="col-md-6">
+                    <label for="enddate" >EndDate</label>
+                    <input type="date" id="duedate" class="form-control" name="enddate" min="2018-09-24" max="2025-10-20"
+                            placeholder="Enter Date" value="{{ old('duedate')}}">
             </div>
         <div class="card-footer">
             <button type="submit" class="btn btn-primary">Create</button>

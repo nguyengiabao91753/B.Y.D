@@ -22,6 +22,7 @@ use App\Models\Admin\Insurance;
 use App\Http\Controllers\Admin\ContractController;
 use App\Http\Controllers\Admin\ContactsController;
 use App\Http\Controllers\Auth\LoginController;
+
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -41,6 +42,9 @@ Route::get('/admin', function () {
 
 Route::get('auth/login',[LoginController::class,'showLogin'])->name('showLogin');
 Route::post('auth/login',[LoginController::class,'login'])->name('login');
+// Route::get('/', function () {
+//     return view('client.index');
+// });
 
 Route::prefix('admin')->name('admin.')->group(function () {
     Route::prefix('category')->name('category.')->controller(CategoryController::class)->group(function () {
@@ -56,18 +60,6 @@ Route::prefix('admin')->name('admin.')->group(function () {
     });
 
     Route::prefix('product')->name('product.')->controller(ProductController::class)->group(function () {
-        Route::get('index', 'index')->name('index');
-
-        Route::get('create', 'create')->name('create');
-        Route::post('store', 'store')->name('store');
-
-        Route::get('edit/{id}', 'edit')->name('edit');
-        Route::post('update/{id}', 'update')->name('update');
-
-        Route::get('destroy/{id}', 'destroy')->name('destroy');
-    });
-
-    Route::prefix('user')->name('user.')->controller(UserController::class)->group(function () {
         Route::get('index', 'index')->name('index');
 
         Route::get('create', 'create')->name('create');
@@ -177,6 +169,22 @@ Route::prefix('admin')->name('admin.')->group(function () {
         Route::get('destroy/{id}', 'destroy')->name('destroy');
     });
 
+
+   
+        //Insurance
+    Route::prefix('insurance')->name('insurance.')->controller(InsuranceCotroller::class)->group(function () {
+        Route::get('index', 'index')->name('index');
+
+        Route::get('create', 'create')->name('create');
+        Route::post('store', 'store')->name('store');
+
+        Route::get('edit/{id}', 'edit')->name('edit');
+        Route::post('update/{id}', 'update')->name('update');
+
+        Route::get('destroy/{id}', 'destroy')->name('destroy');
+    });
+
+
     Route::prefix('customer')->name('customer.')->controller(CustomerController::class)->group(function () {
 
         Route::get('index', 'index')->name('index');
@@ -189,7 +197,6 @@ Route::prefix('admin')->name('admin.')->group(function () {
 
         Route::get('destroy/{id}', 'destroy')->name('destroy');
     });
-
 
 
     Route::prefix('invoice')->name('invoice.')->controller(InvoiceController::class)->group(function () {

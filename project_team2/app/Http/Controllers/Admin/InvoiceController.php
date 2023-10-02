@@ -43,6 +43,7 @@ class InvoiceController extends Controller
     {
         //
         $invoice = new Invoice();
+        $invoice->contract_id= $request->contract_id;
         $invoice ->duedate = $request->duedate;
         $invoice->contract_id = $request->contract_id;
 
@@ -89,9 +90,8 @@ class InvoiceController extends Controller
         if($invoice ==null){
             abort(404);
         }
-
+        $invoice->contract_id= $request->contract_id;
         $invoice ->duedate = $request->duedate;
-        $invoice->contract_id = $request->contract_id;
 
         $invoice->save();
 

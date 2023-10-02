@@ -22,8 +22,4 @@ class Provider extends Model
      * @var array
      */
     protected $guarded = [];
-
-
-
-
 }

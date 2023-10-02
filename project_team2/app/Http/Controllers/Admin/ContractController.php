@@ -4,7 +4,9 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Requests\Admin\Contract\StoreRequest;
 use App\Http\Requests\Admin\Contract\UpdateRequest;
 use App\Http\Controllers\Controller;
+use App\Models\Admin\Insurance;
 use App\Models\Contract;
+use App\Models\Customer;
 use Illuminate\Http\Request;
 use function League\Flysystem\delete;
 
@@ -16,7 +18,7 @@ class ContractController extends Controller
     public function index()
     {
         //
-        $contracts = Contract::orderBy('created_at','DESC')->get();
+        $contracts = Contract::with('customer','insurance')->orderBy('created_at','DESC')->get();
         return view('admin.modules.contract.index',[
             'contracts'=>$contracts
         ]);
@@ -28,7 +30,12 @@ class ContractController extends Controller
     public function create()
     {
         //
-        return view('admin.modules.contract.create');
+        $customers = Customer::all();
+        $insurances = Insurance::all();
+        return view('admin.modules.contract.create',[
+            'customers'=>$customers,
+            'insurances'=>$insurances
+        ]);
     }
 
     /**
@@ -38,10 +45,10 @@ class ContractController extends Controller
     {
         //
         $contract = new Contract();
+        $contract->insurance_id=$request->insurance_id;
         $contract->customer_id = $request->customer_id;
         $contract->insurance_id = $request->insurance_id;       
         $contract->enddate = $request->enddate;
-        $contract->insurance_id = 1;
         $contract->save();
         return redirect()->route('admin.contract.index')->with('success','success');
     }
@@ -60,7 +67,13 @@ class ContractController extends Controller
     {
         //
         $contract = Contract::find($id);
-        return view('admin.contract.edit',['contract'=>$contract]);
+        $customers = Customer::all();
+        $insurances = Insurance::all();
+        return view('admin.modules.contract.edit',[
+            'contract'=>$contract,
+            'customers'=>$customers,
+            'insurances'=>$insurances
+        ]);
     }
 
     /**
@@ -72,12 +85,10 @@ class ContractController extends Controller
         if($contract == null){
             abort(404);
         }
-        $contract = Contract::find($id);
-        $contract->firstname = $request->firstname;
-        $contract->lastname = $request->lastname;       
-        $contract->email = $request->email;
-        $contract->phone = $request->phone;
-        $contract->description = $request->description;
+        $contract->insurance_id=$request->insurance_id;
+        $contract->customer_id = $request->customer_id;
+        $contract->insurance_id = $request->insurance_id;       
+        $contract->enddate = $request->enddate;
         $contract->save();
         return redirect()->route('admin.contract.index')->with('success','success');
     }
