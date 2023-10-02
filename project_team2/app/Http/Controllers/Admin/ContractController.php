@@ -18,7 +18,7 @@ class ContractController extends Controller
     public function index()
     {
         //
-        $contracts = Contract::with('customers','insurance')->orderBy('created_at','DESC')->get();
+        $contracts = Contract::with('customer','insurance')->orderBy('created_at','DESC')->get();
         return view('admin.modules.contract.index',[
             'contracts'=>$contracts
         ]);
@@ -45,6 +45,7 @@ class ContractController extends Controller
     {
         //
         $contract = new Contract();
+        $contract->insurance_id=$request->insurance_id;
         $contract->customer_id = $request->customer_id;
         $contract->insurance_id = $request->insurance_id;       
         $contract->enddate = $request->enddate;
@@ -66,30 +67,28 @@ class ContractController extends Controller
     {
         //
         $contract = Contract::find($id);
-        $customer = Customer::all();
-        $insurance = Insurance::all();
-        return view('admin.contract.edit',[
+        $customers = Customer::all();
+        $insurances = Insurance::all();
+        return view('admin.modules.contract.edit',[
             'contract'=>$contract,
-            'customer'=>$customer,
-            'insurance'=>$insurance
+            'customers'=>$customers,
+            'insurances'=>$insurances
         ]);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateRequest $request, int $id)
+    public function update(UpdateRequest $request,int $id)
     {
         $contract = Contract::find($id);
         if($contract == null){
             abort(404);
-        }
-        $contract = Contract::find($id);
-        $contract->firstname = $request->firstname;
-        $contract->lastname = $request->lastname;       
-        $contract->email = $request->email;
-        $contract->phone = $request->phone;
-        $contract->description = $request->description;
+        };
+        $contract->insurance_id=$request->insurance_id;
+        $contract->customer_id = $request->customer_id;
+        $contract->insurance_id = $request->insurance_id;       
+        $contract->enddate = $request->enddate;
         $contract->save();
         return redirect()->route('admin.contract.index')->with('success','success');
     }

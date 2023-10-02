@@ -2,8 +2,10 @@
 
 namespace App\Models;
 
+use App\Models\Admin\Insurance;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Contract extends Model
 {
@@ -19,5 +21,14 @@ class Contract extends Model
      * @var array
      */
     protected $guarded = [];
+    public function customer():BelongsTo
+    {
+        return $this->belongsTo(Customer::class);
+    }
+
+    public function insurance():BelongsTo
+    {
+        return $this->belongsTo(Insurance::class);
+    }
 }
 

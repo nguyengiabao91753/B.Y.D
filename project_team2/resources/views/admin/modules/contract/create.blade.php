@@ -25,7 +25,7 @@
             <div class="form-group">
                 <div class="col-md-6">
                     <label>Customer ID</label>
-                        <select class="form-control" name="custormer_id">
+                        <select class="form-control" name="customer_id">
                             <option value="0" {{old( 'custormer_id' ) == 0 ? 'selected' : '' }}>----- Root -----</option>
                             @foreach($customers as $customer)
                             <option value="{{$customer->id}}" {{old( 'custormer_id' ) == $customer->id ? 'selected' : '' }}>{{$customer-> email}}</option>

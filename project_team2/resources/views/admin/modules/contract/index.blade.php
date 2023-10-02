@@ -66,14 +66,14 @@
                 </tr>
             </thead>
             <tbody>
-            @foreach($contracts as $Contract)
+            @foreach($contracts as $contract)
                 <tr>
                     <td>{{$loop->iteration}}</td>
                     <td>{{$contract->customer_id}}</td>
                     <td>{{$contract->insurance_id}}</td>
                     <td>{{$contract->enddate}}</td>
-                    <td><a href="{{route('admin.contract.edit',['id'=> $contracts->id])}}">Edit</a></td>
-                    <td><a onclick="return confirmDelete('contract')" href="{{route('admin.contract.destroy',['id'=> $contracts->id])}}">Delete</a></td>
+                    <td><a href="{{route('admin.contract.edit',['id'=> $contract->id])}}">Edit</a></td>
+                    <td><a onclick="return confirmDelete('contract')" href="{{route('admin.contract.destroy',['id'=> $contract->id])}}">Delete</a></td>
                 </tr>
                 @endforeach
             </tbody>
