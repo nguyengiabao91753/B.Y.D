@@ -30,6 +30,10 @@ Route::get('/admin', function () {
     return view('admin.master');
 });
 
+Route::get('/', function () {
+    return view('client.index');
+});
+
 Route::prefix('admin')->name('admin.')->group(function () {
     Route::prefix('category')->name('category.')->controller(CategoryController::class)->group(function () {
         Route::get('index', 'index')->name('index');
