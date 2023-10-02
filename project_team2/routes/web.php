@@ -31,8 +31,20 @@ Route::get('/admin', function () {
 });
 
 Route::get('/', function () {
-    return view('client.index');
-});
+    return view('client.page.home');
+})->name('home');
+
+Route::get('/about_us', function () {
+    return view('client.page.about');
+})->name('about');
+
+Route::get('/contact_us', function () {
+    return view('client.page.contact');
+})->name('contact');
+
+Route::get('/all_vehicle_insurance', function () {
+    return view('client.page.all_vehicle');
+})->name('vehicle');
 
 Route::prefix('admin')->name('admin.')->group(function () {
     Route::prefix('category')->name('category.')->controller(CategoryController::class)->group(function () {

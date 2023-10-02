@@ -2,7 +2,7 @@
 
 <body>
     <!-- NAVBAR -->
-    @inlcude('client.layout.navbar')
+    @include('client.layout.navbar')
 
     <!-- MAIN TOP PIC HEADING STARTS -->
     @yield('content')
