@@ -1,17 +1,13 @@
 <?php
 
 use App\Http\Controllers\Admin\CategoryController;
-<<<<<<< HEAD
 use App\Http\Controllers\Admin\InsuranceCotroller;
-=======
 use App\Http\Controllers\Admin\CustomerController;
 use App\Http\Controllers\Admin\InvoiceController;
->>>>>>> 97c292d6c4bec799b1212847cc7966f183b6dfa5
 use App\Http\Controllers\Admin\PolicyController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\ProviderController;
 use App\Http\Controllers\Admin\UserController;
-<<<<<<< HEAD
 use App\Http\Controllers\Admin\Vehicle\BikeManuController;
 use App\Http\Controllers\Admin\Vehicle\BikeModelController;
 use App\Http\Controllers\Admin\Vehicle\BikePkrController;
@@ -22,10 +18,10 @@ use App\Http\Controllers\Admin\Vehicle\CarPkrController;
 use App\Http\Controllers\Admin\Vehicle\CarTypeController;
 use App\Http\Controllers\Admin\Vehicle\TypeController;
 use App\Models\Admin\Insurance;
-=======
+
 use App\Http\Controllers\Admin\ContractController;
 use App\Http\Controllers\Admin\ContactsController;
->>>>>>> 97c292d6c4bec799b1212847cc7966f183b6dfa5
+use App\Http\Controllers\Auth\LoginController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -42,6 +38,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/admin', function () {
     return view('admin.master');
 });
+
+Route::get('auth/login',[LoginController::class,'showLogin'])->name('showLogin');
+Route::post('auth/login',[LoginController::class,'login'])->name('login');
 
 Route::prefix('admin')->name('admin.')->group(function () {
     Route::prefix('category')->name('category.')->controller(CategoryController::class)->group(function () {
@@ -92,7 +91,7 @@ Route::prefix('admin')->name('admin.')->group(function () {
         Route::get('destroy/{id}', 'destroy')->name('destroy');
     });
 
-<<<<<<< HEAD
+
     Route::prefix('vehicle')->name('vehicle.')->group(function () {
         Route::prefix('cartype')->name('cartype.')->controller(CarTypeController::class)->group(function() {
             //Car
@@ -170,9 +169,16 @@ Route::prefix('admin')->name('admin.')->group(function () {
     });
         //Insurance
     Route::prefix('insurance')->name('insurance.')->controller(InsuranceCotroller::class)->group(function () {
-=======
+        Route::get('index', 'index')->name('index');
+        Route::get('create', 'create')->name('create');
+        Route::post('store', 'store')->name('store');
+        Route::get('edit/{id}', 'edit')->name('edit');
+        Route::post('update/{id}', 'update')->name('update');
+        Route::get('destroy/{id}', 'destroy')->name('destroy');
+    });
+
     Route::prefix('customer')->name('customer.')->controller(CustomerController::class)->group(function () {
->>>>>>> 97c292d6c4bec799b1212847cc7966f183b6dfa5
+
         Route::get('index', 'index')->name('index');
 
         Route::get('create', 'create')->name('create');
@@ -183,9 +189,9 @@ Route::prefix('admin')->name('admin.')->group(function () {
 
         Route::get('destroy/{id}', 'destroy')->name('destroy');
     });
-<<<<<<< HEAD
-});
-=======
+
+
+
     Route::prefix('invoice')->name('invoice.')->controller(InvoiceController::class)->group(function () {
         Route::get('index', 'index')->name('index');
 
@@ -233,4 +239,3 @@ Route::prefix('admin')->name('admin.')->group(function () {
         Route::get('destroy/{id}', 'destroy')->name('destroy');
     });
 });
->>>>>>> 97c292d6c4bec799b1212847cc7966f183b6dfa5

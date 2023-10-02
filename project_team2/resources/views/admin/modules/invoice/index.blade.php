@@ -70,7 +70,7 @@
                 @foreach($invoices as $invoice)
                     <tr>
                         <td>{{$loop->iteration}}</td>
-                        <td>{{$invoice->contract_id}}</td>
+                        <td>{{$invoice->contract_id->id}}</td>
                         <td>{{$invoice->duedate ? Carbon\Carbon::parse($invoice ->duedate)->format('d/m/Y - H:m:i') : '-'}}</td>
                         <td>{{ date('d/m/Y - H:m:i', strtotime($invoice->created_at)) }}</td>
                         <td><a href="{{route('admin.invoice.edit',['id'=> $invoice->id])}}">Edit</a></td>

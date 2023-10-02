@@ -29,7 +29,7 @@
                         <select class="form-control" name="provider_id">
                             <option value="0" {{old( 'provider_id' ) == 0 ? 'selected' : '' }}>----- Root -----</option>
                             @foreach($providers as $provider)
-                            <option value="{{$provider->id}}" {old( 'provider_id' ) == $provider->id ? 'selected' : '' }}>{{$provider->name}}</option>
+                            <option value="{{$provider->id}}" {{old( 'provider_id' ) == $provider->id ? 'selected' : '' }}>{{$provider->name}}</option>
                             @endforeach
                         </select>
                     </div>
@@ -69,7 +69,7 @@
                                             foreach ($categories as $key3=> $level3) {
                                                 if ($level3->parent_id == $level2->id) {
                                                 
-                                                echo '<option value="' . $level3->id . '">' . $level3->name . '</option>';
+                                                echo '<option value="' . $level3->name . '">' . $level3->name . '</option>';
                                                 unset($categories[$key3]);
                                                 }
                                             }
