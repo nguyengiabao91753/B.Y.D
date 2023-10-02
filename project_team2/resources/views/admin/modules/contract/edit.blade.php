@@ -9,7 +9,7 @@
     <!-- Default box -->
     <div class="card">
         <div class="card-header">
-            <h3 class="card-title">Contract create</h3>
+            <h3 class="card-title">Contract Create</h3>
 
             <div class="card-tools">
             <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
@@ -20,27 +20,34 @@
             </button>
             </div>
         </div>
-
         <div class="card-body">
             <div class="form-group">
-                <label>Customer ID</label>
-                <input type="text" class="form-control" placeholder="Enter Customer ID" name="sustomer_id">
-            </div>
-
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="form-group">
-                        <label>Insurance ID</label>
-                        <input type="text" class="form-control" placeholder="Insurance ID" name="insurance_id">
-                    </div>
-                </div>
-
                 <div class="col-md-6">
-                    <div class="form-group">
-                        <label>EndDate</label>
-                        <input type="text" class="form-control" placeholder="EndDate" name="enddate">
-                    </div>
+                    <label>Customer ID</label>
+                        <select class="form-control" name="custormer_id">
+                            <option value="0" {{old( 'custormer_id' ) == 0 ? 'selected' : '' }}>----- Root -----</option>
+                            @foreach($customers as $customer)
+                            <option value="{{$customer->id}}" {{old( 'custormer_id' ) == $customer->id ? 'selected' : '' }}>{{$customer-> email}}</option>
+                            @endforeach
+                        </select>
                 </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-6">
+                    <label>Insurance ID</label>
+                        <select class="form-control" name="insurance_id">
+                            <option value="0" {{old( 'insurance_id' ) == 0 ? 'selected' : '' }}>----- Root -----</option>
+                            @foreach($insurances as $insurance)
+                            <option value="{{$insurance->id}}" {{old( 'insurance_id' ) == $insurance->id ? 'selected' : '' }}>{{$insurance->id}}</option>
+                            @endforeach
+                        </select>
+                </div>
+            </div>
+            <div class="form-group">
+            <div class="col-md-6">
+                    <label for="duedate" >EndDate</label>
+                    <input type="date" id="duedate" class="form-control" name="duedate" min="2018-09-24" max="2025-10-20"
+                            placeholder="Enter Date" value="{{ old('duedate')}}">
             </div>
         <div class="card-footer">
             <button type="submit" class="btn btn-primary">Create</button>

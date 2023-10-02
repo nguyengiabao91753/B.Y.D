@@ -4,7 +4,9 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Requests\Admin\Contract\StoreRequest;
 use App\Http\Requests\Admin\Contract\UpdateRequest;
 use App\Http\Controllers\Controller;
+use App\Models\Admin\Insurance;
 use App\Models\Contract;
+use App\Models\Customer;
 use Illuminate\Http\Request;
 use function League\Flysystem\delete;
 
@@ -16,7 +18,7 @@ class ContractController extends Controller
     public function index()
     {
         //
-        $contracts = Contract::orderBy('created_at','DESC')->get();
+        $contracts = Contract::with('customers','insurance')->orderBy('created_at','DESC')->get();
         return view('admin.modules.contract.index',[
             'contracts'=>$contracts
         ]);
@@ -28,7 +30,12 @@ class ContractController extends Controller
     public function create()
     {
         //
-        return view('admin.modules.contract.create');
+        $customers = Customer::all();
+        $insurances = Insurance::all();
+        return view('admin.modules.contract.create',[
+            'customers'=>$customers,
+            'insurances'=>$insurances
+        ]);
     }
 
     /**
@@ -60,7 +67,13 @@ class ContractController extends Controller
     {
         //
         $contract = Contract::find($id);
-        return view('admin.contract.edit',['contract'=>$contract]);
+        $customer = Customer::all();
+        $insurance = Insurance::all();
+        return view('admin.contract.edit',[
+            'contract'=>$contract,
+            'customer'=>$customer,
+            'insurance'=>$insurance
+        ]);
     }
 
     /**
