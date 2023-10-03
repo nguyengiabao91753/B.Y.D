@@ -32,12 +32,6 @@ class StoreRequest extends FormRequest
         return [
             'name.required' => 'Please enter Category Name',
             'name.unique' => 'This Name already exists'
-
-<<<<<<< HEAD
-            //
-
-=======
->>>>>>> 52f2d3d10d34520b0a14454815079c4684ae7dce
         ];
     }
 }

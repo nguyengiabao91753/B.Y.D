@@ -1,5 +1,5 @@
 @extends('client.app')
-@section('title','Login')
+@section('title','Register')
 
 @push('css')
 <link rel="stylesheet" href="{{asset('client/css/sign-in-%26-sign-up.css')}}">
@@ -27,21 +27,10 @@
             <br>
             <br>
             <!-- <label for="">Enter-your-age :</label> -->
-            <input style="height: 24px; width: 80%; border-radius: 10px; box-shadow: 2px 1px 2px 1px gray;" type="number" placeholder="Enter-your-age...">
+            <input style="height: 24px; width: 80%; border-radius: 10px; box-shadow: 2px 1px 2px 1px gray;" type="text" placeholder="Email">
             <br>
             <br>
-            <!-- <label for="">Select-your-country :</label> -->
-            <select style="height: 24px; width: 80%; border-radius: 10px; box-shadow: 2px 1px 2px 1px gray;" id="countries">
-                <option value="pakistan">Pakistan</option>
-                <option value="UK">USA</option>
-                <option value="Dubai">Dubai</option>
-                <option value="America">America</option>
-            </select>
-            <br>
-            <br>
-            <label for="">Gender :</label>
-            Male <input type="radio" value="Male" name="gender">
-            Female <input type="radio" value="Female" name="gender">
+            <input style="height: 24px; width: 80%; border-radius: 10px; box-shadow: 2px 1px 2px 1px gray;" type="text" placeholder="Phone">
             <br>
             <br>
             <!-- <label for="">phone-Number :</label> -->
@@ -53,6 +42,7 @@
             <br>
             <br>
             <button class="btn2"> <a href="log-in.html"> Submit</a></button>
+            <a id="b2" href="{{route('login')}}">Login</a>
         </form>
     </fieldset>
 </div>
@@ -65,6 +55,6 @@
         car insurance </P>
     <br>
     <br>
-    <a href="about-us.html">Read more <i class="fas fa-book-open"></i></a>
+    <a href="{{ route('about')}}">Read more <i class="fas fa-book-open"></i></a>
 </div>
 @endsection

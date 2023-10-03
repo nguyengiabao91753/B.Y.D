@@ -4,7 +4,7 @@
 @section('action', 'Create')
 
 @section('content')
-<form method="post" action="{{ route('admin.product.store') }}" enctype="multipart/form-data">
+<form method="post" action="{{ route('admin.product.store') }}" enctype="multipa rt/form-data">
     @csrf
     <!-- Default box -->
     <div class="card">
