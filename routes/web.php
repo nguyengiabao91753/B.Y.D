@@ -13,6 +13,11 @@ use App\Http\Controllers\Admin\UserController;
 
 use App\Http\Controllers\Admin\Vehicle\TypeController;
 use App\Models\Admin\Insurance;
+
+// use App\Http\Controllers\Admin\ContractController;
+// use App\Http\Controllers\Admin\ContactsController;
+// use App\Http\Controllers\Auth\LoginController;
+
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -29,6 +34,10 @@ use Illuminate\Support\Facades\Route;
 Route::get('/admin', function () {
     return view('admin.master');
 });
+
+Route::get('auth/login',[LoginController::class,'showLogin'])->name('showLogin');
+Route::post('auth/login',[LoginController::class,'login'])->name('login');
+
 
 Route::get('/', function () {
     return view('client.page.home');
