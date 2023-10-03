@@ -11,7 +11,7 @@ class UpdateRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,15 +22,12 @@ class UpdateRequest extends FormRequest
     public function rules(): array
     {
         return [
-            $this->id,
+            'enddate' => 'required',
         ];
     }
     public function messages() : array
     {
         return[
-            'id.required' =>'Please enter ID',
-            'customer_id.required' =>'Please enter Customer ID',
-            'insurance_id.required' =>'Please enter Insurance ID',
             'enddate.required' =>'Please enter Enddate',
         ];
     }
