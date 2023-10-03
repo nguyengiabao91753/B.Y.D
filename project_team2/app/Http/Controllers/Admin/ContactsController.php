@@ -81,8 +81,7 @@ class ContactsController extends Controller
         $contact = Contact::find($id);
         if($contact == null){
             abort(404);
-        }
-        $contact = Contact::find($id);
+        };
         $contact->firstname = $request->firstname;
         $contact->lastname = $request->lastname;       
         $contact->email = $request->email;

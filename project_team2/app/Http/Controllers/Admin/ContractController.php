@@ -79,12 +79,15 @@ class ContractController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateRequest $request, int $id)
+    public function update(UpdateRequest $request,int $id)
     {
         $contract = Contract::find($id);
         if($contract == null){
             abort(404);
+
         }
+
+
         $contract->insurance_id=$request->insurance_id;
         $contract->customer_id = $request->customer_id;
         $contract->insurance_id = $request->insurance_id;       

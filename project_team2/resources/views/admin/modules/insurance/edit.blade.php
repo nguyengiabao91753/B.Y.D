@@ -27,9 +27,9 @@
                     <div class="form-group">
                         <label>Provider</label>
                         <select class="form-control" name="provider_id">
-                            <option value="0">----- Root -----</option>
+                            <option value="0" {{old( 'provider_id' ) == 0 ? 'selected' : '' }}>----- Root -----</option>
                             @foreach($providers as $provider)
-                            <option value="{{$provider->id}}">{{$provider->name}}</option>
+                            <option value="{{$provider->id}}" {{old( 'policy_id', $provider->id ) == $provider->id ? 'selected' : '' }}>{{$provider->name}}</option>
                             @endforeach
                         </select>
                     </div>
@@ -38,7 +38,7 @@
                         <select class="form-control" name="policy_id">
                             <option value="0" {{old( 'policy_id' ) == 0 ? 'selected' : '' }}>----- Root -----</option>
                             @foreach($policies as $policy)
-                            <option value="{{$policy->id}}" {{old( 'policy_id' ) == $policy->id ? 'selected' : '' }}>{{$policy->name}}</option>
+                            <option value="{{$policy->id}}" {{old( 'policy_id', $policy->id ) == $policy->id ? 'selected' : '' }}>{{$policy->name}}</option>
                             @endforeach
                         </select>
                     </div>

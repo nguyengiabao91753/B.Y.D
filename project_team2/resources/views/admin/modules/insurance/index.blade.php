@@ -70,7 +70,7 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
+                
                     @foreach($insurances as $insurance)
                 <tr>
                     <td>{{$loop->iteration}}</td>
@@ -86,7 +86,7 @@
                     <td><a onclick="return confirmDelete()" href="{{route('admin.insurance.destroy',['id'=> $insurance->id])}}">Delete</a></td>
                 </tr>
                 @endforeach
-                </tr>
+                
             </tbody>
             <tfoot>
                 <tr>

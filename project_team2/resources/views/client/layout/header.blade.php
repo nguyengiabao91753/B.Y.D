@@ -11,8 +11,8 @@
     @stack('css')
 
     @stack('js')
-    
+
     <link rel="icon" href="{{asset('client/img/icon.html')}}">
-    <title>@yield('content')</title>
+    <title>@yield('title')</title>
     
 </head>

@@ -4,7 +4,7 @@
 @section('action', 'Edit')
 
 @section('content')
-<form method="post" action="{{ route('admin.contract.update', ['id'=>$contract->id]) }}">
+<form method="post" action="{{ route('admin.contract.update', ['id'=>$contract->id])}}">
     @csrf
     <!-- Default box -->
     <div class="card">
@@ -27,7 +27,7 @@
                         <select class="form-control" name="customer_id">
                             <option value="0" {{old( 'custormer_id' ) == 0 ? 'selected' : '' }}>----- Root -----</option>
                             @foreach($customers as $customer)
-                            <option value="{{$customer->id}}" {{old( 'custormer_id' ) == $customer->id ? 'selected' : '' }}>{{$customer-> email}}</option>
+                            <option value="{{$customer->id}}" {{old( 'custormer_id', $customer->id) == $customer->id ? 'selected' : '' }}>{{$customer->email}}</option>
                             @endforeach
                         </select>
                 </div>
@@ -35,10 +35,10 @@
             <div class="form-group">
                 <div class="col-md-6">
                     <label>Insurance ID</label>
-                        <select class="form-control" name="insurance_id">
-                            <option value="0" {{old( 'insurance_id' ) == 0 ? 'selected' : '' }}>----- Root -----</option>
+                        <select class="form-control" name="insurance_id" >
+                            <option value="0" {{old( 'insurance_id') == 0 ? 'selected' : '' }}>----- Root -----</option>
                             @foreach($insurances as $insurance)
-                            <option value="{{$insurance->id}}" {{old( 'insurance_id' ) == $insurance->id ? 'selected' : '' }}>{{$insurance->id}}</option>
+                            <option value="{{$insurance->id}}" {{old( 'insurance_id', $insurance->id ) == $insurance->id ? 'selected' : '' }}>{{$insurance->id}}</option>
                             @endforeach
                         </select>
                 </div>

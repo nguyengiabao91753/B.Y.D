@@ -1,6 +1,6 @@
 <div class="container13">
-        <img src="img/call-center.jpg" alt="#">
-        <img src="img/call-center11.jpg" alt="#" class="imgR">
+        <img src="{{asset('client/img/call-center.jpg')}}" alt="#">
+        <img src="{{asset('client/img/call-center11.jpg')}}" alt="#" class="imgR">
         <div class="item13">
             We are here, all 24 hours of the days
         </div>

@@ -1,15 +1,15 @@
 <header class="header">
         <nav class="nav">
             <div class="logo">
-                <a href="asset('client/index.blade.php"><img src="img/SAFE_CARZ.png" alt=""></a>
+                <a href="asset('client/index.blade.php"><img src="{{asset('client/img/SAFE_CARZ.png')}}" alt=""></a>
             </div>
             <div class="container">
                 <ul class="item">
-                    <li class="item"><a href="asset('client/index.blade.php')">Home</a></li>
-                    <li class="item"><a href="asset('client/car-insurance-types.blade.php')">Car Insurance</a></li>
+                    <li class="item"><a href="{{ route('home')}}">Home</a></li>
+                    <li class="item"><a href="">Car Insurance</a></li>
                     <li class="item"><a href="asset('client/bike-insurance-types.blade.php')">Bike Insurance</a></li>
-                    <li class="item"><a href="asset('client/about-us.blade.php')">About Us</a></li>
-                    <li class="item"><a href="asset('client/contact-us.blade.php')">Contact Us</a></li>
+                    <li class="item"><a href="{{ route('about')}}">About Us</a></li>
+                    <li class="item"><a href="{{ route('contact')}}">Contact Us</a></li>
                 </ul>
             </div>
             <div class="icon">     
