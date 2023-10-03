@@ -22,7 +22,7 @@ use App\Models\Admin\Insurance;
 use App\Http\Controllers\Admin\ContractController;
 use App\Http\Controllers\Admin\ContactsController;
 use App\Http\Controllers\Auth\LoginController;
-
+use App\Http\Controllers\Auth\LogoutController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -42,6 +42,7 @@ Route::get('/admin', function () {
 
 Route::get('auth/login',[LoginController::class,'showLogin'])->name('showLogin');
 Route::post('auth/login',[LoginController::class,'login'])->name('login');
+Route::get('auth/logout',LogoutController::class)->name('logout');
 
 
 Route::get('/', function () {
@@ -69,7 +70,7 @@ Route::get('/login', function () {
     return view('client.page.login');
 })->name('login');
 
-Route::prefix('admin')->name('admin.')->group(function () {
+Route::prefix('admin')->name('admin.')->middleware('check_login')->group(function () {
     Route::prefix('category')->name('category.')->controller(CategoryController::class)->group(function () {
         Route::get('index', 'index')->name('index');
 

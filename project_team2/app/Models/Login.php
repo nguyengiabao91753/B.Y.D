@@ -5,19 +5,20 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Contact extends Model
+class Login extends Model
 {
     use HasFactory;
-        /**
-     * The table asociated with the model .
+    /**
+     * The table associated with the model.
      *
      * @var string
      */
-    protected $table = 'contacts';
+    protected $table = 'customers';
+
     /**
-     * The attributes that aren't mass asignable .
+     * The attributes that aren't mass assignable.
+     *
      * @var array
      */
     protected $guarded = [];
 }
-

@@ -14,6 +14,7 @@
             </div>
             <div class="info">
                 <a href="#" class="d-block">Alexander Pierce</a>
+                <a href="{{ route('logout') }}" class="d-block">Logout</a>
             </div>
         </div>
 
@@ -175,6 +176,7 @@
                         </li>
                     </ul>
                 </li>
+
                 <li class="nav-item">
                     <a href="#" class="nav-link">
                         <i class="nav-icon fas fa-users"></i>
@@ -198,6 +200,7 @@
                         </li>
                     </ul>
                 </li>
+
                 <li class="nav-item">
                     <a href="#" class="nav-link">
                         <i class="nav-icon fas fa-users"></i>
