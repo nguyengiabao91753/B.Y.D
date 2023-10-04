@@ -12,9 +12,9 @@ class LoginController extends Controller
 {
     //
     public function showLogin() {
-        if(Auth::check()){
-            return redirect()->back();
-        }
+        // if(Auth::check()){
+        //     return redirect()->back();
+        // }
         return view('auth.login');
     }
 
@@ -25,7 +25,7 @@ class LoginController extends Controller
             'level'=>[1,2]
         ];
 
-        if (Auth::attempt($credentials)){
+        if (Auth::guard('web')->attempt($credentials)){
             return redirect()->route('admin.category.index');
         }
 
