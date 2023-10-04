@@ -16,7 +16,6 @@ class Customer extends Authenticatable
      * @var array
      */
     protected $guarded = [];
-    protected $guard ='webadmin';
 
     /**
      * The attributes that should be hidden for serialization.

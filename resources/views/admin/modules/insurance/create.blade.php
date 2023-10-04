@@ -4,6 +4,80 @@
 @section('action', 'Create')
 
 @section('content')
+
+<script>
+    $(document).ready(function () {
+  const categorySelect = $("#category");
+  const brandSelect = $("#brand");
+  const modelSelect = $("#model");
+
+  // Lắng nghe sự kiện khi Category thay đổi
+  categorySelect.change(function () {
+    const selectedCategory = categorySelect.val();
+
+    // Gửi Ajax request để lấy danh sách Brand dựa trên lựa chọn Category
+    $.ajax({
+      url: "/get-brands", // Thay đổi URL này để phù hợp với đường dẫn của bạn
+      method: "GET",
+      data: { category_id: selectedCategory },
+      success: function (data) {
+        // Xóa các option hiện tại trong khung select Brand và Model
+        brandSelect.empty();
+        modelSelect.empty();
+
+        // Thêm các option Brand từ dữ liệu Ajax response
+        brandSelect.append($('<option>', {
+          value: '',
+          text: '----- Select a Brand -----',
+        }));
+
+        $.each(data.brands, function (key, value) {
+          brandSelect.append($('<option>', {
+            value: key,
+            text: value,
+          }));
+        });
+      },
+      error: function () {
+        // Xử lý lỗi nếu cần
+      },
+    });
+  });
+
+  // Lắng nghe sự kiện khi Brand thay đổi
+  brandSelect.change(function () {
+    const selectedBrand = brandSelect.val();
+
+    // Gửi Ajax request để lấy danh sách Model dựa trên lựa chọn Brand
+    $.ajax({
+      url: "/get-models", // Thay đổi URL này để phù hợp với đường dẫn của bạn
+      method: "GET",
+      data: { brand_id: selectedBrand },
+      success: function (data) {
+        // Xóa các option hiện tại trong khung select Model
+        modelSelect.empty();
+
+        // Thêm các option Model từ dữ liệu Ajax response
+        modelSelect.append($('<option>', {
+          value: '',
+          text: '----- Select a Model -----',
+        }));
+
+        $.each(data.models, function (key, value) {
+          modelSelect.append($('<option>', {
+            value: key,
+            text: value,
+          }));
+        });
+      },
+      error: function () {
+        // Xử lý lỗi nếu cần
+      },
+    });
+  });
+});
+
+</script>
 <form method="post" action="{{ route('admin.insurance.store') }}">
     @csrf
     <!-- Default box -->
@@ -59,49 +133,14 @@
                         <label>Brand</label>
                         <select class="form-control" name="brand">
                             <option value="0" {{old( 'brand' ) == 0 ? 'selected' : '' }}>----- Root -----</option>
-                            <?php
-                            foreach ($categories as $key1=> $level1) {
-                                if ($level1->parent_id == 0) {
-                                    unset($categories[$key1]);
-                                    foreach ($categories as $key2=> $level2) {
-                                        if ($level2->parent_id == $level1->id) {
-                                            unset($categories[$key2]);
-                                            foreach ($categories as $key3=> $level3) {
-                                                if ($level3->parent_id == $level2->id) {
-                                                
-                                                echo '<option value="' . $level3->name . '">' . $level3->name . '</option>';
-                                                unset($categories[$key3]);
-                                                }
-                                            }
-                                        }
-                                    }
-                                }
-                            }
-                            ?>
+                            
                         </select>
                     </div>
                     <div class="form-group">
                         <label>Model</label>
                         <select class="form-control" name="model">
                             <option value="0" {{old( 'model' ) == 0 ? 'selected' : '' }}>----- Root -----</option>
-                            <?php
-                            foreach ($categories as $keya=> $levela) {
-                                if ($levela->parent_id == 0) {
-                                    unset($categories[$keya]);
-                                    foreach ($categories as $keyb=> $levelb) {
-                                        if ($levelb->parent_id == $levela->id) {
-                                            unset($categories[$keyb]);
-                                            foreach ($categories as $keyc=> $levelc) {
-                                                if ($levelc->parent_id == $levelb->id) {
-                                                echo '<option value="' . $levelc->id . '">' . $levelc->name . '</option>';
-                                                unset($categories[$keyc]);
-                                                }
-                                            }
-                                        }
-                                    }
-                                }
-                            }
-                            ?>
+                            
                         </select>
                     </div>
                     
@@ -109,25 +148,7 @@
                         <label>Current Value(Pkr)</label>
                         <select class="form-control" name="pkr">
                             <option value="0" {{old( 'pkr' ) == 0 ? 'selected' : '' }}>----- Root -----</option>
-                           <?php
-                            foreach ($categories as $key1=> $level1) {
-                                if ($level1->parent_id == 0) {
-                                    unset($categories[$key1]);
-                                    foreach ($categories as $key2=> $level2) {
-                                        if ($level2->parent_id == $level1->id) {
-                                            unset($categories[$key2]);
-                                            foreach ($categories as $key3=> $level3) {
-                                                if ($level3->parent_id == $level2->id) {
-                                                
-                                                echo '<option value="' . $level3->id . '">' . $level3->name . '</option>';
-                                                unset($categories[$key3]);
-                                                }
-                                            }
-                                        }
-                                    }
-                                }
-                            }
-                            ?>
+                           
                         </select>
                     </div>
 
@@ -152,4 +173,5 @@
     </div>
     <!-- /.card -->
 </form>
+
 @endsection

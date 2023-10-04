@@ -18,6 +18,7 @@ use App\Models\Admin\Insurance;
 // use App\Http\Controllers\Admin\ContactsController;
 // use App\Http\Controllers\Auth\LoginController;
 
+
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\LogoutController;
 use Illuminate\Support\Facades\Route;
