@@ -67,4 +67,3 @@ class Kernel extends HttpKernel
         'check_login'=>\App\Http\Middleware\CheckLogin::class,
     ];
 }
-    

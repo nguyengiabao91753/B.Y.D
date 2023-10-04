@@ -84,7 +84,10 @@ class ContractController extends Controller
         $contract = Contract::find($id);
         if($contract == null){
             abort(404);
-        };
+
+        }
+
+
         $contract->insurance_id=$request->insurance_id;
         $contract->customer_id = $request->customer_id;
         $contract->insurance_id = $request->insurance_id;       

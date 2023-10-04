@@ -22,6 +22,8 @@ class StoreRequest extends FormRequest
     public function rules(): array
     {
         return [
+            //
+            // 'id' => 'required|unique:contracts,id',
             'enddate' => 'required',
         ];
     }
@@ -29,8 +31,6 @@ class StoreRequest extends FormRequest
     {
         return[
             // 'id.required' =>'Please enter ID',
-            'customer_id.required' =>'Please enter Customer ID',
-            'insurance_id.required' =>'Please enter Insurance ID',
             'enddate.required' =>'Please enter Enddate',
         ];
     }

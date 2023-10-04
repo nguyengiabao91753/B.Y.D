@@ -45,6 +45,7 @@ class InvoiceController extends Controller
         $invoice = new Invoice();
         $invoice->contract_id= $request->contract_id;
         $invoice ->duedate = $request->duedate;
+        $invoice->contract_id = $request->contract_id;
 
         $invoice->save();
         return redirect()->route('admin.invoice.index')->with('success','Create Successfully!');
@@ -64,7 +65,7 @@ class InvoiceController extends Controller
     public function edit(int $id)
     {
         //
-        $contracts = Contract::get();
+        $contracts = contract::get();
 
         $invoice = Invoice::find($id);
         if($invoice == null){

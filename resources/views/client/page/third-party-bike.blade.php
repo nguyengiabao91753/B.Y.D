@@ -88,7 +88,7 @@
                 <option value="500k-1M">100k-300k</option>
                 <option value="1M-20M">300k-800k</option>
                 <option value="20M-40M">800k-1M</option>
-                <option value="40M-Above">1M-Above</option>
+                <option value="40M-Above">1M-AboveEEEEE</option>
             </select>
         </div>
         <!-- ======================================================NEXT BUTTON WITH STYLING ========================================-->

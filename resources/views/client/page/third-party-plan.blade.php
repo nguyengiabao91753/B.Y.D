@@ -55,7 +55,7 @@
                 <p>296 Workshops</p>
             </div>
             <div class="item5">
-                <h2>32% OFF</h2>
+                <h2>32% OFFFFFF</h2>
             </div>
         </div>
     </div>

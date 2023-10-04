@@ -23,7 +23,7 @@ class UpdateRequest extends FormRequest
     {
         return [
             //
-            'duedate'=>'required,' .$this->id
+            'duedate'=>'required' 
         ];
     }
 

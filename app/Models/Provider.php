@@ -8,7 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class Provider extends Model
 {
     use HasFactory;
-    /** 
+     /**
+
      * The table associated with the model.
      *
      * @var string
@@ -21,5 +22,4 @@ class Provider extends Model
      * @var array
      */
     protected $guarded = [];
-
 }

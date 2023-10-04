@@ -84,7 +84,7 @@
             <div class="item4">
                 <p>1.7% <del>2.5%</del></p>
                 <p>Rs. 17160 / month</p>
-                <p>500 Workshops</p>
+                <p>500 Workshopsssss</p>
             </div>
             <div class="item5">
                 <h2>10% OFF</h2>
