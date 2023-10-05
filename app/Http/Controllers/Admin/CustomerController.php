@@ -7,6 +7,7 @@ use App\Http\Requests\Admin\Customer\StoreRequest;
 use App\Http\Requests\Admin\Customer\UpdateRequest;
 use App\Models\Customer;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class CustomerController extends Controller
 {
@@ -64,9 +65,22 @@ class CustomerController extends Controller
     {
         //
         $customer= Customer::findOrFail($id);
+
+        $edit_myself = null;
+        if(Auth::user()->id == $id){
+            $edit_myself = true;
+        } else {
+            $edit_myself = false;
+        }
+        
+        if(Auth::user()->id != 1 && ($id == 1 || ( $customer["level"] == 1 && $edit_myself ==  false))){
+            return redirect()->route('admin.customer.index')->with('error','You do not have permission to edit this user.');
+        }
+
         return view('admin.modules.customer.edit',[
-            'id'=>$id,
-            'customer'=>$customer
+            'id'=> $id,
+            'customer'=> $customer,
+            'myself'=> $edit_myself
         ]);
     }
 
@@ -107,6 +121,10 @@ class CustomerController extends Controller
         //
 
         $customer = Customer::findOrFail($id);
+
+        if( $id ==1 || (Auth::user()->id != 1 && $customer["level"] == 1)){
+            return redirect()->route('admin.customer.index')->with('error','You don not have permission to delete this user.');
+        }
         $customer->level = 3 ;
         $customer->save();
 
