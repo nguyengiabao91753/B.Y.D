@@ -1,5 +1,6 @@
 @extends('client.app')
 @section('title','Contact Us')
+@section('action', 'contact')
 
 @push('css')
 <link rel="stylesheet" href="{{asset('client/css/contact-us.css')}}">
@@ -32,27 +33,34 @@
         <div class="w-100">
             <div class="form">
                 <h5>Get in touch with us</h5>
-                <div class="flex">
-                    <input placeholder="Name" autofocus />
-                    <input placeholder="E-mail" autofocus />
-                </div>
-                <div class="flex">
-                    <input placeholder="Phone number" />
-                    <input placeholder="Subject" />
-                </div>
-                <textarea rows="10">
+                <form method="post" action="{{ route('admin.contact.store') }}">
+                    @csrf
+                    <!-- Default box -->
+                    <div class="flex">
+                        <input type="text" class="form-control" placeholder="Enter first Name" name="firstname" value="{{ old('firstname')}}" autofocus />
+                        <input type="text" class="form-control" placeholder="Last Name" name="lastname" value="{{ old('lastname')}}" autofocus />
+                    </div>
+                    <div class="flex">
+                        <input type="text" class="form-control" placeholder="Enter Email" name="email" autofocus />
+                        <input type="text" class="form-control" placeholder="Enter Phone" name="phone" autofocus />
+                    </div>
+                    <div>
+                        <label>Description</label>
+                        <textarea rows="10" type="text" class="form-control" placeholder="Enter Description" name="description">
 
-                </textarea>
-                <div class="btn">
-                    <a href="#">Send</a>
-                </div>
+                    </textarea>
+                    </div>
 
+                    <div class="btn">
+                        <a href="#" type="submit">Send</a>
+                    </div>
+                    <!-- /.card -->
+                </form>
             </div>
         </div>
-        
+
         <div class="w-100">
             <div class="form">
-
 
                 <div class="pre1">
                     <i class="fas fa-clock"></i>Business hours <br>

@@ -47,13 +47,13 @@
                 <div class="col-md-12">
                     <div class="form-group">
                         <label>Phone</label>
-                        <input type="text" class="form-control" placeholder="Enter Email" name="phone">
+                        <input type="text" class="form-control" placeholder="Enter Phone" name="phone">
                     </div>
                 </div>
                 <div class="col-md-12">
                     <div class="form-group">
                         <label>Description</label>
-                        <input type="text" class="form-control" placeholder="Enter Email" name="description">
+                        <input type="text" class="form-control" placeholder="Enter Description" name="description">
                     </div>
                 </div>
                 <div class="card-footer">

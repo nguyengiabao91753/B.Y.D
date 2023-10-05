@@ -53,9 +53,10 @@ Route::get('/about_us', function () {
     return view('client.page.about');
 })->name('about');
 
-Route::get('/contact_us', function () {
-    return view('client.page.contact');
-})->name('contact');
+// Route::get(('/contact_us'), function () {
+//     return view('client.page.contact');
+// })->name('contact');
+Route::resource('contact_us',ContactsController::class );
 
 Route::get('/all_vehicle_insurance', function () {
     return view('client.page.all_vehicle');

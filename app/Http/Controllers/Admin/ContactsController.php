@@ -48,7 +48,7 @@ class ContactsController extends Controller
         $contact->phone = $request->phone;
         $contact->description = $request->description;
         $contact->save();
-        return redirect()->route('admin.contact.index')->with('success','Create Contact successfully.');
+        return redirect()->route('client.page.contact')->with('success','Create Contact successfully.');
     }
 
     /**

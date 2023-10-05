@@ -23,11 +23,11 @@ class Storerequest extends FormRequest
     {
         return [
             //
-            'firstname' => 'required|unique:contacts,firstname',
-            'lastname' => 'required|unique:contacts,lastname',
-            'email' => 'required|unique:contacts,email',
-            'phone' => 'required|unique:contacts,phone',
-            'description' => 'required|unique:contacts,description',
+            // 'firstname' => 'required|unique:contacts,firstname',
+            // 'lastname' => 'required|unique:contacts,lastname',
+            // 'email' => 'required|unique:contacts,email',
+            // 'phone' => 'required|unique:contacts,phone',
+            // '   ' => 'required|unique:contacts,description',
         ];
     }
     public function messages() : array
