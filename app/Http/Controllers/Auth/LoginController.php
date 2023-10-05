@@ -22,7 +22,6 @@ class LoginController extends Controller
         $credentials=[
             'email'=>$request->email,
             'password'=>$request->password,
-            'level'=>[1,2]
         ];
 
         if (Auth::guard('web')->attempt($credentials)){

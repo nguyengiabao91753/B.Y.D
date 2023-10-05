@@ -13,7 +13,7 @@
                 <img src="{{ asset('administrator/dist/img/user2-160x160.jpg') }}" class="img-circle elevation-2" alt="User Image">
             </div>
             <div class="info">
-                <a href="#" class="d-block">Alexander Pierce</a>
+                <a href="#" class="d-block">{{ Auth::user()->firstname.''.Auth::user()->lastname }}</a>
                 <a href="{{ route('logout') }}" class="d-block">Logout</a>
             </div>
         </div>
@@ -177,7 +177,7 @@
                     </ul>
                 </li>
 
-                @if( Auth::guard('web')->user()->level == 2 )
+
                 <li class="nav-item">
                     <a href="#" class="nav-link">
                         <i class="nav-icon fas fa-users"></i>
@@ -201,7 +201,7 @@
                         </li>
                     </ul>
                 </li>
-                @endif
+
 
                 <li class="nav-item">
                     <a href="#" class="nav-link">

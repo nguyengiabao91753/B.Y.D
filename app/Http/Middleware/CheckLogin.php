@@ -16,7 +16,7 @@ class CheckLogin
      */
     public function handle(Request $request, Closure $next): Response
     {   
-            if(Auth::guard('web')->check()) {
+            if(Auth::guard('web')->check() && Auth::user()->level == 1 ) {
                 // if(Auth::user()->level ==1){
                 //     return redirect()->route('admin.category.index');
                 // }else{
@@ -25,6 +25,6 @@ class CheckLogin
 
                 return $next($request);
         }
-        return redirect()->route('home');
+        return redirect()->route('showLogin');
     }
 }

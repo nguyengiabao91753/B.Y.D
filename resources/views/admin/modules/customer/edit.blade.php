@@ -50,7 +50,7 @@
 
             <div class="form-group">
                 <label>Level</label>
-                    <select class="form-control" name="level">
+                    <select class="form-control" name="level" {{ $myself ? 'disabled' : '' }} >
                         <option value="1" {{old('level',$customer->level)==1 ? 'selected': ''}}>Admin</option>
                         <option value="2" {{old('level',$customer->level)==2 ? 'selected' : ''}}>Member</option>
                     </select>
@@ -58,7 +58,7 @@
 
             <div class="form-group">
                 <label>Email</label>
-                <input type="text" class="form-control" placeholder="Enter email" name="email" value="{{ old('email',$customer->email)}}">
+                <input type="text" class="form-control" placeholder="Enter email" name="email" value="{{ old('email',$customer->email)}}" disabled>
             </div>
 
             <div class="form-group">

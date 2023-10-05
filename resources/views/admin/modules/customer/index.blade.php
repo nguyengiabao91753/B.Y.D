@@ -76,8 +76,10 @@
                         <td>{{$customer->email}}</td>
                         <td>{{$customer->phone}}</td>
                         <td>
-                            @if($customer->level ==1)
-                                <span class="right badge badge-success">Admin</span>
+                            @if($customer->level ==1 && $customer->id ==1)
+                                <span class="right badge badge-success">SuperAdmin</span>
+                            @elseif($customer->level ==1)
+                                <span class="right badge badge-info">Admin</span>
                             @else
                                 <span class="right badge badge-dark">Member</span>
                             @endif
