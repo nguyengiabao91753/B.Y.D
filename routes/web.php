@@ -111,82 +111,6 @@ Route::prefix('admin')->name('admin.')->middleware('check_login')->group(functio
         Route::get('destroy/{id}', 'destroy')->name('destroy');
     });
 
-
-    Route::prefix('vehicle')->name('vehicle.')->group(function () {
-        Route::prefix('cartype')->name('cartype.')->controller(CarTypeController::class)->group(function() {
-            //Car
-            Route::get('index', 'index')->name('index');
-            Route::get('create', 'create')->name('create');
-            Route::post('store', 'store')->name('store');
-            Route::get('edit/{id}', 'edit')->name('edit');
-            Route::post('update/{id}', 'update')->name('update');
-            Route::get('destroy/{id}', 'destroy')->name('destroy');
-        });
-            
-        Route::prefix('biketype')->name('biketype.')->controller(BikeTypeController::class)->group(function (){
-            Route::get('index', 'index')->name('index');
-            Route::get('create', 'create')->name('create');
-            Route::post('store', 'store')->name('store');
-            Route::get('edit/{id}', 'edit')->name('edit');
-            Route::post('update/{id}', 'update')->name('update');
-            Route::get('destroy/{id}', 'destroy')->name('destroy');
-        });
-       
-        Route::prefix('carmodel')->name('carmodel.')->controller(CarModelController::class)->group(function() {
-            //Car
-            Route::get('index', 'index')->name('index');
-            Route::get('create', 'create')->name('create');
-            Route::post('store', 'store')->name('store');
-            Route::get('edit/{id}', 'edit')->name('edit');
-            Route::post('update/{id}', 'update')->name('update');
-            Route::get('destroy/{id}', 'destroy')->name('destroy');
-        });
-        Route::prefix('bikemodel')->name('bikemodel.')->controller(BikeModelController::class)->group(function() {
-            //Car
-            Route::get('index', 'index')->name('index');
-            Route::get('create', 'create')->name('create');
-            Route::post('store', 'store')->name('store');
-            Route::get('edit/{id}', 'edit')->name('edit');
-            Route::post('update/{id}', 'update')->name('update');
-            Route::get('destroy/{id}', 'destroy')->name('destroy');
-        });
-        Route::prefix('carmanu')->name('carmanu.')->controller(CarManuController::class)->group(function() {
-            //Car
-            Route::get('index', 'index')->name('index');
-            Route::get('create', 'create')->name('create');
-            Route::post('store', 'store')->name('store');
-            Route::get('edit/{id}', 'edit')->name('edit');
-            Route::post('update/{id}', 'update')->name('update');
-            Route::get('destroy/{id}', 'destroy')->name('destroy');
-        });
-        Route::prefix('bikemanu')->name('bikemanu.')->controller(BikeManuController::class)->group(function() {
-            //Car
-            Route::get('index', 'index')->name('index');
-            Route::get('create', 'create')->name('create');
-            Route::post('store', 'store')->name('store');
-            Route::get('edit/{id}', 'edit')->name('edit');
-            Route::post('update/{id}', 'update')->name('update');
-            Route::get('destroy/{id}', 'destroy')->name('destroy');
-        });
-        Route::prefix('carpkr')->name('carpkr.')->controller(CarPkrController::class)->group(function() {
-           
-            Route::get('index', 'index')->name('index');
-            Route::get('create', 'create')->name('create');
-            Route::post('store', 'store')->name('store');
-            Route::get('edit/{id}', 'edit')->name('edit');
-            Route::post('update/{id}', 'update')->name('update');
-            Route::get('destroy/{id}', 'destroy')->name('destroy');
-        });
-        Route::prefix('bikepkr')->name('bikepkr.')->controller(BikePkrController::class)->group(function() {
-           
-            Route::get('index', 'index')->name('index');
-            Route::get('create', 'create')->name('create');
-            Route::post('store', 'store')->name('store');
-            Route::get('edit/{id}', 'edit')->name('edit');
-            Route::post('update/{id}', 'update')->name('update');
-            Route::get('destroy/{id}', 'destroy')->name('destroy');
-        });
-    });
         //Insurance
     Route::prefix('insurance')->name('insurance.')->controller(InsuranceCotroller::class)->group(function () {
         Route::get('index', 'index')->name('index');
@@ -195,22 +119,15 @@ Route::prefix('admin')->name('admin.')->middleware('check_login')->group(functio
         Route::get('edit/{id}', 'edit')->name('edit');
         Route::post('update/{id}', 'update')->name('update');
         Route::get('destroy/{id}', 'destroy')->name('destroy');
+
+        Route::get('/getBrand/{id}', 'getBrand');
+
+        Route::get('/getModel/{id}', 'getModel');
+
+        Route::get('/getValue/{id}', 'getValue');
     });
 
-
-   
-        //Insurance
-    Route::prefix('insurance')->name('insurance.')->controller(InsuranceCotroller::class)->group(function () {
-        Route::get('index', 'index')->name('index');
-
-        Route::get('create', 'create')->name('create');
-        Route::post('store', 'store')->name('store');
-
-        Route::get('edit/{id}', 'edit')->name('edit');
-        Route::post('update/{id}', 'update')->name('update');
-
-        Route::get('destroy/{id}', 'destroy')->name('destroy');
-    });
+    Route::get('/getBrand/{id}', [InsuranceCotroller::class,'getBrand']);
 
 
     Route::prefix('customer')->name('customer.')->controller(CustomerController::class)->group(function () {
