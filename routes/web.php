@@ -23,6 +23,7 @@ use App\Http\Controllers\Admin\ContractController;
 use App\Http\Controllers\Admin\ContactsController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\LogoutController;
+use App\Http\Controllers\Page\Contact_usController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -53,10 +54,10 @@ Route::get('/about_us', function () {
     return view('client.page.about');
 })->name('about');
 
-// Route::get(('/contact_us'), function () {
-//     return view('client.page.contact');
-// })->name('contact');
-Route::resource('contact_us',ContactsController::class );
+Route::get(('/contact_us'), function () {
+    return view('client.page.contact');
+})->name('contact');
+// Route::resource('/contact_us',Contact_usController::class);
 
 Route::get('/all_vehicle_insurance', function () {
     return view('client.page.all_vehicle');
