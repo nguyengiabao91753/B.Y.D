@@ -13,17 +13,17 @@ use Illuminate\Http\Request;
 
 class InsuranceCotroller extends Controller
 {
-        /**
+    /**
      * Display a listing of the resource.
      */
     public function index()
     {
         // $insurances = Insurance::orderBy('created_at','DESC')->get();
-        $insurances= Insurance::with('category','policy','provider')->get();
+        $insurances = Insurance::with('category', 'policy', 'provider')->get();
 
-        
-        return view('admin.modules.insurance.index',[
-            'insurances'=>$insurances
+
+        return view('admin.modules.insurance.index', [
+            'insurances' => $insurances
         ]);
     }
 
@@ -31,14 +31,14 @@ class InsuranceCotroller extends Controller
      * Show the form for creating a new resource.
      */
     public function create()
-    {   
-        $providers= Provider::all();
-        $policies= Policy::all();
+    {
+        $providers = Provider::all();
+        $policies = Policy::all();
         $categories = Category::all();
-        return view('admin.modules.insurance.create',[
-            'providers'=>$providers,
-            'policies' =>$policies,
-            'categories'=>$categories
+        return view('admin.modules.insurance.create', [
+            'providers' => $providers,
+            'policies' => $policies,
+            'categories' => $categories
         ]);
     }
 
@@ -48,18 +48,67 @@ class InsuranceCotroller extends Controller
     public function store(StoreRequest $request)
     {
         $insurance = new Insurance();
-        $insurance->provider_id=$request->provider_id;
-        $insurance->policy_id=$request->policy_id;
-        $insurance->category_id=$request->category_id;
-        $insurance->brand=$request->brand;
-        $insurance->model=$request->model;
-        $insurance->pkr=$request->pkr;
-        $insurance->price=$request->price;
-        $insurance->rate=$request->rate;
+        $insurance->provider_id = $request->provider_id;
+        $insurance->policy_id = $request->policy_id;
+        $insurance->category_id = $request->category_id;
+        $insurance->brand = $request->brand;
+        $insurance->model = $request->model;
+        $insurance->pkr = $request->pkr;
+        $insurance->price = $request->price;
+        $insurance->rate = $request->rate;
 
         $insurance->save();
-        return redirect()->route('admin.insurance.index')->with('success','Create Successfully!');
+        return redirect()->route('admin.insurance.index')->with('success', 'Create Successfully!');
     }
+
+
+
+
+    public function getBrand($categoryId=0)
+    {
+        $brands = Category::select('id', 'name')->where('parent_id', $categoryId)
+            ->where(function ($query) {
+                $query->where('name', 'like', '%brand%');
+            })
+            ->get();
+
+        $brandIds = $brands->pluck('id');
+
+        $brand['data'] = Category::select('id','name')->where('parent_id', $brandIds)->get();
+
+        return response()->json($brand);
+    }
+
+    public function getModel($categoryId=0)
+    {
+        $models = Category::select('id', 'name')->where('parent_id', $categoryId)
+            ->where(function ($query) {
+                $query->where('name', 'like', '%model%');
+            })
+            ->get();
+
+        $modelIds = $models->pluck('id');
+
+        $model['data'] = Category::select('id','name')->where('parent_id', $modelIds)->get();
+
+        return response()->json($model);
+    }
+
+    public function getValue($categoryId=0)
+    {
+        $values = Category::select('id', 'name')->where('parent_id', $categoryId)
+            ->where(function ($query) {
+                $query->where('name', 'like', '%Value%');
+            })
+            ->get();
+
+        $valueIds = $values->pluck('id');
+
+        $value['data'] = Category::select('id','name')->where('parent_id', $valueIds)->get();
+
+        return response()->json($value);
+    }
+
 
     /**
      * Display the specified resource.
@@ -74,15 +123,15 @@ class InsuranceCotroller extends Controller
      */
     public function edit(int $id)
     {
-        $insurance= Insurance::find($id);
-        $providers= Provider::all();
-        $policies= Policy::all();
+        $insurance = Insurance::find($id);
+        $providers = Provider::all();
+        $policies = Policy::all();
         $categories = Category::all();
-        return view('admin.modules.insurance.edit',[
-            'providers'=>$providers,
-            'policies' =>$policies,
-            'categories'=>$categories,
-            'insurance'=>$insurance
+        return view('admin.modules.insurance.edit', [
+            'providers' => $providers,
+            'policies' => $policies,
+            'categories' => $categories,
+            'insurance' => $insurance
         ]);
     }
 
@@ -92,21 +141,20 @@ class InsuranceCotroller extends Controller
     public function update(UpdateRequest $request,  $id)
     {
         $insurance = Insurance::find($id);
-        if($insurance == null){
+        if ($insurance == null) {
             abort(404);
         }
-        $insurance->provider_id=$request->provider_id;
-        $insurance->policy_id=$request->policy_id;
-        $insurance->category_id=$request->category_id;
-        $insurance->brand=$request->brand;
-        $insurance->model=$request->model;
-        $insurance->pkr=$request->pkr;
-        $insurance->price=$request->price;
-        $insurance->rate=$request->rate;
+        $insurance->provider_id = $request->provider_id;
+        $insurance->policy_id = $request->policy_id;
+        $insurance->category_id = $request->category_id;
+        $insurance->brand = $request->brand;
+        $insurance->model = $request->model;
+        $insurance->pkr = $request->pkr;
+        $insurance->price = $request->price;
+        $insurance->rate = $request->rate;
 
         $insurance->save();
-        return redirect()->route('admin.insurance.index')->with('success','Update Successfully!');
-
+        return redirect()->route('admin.insurance.index')->with('success', 'Update Successfully!');
     }
 
     /**
@@ -115,12 +163,12 @@ class InsuranceCotroller extends Controller
     public function destroy(int $id)
     {
         $insurance = Insurance::find($id);
-        if($insurance == null){
+        if ($insurance == null) {
             abort(404);
         }
 
         $insurance->delete();
 
-        return redirect()->route('admin.insurance.index')->with('success','Delete Successfully!');
+        return redirect()->route('admin.insurance.index')->with('success', 'Delete Successfully!');
     }
 }
