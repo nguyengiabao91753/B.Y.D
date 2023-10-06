@@ -37,7 +37,6 @@ class PolicyController extends Controller
         $policy = new Policy();
         $policy ->name = $request->name;
         $policy->description = $request->description;
-        $policy->price = $request->price;
 
         $policy->save();
         return redirect()->route('admin.policy.index')->with('success','Create Successfully!');
@@ -74,7 +73,6 @@ class PolicyController extends Controller
         }
         $policy ->name = $request->name;
         $policy->description = $request->description;
-        $policy->price = $request->price;
 
         $policy->save();
         return redirect()->route('admin.policy.index')->with('success','Update Successfully!');
@@ -87,12 +85,30 @@ class PolicyController extends Controller
     public function destroy(int $id)
     {
         $policy = Policy::find($id);
-        if($policy == null){
-            abort(404);
-        }
+        // if($policy == null){
+        //     abort(404);
+        // }
 
-        $policy->delete();
+        // $policy->delete();
+
+        $policy->status = 2;
+        $policy->save();
 
         return redirect()->route('admin.policy.index')->with('success','Delete Successfully!');
+    }
+
+    public function restore(int $id)
+    {
+        $policy = Policy::find($id);
+        // if($policy == null){
+        //     abort(404);
+        // }
+
+        // $policy->delete();
+
+        $policy->status = 1;
+        $policy->save();
+
+        return redirect()->route('admin.policy.index')->with('success','Restore Successfully!');
     }
 }

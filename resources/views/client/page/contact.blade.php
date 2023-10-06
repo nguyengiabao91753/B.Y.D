@@ -45,13 +45,11 @@
                     </div>
                     <div>
                         <label>Description</label>
-                        <textarea rows="10" type="text" class="form-control" placeholder="Enter Description" name="description">
-
-                    </textarea>
+                        <textarea rows="10" type="text" class="form-control" placeholder="Enter Description" name="description"></textarea>
                     </div>
 
                     <div class="btn">
-                        <a href="#" type="submit">Send</a>
+                        <button type="submit">Send Enquiry</button>
                     </div>
                     <!-- /.card -->
                 </form>
