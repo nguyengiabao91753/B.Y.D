@@ -24,7 +24,7 @@
 <script src="{{ asset('administrator/plugins/datatables-buttons/js/buttons.colVis.min.js') }}"></script>
 @endpush
 
-@push('hanldejs')
+@push('handlejs')
 <script>
     $(function () {
       $("#example1").DataTable({

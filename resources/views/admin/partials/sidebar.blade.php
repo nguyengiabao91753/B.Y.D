@@ -13,7 +13,7 @@
                 <img src="{{ asset('administrator/dist/img/user2-160x160.jpg') }}" class="img-circle elevation-2" alt="User Image">
             </div>
             <div class="info">
-                <a href="#" class="d-block">{{ Auth::user()->firstname.''.Auth::user()->lastname }}</a>
+                <a href="#" class="d-block">{{ Auth::user()->firstname.' '.Auth::user()->lastname }}</a>
                 <a href="{{ route('logout') }}" class="d-block">Logout</a>
             </div>
         </div>
