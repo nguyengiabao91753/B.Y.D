@@ -41,7 +41,7 @@ class ContactsController extends Controller
         //
         $contact = new Contact();
 
-        $contact->id = $request->id;
+        // $contact->id = $request->id;
         $contact->firstname = $request->firstname;
         $contact->lastname = $request->lastname;       
         $contact->email = $request->email;

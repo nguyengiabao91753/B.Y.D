@@ -22,12 +22,12 @@ class Storerequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
-            'firstname' => 'required|unique:contacts,firstname',
-            'lastname' => 'required|unique:contacts,lastname',
-            'email' => 'required|unique:contacts,email',
-            'phone' => 'required|unique:contacts,phone',
-            'description' => 'required|unique:contacts,description',
+            
+            'firstname' => 'required',
+            'lastname' => 'required',
+            'email' => 'required|email:contacts,email',
+            'phone' => 'required',
+            'description' =>'required',
         ];
     }
     public function messages() : array
@@ -36,7 +36,8 @@ class Storerequest extends FormRequest
             'firstname.required' =>'Please enter Firstname',
             'lastname.required' =>'Please enter Lastname',
             'email.required' =>'Please enter Email',
-            'phone.required' =>'Please enter Phone',
+            'email.unique' =>'Email must email structor',
+            'phone.unique' =>'Please enter the correct phone number',
             'description.required' =>'Please enter Description',
         ];
     }

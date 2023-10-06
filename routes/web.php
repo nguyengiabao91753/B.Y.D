@@ -25,6 +25,8 @@ use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\LogoutController;
 use App\Http\Controllers\Client\LoginClientController;
 use App\Http\Controllers\Client\LogoutClientController;
+use App\Http\Controllers\Page\Contact_usController;
+use App\Models\Contact;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -57,8 +59,14 @@ Route::get('/about_us', function () {
 
 Route::get('/contact_us', function () {
     return view('client.page.contact');
-})->name('contact');
-
+});
+// })->name('contact');
+// Route::get('/contact_us',[Contact_usController::class,'index'])->name('index');
+// Route::post('/contact_us',[Contact_usController::class,'store'])->name('store');
+Route::prefix('contact_us')->name('contact_us.')->controller(Contact_usController::class)->group(function(){
+     Route::get('index','index')->name('index');
+     Route::post('store','store')->name('store');
+});
 Route::get('/all_vehicle_insurance', function () {
     return view('client.page.all_vehicle');
 })->name('vehicle');
@@ -87,18 +95,6 @@ Route::prefix('admin')->name('admin.')->middleware('check_login')->group(functio
         Route::get('destroy/{id}', 'destroy')->name('destroy');
     });
 
-    Route::prefix('product')->name('product.')->controller(ProductController::class)->group(function () {
-        Route::get('index', 'index')->name('index');
-
-        Route::get('create', 'create')->name('create');
-        Route::post('store', 'store')->name('store');
-
-        Route::get('edit/{id}', 'edit')->name('edit');
-        Route::post('update/{id}', 'update')->name('update');
-
-        Route::get('destroy/{id}', 'destroy')->name('destroy');
-    });
-
     Route::prefix('policy')->name('policy.')->controller(PolicyController::class)->group(function () {
         Route::get('index', 'index')->name('index');
 
@@ -109,6 +105,7 @@ Route::prefix('admin')->name('admin.')->middleware('check_login')->group(functio
         Route::post('update/{id}', 'update')->name('update');
 
         Route::get('destroy/{id}', 'destroy')->name('destroy');
+        Route::get('restore/{id}', 'restore')->name('restore');
     });
 
         //Insurance
@@ -126,8 +123,6 @@ Route::prefix('admin')->name('admin.')->middleware('check_login')->group(functio
 
         Route::get('/getValue/{id}', 'getValue');
     });
-
-    Route::get('/getBrand/{id}', [InsuranceCotroller::class,'getBrand']);
 
 
     Route::prefix('customer')->name('customer.')->controller(CustomerController::class)->group(function () {

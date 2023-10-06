@@ -30,10 +30,6 @@
                 <label for="description">Description</label>
                 <textarea class="form-control" placeholder="Enter Policy Description" name="description"  id="" cols="30" rows="10" required>{{old('description')}}</textarea>
             </div>
-            <div class="form-group">
-                <label>Price</label>
-                <input type="text" class="form-control" placeholder="Enter price" name="price" value="{{old('price')}}">
-            </div>
         </div>
 
         <div class="card-footer">

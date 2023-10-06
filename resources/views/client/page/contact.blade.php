@@ -1,5 +1,6 @@
 @extends('client.app')
-@section('title','Contact Us')
+@section('title','contact_us')
+@section('action', 'contact')
 
 @push('css')
 <link rel="stylesheet" href="{{asset('client/css/contact-us.css')}}">
@@ -22,36 +23,61 @@
         <div class="contact">
 
             <h2>Contact Us</h2>
-            <p>If you have business inquries or other questions,please fill out the following form to contact us.Thank You
-
+            <p>If you have business inquries or other questions,please fill out the following form to contact us.Thank You</p><br>
+            @if($errors->any())
+        <div class="session">
+          <!-- <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+          <h5><i class="icon fas fa-ban"></i> Alert!</h5> -->
+          @foreach($errors->all() as $error)
+          <li>{{$error}}</li>
+          @endforeach
         </div>
+        @endif
+            @if(Session::has('success'))
+            <div class="session">
+                     <!-- <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                     <h5><i class="icon fas fa-check"></i> Alert!</h5> -->
+                     {{Session::get('success')}}
+                 </div>
+                @endif
+                 </div>
 
     </div>
-
     <div class="flex">
         <div class="w-100">
             <div class="form">
                 <h5>Get in touch with us</h5>
-                <div class="flex">
-                    <input placeholder="Name" autofocus />
-                    <input placeholder="E-mail" autofocus />
-                </div>
-                <div class="flex">
-                    <input placeholder="Phone number" />
-                    <input placeholder="Subject" />
-                </div>
-                <textarea rows="10">
 
-                </textarea>
-                <div class="btn">
-                    <a href="#">Send</a>
-                </div>
+                <form method="post" action="{{ route('contact_us.store') }}">
+                    @csrf
+                    <!-- Default box -->
+                    <div class="flex">
+                        <input type="text" class="form-control" placeholder="Enter first Name" name="firstname" value="{{ old('firstname')}}" autofocus />
+                        <input type="text" class="form-control" placeholder="Last Name" name="lastname" value="{{ old('lastname')}}" autofocus />
+                    </div>
+                    <div class="flex">
+                        <input type="text" class="form-control" placeholder="Enter Email" name="email" autofocus />
+                        <input type="text" class="form-control" placeholder="Enter Phone" name="phone" autofocus />
+                    </div>
+                    <div>
+                        <label>Description</label>
+                        <textarea rows="10" type="text" class="form-control" placeholder="Enter Description" name="description"></textarea>
+                    </div>
 
+                    <div class="btn">
+<<<<<<< HEAD
+                        <button href="#" type="submit">Commit</button>
+=======
+                        <button type="submit">Send Enquiry</button>
+>>>>>>> 95fd834f679e8de532e31639b0cfe371b03cd1f4
+                    </div>
+                    <!-- /.card -->
+                </form>
             </div>
         </div>
+
         <div class="w-100">
             <div class="form">
-
 
                 <div class="pre1">
                     <i class="fas fa-clock"></i>Business hours <br>
