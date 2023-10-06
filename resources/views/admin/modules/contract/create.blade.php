@@ -24,7 +24,7 @@
         <div class="card-body">
             <div class="form-group">
                 <div class="col-md-6">
-                    <label>Customer ID</label>
+                    <label>Customer Email</label>
                         <select class="form-control" name="customer_id">
                             <option value="0" {{old( 'custormer_id' ) == 0 ? 'selected' : '' }}>----- Root -----</option>
                             @foreach($customers as $customer)

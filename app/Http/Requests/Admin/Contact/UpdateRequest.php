@@ -22,17 +22,20 @@ class UpdateRequest extends FormRequest
     public function rules(): array
     {
         return [
-           $this->id,
+            'firstname' => 'required',
+            'lastname' => 'required',
+            'phone' => 'required',
+            'description' =>'required',
         ];
     }
 
     public function messages (): array
     {
         return [
-            'firstname.required' => 'Please enter Firstname',
-            'lastname.required' => 'Please enter Lastname',
-            'email.required' => 'Please enter Email',
-            'phone.required' => 'Please enter Phone',
+            'firstname.required' =>'Please enter Firstname',
+            'lastname.required' =>'Please enter Lastname',
+            'email.required' =>'Please enter Email',
+            'phone.required' =>'Please enter Phone',
             'description.required' =>'Please enter Description',
         ];
     }

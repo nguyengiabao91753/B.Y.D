@@ -16,10 +16,8 @@ class Contact_usController extends Controller
      */
     public function index()
     {
-        $contacts = Contact::orderBy('created_at','DESC')->get();
-        return view('client.page.contact',[
-            'contacts'=>$contacts
-        ]);
+        // $contacts = Contact::orderBy('created_at','DESC')->get();
+        return view('client.page.contact');
     }
 
     /**
@@ -37,15 +35,13 @@ class Contact_usController extends Controller
     {
         //
         $contact = new Contact();
-
-        $contact->id = $request->id;
         $contact->firstname = $request->firstname;
         $contact->lastname = $request->lastname;       
         $contact->email = $request->email;
         $contact->phone = $request->phone;
         $contact->description = $request->description;
         $contact->save();
-        return redirect()->route('/contact_us')->with('success','Create Contact successfully.');
+        return redirect()->route('contact_us.index')->with('success','Create Contact successfully.');
     }
 
     /**

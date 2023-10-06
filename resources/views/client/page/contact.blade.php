@@ -1,7 +1,7 @@
 @extends('client.app')
-@section('title','Contact Us')
+@section('title','contact_us')
 @section('action', 'contact')
-
+    
 @push('css')
 <link rel="stylesheet" href="{{asset('client/css/contact-us.css')}}">
 <link rel="stylesheet" href="{{asset('client/css/contact-nav.css')}}" type="text/css">
@@ -28,12 +28,11 @@
         </div>
 
     </div>
-
     <div class="flex">
         <div class="w-100">
             <div class="form">
                 <h5>Get in touch with us</h5>
-                <form method="post" action="{{ route('admin.contact.store') }}">
+                <form method="post" action="{{ route('contact_us.store') }}">
                     @csrf
                     <!-- Default box -->
                     <div class="flex">
