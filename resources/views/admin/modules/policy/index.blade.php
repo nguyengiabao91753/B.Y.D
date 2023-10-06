@@ -33,8 +33,19 @@
       }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
     });
 
+    $(function () {
+      $("#example2").DataTable({
+        "responsive": true, "lengthChange": false, "autoWidth": false,
+        "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
+      }).buttons().container().appendTo('#example2_wrapper .col-md-6:eq(0)');
+    });
+
     function confirmDelete() {
-        return confirm('Are you sure you want to delete this ?');
+        return confirm('Are you sure you want to delete this?');
+    }
+
+    function confirmRestore() {
+        return confirm('Are you sure you want to restore this?');
     }
   </script>
 @endpush
@@ -61,7 +72,7 @@
                     <th>ID</th>
                     <th>Name</th>
                     <th>Description</th>
-                    <th>Price</th>
+                    <th>Status</th>
                     <th>Create At</th>
                     <th>Edit</th>
                     <th>Delete</th>
@@ -69,15 +80,17 @@
             </thead>
             <tbody>
                 @foreach($policies as $policy)
+                @if($policy->status ==1 )
                 <tr>
                     <td>{{$loop->iteration}}</td>
                     <td>{{$policy->name}}</td>
-                    <td>{{$policy->description}}</td>
-                    <td>{{$policy->price}}</td>
+                    <td>{{ \Illuminate\Support\Str::limit($policy->description, 30, '...') }}</td>
+                    <td><span class="right badge badge-success">Show</span></td>
                     <td>{{ date('d/m/Y - H:m:i', strtotime($policy->created_at)) }}</td>
                     <td><a href="{{route('admin.policy.edit',['id'=> $policy->id])}}">Edit</a></td>
                     <td><a onclick="return confirmDelete()" href="{{route('admin.policy.destroy',['id'=> $policy->id])}}">Delete</a></td>
                 </tr>
+                @endif
                 @endforeach
             </tbody>
             <tfoot>
@@ -85,7 +98,7 @@
                     <th>ID</th>
                     <th>Name</th>
                     <th>Description</th>
-                    <th>Price</th>
+                    <th>Status</th>
                     <th>Create At</th>
                     <th>Edit</th>
                     <th>Delete</th>
@@ -96,5 +109,59 @@
 </div>
 <!-- /.card -->
 
+<div class="card">
+    <div class="card-header">
+        <h3 class="card-title">Policy deleted list</h3>
 
+        <div class="card-tools">
+        <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
+            <i class="fas fa-minus"></i>
+        </button>
+        <button type="button" class="btn btn-tool" data-card-widget="remove" title="Remove">
+            <i class="fas fa-times"></i>
+        </button>
+        </div>
+    </div>
+
+    <div class="card-body">
+        <table id="example2" class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Description</th>
+                    <th>Status</th>
+                    <th>Create At</th>
+                    <th>Edit</th>
+                    <th>Delete</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach($policies as $policy)
+                @if($policy->status ==2 )
+                <tr>
+                    <td>{{$loop->iteration}}</td>
+                    <td>{{$policy->name}}</td>
+                    <td>{{ \Illuminate\Support\Str::limit($policy->description, 30, '...') }}</td>
+                    <td><span class="right badge badge-dark">Hidden</span></td>
+                    <td>{{ date('d/m/Y - H:m:i', strtotime($policy->created_at)) }}</td>
+                    <td><a onclick="return confirmRestore()" href="{{route('admin.policy.restore',['id'=> $policy->id])}}">Restore</a></td>
+                </tr>
+                @endif
+                @endforeach
+            </tbody>
+            <tfoot>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Description</th>
+                    <th>Status</th>
+                    <th>Create At</th>
+                    <th>Edit</th>
+                    <th>Delete</th>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+</div>
 @endsection

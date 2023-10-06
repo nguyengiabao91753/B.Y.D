@@ -91,18 +91,6 @@ Route::prefix('admin')->name('admin.')->middleware('check_login')->group(functio
         Route::get('destroy/{id}', 'destroy')->name('destroy');
     });
 
-    Route::prefix('product')->name('product.')->controller(ProductController::class)->group(function () {
-        Route::get('index', 'index')->name('index');
-
-        Route::get('create', 'create')->name('create');
-        Route::post('store', 'store')->name('store');
-
-        Route::get('edit/{id}', 'edit')->name('edit');
-        Route::post('update/{id}', 'update')->name('update');
-
-        Route::get('destroy/{id}', 'destroy')->name('destroy');
-    });
-
     Route::prefix('policy')->name('policy.')->controller(PolicyController::class)->group(function () {
         Route::get('index', 'index')->name('index');
 
@@ -113,6 +101,7 @@ Route::prefix('admin')->name('admin.')->middleware('check_login')->group(functio
         Route::post('update/{id}', 'update')->name('update');
 
         Route::get('destroy/{id}', 'destroy')->name('destroy');
+        Route::get('restore/{id}', 'restore')->name('restore');
     });
 
         //Insurance
@@ -130,8 +119,6 @@ Route::prefix('admin')->name('admin.')->middleware('check_login')->group(functio
 
         Route::get('/getValue/{id}', 'getValue');
     });
-
-    Route::get('/getBrand/{id}', [InsuranceCotroller::class,'getBrand']);
 
 
     Route::prefix('customer')->name('customer.')->controller(CustomerController::class)->group(function () {
