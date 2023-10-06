@@ -1,7 +1,7 @@
 @extends('client.app')
 @section('title','contact_us')
 @section('action', 'contact')
-    
+
 @push('css')
 <link rel="stylesheet" href="{{asset('client/css/contact-us.css')}}">
 <link rel="stylesheet" href="{{asset('client/css/contact-nav.css')}}" type="text/css">
@@ -23,15 +23,31 @@
         <div class="contact">
 
             <h2>Contact Us</h2>
-            <p>If you have business inquries or other questions,please fill out the following form to contact us.Thank You
-
+            <p>If you have business inquries or other questions,please fill out the following form to contact us.Thank You</p><br>
+            @if($errors->any())
+        <div class="session">
+          <!-- <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+          <h5><i class="icon fas fa-ban"></i> Alert!</h5> -->
+          @foreach($errors->all() as $error)
+          <li>{{$error}}</li>
+          @endforeach
         </div>
+        @endif
+            @if(Session::has('success'))
+            <div class="session">
+                     <!-- <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                     <h5><i class="icon fas fa-check"></i> Alert!</h5> -->
+                     {{Session::get('success')}}
+                 </div>
+                @endif
+                 </div>
 
     </div>
     <div class="flex">
         <div class="w-100">
             <div class="form">
                 <h5>Get in touch with us</h5>
+
                 <form method="post" action="{{ route('contact_us.store') }}">
                     @csrf
                     <!-- Default box -->
@@ -51,7 +67,7 @@
                     </div>
 
                     <div class="btn">
-                        <a href="#" type="submit">Send</a>
+                        <button href="#" type="submit">Commit</button>
                     </div>
                     <!-- /.card -->
                 </form>
