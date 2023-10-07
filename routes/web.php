@@ -101,7 +101,9 @@ Route::prefix('admin')->name('admin.')->middleware('check_login')->group(functio
         Route::post('update/{id}', 'update')->name('update');
 
         Route::get('destroy/{id}', 'destroy')->name('destroy');
+
         Route::get('restore/{id}', 'restore')->name('restore');
+        Route::get('destroy_frv/{id}', 'destroy_frv')->name('destroy_frv');
     });
 
         //Insurance
