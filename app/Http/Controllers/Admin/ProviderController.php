@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\Provider\StoreRequest;
 use App\Http\Requests\Admin\Provider\UpdateRequest;
 use App\Models\Provider;
+use App\Models\ProviderImages;
 use Illuminate\Http\Request;
 
 class ProviderController extends Controller
@@ -36,7 +37,7 @@ class ProviderController extends Controller
      */
     public function store(StoreRequest $request)
     {
-        //
+        
         $provider = new Provider();
 
         $file =$request->image;
@@ -47,6 +48,7 @@ class ProviderController extends Controller
         $provider->save();
 
         $file->move(public_path('uploads/'),$fileName);
+
         return redirect()->route('admin.provider.index')->with('success','Create Successfully!');
     }
 

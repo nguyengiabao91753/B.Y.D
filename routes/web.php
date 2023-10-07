@@ -23,6 +23,8 @@ use App\Http\Controllers\Admin\ContractController;
 use App\Http\Controllers\Admin\ContactsController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\LogoutController;
+use App\Http\Controllers\Client\LoginClientController;
+use App\Http\Controllers\Client\LogoutClientController;
 use App\Http\Controllers\Page\Contact_usController;
 use App\Models\Contact;
 use Illuminate\Support\Facades\Route;
@@ -41,7 +43,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/admin', function () {
     return view('admin.master');
 });
-
+// Login admin 
 Route::get('auth/login',[LoginController::class,'showLogin'])->name('showLogin');
 Route::post('auth/login',[LoginController::class,'login'])->name('login');
 Route::get('auth/logout',LogoutController::class)->name('logout');
@@ -74,9 +76,11 @@ Route::get('/register', function () {
     return view('client.page.register');
 })->name('register');
 
-Route::get('/login', function () {
-    return view('client.page.login');
-})->name('login');
+//Client Login and Register
+Route::get('login',  [LoginClientController::class,'showLoginClient'])->name('showLoginClient');
+Route::post('login',  [LoginClientController::class,'loginClient'])->name('loginClient');
+Route::get('logout',LogoutClientController::class)->name('logoutClient');
+
 
 Route::prefix('admin')->name('admin.')->middleware('check_login')->group(function () {
     Route::prefix('category')->name('category.')->controller(CategoryController::class)->group(function () {

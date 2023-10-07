@@ -25,8 +25,8 @@ class Storerequest extends FormRequest
             
             'firstname' => 'required',
             'lastname' => 'required',
-            'email' => 'required|email|unique:contacts,email',
-            'phone' => 'required|unique:contacts,phone',
+            'email' => 'required|email:contacts,email',
+            'phone' => 'required',
             'description' =>'required',
         ];
     }
@@ -37,7 +37,6 @@ class Storerequest extends FormRequest
             'lastname.required' =>'Please enter Lastname',
             'email.required' =>'Please enter Email',
             'email.unique' =>'Email must email structor',
-            'phone.required' =>'Please enter Phone',
             'phone.unique' =>'Please enter the correct phone number',
             'description.required' =>'Please enter Description',
         ];

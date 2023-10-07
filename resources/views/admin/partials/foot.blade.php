@@ -10,4 +10,4 @@
 <!-- AdminLTE for demo purposes -->
 <script src="{{ asset('administrator/dist/js/demo.js') }}"></script>
 
-@stack('hanldejs')
+@stack('handlejs')

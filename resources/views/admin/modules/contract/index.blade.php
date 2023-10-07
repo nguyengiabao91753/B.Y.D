@@ -24,7 +24,7 @@
 <script src="{{ asset('administrator/plugins/datatables-buttons/js/buttons.colVis.min.js') }}"></script>
 @endpush
 
-@push('hanldejs')
+@push('handlejs')
 <script>
     $(function () {
       $("#example1").DataTable({
@@ -33,7 +33,7 @@
       }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
     });
     function confirmDelete() {
-        return confirm('Are you sure you want to delete this ${module}');
+        return confirm('Are you sure you want to delete this ?');
     }
   </script>
 @endpush
