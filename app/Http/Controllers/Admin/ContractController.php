@@ -8,6 +8,8 @@ use App\Models\Admin\Insurance;
 use App\Models\Contract;
 use App\Models\Customer;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+
 use function League\Flysystem\delete;
 
 class ContractController extends Controller
@@ -46,7 +48,7 @@ class ContractController extends Controller
         //
         $contract = new Contract();
         $contract->insurance_id=$request->insurance_id;
-        $contract->customer_id = $request->customer_id;
+        $contract->customer_id = Auth::user()->id;
         $contract->insurance_id = $request->insurance_id;       
         $contract->enddate = $request->enddate;
         $contract->save();
@@ -89,7 +91,7 @@ class ContractController extends Controller
 
 
         $contract->insurance_id=$request->insurance_id;
-        $contract->customer_id = $request->customer_id;
+        $contract->customer_id = Auth::user()->id;
         $contract->insurance_id = $request->insurance_id;       
         $contract->enddate = $request->enddate;
         $contract->save();
