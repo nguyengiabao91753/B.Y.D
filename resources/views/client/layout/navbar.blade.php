@@ -17,10 +17,15 @@
                     <!-- <li class="icon"><a href="asset('client/"><i class="fab fa-facebook"></i></a></li>
                     <li class="icon"><a href="asset('client/"><i class="fab fa-google-plus"></i></a></li>
                     <li class="icon"><a href="asset('client/"><i class="fab fa-twitter"></i></a></li> -->
-                    <li style="list-style-type: none;"><a class="btn5"  href="{{ route('showLoginClient')}}">Login</a></li>
-                    <li style="list-style-type: none;"><a class="btn6" href="{{ route('register')}}">Register</a></li>
-                    <li style="list-style-type: none;"><a class="btn7" href="{{ route('logoutClient')}}">Logout</a></li>
+                    @auth
+                        <li style="list-style-type: none;"><a class="btn7" href="{{ route('logoutClient')}}">Logout</a></li>
+                    @else
+                        <li style="list-style-type: none;"><a class="btn5"  href="{{ route('showLoginClient')}}">Login</a></li>
+                        <li style="list-style-type: none;"><a class="btn6" href="{{ route('register')}}">Register</a></li>
+                    @endauth
                 </ul>
             </div> 
         </nav>
     </header>
+
+

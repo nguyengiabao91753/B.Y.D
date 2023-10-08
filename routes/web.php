@@ -77,9 +77,11 @@ Route::get('/register', function () {
 })->name('register');
 
 //Client Login and Register
-Route::get('login',  [LoginClientController::class,'showLoginClient'])->name('showLoginClient');
-Route::post('login',  [LoginClientController::class,'loginClient'])->name('loginClient');
-Route::get('logout',LogoutClientController::class)->name('logoutClient');
+Route::get('/login',  [LoginClientController::class,'showLoginClient'])->name('showLoginClient');
+Route::post('/login',  [LoginClientController::class,'loginClient'])->name('loginClient');
+Route::get('/logout',LogoutClientController::class)->name('logoutClient');
+Route::get('/registration',[LoginClientController::class,'registration'])->name('registration');
+Route::post('/register',[LoginClientController::class,'register'])->name('register');
 
 
 Route::prefix('admin')->name('admin.')->middleware('check_login')->group(function () {

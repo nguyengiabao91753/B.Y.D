@@ -2,6 +2,7 @@
 @section('title','Register')
 @push('css')
 <link rel="stylesheet" href="{{asset('client/css/sign-in-%26-sign-up.css')}}">
+
 @endpush
 
 @push('js')
@@ -12,19 +13,34 @@
 
 @section('content')
 
+
 <div class="container4">
-@if ($errors->any())
-    <div class="alert alert-danger alert-dismissible">
-        <h5><i></i>Alert!</h5>
-        @foreach ($errors->all() as $error)
-            <li>{{ $error }}</li>
-        @endforeach
-    </div>
+@if(Session::has('error'))
+<div class="box1" style="background-color:#E3242B;">
+    <h5><i></i> Alert!</h5>
+    {{Session::get('error')}}
+</div>
 @endif
 
+@if($errors->any())
+<div class="box1" style="background-color: #E3242B;">
+    <h5><i></i> Alert!</h5>
+    @foreach($errors->all() as $error)
+    <li>{{$error}}</li>
+    @endforeach
+</div>
+@endif
+
+@if(Session::has('success'))
+<div class="box1" style="background-color: #5CB85C">
+    <h5><i></i> Alert!</h5>
+    {{Session::get('success')}}
+</div>
+@endif
+<br>
     <fieldset class="box1">
         <legend>Safe carz limited</legend>
-        <form action=" " method="POST">
+        <form action="{{route('loginClient')}}" method="POST">
             @csrf
             <h1 style="text-align: center; color: gray;"><i class="fas fa-sign-in-alt"></i> Login Form</h1>
             <br>
