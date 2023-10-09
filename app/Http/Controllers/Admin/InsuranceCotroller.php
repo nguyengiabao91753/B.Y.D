@@ -19,7 +19,7 @@ class InsuranceCotroller extends Controller
     public function index()
     {
         // $insurances = Insurance::orderBy('created_at','DESC')->get();
-        $insurances = Insurance::with('category', 'policy', 'provider')->get();
+        $insurances = Insurance::orderBy('created_at','DESC')->with('category', 'policy', 'provider')->get();
 
 
         return view('admin.modules.insurance.index', [
@@ -149,7 +149,7 @@ class InsuranceCotroller extends Controller
         $insurance->category_id = $request->category_id;
         $insurance->brand = $request->brand;
         $insurance->model = $request->model;
-        $insurance->pkr = $request->pkr;
+        $insurance->value = $request->value;
         $insurance->price = $request->price;
         $insurance->rate = $request->rate;
 

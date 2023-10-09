@@ -47,6 +47,12 @@
     function confirmRestore() {
         return confirm('Are you sure you want to restore this?');
     }
+
+
+    function confirmDelete_Frv() {
+        return confirm('This data can not restore anymore. Are you sure you want to delete this?');
+    }
+    
   </script>
 @endpush
 @section('content')
@@ -146,6 +152,7 @@
                     <td><span class="right badge badge-dark">Hidden</span></td>
                     <td>{{ date('d/m/Y - H:m:i', strtotime($policy->created_at)) }}</td>
                     <td><a onclick="return confirmRestore()" href="{{route('admin.policy.restore',['id'=> $policy->id])}}">Restore</a></td>
+                    <td><a onclick="return confirmDelete_Frv()" href="{{route('admin.policy.destroy_frv',['id'=> $policy->id])}}">Delete</a></td>
                 </tr>
                 @endif
                 @endforeach

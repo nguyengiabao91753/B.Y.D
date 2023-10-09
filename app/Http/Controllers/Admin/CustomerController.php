@@ -93,7 +93,7 @@ class CustomerController extends Controller
 
         $customer->firstname=$request->firstname;
         $customer->lastname=$request->lastname;
-        $customer->email=$request->email;
+        // $customer->email=$request->email;
         $customer->phone=$request->phone;
 
         if(!empty($request->password)){
@@ -107,7 +107,7 @@ class CustomerController extends Controller
         }
 
 
-        $customer->level=$request->level;
+        // $customer->level=$request->level;
         $customer->save();
 
         return redirect()->route('admin.customer.index')->with('success','Update customer successfully.');
