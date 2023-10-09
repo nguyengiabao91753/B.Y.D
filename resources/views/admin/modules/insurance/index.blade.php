@@ -72,7 +72,7 @@
             <tbody>
                 
                     @foreach($insurances as $insurance)
-                    @if($insurance->policy->status == 1)
+                    @if($insurance->policy->status == 1 && $insurance->provider->status==1)
                 <tr>
                     <td>{{$loop->iteration}}</td>
                     <td>{{$insurance->provider->name}}</td>
