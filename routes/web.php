@@ -28,6 +28,7 @@ use App\Http\Controllers\Client\LogoutClientController;
 use App\Http\Controllers\Page\Contact_usController;
 use App\Models\Contact;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Client\pdfController;
 
 /*
 |--------------------------------------------------------------------------
@@ -60,6 +61,8 @@ Route::get('/about_us', function () {
 Route::get('/contact_us', function () {
     return view('client.page.contact');
 });
+Route::get('/pdf','pdfController@index');
+
 // })->name('contact');
 // Route::get('/contact_us',[Contact_usController::class,'index'])->name('index');
 // Route::post('/contact_us',[Contact_usController::class,'store'])->name('store');

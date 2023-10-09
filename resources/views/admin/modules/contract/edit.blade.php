@@ -25,7 +25,7 @@
                 <div class="col-md-6">
                     <label>Customer ID</label>
                         <select class="form-control" name="custormer_id">
-                            <option value="0" {{old( 'custormer_id') == 0 ? 'selected' : '' }}>----- Root -----</option>
+                            <option value="" >----- Root -----</option>
                             @foreach($customers as $customer)
                             <option value="{{$customer->id}}" {{old( 'customer_id', $customer->id) == $customer->id ? 'selected' : '' }}>{{$customer->email}}</option>
                             @endforeach
@@ -36,7 +36,7 @@
                 <div class="col-md-6">
                     <label>Insurance ID</label>
                         <select class="form-control" name="insurance_id" >
-                            <option value="0" {{old( 'insurance_id') == 0 ? 'selected' : '' }}>----- Root -----</option>
+                            <option value="">----- Root -----</option>
                             @foreach($insurances as $insurance)
                             <option value="{{$insurance->id}}" {{old( 'insurance_id', $insurance->id ) == $insurance->id ? 'selected' : '' }}>{{$insurance->id}}</option>
                             @endforeach
