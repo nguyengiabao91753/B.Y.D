@@ -65,11 +65,7 @@
                     </div>
 
                     <div class="btn">
-<<<<<<< HEAD
-                        <button href="#" type="submit">Commit</button>
-=======
                         <button type="submit">Send Enquiry</button>
->>>>>>> 95fd834f679e8de532e31639b0cfe371b03cd1f4
                     </div>
                     <!-- /.card -->
                 </form>

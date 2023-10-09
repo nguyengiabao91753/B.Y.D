@@ -1,7 +1,7 @@
 <header class="header">
         <nav class="nav">
             <div class="logo">
-                <a href="{{ route('home')}}s"><img src="{{asset('client/img/SAFE_CARZ.png')}}" alt=""></a>
+                <a href="{{ route('home')}}"><img src="{{asset('client/img/SAFE_CARZ.png')}}" alt=""></a>
             </div>
             <div class="container">
                 <ul class="item">

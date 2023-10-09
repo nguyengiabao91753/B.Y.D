@@ -53,7 +53,7 @@ class InsuranceCotroller extends Controller
         $insurance->category_id = $request->category_id;
         $insurance->brand = $request->brand;
         $insurance->model = $request->model;
-        $insurance->pkr = $request->pkr;
+        $insurance->value = $request->value;
         $insurance->price = $request->price;
         $insurance->rate = $request->rate;
 
