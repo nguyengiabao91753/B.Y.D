@@ -23,7 +23,7 @@ class UpdateRequest extends FormRequest
     {
         return [
             //
-            'email'=> 'required|email|unique:customers,email,'.$this->id,
+            // 'email'=> 'required|email|unique:customers,email,'.$this->id,
             'firstname'=>'required',
             'lastname'=>'required',
             'phone'=>'required|digits:10'
@@ -33,9 +33,9 @@ class UpdateRequest extends FormRequest
     public function messages(): array
     {
         return[
-            'email.required'=>'Please enter email',
-            'email.unique'=>'Email is exist.Pleaser choose another email',
-            'email.email'=>'Email must be a valid email address',
+            // 'email.required'=>'Please enter email',
+            // 'email.unique'=>'Email is exist.Pleaser choose another email',
+            // 'email.email'=>'Email must be a valid email address',
             'password.min'=>'Password must be at least 5 characters',
             'firstname.required'=>'Please enter first name',
             'lastname.required'=>'Please enter last name',
