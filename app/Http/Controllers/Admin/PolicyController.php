@@ -111,4 +111,19 @@ class PolicyController extends Controller
 
         return redirect()->route('admin.policy.index')->with('success','Restore Successfully!');
     }
+
+    public function destroy_frv(int $id)
+    {
+        $policy = Policy::find($id);
+        // if($policy == null){
+        //     abort(404);
+        // }
+
+        // $policy->delete();
+
+        $policy->status = 3;
+        $policy->save();
+
+        return redirect()->route('admin.policy.index')->with('success','Delete Successfully!');
+    }
 }

@@ -27,7 +27,7 @@ class StoreRequest extends FormRequest
             'category_id'=> 'required',
             'brand'=> 'required',
             'model'=> 'required',
-            'pkr'=> 'required',
+            'value'=> 'required',
             'price'=> 'required',
             'rate'=> 'required'
             

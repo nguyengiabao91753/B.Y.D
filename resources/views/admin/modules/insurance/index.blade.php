@@ -72,6 +72,7 @@
             <tbody>
                 
                     @foreach($insurances as $insurance)
+                    @if($insurance->policy->status == 1)
                 <tr>
                     <td>{{$loop->iteration}}</td>
                     <td>{{$insurance->provider->name}}</td>
@@ -79,12 +80,13 @@
                     <td>{{$insurance->category->name}}</td>
                     <td>{{$insurance->brand}}</td>
                     <td>{{$insurance->model}}</td>
-                    <td>{{$insurance->pkr}}</td>
+                    <td>{{$insurance->value}}</td>
                     <td>{{$insurance->price}}</td>
                     <td>{{$insurance->rate}}</td>
                     <td><a href="{{route('admin.insurance.edit',['id'=> $insurance->id])}}">Edit</a></td>
                     <td><a onclick="return confirmDelete()" href="{{route('admin.insurance.destroy',['id'=> $insurance->id])}}">Delete</a></td>
                 </tr>
+                @endif
                 @endforeach
                 
             </tbody>

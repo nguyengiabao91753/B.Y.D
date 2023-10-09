@@ -80,9 +80,11 @@ Route::get('/register', function () {
 })->name('register');
 
 //Client Login and Register
-Route::get('login',  [LoginClientController::class,'showLoginClient'])->name('showLoginClient');
-Route::post('login',  [LoginClientController::class,'loginClient'])->name('loginClient');
-Route::get('logout',LogoutClientController::class)->name('logoutClient');
+Route::get('/login',  [LoginClientController::class,'showLoginClient'])->name('showLoginClient');
+Route::post('/login',  [LoginClientController::class,'loginClient'])->name('loginClient');
+Route::get('/logout',LogoutClientController::class)->name('logoutClient');
+Route::get('/registration',[LoginClientController::class,'registration'])->name('registration');
+Route::post('/register',[LoginClientController::class,'register'])->name('register');
 
 
 Route::prefix('admin')->name('admin.')->middleware('check_login')->group(function () {
@@ -108,7 +110,9 @@ Route::prefix('admin')->name('admin.')->middleware('check_login')->group(functio
         Route::post('update/{id}', 'update')->name('update');
 
         Route::get('destroy/{id}', 'destroy')->name('destroy');
+
         Route::get('restore/{id}', 'restore')->name('restore');
+        Route::get('destroy_frv/{id}', 'destroy_frv')->name('destroy_frv');
     });
 
         //Insurance
