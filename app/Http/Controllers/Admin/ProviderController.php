@@ -119,19 +119,63 @@ class ProviderController extends Controller
     /**
      * Remove the specified resource from storage.
      */
+    // public function destroy(int $id)
+    // {
+    //     //
+    //     $provider =Provider::find($id);
+
+    //     if($provider == null) {
+    //         abort(404);
+    //     }
+    //         $old_image_path=public_path('uploads/'.$provider->image);
+    //         if(file_exists($old_image_path)) {
+    //             unlink($old_image_path);
+    //         }
+    //     $provider->delete();
+    //     return redirect()->route('admin.provider.index')->with('success','Delete Successfully!');
+    // }
     public function destroy(int $id)
     {
-        //
-        $provider =Provider::find($id);
+        $provider = Provider::find($id);
+        // if($policy == null){
+        //     abort(404);
+        // }
 
-        if($provider == null) {
-            abort(404);
-        }
-            $old_image_path=public_path('uploads/'.$provider->image);
-            if(file_exists($old_image_path)) {
-                unlink($old_image_path);
-            }
-        $provider->delete();
+        // $policy->delete();
+
+        $provider->status = 2;
+        $provider->save();
+
+        return redirect()->route('admin.provider.index')->with('success','Delete Successfully!');
+    }
+
+    public function restore(int $id)
+    {
+        $provider = Provider::find($id);
+        // if($policy == null){
+        //     abort(404);
+        // }
+
+        // $policy->delete();
+
+        $provider->status = 1;
+        $provider->save();
+
+        return redirect()->route('admin.provider.index')->with('success','Restore Successfully!');
+    }
+
+    public function destroy_frv(int $id)
+    {
+        $provider = Provider::find($id);
+        // if($policy == null){
+        //     abort(404);
+        // }
+
+        // $policy->delete();
+
+        $provider->status = 3;
+        $provider->save();
+
         return redirect()->route('admin.provider.index')->with('success','Delete Successfully!');
     }
 }

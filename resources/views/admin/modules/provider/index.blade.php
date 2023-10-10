@@ -33,8 +33,27 @@
       }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
     });
 
+    $(function () {
+      $("#example2").DataTable({
+        "responsive": true, "lengthChange": false, "autoWidth": false,
+        "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
+      }).buttons().container().appendTo('#example2_wrapper .col-md-6:eq(0)');
+    });
+
     function confirmDelete (module) {
         return confirm('Are you sure you want to delete this ${module} ?');
+    }
+    function confirmDelete() {
+        return confirm('Are you sure you want to delete this?');
+    }
+
+    function confirmRestore() {
+        return confirm('Are you sure you want to restore this?');
+    }
+
+
+    function confirmDelete_Frv() {
+        return confirm('This data can not restore anymore. Are you sure you want to delete this?');
     }
 </script>
 @endpush
@@ -68,6 +87,7 @@
             </thead>
             <tbody>
                 @foreach($providers as $provider)
+                @if($provider->status == 1)
                         @php
                             $image= asset('uploads/'.$provider->image)
                         @endphp
@@ -76,14 +96,75 @@
                         <td>{{$loop->iteration}}</td>
                         <td>{{$provider->name}}</td>
                         <td><img src="{{ $image }}" width="100px"></td>
+                        <td><span class="right badge badge-success">Show</span></td>
                         <td>{{ date('d/m/Y - H:m:i', strtotime($provider->created_at)) }}</td>
                         <td><a href="{{route('admin.provider.edit',['id'=> $provider->id])}}">Edit</a></td>
                         <td><a onclick="return confirmDelete('provider')" href="{{route('admin.provider.destroy',['id'=> $provider->id])}}">Delete</a></td>
                     </tr>
+                @endif
                 @endforeach
             </tbody>
             <tfoot>
-                <tr>s
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Image</th>
+                    <th>Create At</th>
+                    <th>Edit</th>
+                    <th>Delete</th>
+            </tfoot>
+        </table>
+    </div>
+</div>
+
+<div class="card">
+    <div class="card-header">
+        <h3 class="card-title">Provider Deleted list</h3>
+
+        <div class="card-tools">
+        <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
+            <i class="fas fa-minus"></i>
+        </button>
+        <button type="button" class="btn btn-tool" data-card-widget="remove" title="Remove">
+            <i class="fas fa-times"></i>
+        </button>
+        </div>
+    </div>
+
+    <div class="card-body">
+        <table id="example2" class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Image</th>
+                    <th>Status</th>
+                    <th>Create At</th>
+                    <th>Edit</th>
+                    <th>Delete</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach($providers as $provider)
+                @if($provider->status == 2)
+                        @php
+                            $image= asset('uploads/'.$provider->image)
+                        @endphp
+
+                    <tr>
+                        <td>{{$loop->iteration}}</td>
+                        <td>{{$provider->name}}</td>
+                        <td><img src="{{ $image }}" width="100px"></td>
+                        <td><span class="right badge badge-dark">Hidden</span></td>
+                        <td>{{ date('d/m/Y - H:m:i', strtotime($provider->created_at)) }}</td>
+                        <td><a onclick="return confirmRestore()" href="{{route('admin.provider.restore',['id'=> $provider->id])}}">Restore</a></td>
+                    <td><a onclick="return confirmDelete_Frv()" href="{{route('admin.provider.destroy_frv',['id'=> $provider->id])}}">Delete</a></td>
+                    </tr>
+                @endif
+                @endforeach
+            </tbody>
+            <tfoot>
+                <tr>
                     <th>ID</th>
                     <th>Name</th>
                     <th>Image</th>

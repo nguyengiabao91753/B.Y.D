@@ -35,7 +35,9 @@
                         <select class="form-control" name="provider_id">
                             <option value="0" {{old( 'provider_id' ) == 0 ? 'selected' : '' }}>----- Root -----</option>
                             @foreach($providers as $provider)
+                            @if($provider->status==1)
                             <option value="{{$provider->id}}" {{old( 'provider_id' ) == $provider->id ? 'selected' : '' }}>{{$provider->name}}</option>
+                            @endif
                             @endforeach
                         </select>
                     </div>
@@ -44,7 +46,9 @@
                         <select class="form-control" name="policy_id">
                             <option value="0" {{old( 'policy_id' ) == 0 ? 'selected' : '' }}>----- Root -----</option>
                             @foreach($policies as $policy)
+                            @if($policy->status ==1)
                             <option value="{{$policy->id}}" {{old( 'policy_id' ) == $policy->id ? 'selected' : '' }}>{{$policy->name}}</option>
+                            @endif
                             @endforeach
                         </select>
                     </div>
