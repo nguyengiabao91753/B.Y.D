@@ -23,6 +23,7 @@ use App\Http\Controllers\Admin\ContractController;
 use App\Http\Controllers\Admin\ContactsController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\LogoutController;
+use App\Http\Controllers\Client\HomeController;
 use App\Http\Controllers\Client\LoginClientController;
 use App\Http\Controllers\Client\LogoutClientController;
 use App\Http\Controllers\Page\Contact_usController;
@@ -47,6 +48,9 @@ Route::get('/admin', function () {
 Route::get('auth/login',[LoginController::class,'showLogin'])->name('showLogin');
 Route::post('auth/login',[LoginController::class,'login'])->name('login');
 Route::get('auth/logout',LogoutController::class)->name('logout');
+
+Route::get('/',[HomeController::class,'showHomePage'])->name('showHomePage');
+Route::post('/',[HomeController::class,'showImage'])->name('showImage');
 
 
 Route::get('/', function () {
