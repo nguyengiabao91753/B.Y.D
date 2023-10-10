@@ -23,7 +23,7 @@
         <div class="card-body">
             <div class="form-group">
                 <div class="col-md-6">
-                    <label>Customer ID</label>
+                    <label>Customer</label>
                         <select class="form-control" name="custormer_id">
                             <option value="" >----- Root -----</option>
                             @foreach($customers as $customer)
@@ -34,7 +34,7 @@
             </div>
             <div class="form-group">
                 <div class="col-md-6">
-                    <label>Insurance ID</label>
+                    <label>Insurance</label>
                         <select class="form-control" name="insurance_id" >
                             <option value="">----- Root -----</option>
                             @foreach($insurances as $insurance)

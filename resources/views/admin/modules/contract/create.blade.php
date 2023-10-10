@@ -35,11 +35,11 @@
             </div>
             <div class="form-group">
                 <div class="col-md-6">
-                    <label>Insurance ID</label>
+                    <label>Insurance </label>
                         <select class="form-control" name="insurance_id">
                             <option value="">----- Root -----</option>
                             @foreach($insurances as $insurance)
-                            <option value="{{$insurance->id}}" {{old( 'insurance_id' ) == $insurance->id ? 'selected' : '' }}>{{$insurance->id}}</option>
+                            <option value="{{$insurance->id}}" {{old( 'insurance_id' ) == $insurance->id ? 'selected' : '' }}>{{$insurance->policy->name}}</option>
                             @endforeach
                         </select>
                 </div>
