@@ -28,7 +28,7 @@ class UpdateRequest extends FormRequest
             'brand'=> 'required',
             'model'=> 'required',
             'value'=> 'required',
-            'price'=> 'required|numberic',
+            'price'=> 'required',
             'rate'=> 'required'
             
         ];

@@ -39,7 +39,7 @@
 @endif
 <br>
     <fieldset class="box1">
-        <legend>Safe carz limited</legend>
+        <legend>B.Y.D INSURANCE</legend>
         <form action="{{route('loginClient')}}" method="POST">
             @csrf
             <h1 style="text-align: center; color: gray;"><i class="fas fa-sign-in-alt"></i> Login Form</h1>

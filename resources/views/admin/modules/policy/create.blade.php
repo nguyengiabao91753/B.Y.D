@@ -3,6 +3,16 @@
 @section('module', 'Policy')
 @section('action', 'Create')
 
+
+@push('handlejs')
+<script src="{{ asset('administrator/plugins/summernote/summernote-bs4.min.js') }}"></script>
+<!-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> -->
+
+<!-- <script>
+    $('.description').summernote()
+</script> -->
+@endpush
+
 @section('content')
 <form method="post" action="{{ route('admin.policy.store') }}">
     @csrf
@@ -28,7 +38,7 @@
             </div>
             <div class="form-group">
                 <label for="description">Description</label>
-                <textarea class="form-control" placeholder="Enter Policy Description" name="description"  id="" cols="30" rows="10" required>{{old('description')}}</textarea>
+                <textarea class="form-control" id="description" placeholder="Enter Policy Description" name="description"  id="" cols="30" rows="10" required>{{old('description')}}</textarea>
             </div>
         </div>
 

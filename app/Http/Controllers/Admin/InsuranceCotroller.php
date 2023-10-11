@@ -141,9 +141,9 @@ class InsuranceCotroller extends Controller
     public function update(UpdateRequest $request,  $id)
     {
         $insurance = Insurance::find($id);
-        if ($insurance == null) {
-            abort(404);
-        }
+        // if ($insurance == null) {
+        //     abort(404);
+        // }
         $insurance->provider_id = $request->provider_id;
         $insurance->policy_id = $request->policy_id;
         $insurance->category_id = $request->category_id;

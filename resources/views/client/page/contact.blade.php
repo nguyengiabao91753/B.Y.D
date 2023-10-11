@@ -77,7 +77,7 @@
 
                 <div class="pre1">
                     <i class="fas fa-clock"></i>Business hours <br>
-                    <p id="p1"><b>Mon-Set: 10am to 7am</b></p>
+                    <p id="p1"><b>Mon-Set: 10am to 7pm</b></p>
 
 
 

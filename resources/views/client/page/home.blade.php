@@ -34,7 +34,7 @@
 
     <div class="container2">
         <div class="item2">
-            <h1>SAFE CARZ Insurance is the premium insurance provider</h1>
+            <h1>B.Y.D Insurance is the premium insurance provider</h1>
 
             <div class="img1">
                 <img src="{{asset('client/img/Line.png')}}" alt="img">
@@ -91,11 +91,11 @@
     <!-- BUY INSURANCE PLANS ENDS -->
 
 
-    <!-- HOW SAFE CARZ WORKS STARTS? -->
+    <!-- HOW B.Y.D  WORKS STARTS? -->
 
     <div class="container6">
         <div class="item6">
-            <h1>How Safe Carz Works?</h1>
+            <h1>How B.Y.D  Works?</h1>
         </div>
     </div>
     <div class="container7">
@@ -153,7 +153,7 @@
         </div>
     </div>
 
-    <!-- HOW SAFE CARZ WORKS ENDS? -->
+    <!-- HOW B.Y.D  WORKS ENDS? -->
 
     <!-- FAQ STARTS-->
 

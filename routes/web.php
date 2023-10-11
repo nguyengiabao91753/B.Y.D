@@ -71,6 +71,13 @@ Route::get('/all_vehicle_insurance', function () {
     return view('client.page.all_vehicle');
 })->name('vehicle');
 
+Route::get('/bike_insurance', function () {
+    return view('client.page.bike_insurance');
+})->name('bike_insurance');
+
+Route::get('/car_insurance', function () {
+    return view('client.page.car_insurance');
+})->name('car_insurance');
 
 Route::get('/register', function () {
     return view('client.page.register');
