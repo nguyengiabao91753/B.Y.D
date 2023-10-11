@@ -4,11 +4,6 @@
 @section('action', 'Create')
 
 
-
-
-
-
-
 @section('content')
 <form method="post" action="{{ route('admin.insurance.store') }}">
     @csrf
@@ -83,7 +78,7 @@
                     </div>
 
                     <div class="form-group">
-                        <label>Current Value(Pkr)</label>
+                        <label>Current Value</label>
                         <select class="form-control" id="value" name="value">
                             <option value="0" {{old( 'value' ) == 0 ? 'selected' : '' }}>----- Root -----</option>
                             

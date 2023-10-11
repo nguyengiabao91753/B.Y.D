@@ -657,9 +657,9 @@ border: 2px solid #ec9f05;
 
     @media screen and (max-width: 940px)
     {
-        .nav{
+        /* .nav{
             flex-direction: column;
-        }
+        } */
         
         .container .item{
             border-bottom: 1px solid white;

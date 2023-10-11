@@ -33,7 +33,8 @@ header {
 }
 
 .container .item {
-    padding: 0;
+    padding: 0 !important;
+    margin: auto;
 }
 
 .logo {
@@ -73,6 +74,7 @@ header {
 
 .icon {
     align-items: center;
+    /* margin-left: auto; */
     display: flex;
 }
 
@@ -676,9 +678,9 @@ summary {
 }
 
 @media screen and (max-width: 940px) {
-    .nav {
+    /* .nav {
         flex-direction: column;
-    }
+    } */
 
     .container .item {
         border-bottom: 1px solid white;
@@ -690,7 +692,7 @@ summary {
     }
 
     .logo {
-        margin: 0 auto;
+        float: left;
     }
 
     .logo h1 {

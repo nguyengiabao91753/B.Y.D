@@ -14,7 +14,7 @@
             </div>
             <div class="heading-p">
                 <p>Car insurance is a contract between a car owner and a general isnurance company where in the latter promises to protect the car owner from financial losses which may occur dure to an unfortunate event involving his/her car. Depending onthe scope of coverage, there are 3 types of car insurance policies - Comprehensive Car Insurance, Third-Party Car insurance and 3T Car insurance. To continue to avail the benefits of these policies, the car insurance renewal sould be processed on time by policyholders</p>
-                <img src="{{asset('client/{{asset('client/img/Car-insurance-resize.jpg" alt="">
+                <img src="{{asset('client/img/Car-insurance-resize.jpg')}}" alt="">
             </div>
         </div>
     </div>
@@ -31,7 +31,7 @@
         <div class="boxes">
             <div class="box1">
                 <p>Comprehensive Car Insurance</p>
-                <img src="{{asset('client/img/Comprehensive-car-insurance-resize.png" alt="">
+                <img src="{{asset('client/img/Comprehensive-car-insurance-resize.png')}}" alt="">
             </div>
             <div class="box-p">
                 <p>A Comprehensive Car isnurance policy is the most ectensive car insurance cover under which an insurance company is liable to pay for financial liabilities incurred towards a third party as well as for the own-damages sustained by the insured's car. In addition to road accidents, the event of natural calamities, man-made disasters, self-ignition or lighting, explosion, fire, theft, etc</p>
@@ -44,7 +44,7 @@
         <div class="boxes">
             <div class="box1">
                 <p>Third-Party Car Insurance</p>
-                <img src="{{asset('client/img/3rd-party-car-resize.jpg" alt="">
+                <img src="{{asset('client/img/3rd-party-car-resize.jpg')}}" alt="">
             </div>
             <div class="box-p">
                 <p>A third-party car insurance plan provides coverage against any legal liability arising out injuries or a third-party when the policyholder is at fault. it covers damages and injuries caused by the insured vehicle, to a third-party person or property</p>
@@ -57,7 +57,7 @@
         <div class="boxes">
             <div class="box1">
                 <p>3T Car Insurance</p>
-                <img src="{{asset('client/img/3T-car-resize.jpg" alt="">
+                <img src="{{asset('client/img/3T-car-resize.jpg')}}" alt="">
             </div>
             <div class="box-p">
                 <p>This is an economical cover designed for mainly for vehicles owners who understand their vehicle either low mileage on road or is too old for spending on wide cover, 3t insurance policy has limit ectent of own damage cover. This policy covers insured for Toral Loss of vehicle, Theft and / or Third Party Liability arising out of use of vehicle.</p>

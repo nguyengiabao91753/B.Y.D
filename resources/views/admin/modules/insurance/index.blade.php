@@ -34,6 +34,10 @@
             "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
         }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
     });
+
+    function confirmDelete() {
+        return confirm('Are you sure you want to delete this?');
+    }
 </script>
 @endpush
 @section('content')
