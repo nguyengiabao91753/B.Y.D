@@ -33,7 +33,7 @@
         </div>
 
         <div class="card-footer">
-            <button type="submit" class="btn btn-primary">Create</button>
+            <button type="submit" class="btn btn-primary">Edit</button>
         </div>
     </div>
     <!-- /.card -->

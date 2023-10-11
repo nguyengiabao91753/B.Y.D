@@ -14,7 +14,7 @@
 @section('content')
 <div class="container3">
     <fieldset>
-        <legend>SAFE CARZ LIMITED</legend>
+        <legend>B.Y.D INSURANCE</legend>
         <form method="post" action="{{ route('register') }}">
             @csrf
             <h1 style="text-align: center; color: gray;"><i class="fas fa-user"></i> Create new Account</h1>

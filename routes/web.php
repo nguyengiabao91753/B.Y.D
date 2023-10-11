@@ -29,6 +29,7 @@ use App\Http\Controllers\Client\LogoutClientController;
 use App\Http\Controllers\Page\Contact_usController;
 use App\Models\Contact;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\pdfController;
 
 /*
 |--------------------------------------------------------------------------
@@ -64,6 +65,8 @@ Route::get('/about_us', function () {
 Route::get('/contact_us', function () {
     return view('client.page.contact');
 });
+Route::get('/pdf',[pdfController::class,'index']);
+
 // })->name('contact');
 // Route::get('/contact_us',[Contact_usController::class,'index'])->name('index');
 // Route::post('/contact_us',[Contact_usController::class,'store'])->name('store');
@@ -75,6 +78,13 @@ Route::get('/all_vehicle_insurance', function () {
     return view('client.page.all_vehicle');
 })->name('vehicle');
 
+Route::get('/bike_insurance', function () {
+    return view('client.page.bike_insurance');
+})->name('bike_insurance');
+
+Route::get('/car_insurance', function () {
+    return view('client.page.car_insurance');
+})->name('car_insurance');
 
 Route::get('/register', function () {
     return view('client.page.register');

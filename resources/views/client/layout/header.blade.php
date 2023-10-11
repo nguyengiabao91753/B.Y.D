@@ -17,7 +17,8 @@
         .menu-toggle {
 
             display: none !important;
-        
+            float: right;
+
 
         }
 
@@ -35,23 +36,31 @@
             align-items: center;
         }
 
+
         /* CSS cho menu di động khi hiển thị */
         @media (max-width: 768px) {
             .menu-toggle {
                 display: flex !important;
                 /* Hiển thị nút menu trên các thiết bị nhỏ hơn */
-                margin-right: auto;
+                /* margin-right: auto; */
                 /* Đặt nút menu bên phải */
+                margin-left: 8px;
             }
 
-            .menu{
+            .menu {
                 display: none;
                 /* Ẩn menu trên các thiết bị nhỏ hơn */
             }
 
-            .menu.active {
+            .menu.active,
+            .item {
                 display: block;
-                /* Hiển thị menu khi nút menu được nhấn */
+                flex-direction: column-reverse;
+
+            }
+
+            .icon {
+                margin-left: auto !important;
             }
         }
 
@@ -61,14 +70,15 @@
         // JavaScript để bật/tắt menu di động
         function togglemenu() {
             const mobileMenuButton = document.getElementById('mobile-menu-button');
-            const menu = document.querySelector('.menu, .icon');
+            const menu = document.querySelector('.menu');
 
-            mobileMenuButton.addEventListener('click', () => {
-                menu.classList.toggle('active');
-            });
+
+            menu.classList.toggle('active');
+
         }
     </script>
     <link href="{{asset('client/fontawesome/css/all.css')}}" rel="stylesheet">
+    <!--     -->
 
     @stack('css')
 

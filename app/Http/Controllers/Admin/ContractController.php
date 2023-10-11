@@ -106,6 +106,10 @@ class ContractController extends Controller
         //
         $contract= Contract::find($id);
         $contract->delete();
+        $check_insurance = Insurance::where('contract_id',$id)->count();
+        if($check_insurance > 0){
+            return redirect()->route('admin.contract.index')->with('error', 'You can\'t delete this insurance .Because insurance chidren .');
+        }
 
         return redirect()->route('admin.contract.index')->with('success', 'Deleted Successfully!');
     }
