@@ -58,8 +58,8 @@
             <thead>
                 <tr>
                     <th>Contract ID</th>
-                    <th>Customer ID</th>
-                    <th>Insurance ID</th>
+                    <th>Customer</th>
+                    <th>Insurance</th>
                     <th>EndDate</th>
                     <th>Edit</th>
                     <th>Delete</th>
@@ -69,8 +69,8 @@
             @foreach($contracts as $contract)
                 <tr>
                     <td>{{$loop->iteration}}</td>
-                    <td>{{$contract->customer_id}}</td>
-                    <td>{{$contract->insurance_id}}</td>
+                    <td>{{$contract->customer->firstname.' '.$contract->customer->lastname}}</td>
+                    <td>{{$contract->insurance->policy->name}}</td>
                     <td>{{ date('d/m/Y', strtotime($contract->enddate)) }}</td>
                     <td><a href="{{route('admin.contract.edit',['id'=> $contract->id])}}">Edit</a></td>
                     <td><a onclick="return confirmDelete('contract')" href="{{route('admin.contract.destroy',['id'=> $contract->id])}}">Delete</a></td>

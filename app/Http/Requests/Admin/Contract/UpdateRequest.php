@@ -28,8 +28,8 @@ class UpdateRequest extends FormRequest
     public function messages() : array
     {
         return[
-            'custormer_id.required'=>'Please enter CustomerID',
-            'insurance_id.required'=>'Please enter InssuranceID',
+            'custormer_id.required'=>'The customer id field is required.',
+            'insurance_id.required'=>'The insurane id field is required.',
             'enddate.required' =>'Please enter Enddate',
         ];
     }

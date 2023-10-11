@@ -1,7 +1,7 @@
 <header class="header">
     <nav class="nav" role="navigation">
         <div class="logo">
-            <a href="{{ route('home')}}"><img src="{{asset('client/img/SAFE_CARZ.png')}}" alt=""></a>
+            <a href="{{ route('home')}}"><img src="{{asset('client/img/pl13.png')}}" alt="" style="height: 50px;"></a>
         </div>
         <div class="menu-toggle">
             <button  id="mobile-menu-button" onclick="togglemenu()">&#9776; Menu</button>

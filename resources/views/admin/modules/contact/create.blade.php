@@ -1,6 +1,6 @@
 @extends('admin.master')
 
-@section('module', 'contract')
+@section('module', 'Contact')
 @section('action', 'Create')
 
 @section('content')
