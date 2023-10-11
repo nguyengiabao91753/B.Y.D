@@ -227,37 +227,39 @@
         </div>
     </div>
 
-    <div class="container11">
-        <div class="item11">
-            <div class="img">
-                <img src="{{asset('client/img/UIC.png')}}" alt="">
+        <div class="container11">
+            <div class="item11">
+                <div class="img">
+                    <img src="" alt="">
+                </div>
             </div>
-        </div>
-        <div class="item11">
-            <div class="img">
-                <img src="{{asset('client/img/TPL.png')}}" alt="">
+            <div class="item11">
+                <div class="img">
+                    <img src="" alt="">
+                </div>
             </div>
-        </div>
-        <div class="item11">
-            <div class="img">
-                <img src="{{asset('client/img/Pak%20Qatar.png')}}" alt="">
+            <div class="item11">
+                <div class="img">
+                    <img src="{{asset('client/img/Pak%20Qatar.png')}}" alt="">
+                </div>
             </div>
-        </div>
-        <div class="item11">
-            <div class="img">
-                <img src="{{asset('client/img/Jubilee.png')}}" alt="">
+            <div class="item11">
+                <div class="img">
+                    <img src="{{asset('client/img/Jubilee.png')}}" alt="">
+                </div>
             </div>
-        </div>
-        <div class="item11">
-            <div class="img">
-                <img src="{{asset('client/img/EFU.png')}}" alt="">
+            <div class="item11">
+                <div class="img">
+                    <img src="{{asset('client/img/EFU.png')}}" alt="">
+                </div>
             </div>
+            <div class="item11">
+                <div class="img">
+                    <img src="{{asset('client/img/Askari.png')}}" alt="#">
+                </div>
+            </div> 
         </div>
-        <div class="item11">
-            <div class="img">
-                <img src="{{asset('client/img/Askari.png')}}" alt="#">
-            </div>
-        </div>
-    </div>
+
+
 
 @endsection

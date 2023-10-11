@@ -43,14 +43,14 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/admin', function () {
     return view('admin.master');
-});
+})->name('admin');
 // Login admin 
 Route::get('auth/login',[LoginController::class,'showLogin'])->name('showLogin');
 Route::post('auth/login',[LoginController::class,'login'])->name('login');
 Route::get('auth/logout',LogoutController::class)->name('logout');
 
-Route::get('/',[HomeController::class,'showHomePage'])->name('showHomePage');
-Route::post('/',[HomeController::class,'showImage'])->name('showImage');
+//show image Provider in Home Page
+Route::get('/image/{id}',[HomeController::class,'showImage'])->name('showImage');
 
 
 Route::get('/', function () {
