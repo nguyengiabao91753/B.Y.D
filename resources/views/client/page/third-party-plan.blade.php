@@ -59,7 +59,6 @@
             </div>
         </div>
     </div>
-
     <div class="items">
         <div class="item1">
             <img src="{{asset('client/img/Jubilee_margin-0.png')}}" alt="">
