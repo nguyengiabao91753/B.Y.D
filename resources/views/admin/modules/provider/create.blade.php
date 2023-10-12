@@ -26,7 +26,7 @@
                 <div class="col-md-8">
                     <div class="form-group">
                         <label>Name</label>
-                        <input type="text" class="form-control" placeholder="Enter product name" name="name" value="{{ old('name')}}">
+                        <input type="text" class="form-control" placeholder="Enter provider name" name="name" value="{{ old('name')}}">
                     </div>
 
                 <div class="col-md-4">

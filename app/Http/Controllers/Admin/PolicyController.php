@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\Policy\UpdateRequest;
 use App\Http\Requests\Admin\Policy\StoreRequest;
 use App\Models\Policy;
-use Illuminate\Http\Request;    
+use Illuminate\Http\Request;
 
 class PolicyController extends Controller
 {
@@ -15,9 +15,9 @@ class PolicyController extends Controller
      */
     public function index()
     {
-        $policy = Policy::orderBy('created_at','DESC')->get();
-        return view('admin.modules.policy.index',[
-            'policies'=>$policy
+        $policy = Policy::orderBy('created_at', 'DESC')->get();
+        return view('admin.modules.policy.index', [
+            'policies' => $policy
         ]);
     }
 
@@ -35,11 +35,16 @@ class PolicyController extends Controller
     public function store(StoreRequest $request)
     {
         $policy = new Policy();
-        $policy ->name = $request->name;
-        $policy->description = $request->description;
+        $file = $request->image;
+        $fileName = time() . '-' . $file->getClientOriginalName();
 
+        $policy->name = $request->name;
+        $policy->description = $request->description;
+        $policy->image = $fileName;
+
+        $file->move(public_path('uploads/'), $fileName);
         $policy->save();
-        return redirect()->route('admin.policy.index')->with('success','Create Successfully!');
+        return redirect()->route('admin.policy.index')->with('success', 'Create Successfully!');
     }
 
     /**
@@ -56,9 +61,9 @@ class PolicyController extends Controller
     public function edit(int $id)
     {
         $policy = Policy::find($id);
-        return view('admin.modules.policy.edit',[
-            
-            'policy'=>$policy
+        return view('admin.modules.policy.edit', [
+
+            'policy' => $policy
         ]);
     }
 
@@ -68,15 +73,36 @@ class PolicyController extends Controller
     public function update(UpdateRequest $request,  $id)
     {
         $policy = Policy::find($id);
-        if($policy == null){
+
+        if ($policy == null) {
             abort(404);
         }
-        $policy ->name = $request->name;
+
+        $file = $request->image;
+
+        if (!empty($file)) {
+            $request->validate([
+                'image' => 'required|mimes: jpg, png, bmp, jpeg'
+            ], [
+                'image.required' => 'Please enter provider image',
+                'image.mimes' => 'Image must be jpg,png,bmp,jpeg'
+            ]);
+            
+            $old_image_path = public_path('uploads/' . $policy->image);
+            if (file_exists($old_image_path)) {
+                unlink($old_image_path);
+            }
+
+            $fileName = time() . '-' . $file->getClientOriginalName();
+            $policy->image = $fileName;
+            $file->move(public_path('uploads/'), $fileName);
+        }
+
+        $policy->name = $request->name;
         $policy->description = $request->description;
 
         $policy->save();
-        return redirect()->route('admin.policy.index')->with('success','Update Successfully!');
-
+        return redirect()->route('admin.policy.index')->with('success', 'Update Successfully!');
     }
 
     /**
@@ -94,7 +120,7 @@ class PolicyController extends Controller
         $policy->status = 2;
         $policy->save();
 
-        return redirect()->route('admin.policy.index')->with('success','Delete Successfully!');
+        return redirect()->route('admin.policy.index')->with('success', 'Delete Successfully!');
     }
 
     public function restore(int $id)
@@ -109,7 +135,7 @@ class PolicyController extends Controller
         $policy->status = 1;
         $policy->save();
 
-        return redirect()->route('admin.policy.index')->with('success','Restore Successfully!');
+        return redirect()->route('admin.policy.index')->with('success', 'Restore Successfully!');
     }
 
     public function destroy_frv(int $id)
@@ -124,6 +150,6 @@ class PolicyController extends Controller
         $policy->status = 3;
         $policy->save();
 
-        return redirect()->route('admin.policy.index')->with('success','Delete Successfully!');
+        return redirect()->route('admin.policy.index')->with('success', 'Delete Successfully!');
     }
 }
