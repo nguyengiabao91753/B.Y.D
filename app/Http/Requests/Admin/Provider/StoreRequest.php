@@ -23,8 +23,8 @@ class StoreRequest extends FormRequest
     {
         return [
             //
-            // 'name'=>'required|unique:providers,name',
-            // 'image'=>'required|mimes:jpg,png,bmp,jpeg'
+            'name'=>'required|unique:providers,name',
+            'image'=>'required|mimes:jpg,png,bmp,jpeg'
         ];
     }
 

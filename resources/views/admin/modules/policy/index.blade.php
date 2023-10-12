@@ -26,18 +26,22 @@
 
 @push('handlejs')
 <script>
-    $(function () {
-      $("#example1").DataTable({
-        "responsive": true, "lengthChange": false, "autoWidth": false,
-        "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
-      }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
+    $(function() {
+        $("#example1").DataTable({
+            "responsive": true,
+            "lengthChange": false,
+            "autoWidth": false,
+            "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
+        }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
     });
 
-    $(function () {
-      $("#example2").DataTable({
-        "responsive": true, "lengthChange": false, "autoWidth": false,
-        "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
-      }).buttons().container().appendTo('#example2_wrapper .col-md-6:eq(0)');
+    $(function() {
+        $("#example2").DataTable({
+            "responsive": true,
+            "lengthChange": false,
+            "autoWidth": false,
+            "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
+        }).buttons().container().appendTo('#example2_wrapper .col-md-6:eq(0)');
     });
 
     function confirmDelete() {
@@ -52,8 +56,7 @@
     function confirmDelete_Frv() {
         return confirm('This data can not restore anymore. Are you sure you want to delete this?');
     }
-    
-  </script>
+</script>
 @endpush
 @section('content')
 <!-- Default box -->
@@ -62,12 +65,12 @@
         <h3 class="card-title">Policy list</h3>
 
         <div class="card-tools">
-        <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
-            <i class="fas fa-minus"></i>
-        </button>
-        <button type="button" class="btn btn-tool" data-card-widget="remove" title="Remove">
-            <i class="fas fa-times"></i>
-        </button>
+            <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
+                <i class="fas fa-minus"></i>
+            </button>
+            <button type="button" class="btn btn-tool" data-card-widget="remove" title="Remove">
+                <i class="fas fa-times"></i>
+            </button>
         </div>
     </div>
 
@@ -76,6 +79,7 @@
             <thead>
                 <tr>
                     <th>ID</th>
+                    <th>Image</th>
                     <th>Name</th>
                     <th>Description</th>
                     <th>Status</th>
@@ -87,8 +91,13 @@
             <tbody>
                 @foreach($policies as $policy)
                 @if($policy->status ==1 )
+
+                    @php
+                        $image= asset('uploads/'.$policy->image)
+                    @endphp
                 <tr>
                     <td>{{$loop->iteration}}</td>
+                    <td><img src="{{ $image }}" width="100px"></td>
                     <td>{{$policy->name}}</td>
                     <td>{{ \Illuminate\Support\Str::limit($policy->description, 30, '...') }}</td>
                     <td><span class="right badge badge-success">Show</span></td>
@@ -102,6 +111,7 @@
             <tfoot>
                 <tr>
                     <th>ID</th>
+                    <th>Image</th>
                     <th>Name</th>
                     <th>Description</th>
                     <th>Status</th>
@@ -120,12 +130,12 @@
         <h3 class="card-title">Policy deleted list</h3>
 
         <div class="card-tools">
-        <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
-            <i class="fas fa-minus"></i>
-        </button>
-        <button type="button" class="btn btn-tool" data-card-widget="remove" title="Remove">
-            <i class="fas fa-times"></i>
-        </button>
+            <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
+                <i class="fas fa-minus"></i>
+            </button>
+            <button type="button" class="btn btn-tool" data-card-widget="remove" title="Remove">
+                <i class="fas fa-times"></i>
+            </button>
         </div>
     </div>
 
