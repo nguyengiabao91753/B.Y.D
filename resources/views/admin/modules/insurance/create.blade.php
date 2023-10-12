@@ -90,11 +90,11 @@
                 <div class="col-md-4">
                     <div class="form-group">
                         <label>Price</label>
-                        <input type="text" class="form-control" placeholder="Enter product price" name="price" value="{{old('price')}}">
+                        <input type="text" class="form-control" placeholder="Enter price" name="price" value="{{old('price')}}">
                     </div>
                     <div class="form-group">
                         <label>Rate</label>
-                        <input type="text" class="form-control" placeholder="Enter product price" name="rate" value="{{old('rate')}}">
+                        <input type="text" class="form-control" placeholder="Enter rate" name="rate" value="{{old('rate')}}">
                     </div>
                 </div>
             </div>

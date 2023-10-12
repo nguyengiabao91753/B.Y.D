@@ -64,7 +64,7 @@ class InsuranceCotroller extends Controller
 
 
 
-    public function getBrand($categoryId=0)
+    public function getBrand($categoryId)
     {
         $brands = Category::select('id', 'name')->where('parent_id', $categoryId)
             ->where(function ($query) {
@@ -79,7 +79,7 @@ class InsuranceCotroller extends Controller
         return response()->json($brand);
     }
 
-    public function getModel($categoryId=0)
+    public function getModel($categoryId)
     {
         $models = Category::select('id', 'name')->where('parent_id', $categoryId)
             ->where(function ($query) {
@@ -94,7 +94,7 @@ class InsuranceCotroller extends Controller
         return response()->json($model);
     }
 
-    public function getValue($categoryId=0)
+    public function getValue($categoryId)
     {
         $values = Category::select('id', 'name')->where('parent_id', $categoryId)
             ->where(function ($query) {
@@ -124,9 +124,9 @@ class InsuranceCotroller extends Controller
     public function edit(int $id)
     {
         $insurance = Insurance::find($id);
-        $providers = Provider::all();
-        $policies = Policy::all();
-        $categories = Category::all();
+        $providers = Provider::get();
+        $policies = Policy::get();
+        $categories = Category::get();
         return view('admin.modules.insurance.edit', [
             'providers' => $providers,
             'policies' => $policies,
@@ -144,6 +144,7 @@ class InsuranceCotroller extends Controller
         // if ($insurance == null) {
         //     abort(404);
         // }
+        
         $insurance->provider_id = $request->provider_id;
         $insurance->policy_id = $request->policy_id;
         $insurance->category_id = $request->category_id;
@@ -152,7 +153,7 @@ class InsuranceCotroller extends Controller
         $insurance->value = $request->value;
         $insurance->price = $request->price;
         $insurance->rate = $request->rate;
-
+        
         $insurance->save();
         return redirect()->route('admin.insurance.index')->with('success', 'Update Successfully!');
     }

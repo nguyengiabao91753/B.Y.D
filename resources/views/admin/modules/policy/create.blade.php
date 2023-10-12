@@ -4,17 +4,10 @@
 @section('action', 'Create')
 
 
-@push('handlejs')
-<script src="{{ asset('administrator/plugins/summernote/summernote-bs4.min.js') }}"></script>
-<!-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> -->
 
-<!-- <script>
-    $('.description').summernote()
-</script> -->
-@endpush
 
 @section('content')
-<form method="post" action="{{ route('admin.policy.store') }}">
+<form method="post" action="{{ route('admin.policy.store') }}" enctype="multipart/form-data">
     @csrf
     <!-- Default box -->
     <div class="card">
@@ -22,12 +15,12 @@
             <h3 class="card-title">Policy create</h3>
 
             <div class="card-tools">
-            <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
-                <i class="fas fa-minus"></i>
-            </button>
-            <button type="button" class="btn btn-tool" data-card-widget="remove" title="Remove">
-                <i class="fas fa-times"></i>
-            </button>
+                <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
+                    <i class="fas fa-minus"></i>
+                </button>
+                <button type="button" class="btn btn-tool" data-card-widget="remove" title="Remove">
+                    <i class="fas fa-times"></i>
+                </button>
             </div>
         </div>
 
@@ -38,7 +31,12 @@
             </div>
             <div class="form-group">
                 <label for="description">Description</label>
-                <textarea class="form-control" id="description" placeholder="Enter Policy Description" name="description"  id="" cols="30" rows="10" required>{{old('description')}}</textarea>
+                <textarea class="form-control" id="description" placeholder="Enter Policy Description" name="description" id="" cols="30" rows="10" required>{{old('description')}}</textarea>
+            </div>
+
+            <div class="form-group">
+                <label>Image</label>
+                <input type="file" class="form-control" name="image">
             </div>
         </div>
 

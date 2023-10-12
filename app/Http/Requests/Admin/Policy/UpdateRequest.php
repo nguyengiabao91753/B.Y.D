@@ -22,7 +22,9 @@ class UpdateRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name' => 'required|unique:Policy,name,'.$this->id,
+            'image'=>'required|mimes: jpg ,png, bmp, jpeg',
+            'name' => 'required|unique:Policy,name,'.$this->id
+            
         ];
     }
 
@@ -31,6 +33,8 @@ class UpdateRequest extends FormRequest
         return [
             'name.required' => 'Please enter Policy Name',
             'name.unique' => 'This Policy Name already exists',
+            'image.required'=>'Please enter Policy image',
+            'image.mimes'=>'Image must be jpg,png,bmp,jpeg'
         ];
     }
 }
