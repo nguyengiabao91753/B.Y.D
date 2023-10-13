@@ -172,6 +172,7 @@
                     <th>ID</th>
                     <th>Name</th>
                     <th>Image</th>
+                    <th>Status</th>
                     <th>Create At</th>
                     <th>Edit</th>
                     <th>Delete</th>

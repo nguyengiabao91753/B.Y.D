@@ -28,4 +28,16 @@ class Provider extends Model
     {
         return $this->hasMany(Provider::class);
     }
+
+
+    public function insurances()
+    {
+        return $this->hasMany(Insurance::class);
+    }
+
+    public function policies()
+    {
+        return $this->hasMany(Policy::class);
+    }
+
 }
