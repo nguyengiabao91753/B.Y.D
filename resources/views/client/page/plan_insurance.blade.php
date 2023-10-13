@@ -24,7 +24,7 @@
 
 <div class="heading">
     <div class="heading-top">
-        <h1>Showing Plans</h1>
+        <h1>Showing {{count($insurance)}} Plans</h1>
     </div>
 </div>
 

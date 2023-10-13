@@ -12,7 +12,7 @@ class InsuranceController extends Controller
 {
     public function index_car()
     {
-        $policy = Policy::select('id','image', 'name', 'description')->where(function ($query) {
+        $policy = Policy::select('id', 'image', 'name', 'description')->where(function ($query) {
             $query->where('name', 'like', '%Car%');
         })
             ->get();
@@ -32,10 +32,28 @@ class InsuranceController extends Controller
         ]);
     }
 
+    public function index_all()
+    {
+        $policy_car = Policy::select('id', 'image', 'name', 'description')->where(function ($query) {
+            $query->where('name', 'like', '%Car%');
+        })
+            ->get();
+
+        $policy_bike = Policy::select('id', 'image', 'name', 'description')->where(function ($query) {
+            $query->where('name', 'like', '%Motorcycles%');
+        })
+            ->get();
+
+
+        return view('client.page.all_vehicle', [
+            'policy_car' => $policy_car,
+            'policy_bike'=>$policy_bike
+        ]);
+    }
 
     public function index_form(int $id)
     {
-        $policy = Policy::select('id','image', 'name', 'description')->find($id);
+        $policy = Policy::select('id', 'image', 'name', 'description')->find($id);
         // $policyID = $policy->pluck('id');
         $insurance = Insurance::with('policy')->select('id', 'brand', 'model', 'value')->where('policy_id', $id)->get();
 

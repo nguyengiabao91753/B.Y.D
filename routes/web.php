@@ -97,6 +97,7 @@ Route::post('/register',[LoginClientController::class,'register'])->name('regist
 Route::prefix('client')->name('')->group(function (){
     Route::get('car_insurance', [InsuranceController::class, 'index_car'])->name('car_insurance');
     Route::get('bike_insurance', [InsuranceController::class, 'index_bike'])->name('bike_insurance');
+    Route::get('all_vehicle', [InsuranceController::class, 'index_all'])->name('all_vehicle');
 
 
     Route::get('plan_insurance', [InsuranceController::class, 'index_plan'])->name('plan_insurance');
