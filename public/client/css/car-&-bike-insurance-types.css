@@ -1,56 +1,57 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,300;0,500;0,600;0,700;1,200&amp;display=swap');
 
-*{
-    box-sizing: border-box;
+* {
+    box-sizing: border-box !important;
     font-family: 'Poppins', sans-serif;
 
 }
 
-body{
+body {
     width: 100%;
     margin: 0;
     padding: 0;
 }
 
-.header{
+.header {
     width: 100%;
-    background-image: linear-gradient(to right, #ff4e00, #ec9f05) ;
+    background-image: linear-gradient(to right, #ff4e00, #ec9f05);
 }
 
-.nav{
+.nav {
     width: 100%;
     display: flex;
 }
-nav{
+
+nav {
     width: 100%;
 }
 
-header{
+header {
     width: 100%;
 }
 
-.container .item{
+.container .item {
     padding: 0;
 }
 
-.logo{
+.logo {
     display: flex;
     margin: 0;
     color: white;
     align-items: center;
 }
 
-.logo h1{
+.logo h1 {
     margin: 0px 0px 0px 20px;
     padding: 0;
 }
 
-.item{
+.item {
     display: flex;
-    margin: 0px 0px 0px 0px;   
+    margin: 0px 0px 0px 0px;
 }
 
-.item a{
+.item a {
     margin: 5px 0px 0px 0px;
     text-decoration: none;
     padding: 10px;
@@ -59,74 +60,75 @@ header{
     border-radius: 20px;
 }
 
-.item a:hover{
+.item a:hover {
     background: #ffc146;
     transition: .5s;
 }
 
-.container{
+.container {
     margin: 0 auto
 }
 
-.icon{
+.icon {
     align-items: center;
     display: flex;
 }
 
-.icon .ul{
+.icon .ul {
     display: flex
 }
 
-.icon a{
+.icon a {
     color: white;
 }
 
-.icon li{
+.icon li {
     margin: 0px 10px 0px 0px;
     padding: 0;
 }
 
-li>.btn5{
+li>.btn5 {
     text-decoration: none;
 }
 
-.icon a:hover{
+.icon a:hover {
     background: #ffc146;
     transition: .5s;
 }
 
-.icon a{
+.icon a {
     padding: 10px;
     border-radius: 20px;
 }
 
-li>.btn6{
+li>.btn6 {
     text-decoration: none;
     background-color: rgb(255, 14, 14);
     border: 1px solid rgb(255, 14, 14);
     border-radius: 15px;
     padding: 1px 5px 1px 5px;
 }
-li>.btn6:hover{
+
+li>.btn6:hover {
     color: black;
     background-color: rgb(255, 62, 62);
 }
 
 
-.heading{
+.heading {
     display: flex;
     justify-content: center;
     margin-top: 20px;
 }
 
-.heading-item{
+.heading-item {
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
 
-.heading-p{
+.heading-p {
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -134,11 +136,11 @@ li>.btn6:hover{
     margin: 0;
 }
 
-.heading-item h1{
+.heading-item h1 {
     margin: 0;
 }
 
-.heading-p p{
+.heading-p p {
     width: 50%;
     margin: 0;
     font-weight: 300;
@@ -147,14 +149,14 @@ li>.btn6:hover{
 
 /* ======BOX WORK STARTS====== */
 
-.box-heading{
+.box-heading {
     display: flex;
     justify-content: center;
 }
 
 
 
-.container1{
+.container1 {
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
@@ -162,42 +164,50 @@ li>.btn6:hover{
     margin-bottom: 20px;
 }
 
-.container1 .boxes{
+.container1 .boxes {
     box-shadow: 4px 4px 12px 2px gray;
     border-radius: 35px;
     padding: 10px;
     max-width: 400px;
     height: auto;
     margin: 0px 30px 30px 30px;
-    text-align:center;
+    text-align: center;
 }
 
-.box1{
+.box1 {
     display: flex;
     flex-direction: row;
 }
 
-.box1 p{
+.box1 p {
     font-size: 22px;
     font-weight: 700;
     width: 200px;
 }
 
-.box-p{
+.box-p {
     display: flex;
     flex-direction: column;
     width: 100%;
+
 }
 
-.box-p p{
+.box-p p {
     font-weight: 300;
+    /* content: attr(); */
 }
 
-.box-btn{
-    padding: 10px;
+.box-btn {
+    /* padding: 10px; */
+    /* margin-top: 35px;*/
+    margin-bottom: 15px;
+    /* margin-bottom: 10px; */
+    /* position: absolute; */
+    /* bottom: 0;
+    left: 0; */
 }
 
-.box-btn a{
+.box-btn a {
     text-decoration: none;
     border-radius: 30px;
     padding: 10px 25px 10px 25px;
@@ -209,12 +219,12 @@ li>.btn6:hover{
     text-align: center;
 }
 
-.box-btn1{
+.box-btn1 {
     margin-top: 85px;
     margin-bottom: 10px;
 }
 
-.box-btn1 a{
+.box-btn1 a {
     text-decoration: none;
     border-radius: 30px;
     padding: 10px 25px 10px 25px;
@@ -226,12 +236,12 @@ li>.btn6:hover{
     text-align: center;
 }
 
-.box-btn2{
+.box-btn2 {
     margin-top: 55px;
     margin-bottom: 10px;
 }
 
-.box-btn2 a{
+.box-btn2 a {
     text-decoration: none;
     border-radius: 30px;
     padding: 10px 25px 10px 25px;
@@ -243,56 +253,54 @@ li>.btn6:hover{
     text-align: center;
 }
 
-.box-btn a:hover{
+.box-btn a:hover {
     background-color: transparent;
     border: 2px solid #ffb728;
     color: #ffb728;
 }
 
-.box-btn1 a:hover{
+.box-btn1 a:hover {
     background-color: transparent;
     border: 2px solid #ffb728;
     color: #ffb728;
 }
 
-.box-btn2 a:hover{
+.box-btn2 a:hover {
     background-color: transparent;
     border: 2px solid #ffb728;
     color: #ffb728;
 }
+
 /* ======BOX WORK END====== */
 
 
-@media screen and (max-width: 1270px)
-{
-    .container1{
+@media screen and (max-width: 1270px) {
+    .container1 {
         flex-wrap: wrap;
     }
 }
 
-@media screen and (max-width: 700px)
-{
-    .heading-p{
+@media screen and (max-width: 700px) {
+    .heading-p {
         flex-direction: column-reverse;
     }
 
-    .heading-p p{
+    .heading-p p {
         width: 80%;
     }
 }
 
-@media screen and (max-width: 500px)
-{
-    .box-heading h1{
+@media screen and (max-width: 500px) {
+    .box-heading h1 {
         font-size: 25px;
     }
 
-    .heading-item h1{
+    .heading-item h1 {
         font-size: 25px;
     }
 
 
-    .box1{
+    .box1 {
         flex-direction: column;
         align-items: center;
         text-align: center;
@@ -319,20 +327,20 @@ li>.btn6:hover{
 
 
 
-.container13{
+.container13 {
     display: flex;
     position: relative;
     text-align: center;
     color: white;
 }
 
-.container13 img{
+.container13 img {
     display: flex;
     width: 100%;
     flex-shrink: 0;
 }
 
-.container13 .item13{
+.container13 .item13 {
     position: absolute;
     top: 50px;
     left: 150px;
@@ -340,7 +348,7 @@ li>.btn6:hover{
     font-weight: 700;
 }
 
-.container13 .item133{
+.container13 .item133 {
     position: absolute;
     top: 100px;
     left: 150px;
@@ -349,12 +357,12 @@ li>.btn6:hover{
     text-align: left;
 }
 
-.footer{
+.footer {
     display: flex;
     position: relative;
 }
 
-.box{
+.box {
     display: flex;
     justify-content: space-evenly;
     align-items: center;
@@ -363,33 +371,33 @@ li>.btn6:hover{
     margin: 0;
 }
 
-.item14 h1{
+.item14 h1 {
     color: #ff4e00;
     margin: 30px 300px 20px 300px;
 }
 
-.item14 p{
+.item14 p {
     margin: 0px 300px 30px 300px;
     font-weight: 300;
     color: white;
 }
 
-.item144 h1{
+.item144 h1 {
     color: #ff4e00;
     margin: 30px 300px 20px 300px;
 }
 
-.item144 p{
+.item144 p {
     margin: 0px 300px 30px 300px;
     font-weight: 300;
     color: white;
 }
 
-.container14{
+.container14 {
     display: flex;
 }
 
-.item15{
+.item15 {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -397,165 +405,159 @@ li>.btn6:hover{
     background-color: rgb(19, 19, 19);
 }
 
-.container14 h3{
+.container14 h3 {
     font-weight: 300;
     color: #ff4e00;
 }
 
-.container13 .imgR{
+.container13 .imgR {
     display: none;
 }
 
-@media screen and (max-width: 940px)
-{
+@media screen and (max-width: 940px) {
     /* .nav{
         flex-direction: column;
     } */
-    
-    .container .item{
+
+    .container .item {
         border-bottom: 1px solid white;
         margin: 0 auto;
     }
-    
-    .container{
+
+    .container {
         margin: 0;
     }
-    
-    .logo{
+
+    .logo {
         margin: 0 auto;
     }
-    
-    .logo h1{
+
+    .logo h1 {
         margin: 0px;
     }
-    
-    .icon ul{
+
+    .icon ul {
         margin: 0 auto;
         padding: 7px 0px 7px 0px;
     }
 }
 
-@media screen and (max-width: 600px)
-{
-    .container .item a{
+@media screen and (max-width: 600px) {
+    .container .item a {
         font-size: 80%;
         margin: 0%;
         padding: 5px 0px 0px 0px;
     }
-    .container .item{
+
+    .container .item {
         margin: 0;
         text-align: center;
         justify-content: space-around;
     }
 
-    .logo{
+    .logo {
         font-size: 80%;
     }
 
-    .icon{
+    .icon {
         font-size: 80%;
     }
 
 }
 
-@media screen and (max-width: 450px)
-{
-    .container .item a{
+@media screen and (max-width: 450px) {
+    .container .item a {
         font-size: 60%;
     }
 }
 
-@media screen and (max-width: 1640px)
-{
-    .footer .item14 h1{
+@media screen and (max-width: 1640px) {
+    .footer .item14 h1 {
         margin: 30px 150px 20px 150px;
     }
-    
-    .footer .item14 p{
+
+    .footer .item14 p {
         margin: 30px 150px 20px 150px;
     }
-    
-    .item144 h1{
+
+    .item144 h1 {
         margin: 30px 150px 20px 150px;
     }
-    
-    .item144 p{
+
+    .item144 p {
         margin: 30px 150px 20px 150px;
     }
 }
 
-@media screen and (max-width: 1200px)
-{
-    .container13 .item13{
+@media screen and (max-width: 1200px) {
+    .container13 .item13 {
         top: 25px;
     }
 
-    .container13 .item133{
+    .container13 .item133 {
         top: 65px;
-    }   
+    }
 }
 
-@media screen and (max-width: 1040px)
-{
-    .footer .item14 h1{
-        margin: 30px 100px 20px 100px;
-    }
-    
-    .footer .item14 p{
-        margin: 30px 100px 20px 100px;
-    }
-    
-    .item144 h1{
-        margin: 30px 100px 20px 100px;
-    }
-    
-    .item144 p{
+@media screen and (max-width: 1040px) {
+    .footer .item14 h1 {
         margin: 30px 100px 20px 100px;
     }
 
-    .container13 .item13{
+    .footer .item14 p {
+        margin: 30px 100px 20px 100px;
+    }
+
+    .item144 h1 {
+        margin: 30px 100px 20px 100px;
+    }
+
+    .item144 p {
+        margin: 30px 100px 20px 100px;
+    }
+
+    .container13 .item13 {
         left: 100px;
         top: 20px;
     }
 
-    .container13 .item133{
+    .container13 .item133 {
         left: 100px;
         top: 70px;
     }
 }
 
-@media screen and (max-width:800px)
-{
-    .footer .box{
+@media screen and (max-width:800px) {
+    .footer .box {
         flex-direction: column;
     }
 
-    .footer .item14 h1{
-        margin: 30px 50px 20px 50px;
-    }
-    
-    .footer .item14 p{
-        margin: 30px 50px 20px 50px;
-    }
-    
-    .item144 h1{
-        margin: 30px 50px 20px 50px;
-    }
-    
-    .item144 p{
+    .footer .item14 h1 {
         margin: 30px 50px 20px 50px;
     }
 
-    .box{
+    .footer .item14 p {
+        margin: 30px 50px 20px 50px;
+    }
+
+    .item144 h1 {
+        margin: 30px 50px 20px 50px;
+    }
+
+    .item144 p {
+        margin: 30px 50px 20px 50px;
+    }
+
+    .box {
         text-align: center;
     }
 
-    .container13{
+    .container13 {
         display: flex;
         flex-direction: column;
     }
 
-    .container13 .item13{
+    .container13 .item13 {
         line-height: 30px;
         text-align: center;
         left: 50px;
@@ -563,7 +565,7 @@ li>.btn6:hover{
         top: 50px;
     }
 
-    .container13 .item133{
+    .container13 .item133 {
         line-height: 30px;
         text-align: center;
         top: 80px;
@@ -571,98 +573,98 @@ li>.btn6:hover{
         right: 50px;
     }
 
-    .container13 img{
+    .container13 img {
         display: none;
     }
 
-    .container13 .imgR{
+    .container13 .imgR {
         display: block;
     }
 }
 
-@media screen and (max-width: 690px)
-{
-    .container13 .item13{
+@media screen and (max-width: 690px) {
+    .container13 .item13 {
         font-size: 150%;
     }
-    .container13 .item133{
+
+    .container13 .item133 {
         font-size: 80%;
     }
-    
+
 }
 
-@media screen and (max-width: 480px)
-{
-    .container13 .item13{
+@media screen and (max-width: 480px) {
+    .container13 .item13 {
         top: 30px;
         font-size: 150%;
     }
-    .container13 .item133{
+
+    .container13 .item133 {
         font-size: 80%;
         margin-top: -20px;
     }
-    
+
 }
 
-@media screen and (max-width: 400px)
-{
-    .container13 .item13{
+@media screen and (max-width: 400px) {
+    .container13 .item13 {
         text-align: left;
         top: 10px;
         line-height: 30px;
         font-size: 150%;
     }
-    .container13 .item133{
+
+    .container13 .item133 {
         text-align: left;
         font-size: 80%;
         margin-top: -40px;
     }
 
-    .container13{
+    .container13 {
         font-size: 70%;
         top: 0px;
         margin: 0;
     }
-    
+
 }
 
-@media screen and (max-width: 543px)
-{
-    .container13 .item13{
+@media screen and (max-width: 543px) {
+    .container13 .item13 {
         line-height: 25px;
         font-size: 150%;
     }
-    .container13 .item133{
+
+    .container13 .item133 {
         line-height: 20px;
         font-size: 80%;
         top: 100px;
     }
-    
+
 }
 
-@media screen and (max-width: 425px)
-{
-    .footer .item14 h1{
-        margin: 30px 50px 20px 50px;
-    }
-    
-    .footer .item14 p{
-        margin: 30px 50px 20px 50px;
-    }
-    
-    .item144 h1{
-        margin: 30px 50px 20px 50px;
-    }
-    
-    .item144 p{
+@media screen and (max-width: 425px) {
+    .footer .item14 h1 {
         margin: 30px 50px 20px 50px;
     }
 
-    .container14 h3{
+    .footer .item14 p {
+        margin: 30px 50px 20px 50px;
+    }
+
+    .item144 h1 {
+        margin: 30px 50px 20px 50px;
+    }
+
+    .item144 p {
+        margin: 30px 50px 20px 50px;
+    }
+
+    .container14 h3 {
         font-size: 85%;
     }
-    .box{
+
+    .box {
         text-align: left;
     }
 
-}    
+}

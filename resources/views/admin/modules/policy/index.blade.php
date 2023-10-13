@@ -92,9 +92,9 @@
                 @foreach($policies as $policy)
                 @if($policy->status ==1 )
 
-                    @php
-                        $image= asset('uploads/'.$policy->image)
-                    @endphp
+                @php
+                $image= asset('uploads/'.$policy->image)
+                @endphp
                 <tr>
                     <td>{{$loop->iteration}}</td>
                     <td><img src="{{ $image }}" width="100px"></td>
@@ -144,6 +144,7 @@
             <thead>
                 <tr>
                     <th>ID</th>
+                    <th>Image</th>
                     <th>Name</th>
                     <th>Description</th>
                     <th>Status</th>
@@ -155,8 +156,12 @@
             <tbody>
                 @foreach($policies as $policy)
                 @if($policy->status ==2 )
+                    @php
+                        $image= asset('uploads/'.$policy->image)
+                    @endphp
                 <tr>
                     <td>{{$loop->iteration}}</td>
+                    <td><img src="{{ $image }}" width="100px"></td>
                     <td>{{$policy->name}}</td>
                     <td>{{ \Illuminate\Support\Str::limit($policy->description, 30, '...') }}</td>
                     <td><span class="right badge badge-dark">Hidden</span></td>
@@ -170,6 +175,7 @@
             <tfoot>
                 <tr>
                     <th>ID</th>
+                    <th>Image</th>
                     <th>Name</th>
                     <th>Description</th>
                     <th>Status</th>
