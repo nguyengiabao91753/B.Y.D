@@ -17,6 +17,7 @@ use App\Http\Controllers\Admin\Vehicle\CarModelController;
 use App\Http\Controllers\Admin\Vehicle\CarPkrController;
 use App\Http\Controllers\Admin\Vehicle\CarTypeController;
 use App\Http\Controllers\Admin\Vehicle\TypeController;
+use App\Http\Controllers\Client\InsuranceController;
 use App\Models\Admin\Insurance;
 
 use App\Http\Controllers\Admin\ContractController;
@@ -93,6 +94,16 @@ Route::get('/logout',LogoutClientController::class)->name('logoutClient');
 Route::get('/registration',[LoginClientController::class,'registration'])->name('registration');
 Route::post('/register',[LoginClientController::class,'register'])->name('register');
 
+Route::prefix('client')->name('')->group(function (){
+    Route::get('car_insurance', [InsuranceController::class, 'index_car'])->name('car_insurance');
+    Route::get('bike_insurance', [InsuranceController::class, 'index_bike'])->name('bike_insurance');
+    Route::get('all_vehicle', [InsuranceController::class, 'index_all'])->name('all_vehicle');
+
+
+    Route::get('plan_insurance', [InsuranceController::class, 'index_plan'])->name('plan_insurance');
+    Route::get('form_insurance/{id}', [InsuranceController::class, 'index_form'])->name('form_insurance');
+    
+});
 
 Route::prefix('admin')->name('admin.')->middleware('check_login')->group(function () {
     Route::prefix('category')->name('category.')->controller(CategoryController::class)->group(function () {

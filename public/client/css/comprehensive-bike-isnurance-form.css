@@ -171,7 +171,8 @@ li>.btn6:hover{
    #box011{
        border: 0.2rem solid grey;
        width: 24.5rem;
-       height: 40rem;
+       height: 28rem;
+       margin-bottom: 30px;
        margin-left: 70%;
        margin-top: -20%; 
        border-radius: 4rem;
@@ -295,6 +296,16 @@ li>.btn6:hover{
         border-radius: 20px;
         padding: 10px 130px 10px 130px;
         box-shadow: 3px 3px 10px 0px rgb(49, 49, 49);
+    }
+    
+    button {
+        border: none;
+        background-color: transparent;
+        padding: 0;
+    }
+    
+    button a {
+        text-decoration: none;
     }
     
     .container .item1 .btn1 a:hover{

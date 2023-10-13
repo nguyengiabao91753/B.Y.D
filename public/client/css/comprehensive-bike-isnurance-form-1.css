@@ -282,7 +282,7 @@ input{
     text-align: center;
 }
 
-.container .item1 .btn1 a{
+.container .item1 .btn1 a {
     text-decoration:none;
     color: white;
     background-color: #ff4e00;
@@ -291,7 +291,9 @@ input{
     box-shadow: 3px 3px 10px 0px rgb(49, 49, 49);
 }
 
-.container .item1 .btn1 a:hover{
+
+
+.container .item1 .btn1 button:hover{
 background-color: transparent;
 color: #ec9f05;
 border: 2px solid #ec9f05;
