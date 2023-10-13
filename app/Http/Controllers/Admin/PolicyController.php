@@ -70,7 +70,7 @@ class PolicyController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateRequest $request,  $id)
+    public function update(UpdateRequest $request,int  $id)
     {
         $policy = Policy::find($id);
 
@@ -82,16 +82,16 @@ class PolicyController extends Controller
 
         if (!empty($file)) {
             $request->validate([
-                'image' => 'required|mimes: jpg, png, bmp, jpeg'
+                'image' => 'required|mimes:jpg,png,bmp,jpeg'
             ], [
                 'image.required' => 'Please enter provider image',
                 'image.mimes' => 'Image must be jpg,png,bmp,jpeg'
             ]);
-            
-            $old_image_path = public_path('uploads/' . $policy->image);
-            if (file_exists($old_image_path)) {
-                unlink($old_image_path);
-            }
+
+            // $old_image_path = public_path('uploads/' . $policy->image);
+            // if (file_exists($old_image_path)) {
+            //     unlink($old_image_path);
+            // }
 
             $fileName = time() . '-' . $file->getClientOriginalName();
             $policy->image = $fileName;

@@ -28,7 +28,23 @@
 </div>
 
 <div class="container1">
+@foreach($policy as $item)
     <div class="boxes">
+            <div class="box1">
+                <p>{{ $item->name}}</p>
+                <img src="{{asset('uploads/'.$item->image)}}" alt="">
+            </div>
+            <div class="box-p">
+                <p>{{ $item->description }}</p>
+            </div>
+            <br>
+            
+            <div class="box-btn">
+                <a href="{{route('form_insurance',['id'=>$item->id])}}">View Insurance</a>
+            </div>
+        </div>
+    @endforeach
+    <!-- <div class="boxes">
         <div class="box1">
             <p>Comprehensive Bike Insurance</p>
             <img src="{{asset('client/img/comprehensive-bike-resize.jpg')}}" alt="">
@@ -65,6 +81,6 @@
         <div class="box-btn2">
             <a href="3t-bike-insurance-form.html">View Insurance</a>
         </div>
-    </div>
+    </div> -->
 </div>
 @endsection
