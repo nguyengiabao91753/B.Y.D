@@ -61,6 +61,7 @@
                     <th>Customer</th>
                     <th>Insurance</th>
                     <th>EndDate</th>
+                    <th>Show</th>
                     <th>Edit</th>
                     <th>Delete</th>
                 </tr>
@@ -72,6 +73,7 @@
                     <td>{{$contract->customer->firstname.' '.$contract->customer->lastname}}</td>
                     <td>{{$contract->insurance->policy->name}}</td>
                     <td>{{ date('d/m/Y', strtotime($contract->enddate)) }}</td>
+                    <td><a href="{{route('admin.contract.show',['id'=> $contract->id])}}">Show</a></td>
                     <td><a href="{{route('admin.contract.edit',['id'=> $contract->id])}}">Edit</a></td>
                     <td><a onclick="return confirmDelete('contract')" href="{{route('admin.contract.destroy',['id'=> $contract->id])}}">Delete</a></td>
                 </tr>

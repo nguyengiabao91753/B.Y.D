@@ -61,13 +61,13 @@ class ContractController extends Controller
     {
         //
         $contract = Contract::find($id);
-        $customer = Customer::find($id);
-        $insurance = Insurance::find($id);
+        $customers = $contract->customers;
+        $insurances = Insurance::find($id);
         return view('admin.modules.contract.show',[
             'id'=>$id,
             'contract'=>$contract,
-            'customer'=>$customer,
-            'insurance'=>$insurance
+            'customer'=>$customers,
+            'insurance'=>$insurances
         ]);
     }
     /**
