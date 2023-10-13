@@ -54,10 +54,14 @@ class ContactsController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Contact $contacts)
+    public function show(int $id)
     {
         //
-        return view('admin.contact.show',compact('contacts'));
+        $contact = Contact::find($id);
+        return view('admin.modules.contact.show',[
+            'id'=>$id,
+            'contact'=>$contact
+        ]);
     }
 
     /**

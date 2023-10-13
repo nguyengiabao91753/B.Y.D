@@ -182,7 +182,7 @@ Route::prefix('admin')->name('admin.')->middleware('check_login')->group(functio
     });
     Route::prefix('contract')->name('contract.')->controller(ContractController::class)->group(function () {
         Route::get('index', 'index')->name('index');
-
+        Route::get('show/{id}', 'show')->name('show');
         Route::get('create', 'create')->name('create');
         Route::post('store', 'store')->name('store');
 
@@ -193,7 +193,7 @@ Route::prefix('admin')->name('admin.')->middleware('check_login')->group(functio
     });
     Route::prefix('contact')->name('contact.')->controller(ContactsController::class)->group(function () {
         Route::get('index', 'index')->name('index');
-
+        Route::get('show/{id}', 'show')->name('show');
         Route::get('create', 'create')->name('create');
         Route::post('store', 'store')->name('store');
 
