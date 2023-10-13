@@ -24,6 +24,7 @@ use App\Http\Controllers\Admin\ContractController;
 use App\Http\Controllers\Admin\ContactsController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\LogoutController;
+use App\Http\Controllers\Client\HomeController;
 use App\Http\Controllers\Client\LoginClientController;
 use App\Http\Controllers\Client\LogoutClientController;
 use App\Http\Controllers\Page\Contact_usController;
@@ -44,11 +45,14 @@ use App\Http\Controllers\pdfController;
 
 Route::get('/admin', function () {
     return view('admin.master');
-});
+})->name('admin');
 // Login admin 
 Route::get('auth/login',[LoginController::class,'showLogin'])->name('showLogin');
 Route::post('auth/login',[LoginController::class,'login'])->name('login');
 Route::get('auth/logout',LogoutController::class)->name('logout');
+
+//show image Provider in Home Page
+Route::get('/image/{id}',[HomeController::class,'showImage'])->name('showImage');
 
 
 Route::get('/', function () {
@@ -182,7 +186,7 @@ Route::prefix('admin')->name('admin.')->middleware('check_login')->group(functio
 
         Route::get('create', 'create')->name('create');
         Route::post('store', 'store')->name('store');
-
+        Route::get('show/{id}','show')->name('show');
         Route::get('edit/{id}', 'edit')->name('edit');
         Route::post('update/{id}', 'update')->name('update');
 

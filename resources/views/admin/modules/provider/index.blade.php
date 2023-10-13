@@ -102,6 +102,7 @@
                         <td>{{ date('d/m/Y - H:m:i', strtotime($provider->created_at)) }}</td>
                         <td><a href="{{route('admin.provider.edit',['id'=> $provider->id])}}">Edit</a></td>
                         <td><a onclick="return confirmDelete('provider')" href="{{route('admin.provider.destroy',['id'=> $provider->id])}}">Delete</a></td>
+                        <td><a href="{{route('admin.provider.show',['id'=> $provider->id])}}">Show</a></td>
                     </tr>
                 @endif
                 @endforeach
@@ -172,6 +173,7 @@
                     <th>ID</th>
                     <th>Name</th>
                     <th>Image</th>
+                    <th>Status</th>
                     <th>Create At</th>
                     <th>Edit</th>
                     <th>Delete</th>
