@@ -120,7 +120,7 @@
 
             //BRAND 
             $.ajax({
-                url: '/getBrand/' + categoryId, // Đặt URL tương ứng với route Laravel của bạn
+                url: 'getBrand/' + categoryId, // Đặt URL tương ứng với route Laravel của bạn
                 type: 'get',
                 // data: {categoryId: categoryId},
                 dataType: 'json',
@@ -150,7 +150,7 @@
             //MODEL
 
             $.ajax({
-                url: '/getModel/' + categoryId, // Đặt URL tương ứng với route Laravel của bạn
+                url: 'getModel/' + categoryId, // Đặt URL tương ứng với route Laravel của bạn
                 type: 'get',
                 // data: {categoryId: categoryId},
                 dataType: 'json',
@@ -180,7 +180,7 @@
             //CURRENT VALUE
 
             $.ajax({
-                url: '/getValue/' + categoryId, // Đặt URL tương ứng với route Laravel của bạn
+                url: 'getValue/' + categoryId, // Đặt URL tương ứng với route Laravel của bạn
                 type: 'get',
                 // data: {categoryId: categoryId},
                 dataType: 'json',
