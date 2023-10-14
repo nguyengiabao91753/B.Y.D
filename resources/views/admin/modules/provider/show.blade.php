@@ -36,6 +36,7 @@
 @endpush
 
 @section('content')
+<form method="post" action="{{ route('admin.provider.show', ['id'=>$id])}}">
 <div class="card">
     <div class="card-header">
         <h3 class="card-title">Provider list</h3>
@@ -99,4 +100,5 @@
         </table>
     </div>
 </div>
+</form>
 @endsection

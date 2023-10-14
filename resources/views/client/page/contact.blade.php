@@ -16,9 +16,6 @@
 
 @section('content')
 <div class="container-contact">
-
-
-
     <div class="contact">
         <div class="contact">
 

@@ -19,7 +19,7 @@
                 <div class="col-md-6">
                     <div class="form-group">
                         <label>Last name</label>
-                        <input type="text" class="form-control" placeholder="last name" name="lastname" value="{{ old('lastname',$contact->lastname)}}">
+                        <div type="text" class="form-control" placeholder="last name" name="lastname" value="{{ old('lastname',$contact->lastname)}}">{{$contact->lastname}}</div>
                     </div>
                 </div>
             </div>
@@ -27,19 +27,19 @@
                 <div class="col-md-12">
                     <div class="form-group">
                         <label>Email</label>
-                        <input type="text" class="form-control" placeholder="Enter Email" name="email" value="{{ old('email',$contact->email)}}">
+                        <div type="text" class="form-control" placeholder="Enter Email" name="email" value="{{ old('email',$contact->email)}}"></div>
                     </div>
                 </div>
                 <div class="col-md-12">
                     <div class="form-group">
                         <label>Phone</label>
-                        <input type="text" class="form-control" placeholder="Enter Email" name="phone" value="{{ old('phone',$contact->phone)}}">
+                        <div type="text" class="form-control" placeholder="Enter Email" name="phone" value="{{ old('phone',$contact->phone)}}"></div>
                     </div>
                 </div>
                 <div class="col-md-12">
                     <div class="form-group">
                         <label>Description</label>
-                        <textarea rows="10" type="text" class="form-control" name="description" >{{$contact->description}}</textarea>
+                        <div type="text" class="form-control" name="description" >{{$contact->description}}</div>
                     </div>
                 </div>
             </div>

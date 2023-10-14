@@ -66,6 +66,9 @@ Route::get('/about_us', function () {
 Route::get('/contact_us', function () {
     return view('client.page.contact');
 });
+Route::get('/contract', function () {
+    return view('client.page.contract');
+});
 Route::get('/pdf',[pdfController::class,'index']);
 
 // })->name('contact');
