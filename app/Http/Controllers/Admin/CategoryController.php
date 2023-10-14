@@ -59,7 +59,6 @@ class CategoryController extends Controller
         $category = Category::find($id);
         $categories = Category::select('id','parent_id','name')->get();
         return view('admin.modules.category.edit',[
-            
             'category'=>$category,
             'categories' =>$categories
         ]);

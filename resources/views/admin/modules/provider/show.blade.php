@@ -26,13 +26,15 @@
 
 @push('handlejs')
 <script>
-    $(function () {
-      $("#example1").DataTable({
-        "responsive": true, "lengthChange": false, "autoWidth": false,
-        "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
-      }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
+    $(function() {
+        $("#example1").DataTable({
+            "responsive": true,
+            "lengthChange": false,
+            "autoWidth": false,
+            "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
+        }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
     });
-  </script>
+</script>
 @endpush
 
 @section('content')
@@ -42,12 +44,12 @@
         <h3 class="card-title">Provider list</h3>
 
         <div class="card-tools">
-        <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
-            <i class="fas fa-minus"></i>
-        </button>
-        <button type="button" class="btn btn-tool" data-card-widget="remove" title="Remove">
-            <i class="fas fa-times"></i>
-        </button>
+            <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
+                <i class="fas fa-minus"></i>
+            </button>
+            <button type="button" class="btn btn-tool" data-card-widget="remove" title="Remove">
+                <i class="fas fa-times"></i>
+            </button>
         </div>
     </div>
 
@@ -56,46 +58,39 @@
             <thead>
                 <tr>
                     <th>ID</th>
-                    <th>Name Provider</th>
-                    <th>Image Provider</th>
-                    <th>Create at</th>
+                    <th>Policy Insurance</th>
+                    <th>Type</th>
+                    <th>Brand</th>
+                    <th>Model</th>
+                    <th>Value</th>
+                    <th>Rate</th>
+                    <th>Price</th>
                 </tr>
-                <tr>
-                    <th>Name Policy</th>
-                    <th>Insurance Policy Content</th> 
-                </tr>
+
             </thead>
             <tbody>
-                @foreach($providers as $provider)
-                @if($provider->status == 1)
-                        @php
-                            $image= asset('uploads/'.$provider->image)
-                        @endphp
-
-                    <tr>
-                        <td>{{$loop->iteration}}</td>
-                        <td>{{$provider->name}}</td>
-                        <td><img src="{{ $image }}" width="100px"></td>
-                        <td>{{ date('d/m/Y - H:m:i', strtotime($provider->created_at)) }}</td>
-                    </tr>
-                @endif
+                @foreach($insurance as $item)
+                <tr>
+                    <td>{{$loop->iteration}}</td>
+                    <td>{{$item->policy->name}}</td>
+                    <td>{{$item->category->name}}</td>
+                    <td>{{$item->brand}}</td>
+                    <td>{{$item->model}}</td>
+                    <td>{{$item->value}}</td>
+                    <td>{{$item->rate}}</td>
+                    <td>{{$item->price}}</td>
+                </tr>
                 @endforeach
-
-                @foreach($insurance as $insurances)
-                    <tr>
-                        <td>{{$insurances->policy_id}}</td>
-                        <td>{{$insurances->description}}</td>
-                    </tr>
-                @endforeach
-                    
             </tbody>
             <tfoot>
-                    <th>ID</th>
-                    <th>Name Provider</th>
-                    <th>Image Provider</th>
-                    <th>Create at</th>
-                    <th>Name Policy</th>
-                    <th>Insurance Policy Content</th>
+            <th>ID</th>
+                    <th>Policy Insurance</th>
+                    <th>Type</th>
+                    <th>Brand</th>
+                    <th>Model</th>
+                    <th>Value</th>
+                    <th>Rate</th>
+                    <th>Price</th>
             </tfoot>
         </table>
     </div>

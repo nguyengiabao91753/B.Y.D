@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\Provider\StoreRequest;
 use App\Http\Requests\Admin\Provider\UpdateRequest;
+use App\Models\Admin\Insurance;
 use App\Models\Provider;
 use App\Models\ProviderImages;
 use Illuminate\Http\Request;
@@ -17,9 +18,9 @@ class ProviderController extends Controller
     public function index()
     {
         //
-        $provider = Provider::orderBy('created_at','DESC')->get();
-        return view('admin.modules.provider.index',[
-            'providers'=>$provider
+        $provider = Provider::orderBy('created_at', 'DESC')->get();
+        return view('admin.modules.provider.index', [
+            'providers' => $provider
         ]);
     }
 
@@ -37,19 +38,19 @@ class ProviderController extends Controller
      */
     public function store(StoreRequest $request)
     {
-        
+
         $provider = new Provider();
 
-        $file =$request->image;
+        $file = $request->image;
         $fileName = time() . '-' . $file->getClientOriginalName();
 
-        $provider->name=$request->name;
-        $provider->image= $fileName;
+        $provider->name = $request->name;
+        $provider->image = $fileName;
         $provider->save();
 
-        $file->move(public_path('uploads/'),$fileName);
+        $file->move(public_path('uploads/'), $fileName);
 
-        return redirect()->route('admin.provider.index')->with('success','Create Successfully!');
+        return redirect()->route('admin.provider.index')->with('success', 'Create Successfully!');
     }
 
     /**
@@ -57,7 +58,10 @@ class ProviderController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $insurance = Insurance::with('provider', 'policy','category')->select('provider_id', 'policy_id','category_id','brand','model','value', 'rate', 'price')->where('provider_id', $id)->get();
+        return view('admin.modules.provider.show',[
+            'insurance'=>$insurance
+        ]);
     }
 
     /**
@@ -66,18 +70,17 @@ class ProviderController extends Controller
     public function edit(int $id)
     {
         //
-        
-        $provider= Provider::find($id);
 
-        if($provider ==null){
+        $provider = Provider::find($id);
+
+        if ($provider == null) {
             abort(404);
         }
 
-        return view('admin.modules.provider.edit',[
-            'id'=>$id,
-            'provider'=>$provider
+        return view('admin.modules.provider.edit', [
+            'id' => $id,
+            'provider' => $provider
         ]);
-
     }
 
     /**
@@ -88,32 +91,32 @@ class ProviderController extends Controller
         //
         $provider = Provider::find($id);
 
-        if($provider ==null){
+        if ($provider == null) {
             abort(404);
         }
-        $file =$request->image;
+        $file = $request->image;
 
-        if(!empty($file)) {
+        if (!empty($file)) {
             $request->validate([
-                'image'=>'required|mimes:jpg,png,bmp,jpeg'  
+                'image' => 'required|mimes:jpg,png,bmp,jpeg'
             ], [
-                'image.required'=>'Please enter provider image',
-                'image.mimes'=>'Image must be jpg,png,bmp,jpeg'
+                'image.required' => 'Please enter provider image',
+                'image.mimes' => 'Image must be jpg,png,bmp,jpeg'
             ]);
-            $old_image_path=public_path('uploads/'.$provider->image);
-            if(file_exists($old_image_path)) {
+            $old_image_path = public_path('uploads/' . $provider->image);
+            if (file_exists($old_image_path)) {
                 unlink($old_image_path);
             }
 
             $fileName = time() . '-' . $file->getClientOriginalName();
-            $provider->image= $fileName;
-            $file->move(public_path('uploads/'),$fileName);
+            $provider->image = $fileName;
+            $file->move(public_path('uploads/'), $fileName);
         }
 
-        $provider->name=$request->name;
+        $provider->name = $request->name;
         $provider->save();
 
-        return redirect()->route('admin.provider.index')->with('success','Update Successfully!');
+        return redirect()->route('admin.provider.index')->with('success', 'Update Successfully!');
     }
 
     /**
@@ -146,7 +149,7 @@ class ProviderController extends Controller
         $provider->status = 2;
         $provider->save();
 
-        return redirect()->route('admin.provider.index')->with('success','Delete Successfully!');
+        return redirect()->route('admin.provider.index')->with('success', 'Delete Successfully!');
     }
 
     public function restore(int $id)
@@ -161,7 +164,7 @@ class ProviderController extends Controller
         $provider->status = 1;
         $provider->save();
 
-        return redirect()->route('admin.provider.index')->with('success','Restore Successfully!');
+        return redirect()->route('admin.provider.index')->with('success', 'Restore Successfully!');
     }
 
     public function destroy_frv(int $id)
@@ -176,6 +179,6 @@ class ProviderController extends Controller
         $provider->status = 3;
         $provider->save();
 
-        return redirect()->route('admin.provider.index')->with('success','Delete Successfully!');
+        return redirect()->route('admin.provider.index')->with('success', 'Delete Successfully!');
     }
 }

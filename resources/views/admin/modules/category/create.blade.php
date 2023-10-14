@@ -27,7 +27,7 @@
                 <select name="parent_id" id="">
                     <option value="0">----Root----</option>
                     @php 
-                        recursiveCategory($categories);
+                        recursiveCategory($categories,old('parent_id',0));
                     @endphp
                 </select>
             </div>
