@@ -58,6 +58,10 @@
                 <tr>
                     <th>ID</th>
                     <th>Policy Insurance</th>
+                    <th>Type</th>
+                    <th>Brand</th>
+                    <th>Model</th>
+                    <th>Value</th>
                     <th>Rate</th>
                     <th>Price</th>
                 </tr>
@@ -65,22 +69,27 @@
             </thead>
             <tbody>
                 @foreach($insurance as $item)
-                
-                
-
                 <tr>
                     <td>{{$loop->iteration}}</td>
                     <td>{{$item->policy->name}}</td>
+                    <td>{{$item->category->name}}</td>
+                    <td>{{$item->brand}}</td>
+                    <td>{{$item->model}}</td>
+                    <td>{{$item->value}}</td>
                     <td>{{$item->rate}}</td>
                     <td>{{$item->price}}</td>
                 </tr>
                 @endforeach
             </tbody>
             <tfoot>
-                <th>ID</th>
-                <th>Policy Insurance</th>
-                <th>Rate</th>
-                <th>Price</th>
+            <th>ID</th>
+                    <th>Policy Insurance</th>
+                    <th>Type</th>
+                    <th>Brand</th>
+                    <th>Model</th>
+                    <th>Value</th>
+                    <th>Rate</th>
+                    <th>Price</th>
             </tfoot>
         </table>
     </div>

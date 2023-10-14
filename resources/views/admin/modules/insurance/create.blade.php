@@ -81,7 +81,7 @@
                         <label>Current Value</label>
                         <select class="form-control" id="value" name="value">
                             <option value="0" {{old( 'value' ) == 0 ? 'selected' : '' }}>----- Root -----</option>
-                            
+
                         </select>
                     </div>
 
@@ -89,13 +89,14 @@
 
                 <div class="col-md-4">
                     <div class="form-group">
-                        <label>Price</label>
-                        <input type="text" class="form-control" placeholder="Enter price" name="price" value="{{old('price')}}">
+                        <label>Rate</label>
+                        <input type="text" class="form-control" placeholder="Enter rate" id="rate" name="rate" value="{{old('rate')}}">
                     </div>
                     <div class="form-group">
-                        <label>Rate</label>
-                        <input type="text" class="form-control" placeholder="Enter rate" name="rate" value="{{old('rate')}}">
+                        <label>Price</label>
+                        <input type="text" class="form-control" placeholder="Enter price" id="price" name="price" value="{{old('price')}}">
                     </div>
+
                 </div>
             </div>
         </div>
@@ -109,6 +110,62 @@
 
 @push('js')
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<!-- JS TÍNH PRICE -->
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        // Lấy tham chiếu đến các phần tử trên trang
+        var valueSelect = document.getElementById("value");
+        var rateInput = document.getElementById("rate");
+        var priceInput = document.querySelector("input[name='price']");
+
+        // Thêm sự kiện "change" cho ô "value" và "rate"
+        valueSelect.addEventListener("change", updatePrice);
+        rateInput.addEventListener("input", updatePrice);
+
+        // Hàm tính giá trị của ô "price"
+        function updatePrice() {
+            var selectedValue = valueSelect.value; 
+            var rate = parseFloat(rateInput.value);
+
+            if (!isNaN(rate)) {
+                // MOTOBIKE
+                if (selectedValue === "$300 - $600") {
+                    selectedValue = 400; 
+                }else if (selectedValue === "$600 - $1,800") {
+                    selectedValue = 1000; 
+                }else if (selectedValue === "$1,800 - $4,800") {
+                    selectedValue = 3000; 
+                }else if (selectedValue === "$4,800 - $6,000") {
+                    selectedValue = 5300; 
+                }else if (selectedValue === "$6,000 - Above") {
+                    selectedValue = 6500; 
+                }
+
+                // CAR
+                if (selectedValue === "$600 - $3,000") {
+                    selectedValue = 1300;
+                }else if (selectedValue === "$3,000 - $6,000") {
+                    selectedValue = 4500;
+                }else if (selectedValue === "$6,000 - $30,000") {
+                    selectedValue = 12000;
+                }else if (selectedValue === "$30,000 - $60,000") {
+                    selectedValue = 45000;
+                }else if (selectedValue === "$60,000 - $120,000") {
+                    selectedValue = 80000;
+                }else if (selectedValue === "$120,000 - $300,000") {
+                    selectedValue = 210000;
+                }else if (selectedValue === "$300,000 - Above") {
+                    selectedValue = 400000;
+                }
+                var price = selectedValue * (rate / 100);
+                priceInput.value =price.toFixed(2); // Định dạng kết quả thành tiền tệ với 2 chữ số thập phân
+            }
+        }
+    });
+</script>
+
+<!-- END JS -->
+<!-- AJAX SHOW CATEGORY -->
 <script type='text/javascript'>
     $(document).ready(function() {
         $('#category_id').change(function() {

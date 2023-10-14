@@ -1,12 +1,16 @@
 <?php 
-function recursiveCategory($categories, $parent=0,$str=''){
+function recursiveCategory($categories,$selected, $parent=0,$str=''){
     foreach ($categories as $key => $value){
         if($value->parent_id== $parent){
-            echo '<option value="'.$value->id.'">'.$str.$value->name.'</option>';
+            if($selected == $value->id){
+                echo '<option value="'.$value->id.'" selected>'.$str.$value->name.'</option>';
+            }else {
+                echo '<option value="'.$value->id.'">'.$str.$value->name.'</option>';
+            }
             unset($categories[$key]);
 
 
-            recursiveCategory($categories,$value->id,$str."--");
+            recursiveCategory($categories,$selected,$value->id,$str."--");
         }
     }
 }
