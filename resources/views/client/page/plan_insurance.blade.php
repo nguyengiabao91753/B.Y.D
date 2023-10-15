@@ -68,7 +68,7 @@
             <div class="item5">
                 <h2>20% OFF</h2>
                 <br>
-                <a href="#">BUY</a>
+                <a href="{{route('contract',['id'=>$item->id])}}">BUY</a>
             </div>
         </div>
     </div>

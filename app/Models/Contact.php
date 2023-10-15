@@ -19,5 +19,6 @@ class Contact extends Model
      * @var array
      */
     protected $guarded = [];
+    protected $dates = ['stardate'];
 }
 

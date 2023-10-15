@@ -31,6 +31,7 @@ use App\Http\Controllers\Page\Contact_usController;
 use App\Models\Contact;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\pdfController;
+use App\Models\Contract;
 
 /*
 |--------------------------------------------------------------------------
@@ -68,9 +69,12 @@ Route::get('/contact_us', function () {
 });
 Route::get('/contract', function () {
     return view('client.page.contract');
-});
+})->name('contract');
 Route::get('/pdf',[pdfController::class,'index']);
-
+Route::prefix('contract')->name('contract.')->controller(ContractController::class)->group(function(){
+    Route::get('index','index')->name('index');
+    Route::post('store','store')->name('store');
+});   
 // })->name('contact');
 // Route::get('/contact_us',[Contact_usController::class,'index'])->name('index');
 // Route::post('/contact_us',[Contact_usController::class,'store'])->name('store');
