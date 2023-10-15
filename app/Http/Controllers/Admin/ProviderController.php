@@ -59,19 +59,9 @@ class ProviderController extends Controller
      */
     public function show(int $id)
     {
-        //
-        $provider = Provider::find($id);
-
-        if($provider ==null){
-            abort(404);
-        }
-
-        $providers=Provider::orderBy('created_at','DESC')->get();
-        $insurance = Insurance::with('provider','policy')->select('provider_id', 'policy_id','rate','price')->where('provider_id', $id)->get();
+        $insurance = Insurance::with('provider', 'policy','category')->select('provider_id', 'policy_id','category_id','brand','model','value', 'rate', 'price')->where('provider_id', $id)->get();
         return view('admin.modules.provider.show',[
             'id'=>$id,
-            'provider'=>$provider,
-            'providers'=>$providers,
             'insurance'=>$insurance
         ]);
     }

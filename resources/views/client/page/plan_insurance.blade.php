@@ -42,25 +42,37 @@
             <img src="{{asset('uploads/'.$image)}}" alt="">
             <p>{{$item->policy->name}}</p>
             <div class="item3">
-                <br>
+                
                 <p>Rate</p>
                 <p>Installment Plan</p>
                 <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
-                <label for="vehicle1">Add Tracker Rs 10,500</label>
+                <label for="vehicle1">Add Tracker</label>
             </div>
         </div>
 
         <div class="item2">
             <p>Total</p>
-            <h2>Rs 85,000</h2>
-            <h4> <del>Rs 125,000</del> </h4>
+            <?php
+            $price = $item->price;
+            $sale = $price * 80/100 ;
+            $rate = $item->rate;
+            $sale_rate = round($rate*80/100,1);
+            ?>
+            <h2>${{$sale}}</h2>
+            <h4> <del>${{$item->price}}</del> </h4>
             <div class="item4">
-                <p>{{$item->rate}} <del>2.5%</del></p>
-                <p>{{$item->price}} / month</p>
+                <p>{{$sale_rate}}%  <del>{{$item->rate}}%</del></p>
+                <p>${{$item->price}} / month</p>
                 <br>
             </div>
             <div class="item5">
-                <button>Buy</button>
+                <h2>20% OFF</h2>
+                <br>
+                @if (Auth::check())
+                <a href="#">BUY</a>
+                @else
+                <a href="{{route('showLoginClient')}}">BUY</a>
+                @endif
             </div>
         </div>
     </div>

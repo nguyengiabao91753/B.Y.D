@@ -48,6 +48,7 @@
                 <p>Comprehensive Car Insurance</p>
                 <img src="{{asset('client/img/Comprehensive-car-insurance-resize.png')}}" alt="">
             </div>
+            
             <div class="box-p">
                 <p>A Comprehensive Car isnurance policy is the most ectensive car insurance cover under which an insurance company is liable to pay for financial liabilities incurred towards a third party as well as for the own-damages sustained by the insured's car. In addition to road accidents, the event of natural calamities, man-made disasters, self-ignition or lighting, explosion, fire, theft, etc</p>
             </div>

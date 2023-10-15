@@ -8,15 +8,7 @@ use App\Http\Controllers\Admin\PolicyController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\ProviderController;
 use App\Http\Controllers\Admin\UserController;
-use App\Http\Controllers\Admin\Vehicle\BikeManuController;
-use App\Http\Controllers\Admin\Vehicle\BikeModelController;
-use App\Http\Controllers\Admin\Vehicle\BikePkrController;
-use App\Http\Controllers\Admin\Vehicle\BikeTypeController;
-use App\Http\Controllers\Admin\Vehicle\CarManuController;
-use App\Http\Controllers\Admin\Vehicle\CarModelController;
-use App\Http\Controllers\Admin\Vehicle\CarPkrController;
-use App\Http\Controllers\Admin\Vehicle\CarTypeController;
-use App\Http\Controllers\Admin\Vehicle\TypeController;
+
 use App\Http\Controllers\Client\InsuranceController;
 use App\Models\Admin\Insurance;
 

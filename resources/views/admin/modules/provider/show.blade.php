@@ -58,9 +58,12 @@
                 <tr>
                     <th>ID</th>
                     <th>Policy Insurance</th>
+                    <th>Type</th>
+                    <th>Brand</th>
+                    <th>Model</th>
+                    <th>Value</th>
                     <th>Rate</th>
                     <th>Price</th>
-                    <th>Content</th>
                 </tr>
 
             </thead>
@@ -69,18 +72,24 @@
                 <tr>
                     <td>{{$loop->iteration}}</td>
                     <td>{{$item->policy->name}}</td>
+                    <td>{{$item->category->name}}</td>
+                    <td>{{$item->brand}}</td>
+                    <td>{{$item->model}}</td>
+                    <td>{{$item->value}}</td>
                     <td>{{$item->rate}}</td>
                     <td>{{$item->price}}</td>
-                    <td>{{$item->policy->description}}</td>
                 </tr>
                 @endforeach
             </tbody>
             <tfoot>
-                <th>ID</th>
-                <th>Policy Insurance</th>
-                <th>Rate</th>
-                <th>Price</th>
-                <th>Content</th>
+            <th>ID</th>
+                    <th>Policy Insurance</th>
+                    <th>Type</th>
+                    <th>Brand</th>
+                    <th>Model</th>
+                    <th>Value</th>
+                    <th>Rate</th>
+                    <th>Price</th>
             </tfoot>
         </table>
     </div>

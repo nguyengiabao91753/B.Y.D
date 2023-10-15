@@ -63,12 +63,12 @@
                     <th>ID</th>
                     <th>Provider</th>
                     <th>Name</th>
-                    <th>Category</th>
+                    <th>Type</th>
                     <th>Brand</th>
                     <th>Model</th>
-                    <th>Value(PKR)</th>
-                    <th>Price</th>
+                    <th>Value</th>
                     <th>Rate</th>
+                    <th>Price</th>
                     <th>Edit</th>
                     <th>Delete</th>
                 </tr>
@@ -85,8 +85,8 @@
                     <td>{{$insurance->brand}}</td>
                     <td>{{$insurance->model}}</td>
                     <td>{{$insurance->value}}</td>
-                    <td>{{$insurance->price}}</td>
                     <td>{{$insurance->rate}}</td>
+                    <td>{{$insurance->price}}</td>
                     <td><a href="{{route('admin.insurance.edit',['id'=> $insurance->id])}}">Edit</a></td>
                     <td><a onclick="return confirmDelete()" href="{{route('admin.insurance.destroy',['id'=> $insurance->id])}}">Delete</a></td>
                 </tr>
@@ -99,12 +99,12 @@
                     <th>ID</th>
                     <th>Provider</th>
                     <th>Name</th>
-                    <th>Category</th>
+                    <th>Type</th>
                     <th>Brand</th>
                     <th>Model</th>
-                    <th>Value(PKR)</th>
-                    <th>Price</th>
+                    <th>Value</th>
                     <th>Rate</th>
+                    <th>Price</th>
                     <th>Edit</th>
                     <th>Delete</th>
                 </tr>
