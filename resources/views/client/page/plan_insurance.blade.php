@@ -68,7 +68,11 @@
             <div class="item5">
                 <h2>20% OFF</h2>
                 <br>
+                @if (Auth::check())
                 <a href="#">BUY</a>
+                @else
+                <a href="{{route('showLoginClient')}}">BUY</a>
+                @endif
             </div>
         </div>
     </div>
