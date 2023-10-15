@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Page;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Contract;
+use App\Models\Customer;
+use App\Models\Admin\Insurance;
 use App\Http\Requests\Admin\Contract\StoreRequest;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Carbon;
@@ -16,12 +18,10 @@ class ContractController extends Controller
      */
     public function index()
     {
-        //
-        // $record = new Contract;
-        // $record->stardate = now(); // Đặt ngày đăng ký là ngày hiện tại
-        // $record->enddate = now()->addYear(); // Tính ngày kết thúc là 1 năm sau ngày đăng ký
-        // $record->save();
-        return view('client.page.contract');
+        $contracts = Contract::with('customer','insurance')->orderBy('created_at','DESC')->get();
+        return view('client.page.contract',[
+            'contracts'=>$contracts
+        ]);
     }
 
     /**
@@ -30,6 +30,12 @@ class ContractController extends Controller
     public function create()
     {
         //
+        $customers = Customer::all();
+        $insurances = Insurance::all();
+        return view('client.page.contract',[
+            'customers'=>$customers,
+            'insurances'=>$insurances
+        ]);
     }
 
     /**

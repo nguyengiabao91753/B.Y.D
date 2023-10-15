@@ -31,51 +31,34 @@
     </div>
 </div>
 
-<div class="flex">
-    <div class="w-100">
-        <div class="form">
-            <form method="post" action="{{ route('contract.store') }}">
-                @csrf
-                <!-- Default box -->
-                <div style="text-align: center;">
-                    <div>Ngày bắt đầu hiệu lực </div>
-                    <a name="startdate">
-                        <?php
-                        $stardate = now();
-                        echo $stardate
-                        ?>
-                    </a>
-                </div>
-                <div style="text-align: center;">
-                    <div>Thời Hạn Bảo Hiểm </div>
-                    <input type="text" class="form-control" placeholder="Enter first Name" name="firstname" value="" autofocus />
-                </div>
-        </div>
-    </div>
-    <div class="w-100">
-        <div class="form">
-            <div style="text-align: center;">
-                <div>Ngày kết thúc hiệu lực </div>
-                <a name="startdate">
-                    <?php
-                    $stardate = date('d-m-y');
-                    $enddate = date('d-m-y', strtotime($stardate.'+1 month'));
-                    echo $enddate;
-                    ?>
-                </a>
-            </div>
-            <div style="text-align: center;">
-                <div>Phí bảo hiểm TNDS xe máy bắt buộc </div>
-                <input type="text" class="form-control" placeholder="Enter first Name" name="firstname" value="" autofocus />
-            </div>
-            <div>
-            </div>
-            <div class="btn">
-                <button type="submit">Send Enquiry</button>
+<form method="post" action="{{ route('admin.contract.store') }}">
+    @csrf
+    <!-- Default box -->
+    <div class="card">
+        <div class="card-header">
+
+            <div class="card-tools">
+            <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
+                <i class="fas fa-minus"></i>
+            </button>
+            <button type="button" class="btn btn-tool" data-card-widget="remove" title="Remove">
+                <i class="fas fa-times"></i>
+            </button>
             </div>
         </div>
+
+        <div class="card-body">
+            <div class="form-group">
+            <div class="col-md-6">
+                    <label for="enddate" >EndDate</label>
+                    <input type="date" id="duedate" class="form-control" name="enddate" min="2018-09-24" max="2025-10-20"
+                            placeholder="Enter Date" value="{{ old('duedate')}}">
+            </div>
+        <div class="card-footer">
+            <button type="submit" class="btn btn-primary">Create</button>
+        </div>
     </div>
-</div>
-</div>
+    <!-- /.card -->
+</form>
 
 @endsection

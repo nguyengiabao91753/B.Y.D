@@ -71,8 +71,8 @@ Route::get('/contract', function () {
     return view('client.page.contract');
 })->name('contract');
 Route::get('/pdf',[pdfController::class,'index']);
-Route::prefix('contract')->name('contract.')->controller(ContractController::class)->group(function(){
-    Route::get('index','index')->name('index');
+Route::prefix('contracts')->name('contracts.')->controller(ContractController::class)->group(function(){
+    Route::get('create','create')->name('create');
     Route::post('store','store')->name('store');
 });   
 // })->name('contact');
