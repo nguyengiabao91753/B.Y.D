@@ -1,7 +1,12 @@
 
 <link rel="stylesheet" href="{{asset('client/fontawesome-free-6.4.2-web/css/all.min.css') }}">
+<style>
+*{
+     margin: 0;
+     padding :0;
+}
 
-
+</style>
 <header class="header">
     <nav class="nav" role="navigation">
         <div class="logo">
@@ -24,6 +29,11 @@
         <div class="icon">
             <ul class="ul">
                 @auth
+                <li style="list-style-type: none;" >
+                <a href="{{ route('checkout') }}">
+                    <i class="fa-solid fa-cart-shopping"></i>
+                </a>
+                </li>
                 <li style="list-style-type: none;">
                     <a href="{{ route('profile.show') }}">
                         <i class="fa-solid fa-user"></i>

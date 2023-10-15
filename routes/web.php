@@ -59,7 +59,9 @@ Route::get('/image/{id}',[HomeController::class,'showImage'])->name('showImage')
 
 //show User Profile
 
-
+// Route::get('/invoice',function(){
+//     return view('client.page.invoice_checkout');
+// });
 
 // Route::get('/profile',[UserProfileController::class,'show'])->name('show');
 // Route::get('/profile/edit', [UserProfileController::class,'edit'])->name('edit');
@@ -123,8 +125,8 @@ Route::prefix('client')->name('')->group(function (){
 
     Route::get('/contract',[UserProfileController::class,'showContract'])->name('profile.contract');
 
-    // Route::get('/cart',[CartController::class,'cart'])->name('cart');
-    // Route::get('/invoice',[CartController::class,'checkout'])->name('checkout');
+    Route::get('/cart',[CartController::class,'cart'])->name('cart');
+    Route::get('/invoice',[CartController::class,'checkout'])->name('checkout');
     
 });
 
