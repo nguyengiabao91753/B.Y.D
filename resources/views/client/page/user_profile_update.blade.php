@@ -38,7 +38,7 @@
                                 href="{{ route('profile.show') }}">General</a>
                             <a class="list-group-item list-group-item-action" 
                                 href="{{ route('profile.edit',['id'=> $customer->id]) }}">Change password</a>
-                            <a class="list-group-item list-group-item-action" data-toggle="list"
+                            <a class="list-group-item list-group-item-action" 
                                 href="{{ route('profile.contract') }}">Contract</a>
                         </div>   
                     </div>
