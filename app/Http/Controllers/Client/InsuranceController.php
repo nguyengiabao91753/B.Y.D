@@ -14,8 +14,7 @@ class InsuranceController extends Controller
     {
         $policy = Policy::select('id', 'image', 'name', 'description')->where(function ($query) {
             $query->where('name', 'like', '%Car%');
-        })
-            ->get();
+        })->get();
         return view('client.page.car_insurance', [
             'policy' => $policy
         ]);

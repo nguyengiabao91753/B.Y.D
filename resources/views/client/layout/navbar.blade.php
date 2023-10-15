@@ -1,3 +1,7 @@
+
+<link rel="stylesheet" href="{{asset('client/fontawesome-free-6.4.2-web/css/all.min.css') }}">
+
+
 <header class="header">
     <nav class="nav" role="navigation">
         <div class="logo">
@@ -20,6 +24,11 @@
         <div class="icon">
             <ul class="ul">
                 @auth
+                <li style="list-style-type: none;">
+                    <a href="{{ route('profile.show') }}">
+                        <i class="fa-solid fa-user"></i>
+                    </a>
+                </li>
                 <li style="list-style-type: none;"><a class="btn7" href="{{ route('logoutClient')}}">Logout</a></li>
                 @else
                 <li style="list-style-type: none;"><a class="btn5" href="{{ route('showLoginClient')}}">Login</a></li>

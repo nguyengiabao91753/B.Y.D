@@ -8,15 +8,7 @@ use App\Http\Controllers\Admin\PolicyController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\ProviderController;
 use App\Http\Controllers\Admin\UserController;
-use App\Http\Controllers\Admin\Vehicle\BikeManuController;
-use App\Http\Controllers\Admin\Vehicle\BikeModelController;
-use App\Http\Controllers\Admin\Vehicle\BikePkrController;
-use App\Http\Controllers\Admin\Vehicle\BikeTypeController;
-use App\Http\Controllers\Admin\Vehicle\CarManuController;
-use App\Http\Controllers\Admin\Vehicle\CarModelController;
-use App\Http\Controllers\Admin\Vehicle\CarPkrController;
-use App\Http\Controllers\Admin\Vehicle\CarTypeController;
-use App\Http\Controllers\Admin\Vehicle\TypeController;
+
 use App\Http\Controllers\Client\InsuranceController;
 use App\Models\Admin\Insurance;
 
@@ -24,9 +16,12 @@ use App\Http\Controllers\Admin\ContractController;
 use App\Http\Controllers\Admin\ContactsController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\LogoutController;
+use App\Http\Controllers\Client\CartController;
+use App\Http\Controllers\Client\ContractController as ClientContractController;
 use App\Http\Controllers\Client\HomeController;
 use App\Http\Controllers\Client\LoginClientController;
 use App\Http\Controllers\Client\LogoutClientController;
+use App\Http\Controllers\Client\UserProfileController;
 use App\Http\Controllers\Page\Contact_usController;
 use App\Models\Contact;
 use Illuminate\Support\Facades\Route;
@@ -54,6 +49,13 @@ Route::get('auth/logout',LogoutController::class)->name('logout');
 //show image Provider in Home Page
 Route::get('/image/{id}',[HomeController::class,'showImage'])->name('showImage');
 
+//show User Profile
+
+
+
+// Route::get('/profile',[UserProfileController::class,'show'])->name('show');
+// Route::get('/profile/edit', [UserProfileController::class,'edit'])->name('edit');
+// Route::post('/profile/update', [UserProfileController::class,'update'])->name('update');
 
 Route::get('/', function () {
     return view('client.page.home');
@@ -106,6 +108,15 @@ Route::prefix('client')->name('')->group(function (){
 
     Route::get('plan_insurance', [InsuranceController::class, 'index_plan'])->name('plan_insurance');
     Route::get('form_insurance/{id}', [InsuranceController::class, 'index_form'])->name('form_insurance');
+
+    Route::get('profile',[UserProfileController::class,'show'])->name('profile.show');
+    Route::get('/profile/edit/{id}',[UserProfileController::class,'edit'])->name('profile.edit');
+    Route::post('/profile/update/{id}',[UserProfileController::class,'update'])->name('profile.update');
+
+    Route::get('/contract',[UserProfileController::class,'showContract'])->name('profile.contract');
+
+    // Route::get('/cart',[CartController::class,'cart'])->name('cart');
+    // Route::get('/invoice',[CartController::class,'checkout'])->name('checkout');
     
 });
 
