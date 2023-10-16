@@ -68,7 +68,15 @@
             <div class="item5">
                 <h2>20% OFF</h2>
                 <br>
+<<<<<<< HEAD
                 <a href="{{route('contract_user.show',['id'=>$item->id])}}">BUY</a>
+=======
+                @if (Auth::check())
+                <a href="#">BUY</a>
+                @else
+                <a href="{{route('showLoginClient')}}">BUY</a>
+                @endif
+>>>>>>> fa2e705e443889255f51d5f09e79322b366d8079
             </div>
         </div>
     </div>

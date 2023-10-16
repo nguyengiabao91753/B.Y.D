@@ -65,7 +65,6 @@
                     <th>Value</th>
                     <th>Rate</th>
                     <th>Price</th>
-                    <th>Content</th>
                 </tr>
 
             </thead>
@@ -80,12 +79,14 @@
                     <td>{{$item->value}}</td>
                     <td>{{$item->rate}}</td>
                     <td>{{$item->price}}</td>
-                    <td>{{$item->policy->description}}</td>
                 </tr>
                 @endforeach
             </tbody>
             <tfoot>
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> fa2e705e443889255f51d5f09e79322b366d8079
             <th>ID</th>
                     <th>Policy Insurance</th>
                     <th>Type</th>
@@ -94,6 +95,7 @@
                     <th>Value</th>
                     <th>Rate</th>
                     <th>Price</th>
+<<<<<<< HEAD
 =======
                 <th>ID</th>
                 <th>Policy Insurance</th>
@@ -101,6 +103,8 @@
                 <th>Price</th>
                 <th>Content</th>
 >>>>>>> 11c05a61617af849230d3faa6c8e025b565727e0
+=======
+>>>>>>> fa2e705e443889255f51d5f09e79322b366d8079
             </tfoot>
         </table>
     </div>

@@ -9,11 +9,15 @@ use App\Models\Customer;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\URL;
 
 class LoginClientController extends Controller
 {
     //
+    
     public function showLoginClient() {
+        Session::put('previous_url', url()->previous());
         if(Auth::check()){
             return redirect()->back();
         }
@@ -21,15 +25,18 @@ class LoginClientController extends Controller
     }
 
     public function loginClient (LoginClientRequest $request) {
+        
         $credentials=[
             'email'=>$request->email_client,
             'password'=>$request->password_client,
         ];
 
         if (Auth::guard('web')->attempt($credentials)){
-            return redirect()->intended(route('home'));
-        }
+            $previousUrl = Session::pull('previous_url', route('home')); // Trang mặc định nếu không có mục tiêu
 
+                return redirect($previousUrl);
+            
+        }
         return redirect()->route('showLoginClient')->with("error","Login details are not valid");
     }
 
