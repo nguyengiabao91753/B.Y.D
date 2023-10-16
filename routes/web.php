@@ -118,7 +118,7 @@ Route::prefix('client')->name('')->group(function (){
     Route::get('/contract',[UserProfileController::class,'showContract'])->name('profile.contract');
 
     Route::get('/cart',[CartController::class,'cart'])->name('cart');
-    Route::get('/invoice',[CartController::class,'checkout'])->name('checkout');
+    Route::get('/invoice',[CartController::class,'checkoutPost'])->name('checkoutPost');
     
 });
 

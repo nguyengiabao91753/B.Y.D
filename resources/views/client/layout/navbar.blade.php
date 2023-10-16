@@ -30,7 +30,7 @@
             <ul class="ul">
                 @auth
                 <li style="list-style-type: none;" >
-                <a href="{{ route('checkout') }}">
+                <a href="{{ route('checkoutPost') }}">
                     <i class="fa-solid fa-cart-shopping"></i>
                 </a>
                 </li>

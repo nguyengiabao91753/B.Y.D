@@ -3,29 +3,36 @@
 namespace App\Http\Controllers\Client;
 
 use App\Http\Controllers\Controller;
+use App\Models\Admin\Insurance;
+use App\Models\Contract;
 use App\Models\Customer;
 use App\Models\Invoice;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class CartController extends Controller
 {
     //
-    public function cart(){
+    // public function checkout(){
+    //         return view('client.page.invoice_checkout');
+    // }
 
-    }
+    public function checkoutPost(){
 
-    public function checkout(int $id){
+        $customer = Auth::user();   
+        $customer_id = $customer->id;
+        $contract = Contract::with('insurance','customer')->select('id','customer_id','insurance_id','enddate')->where('customer_id',  $customer_id)->first();
+        $contract_id = $contract->id;
 
-        $invoice = Invoice::FindOrFail($id);
+        $insurance_id = $contract->insurance_id;
 
-        if($invoice ==null){
-            abort(404);
-        }
-        $customer = Customer::with('contract','insurance')->select('firstname','lastname','insurance_id','enddate','price')->where('id',$id)->get();
+        $invoice = Invoice::with('contract')->select('id','contract_id','duedate')->where('contract_id',$contract_id)->first();
+        $insurance = Insurance::with('policy')->select('price','rate','value','policy_id')->where('id',$insurance_id)->first();
         return view('client.page.invoice_checkout',[
-            'id'=>$id,
             'invoice'=>$invoice,
-            'customer'=>$customer
+            'customer'=>$customer,
+            'insurance'=>$insurance,
+            'contract'=>$contract
         ]);
     }
 }

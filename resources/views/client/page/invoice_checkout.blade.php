@@ -18,67 +18,54 @@
 @endpush
 
 @section('content')
-<br><br><br><br><br><br><br>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<br><br><br><br>
 <div class="container">
-        <form class="checkout-meta donate-page">
+        <form class="checkout-meta donate-page" method="post" action="">
             <div class="row">
                 <div class="col-lg-8">
                     <h3>Billing details</h3>
                         <div class="col-lg-12">
-                            <input type="text" class="input-text " name="billing_name" placeholder="Complete Name">
-                            <input type="email" class="input-text " name="billing_email" placeholder="Email address">
-                            <input type="text" class="input-text " name="billing_company"  placeholder="Company name">
-                            <select name="billing_country" class="nice-select Advice country_to_state">
-                                <option>Country</option>
-                                <option>Select Topic 1</option>
-                                <option>Select Topic 2</option>
-                                <option>Select Topic 3</option>
-                                <option>Select Topic 4</option>
-                            </select>
-                            <div class="row">
-                            <div class="col-lg-6">
-                                <select name="billing_country" class="nice-select Advice city">
-                                    <option>City</option>
-                                    <option>Select Topic 1</option>
-                                    <option>Select Topic 2</option>
-                                    <option>Select Topic 3</option>
-                                    <option>Select Topic 4</option>
-                                </select>
-                            </div>
-                            <div class="col-lg-6">
-                                <select name="billing_country" class="nice-select Advice state province">
-                                    <option>State / Province</option>
-                                    <option>Select Topic 1</option>
-                                    <option>Select Topic 2</option>
-                                    <option>Select Topic 3</option>
-                                    <option>Select Topic 4</option>
-                                </select>
-                            </div>
-                            <div class="col-lg-6">
-                                <input type="text" name="Postal_Code" placeholder="Postal Code">
-                            </div>
-                            <div class="col-lg-6">
-                                <input type="tel" class="input-text " name="billing_phone"  placeholder="Phone">
-                            </div>
-                            </div>
-                            <input type="text" name="Address" placeholder="Address">
+                            <label style="margin-left:10px">First Name</label>
+                            <input type="text" class="input-text " name="firstname" value="{{ $customer ->firstname}}" disabled>
+                            <label style="margin-left:10px">Last Name</label>
+                            <input type="text" class="input-text " name="lastname" value="{{ $customer ->lastname}}" disabled>
+                            <label style="margin-left:10px">Email</label>
+                            <input type="email" class="input-text " name="email" value="{{ $customer ->email}}" disabled>
+                            <label style="margin-left:10px">Phone</label>
+                            <input type="text" class="input-text " name="phone"  value="{{ $customer ->phone}}" disabled> 
+                            <label style="margin-left:10px">Policy Name</label>
+                            <input type="text" class="input-text " name="phone"  value="{{ $insurance->policy->name}}" disabled>
+                            <label style="margin-left:10px">Insurance Name</label>
+                            <input type="text" class="input-text " name="phone"  value="{{ $insurance->policy->name}}" disabled>
+                            <label style="margin-left:10px">Due Date</label>
+                            <input type="text" class="input-text " name="duedate"  value="{{ date('d/m/Y', strtotime($contract->enddate)) }}" disabled>
+                </div>
                 </div>
             </div>
             <div class="row mt-lg-5">
                 <div class="col-lg-6">
                         <div class="cart_totals cart-Total">
-                            <h4>Cart Total</h4>
+                            <h4>Total</h4>
                             <table class="shop_table_responsive">
                                 <tbody>
                                     <tr class="cart-subtotal">
-                                        <th>Subtotal:</th>
+                                        <th>Value:</th>
                                         <td>
                                             <span class="woocommerce-Price-amount">
                                             <bdi>
-                                                <span class="woocommerce-Price-currencySymbol">$</span>358.00
+                                                <span class="woocommerce-Price-currencySymbol">$</span>{{ $insurance->value }}
                                             </bdi>
                                             </span>
                                         </td>
+                                    </tr>
+                                    <tr class="Shipping">
+                                        <th>Rate:</th>
+                                        <td>
+                                            <span class="woocommerce-Price-amount amount">
+                                                {{ $insurance->rate }}
+                                            </span>
+                                         </td>
                                     </tr>
                                     <tr class="Shipping">
                                         <th>Shipping:</th>
@@ -93,7 +80,7 @@
                                         <td>
                                             <span class="woocommerce-Price-amount">
                                             <bdi>
-                                                <span>$</span>358.00
+                                                <span>$</span>{{ $insurance -> price }}
                                             </bdi>
                                             </span>
                                         </td>
