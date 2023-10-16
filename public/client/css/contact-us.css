@@ -11,7 +11,7 @@ body{
 }
 .w-100
 {
-    width: 100%;
+    width: 800px;
 }
  .flex
 {
@@ -27,6 +27,7 @@ body{
 .form{
     padding: 20px;
     margin-top: 10px;
+    width: 100%;
 }
 .form textarea{
     max-width: 630px;
@@ -159,6 +160,7 @@ text-align: center;
 .pre1{
     background-color: #ffb99b;
     padding: 10px;
+    text-align: center;
 }
 .pre2{
     background-color: #ffb99b;

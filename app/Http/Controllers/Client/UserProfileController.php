@@ -46,6 +46,6 @@ class UserProfileController extends Controller
 
     public function showContract(){
         $customer=Auth::user();
-        return view('client.page.contract_profile',compact('customer'));
+        return view('client.page.contract_user',compact('customer'));
     }
 }

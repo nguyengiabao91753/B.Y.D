@@ -64,6 +64,7 @@
                     <th>Email</th>
                     <th>Phone</th>
                     <th>Description</th>
+                    <th>show</th>
                     <th>Edit</th>
                     <th>Delete</th>
                 </tr>
@@ -74,9 +75,10 @@
                     <td>{{$loop->iteration}}</td>
                     <td>{{$contact->firstname}}</td>
                     <td>{{$contact->lastname}}</td>
-                    <td>{{$contact->email}}</td>
+                    <td>{{Str::limit($contact->email,10)}}</td>
                     <td>{{$contact->phone}}</td>
-                    <td>{{$contact->description}}</td>
+                    <td>{{Str::limit($contact->description,10)}}</td>
+                    <td><a href="{{route('admin.contact.show',['id'=> $contact->id])}}">show</a></td>
                     <td><a href="{{route('admin.contact.edit',['id'=> $contact->id])}}">Edit</a></td>
                     <td><a onclick="return confirmDelete('contact')" href="{{route('admin.contact.destroy',['id'=> $contact->id])}}">Delete</a></td>
                 </td>

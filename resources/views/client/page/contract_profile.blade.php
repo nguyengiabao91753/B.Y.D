@@ -39,7 +39,7 @@
                             <a class="list-group-item list-group-item-action" 
                                 href="{{ route('profile.edit',['id'=> $customer->id]) }}">Change password</a>
                             <a class="list-group-item list-group-item-action"
-                                href="{{ route('profile.contract') }}">Contract</a>
+                                href="{{ route('profile.contract_user.') }}">Contract</a>
                         </div>   
                     </div>
                     <div class="col-md-9">

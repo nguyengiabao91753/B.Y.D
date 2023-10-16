@@ -23,9 +23,11 @@ use App\Http\Controllers\Client\LoginClientController;
 use App\Http\Controllers\Client\LogoutClientController;
 use App\Http\Controllers\Client\UserProfileController;
 use App\Http\Controllers\Page\Contact_usController;
+use App\Http\Controllers\Page\ContractController as PageContractController;
 use App\Models\Contact;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\pdfController;
+use App\Models\Contract;
 
 /*
 |--------------------------------------------------------------------------
@@ -71,13 +73,20 @@ Route::get('/contact_us', function () {
     return view('client.page.contact');
 });
 Route::get('/pdf',[pdfController::class,'index']);
-
+// Route::prefix('contract_user')->name('contract_user.')->controller(ContractController::class,'show')->group(function(){
+//     Route::get('show','show')->name('show');
+//     Route::post('store','store')->name('store');
+// });   
 // })->name('contact');
 // Route::get('/contact_us',[Contact_usController::class,'index'])->name('index');
 // Route::post('/contact_us',[Contact_usController::class,'store'])->name('store');
 Route::prefix('contact_us')->name('contact_us.')->controller(Contact_usController::class)->group(function(){
      Route::get('index','index')->name('index');
      Route::post('store','store')->name('store');
+});
+Route::prefix('contract_user')->name('contract_user.')->controller(PageContractController::class)->group(function(){
+    Route::get('show/{id}','show')->name('show');
+    Route::post('store','store')->name('store');
 });
 Route::get('/all_vehicle_insurance', function () {
     return view('client.page.all_vehicle');
@@ -107,7 +116,6 @@ Route::prefix('client')->name('')->group(function (){
     Route::get('bike_insurance', [InsuranceController::class, 'index_bike'])->name('bike_insurance');
     Route::get('all_vehicle', [InsuranceController::class, 'index_all'])->name('all_vehicle');
 
-
     Route::get('plan_insurance', [InsuranceController::class, 'index_plan'])->name('plan_insurance');
     Route::get('form_insurance/{id}', [InsuranceController::class, 'index_form'])->name('form_insurance');
 
@@ -116,6 +124,7 @@ Route::prefix('client')->name('')->group(function (){
     Route::post('/profile/update/{id}',[UserProfileController::class,'update'])->name('profile.update');
 
     Route::get('/contract',[UserProfileController::class,'showContract'])->name('profile.contract');
+    // Route::get('contract_user/{id}',[PageContractController::class,'show'])->name('contract_user');
 
     Route::get('/cart',[CartController::class,'cart'])->name('cart');
     Route::get('/invoice',[CartController::class,'checkoutPost'])->name('checkoutPost');
@@ -210,7 +219,7 @@ Route::prefix('admin')->name('admin.')->middleware('check_login')->group(functio
     });
     Route::prefix('contract')->name('contract.')->controller(ContractController::class)->group(function () {
         Route::get('index', 'index')->name('index');
-
+        Route::get('show/{id}', 'show')->name('show');
         Route::get('create', 'create')->name('create');
         Route::post('store', 'store')->name('store');
 
@@ -221,7 +230,7 @@ Route::prefix('admin')->name('admin.')->middleware('check_login')->group(functio
     });
     Route::prefix('contact')->name('contact.')->controller(ContactsController::class)->group(function () {
         Route::get('index', 'index')->name('index');
-
+        Route::get('show/{id}', 'show')->name('show');
         Route::get('create', 'create')->name('create');
         Route::post('store', 'store')->name('store');
 

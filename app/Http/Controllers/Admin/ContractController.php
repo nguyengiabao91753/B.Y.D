@@ -57,10 +57,18 @@ class ContractController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Contract $contract)
+    public function show( $id)
     {
         //
-        return view('admin.contract.show',compact('contracts'));
+        $contract = Contract::find($id);
+        $customers = $contract->customers;
+        $insurances = Insurance::find($id);
+        return view('admin.modules.contract.show',[
+            'id'=>$id,
+            'contract'=>$contract,
+            'customer'=>$customers,
+            'insurance'=>$insurances
+        ]);
     }
     /**
      * Show the form for editing the specified resource.
@@ -69,12 +77,12 @@ class ContractController extends Controller
     {
         //
         $contract = Contract::find($id);
-        $customers = Customer::all();
-        $insurances = Insurance::all();
+        $customer = Customer::all();
+        $insurance = Insurance::all();
         return view('admin.modules.contract.edit',[
             'contract'=>$contract,
-            'customers'=>$customers,
-            'insurances'=>$insurances
+            'customers'=>$customer,
+            'insurances'=>$insurance
         ]);
     }
 
@@ -113,4 +121,12 @@ class ContractController extends Controller
 
         return redirect()->route('admin.contract.index')->with('success', 'Deleted Successfully!');
     }
+    // public function join()
+    // {
+    //     $join=DB::table('contracts')
+    //                     ->join('customers','contracts.custormer_id','=','customers.id')
+    //                     ->select('firstname','lastname','email','phone','created_at')
+    //                     ->get();
+    //     dd($join);
+    // }
 }
