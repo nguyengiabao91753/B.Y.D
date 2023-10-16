@@ -22,7 +22,7 @@
                 <h5>We take hasstle out of insurance and enable you to live life with<br>complete peace of mind.</h5>
             </div>
             <div class="btn1">
-                <a href="{{route('all_vehicle')}}">GET INSURED</a>
+                <a href="{{route('vehicle')}}">GET INSURED</a>
             </div>
         </div>
     </div>
@@ -34,7 +34,7 @@
 
     <div class="container2">
         <div class="item2">
-            <h1>B.Y.D Insurance is the premium insurance provider</h1>
+            <h1>SAFE CARZ Insurance is the premium insurance provider</h1>
 
             <div class="img1">
                 <img src="{{asset('client/img/Line.png')}}" alt="img">
@@ -75,7 +75,7 @@
                 <img src="{{asset('client/img/Car%20Insurance_E.png')}}" alt="">
             </div>
             <div class="btn">
-                <a href="{{route('car_insurance')}}">Car Insurance</a>
+                <a href="car-insurance-types.html">Car Insurance</a>
             </div>
         </div>
         <div class="item5">
@@ -83,7 +83,7 @@
                 <img src="{{asset('client/img/motorcycle-insurance_E.png')}}" alt="">
             </div>
             <div class="btn">
-                <a href="{{route('bike_insurance')}}">Bike Insurance</a>
+                <a href="bike-insurance-types.html">Bike Insurance</a>
             </div>
         </div>
     </div>
@@ -91,11 +91,11 @@
     <!-- BUY INSURANCE PLANS ENDS -->
 
 
-    <!-- HOW B.Y.D  WORKS STARTS? -->
+    <!-- HOW SAFE CARZ WORKS STARTS? -->
 
     <div class="container6">
         <div class="item6">
-            <h1>How B.Y.D  Works?</h1>
+            <h1>How Safe Carz Works?</h1>
         </div>
     </div>
     <div class="container7">
@@ -153,7 +153,7 @@
         </div>
     </div>
 
-    <!-- HOW B.Y.D  WORKS ENDS? -->
+    <!-- HOW SAFE CARZ WORKS ENDS? -->
 
     <!-- FAQ STARTS-->
 
@@ -226,7 +226,7 @@
             </div>
         </div>
     </div>
-
+    
         <div class="container11">
             <div class="item11">
                 <div class="img">

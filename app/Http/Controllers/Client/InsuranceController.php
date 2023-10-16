@@ -7,6 +7,7 @@ use App\Models\Admin\Insurance;
 use App\Models\Category;
 use App\Models\Policy;
 use Illuminate\Http\Request;
+use Carbon\Carbon ;
 
 class InsuranceController extends Controller
 {
@@ -14,8 +15,7 @@ class InsuranceController extends Controller
     {
         $policy = Policy::select('id', 'image', 'name', 'description')->where(function ($query) {
             $query->where('name', 'like', '%Car%');
-        })
-            ->get();
+        })->get();
         return view('client.page.car_insurance', [
             'policy' => $policy
         ]);
