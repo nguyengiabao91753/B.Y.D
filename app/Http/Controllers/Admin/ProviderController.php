@@ -57,7 +57,6 @@ class ProviderController extends Controller
     /**
      * Display the specified resource.
      */
-<<<<<<< HEAD
     public function show(int $id){
         $insurance = Insurance::with('provider', 'policy','category')->select('provider_id', 'policy_id','category_id','brand','model','value', 'rate', 'price')->where('provider_id', $id)->get();
         //
@@ -69,11 +68,10 @@ class ProviderController extends Controller
 
         $providers=Provider::orderBy('created_at','DESC')->get();
         $insurance = Insurance::with('provider','policy')->select('provider_id', 'policy_id','rate','price')->where('provider_id', $id)->get();
-=======
+    }
     public function show(int $id)
     {
         $insurance = Insurance::with('provider', 'policy','category')->select('provider_id', 'policy_id','category_id','brand','model','value', 'rate', 'price')->where('provider_id', $id)->get();
->>>>>>> fa2e705e443889255f51d5f09e79322b366d8079
         return view('admin.modules.provider.show',[
             'id'=>$id,
             'insurance'=>$insurance

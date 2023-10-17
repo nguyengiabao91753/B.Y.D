@@ -110,7 +110,7 @@
                 </div>
             </div>
             <div class="btn">
-                <button href="{{route('',['id'=>$item->id])}}" type="submit">Send</button>
+                <button type="submit">Send</button>
             </div>
         </div>
     </form>
