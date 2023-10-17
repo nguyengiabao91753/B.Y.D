@@ -82,11 +82,11 @@
                     </div>
                     <div class="form-group">
                         <label>Price</label><br>
-                        <a><input type="text" id="price" name="price" placeholder="{{ $insurance->price}}" for="productPrice" style="width: 1020px; height: 40px;">USD</a>
+                        <a><input type="text" id="price" name="price" placeholder="{{ $insurance->price }}" for="productPrice" style="width: 1020px; height: 40px;">USD</a>
                     </div>
                     <div class="form-group">
                         <label for="start-date">StratDate</label>
-                        <input type="date" id="startDate" class="form-control" min="2018-09-24" max="2025-10-20" onchange="calculateEndDate()">
+                        <input type="date" id="startDate" name="startdate" class="form-control" min="2018-09-24" max="2025-10-20" onchange="calculateEndDate()">
                     </div>
                     <div>
                         <label for="months">Chọn số tháng:</label>
@@ -103,7 +103,7 @@
                     </div>
                     <div class="form-group">
                         <label for="totalPrice">Total Price</label>
-                        <a><input type="text" id="totalPrice" readonly style="width: 1020px; height: 40px;"> USD</a>
+                        <a><input type="text" id="totalPrice" name="price" style="width: 1020px; height: 40px;"> USD</a>
                     </div>
                     <div class="form-group">
                     </div>

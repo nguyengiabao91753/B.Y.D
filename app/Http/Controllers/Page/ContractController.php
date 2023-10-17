@@ -45,8 +45,10 @@ class ContractController extends Controller
         $contract = new Contract();
         $contract->insurance_id = $request->insurance_id;
         $contract->customer_id = Auth::user()->id;
+        $contract->startdate = $request->startdate;
         $newenddate = $request->input('enddate');
         $contract->enddate = $newenddate ;
+        $contract->price = $request->price;
         $contract->save();
         return redirect()->route('contract_user.show')->with('success','Create Contract successfully.Thank you for contacting us');
     }
