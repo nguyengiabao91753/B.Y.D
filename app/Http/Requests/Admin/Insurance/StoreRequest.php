@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests\Admin\Insurance;
 
+use App\Models\Admin\Insurance;
 use Illuminate\Foundation\Http\FormRequest;
 
 class StoreRequest extends FormRequest
@@ -30,6 +31,12 @@ class StoreRequest extends FormRequest
             'value'=> 'required',
             'price'=> 'required',
             'rate'=> 'required'
+            
+        ];
+    }
+    public function messages(): array
+    {
+        return[
             
         ];
     }

@@ -39,24 +39,50 @@
 
 @section('content')
 <form method="post" action="{{ route('admin.provider.show', ['id'=>$id])}}">
-<div class="card">
-    <div class="card-header">
-        <h3 class="card-title">Provider list</h3>
+    <div class="card">
+        <div class="card-header">
+            <h3 class="card-title">Provider list</h3>
 
-        <div class="card-tools">
-            <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
-                <i class="fas fa-minus"></i>
-            </button>
-            <button type="button" class="btn btn-tool" data-card-widget="remove" title="Remove">
-                <i class="fas fa-times"></i>
-            </button>
+            <div class="card-tools">
+                <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
+                    <i class="fas fa-minus"></i>
+                </button>
+                <button type="button" class="btn btn-tool" data-card-widget="remove" title="Remove">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
         </div>
-    </div>
 
-    <div class="card-body">
-        <table id="example1" class="table table-bordered table-striped">
-            <thead>
-                <tr>
+        <div class="card-body">
+            <table id="example1" class="table table-bordered table-striped">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Policy Insurance</th>
+                        <th>Type</th>
+                        <th>Brand</th>
+                        <th>Model</th>
+                        <th>Value</th>
+                        <th>Rate</th>
+                        <th>Price</th>
+                    </tr>
+
+                </thead>
+                <tbody>
+                    @foreach($insurance as $item)
+                    <tr>
+                        <td>{{$loop->iteration}}</td>
+                        <td>{{$item->policy->name}}</td>
+                        <td>{{$item->category->name}}</td>
+                        <td>{{$item->brand}}</td>
+                        <td>{{$item->model}}</td>
+                        <td>{{$item->value}}</td>
+                        <td>{{$item->rate}}</td>
+                        <td>{{$item->price}}</td>
+                    </tr>
+                    @endforeach
+                </tbody>
+                <tfoot>
                     <th>ID</th>
                     <th>Policy Insurance</th>
                     <th>Type</th>
@@ -65,49 +91,12 @@
                     <th>Value</th>
                     <th>Rate</th>
                     <th>Price</th>
-                </tr>
 
-            </thead>
-            <tbody>
-                @foreach($insurance as $item)
-                <tr>
-                    <td>{{$loop->iteration}}</td>
-                    <td>{{$item->policy->name}}</td>
-                    <td>{{$item->category->name}}</td>
-                    <td>{{$item->brand}}</td>
-                    <td>{{$item->model}}</td>
-                    <td>{{$item->value}}</td>
-                    <td>{{$item->rate}}</td>
-                    <td>{{$item->price}}</td>
-                </tr>
-                @endforeach
-            </tbody>
-            <tfoot>
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> fa2e705e443889255f51d5f09e79322b366d8079
-            <th>ID</th>
-                    <th>Policy Insurance</th>
-                    <th>Type</th>
-                    <th>Brand</th>
-                    <th>Model</th>
-                    <th>Value</th>
-                    <th>Rate</th>
-                    <th>Price</th>
-<<<<<<< HEAD
-=======
-                <th>ID</th>
-                <th>Policy Insurance</th>
-                <th>Rate</th>
-                <th>Price</th>
-                <th>Content</th>
->>>>>>> 11c05a61617af849230d3faa6c8e025b565727e0
-=======
->>>>>>> fa2e705e443889255f51d5f09e79322b366d8079
-            </tfoot>
-        </table>
+
+
+                </tfoot>
+            </table>
+        </div>
     </div>
-</div>
 </form>
 @endsection

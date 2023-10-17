@@ -18,7 +18,7 @@
 @section('content')
 
 <div class="container light-style flex-grow-1 container-p-y">
-    <form method="post" action="{{route('contract_user.store',['id'=>$customers->id])}}">
+    <form method="post" action="{{route('contract_user.store',['id'=>$customer->id])}}">
         @csrf
         <div class="card">
             <div class="card-header">
@@ -78,7 +78,7 @@
                     </div>
                     <div class="form-group">
                         <label>Value</label>
-                        <input type="text" class="form-control" placeholder="{{ $insurances->model }}">
+                        <input type="text" class="form-control" placeholder="{{ $insurance->model }}">
                     </div>
                     <div class="form-group">
                         <label>Price</label><br>
@@ -86,10 +86,10 @@
                     </div>
                     <div class="form-group">
                         <label for="start-date">StratDate</label>
-                        <input type="date" id="startDate" name="startdate" class="form-control" min="2018-09-24" max="2025-10-20" onchange="calculateEndDate()">
+                        <input type="date" id="startDate" class="form-control" min="2018-09-24" max="2025-10-20" onchange="calculateEndDate()">
                     </div>
                     <div>
-                        <label for="months">Chọn số tháng:</label>
+                        <label for="months">Select Month:</label>
                         <select id="months" onchange="(calculateEndDate(),calculateTotalPrice())">
                             <option value="1">1 tháng</option>
                             <option value="3">3 tháng</option>
@@ -110,7 +110,7 @@
                 </div>
             </div>
             <div class="btn">
-                <button href="{{route('checkoutPost')}}" type="submit">Send</button>
+                <button href="{{route('',['id'=>$item->id])}}" type="submit">Send</button>
             </div>
         </div>
     </form>
@@ -152,7 +152,7 @@
         // Thêm đơn vị tiền tệ VND sau giá trị
         const formattedPrice = totalPrice.toLocaleString("vi-VN", {
             style: "currency",
-            currency: "VND"
+            currency: "USD"
         });
 
         // Đặt giá trị tổng giá tiền vào input

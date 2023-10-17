@@ -28,7 +28,7 @@
                     <div class="form-group">
                         <label>Provider</label>
                         <select class="form-control" name="provider_id">
-                            <option value="0" {{old( 'provider_id' ) == 0 ? 'selected' : '' }}>----- Root -----</option>
+                            <option value="" {{old( 'provider_id' ) == 0 ? 'selected' : '' }}>----- Root -----</option>
                             @foreach($providers as $provider)
                             @if($provider->status==1)
                             <option value="{{$provider->id}}" {{old( 'provider_id' ) == $provider->id ? 'selected' : '' }}>{{$provider->name}}</option>
@@ -39,7 +39,7 @@
                     <div class="form-group">
                         <label>Insurance policy</label>
                         <select class="form-control" name="policy_id">
-                            <option value="0" {{old( 'policy_id' ) == 0 ? 'selected' : '' }}>----- Root -----</option>
+                            <option value="" {{old( 'policy_id' ) == 0 ? 'selected' : '' }}>----- Root -----</option>
                             @foreach($policies as $policy)
                             @if($policy->status ==1)
                             <option value="{{$policy->id}}" {{old( 'policy_id' ) == $policy->id ? 'selected' : '' }}>{{$policy->name}}</option>
@@ -50,7 +50,7 @@
                     <div class="form-group">
                         <label>Category</label>
                         <select class="form-control" id="category_id" name="category_id">
-                            <option value="0" {{old( 'category_id' ) == 0 ? 'selected' : '' }}>----- Root -----</option>
+                            <option value="" {{old( 'category_id' ) == 0 ? 'selected' : '' }}>----- Root -----</option>
                             <?php
                             foreach ($categories as $key1 => $level1) {
                                 if ($level1->parent_id == 0) {
