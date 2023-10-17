@@ -51,6 +51,7 @@ class ContractController extends Controller
         $contract->customer_id = Auth::user()->id;
         $contract->insurance_id = $request->insurance_id;       
         $contract->enddate = $request->enddate;
+        $contract->startdate = $request->startdate;
         $contract->save();
         return redirect()->route('admin.contract.index')->with('success','success');
     }
@@ -100,7 +101,8 @@ class ContractController extends Controller
 
         $contract->insurance_id=$request->insurance_id;
         $contract->customer_id = Auth::user()->id;
-        $contract->insurance_id = $request->insurance_id;       
+        $contract->insurance_id = $request->insurance_id;  
+        $contract->startdate = $request->startdate;     
         $contract->enddate = $request->enddate;
         $contract->save();
         return redirect()->route('admin.contract.index')->with('success','success');

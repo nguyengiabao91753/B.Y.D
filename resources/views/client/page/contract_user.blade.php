@@ -18,7 +18,7 @@
 @section('content')
 
 <div class="container light-style flex-grow-1 container-p-y">
-    <form method="post" action="{{route('contract_user.store',['id'=>$customer->id])}}">
+    <form method="post" action="{{route('contract_user.store',['id'=>$customers->id])}}">
         @csrf
         <div class="card">
             <div class="card-header">
@@ -42,8 +42,8 @@
                     @endif
                 </div>
                 <div class="card-tools">
-                    <input type="text" name="customer_id" value="{{$customer->id}}" hidden>
-                    <input type="text" name="insurance_id" value="{{$insurance->id}}" hidden>
+                    <input type="text" name="customer_id" value="{{$customers->id}}" hidden>
+                    <input type="text" name="insurance_id" value="{{$insurances->id}}" hidden>
                 </div>
             </div>
         </div>
@@ -53,40 +53,40 @@
 
                     <div class="form-group">
                         <label>Name</label>
-                        <input type="text" class="form-control" placeholder="{{ $customer->firstname.' '.$customer->lastname }}">
+                        <input type="text" class="form-control" placeholder="{{ $customers->firstname.' '.$customers->lastname }}">
                     </div>
 
                     <div class="form-group">
                         <label>Email</label>
-                        <input type="text" class="form-control" placeholder="{{$customer->email }}">
+                        <input type="text" class="form-control" placeholder="{{$customers->email }}">
                     </div>
                     <div class="form-group">
                         <label>Phone</label>
-                        <input type="text" class="form-control" placeholder="{{$customer->phone }}">
+                        <input type="text" class="form-control" placeholder="{{$customers->phone }}">
                     </div>
                     <div class="form-group">
                         <label>Isnurance Name</label>
-                        <input type="text" class="form-control" placeholder="{{ $insurance->policy->name }}">
+                        <input type="text" class="form-control" placeholder="{{ $insurances->policy->name }}">
                     </div>
                     <div class="form-group">
                         <label>Brand</label>
-                        <input type="text" class="form-control" placeholder="{{ $insurance->brand }}">
+                        <input type="text" class="form-control" placeholder="{{ $insurances->brand }}">
                     </div>
                     <div class="form-group">
                         <label>Model</label>
-                        <input type="text" class="form-control" placeholder="{{ $insurance->model }}">
+                        <input type="text" class="form-control" placeholder="{{ $insurances->model }}">
                     </div>
                     <div class="form-group">
                         <label>Value</label>
-                        <input type="text" class="form-control" placeholder="{{ $insurance->model }}">
+                        <input type="text" class="form-control" placeholder="{{ $insurances->model }}">
                     </div>
                     <div class="form-group">
                         <label>Price</label><br>
-                        <a><input type="text" id="price" name="price" placeholder="{{ $insurance->price}}" for="productPrice" style="width: 1020px; height: 40px;">USD</a>
+                        <a><input type="text" id="price" name="price" placeholder="{{ $insurances->price}}" for="productPrice" style="width: 1020px; height: 40px;">USD</a>
                     </div>
                     <div class="form-group">
                         <label for="start-date">StratDate</label>
-                        <input type="date" id="startDate" class="form-control" min="2018-09-24" max="2025-10-20" onchange="calculateEndDate()">
+                        <input type="date" id="startDate" name="startdate" class="form-control" min="2018-09-24" max="2025-10-20" onchange="calculateEndDate()">
                     </div>
                     <div>
                         <label for="months">Chọn số tháng:</label>
@@ -110,7 +110,7 @@
                 </div>
             </div>
             <div class="btn">
-                <button href="{{route('',['id'=>$item->id])}}" type="submit">Send</button>
+                <button href="{{route('checkoutPost')}}" type="submit">Send</button>
             </div>
         </div>
     </form>

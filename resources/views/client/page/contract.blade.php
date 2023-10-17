@@ -1,13 +1,16 @@
 @extends('client.app')
-@section('title','contact_us')
+@section('title','contract_us')
 @section('action', 'contact')
 
 @push('css')
 <link rel="stylesheet" href="{{asset('client/css/contact-us.css')}}">
 <link rel="stylesheet" href="{{asset('client/css/contact-nav.css')}}" type="text/css">
-<link rel="stylesheet" href="{{asset('client/font/css/all.min.html')}}"> @endpush @push('js') <script type="module" src="{{asset('client/unpkg.com/ionicons%405.5.2/dist/ionicons/ionicons.esm.js')}}"> </script>
+<link rel="stylesheet" href="{{asset('client/font/css/all.min.html')}}"> 
+@endpush 
+@push('js') <script type="module" src="{{asset('client/unpkg.com/ionicons%405.5.2/dist/ionicons/ionicons.esm.js')}}"> </script>
 <script nomodule src="{{asset('client/unpkg.com/ionicons%405.5.2/dist/ionicons/ionicons.js')}}"></script>
-<script nomodule src="{{asset('client/unpkg.com/ionicons%405.5.2/dist/ionicons/ionicons.js')}}"></script> @endpush
+<script nomodule src="{{asset('client/unpkg.com/ionicons%405.5.2/dist/ionicons/ionicons.js')}}"></script> 
+@endpush
 @section('content') <div class="container-contact">
     <div class="contact">
         <h3>Vui lòng chọn công ty bảo hiểm bạn muốn đăng ký</h3><br>

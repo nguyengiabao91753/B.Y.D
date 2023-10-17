@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Client;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\Customer\UpdateRequest;
+use App\Models\Admin\Insurance;
+use App\Models\Contract;
 use App\Models\Customer;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -44,8 +46,15 @@ class UserProfileController extends Controller
         return redirect()->route('home')->with('success', 'Profile updated successfully.');
     }
 
-    public function showContract(){
+    public function showContractProfile(int $id){
+
         $customer=Auth::user();
-        return view('client.page.contract_user',compact('customer'));
+        $contract = Contract::with('customer')->select('id','customer_id','startdate','enddate')->where('customer_id',  $customer->id)->first();
+        $insurances = Insurance::with('policy')->first();
+        return view('client.page.contract_profile',[
+            'customers'=>$customer,
+            'insurances'=>$insurances,
+            'contract'=>$contract
+        ]);
     }
 }

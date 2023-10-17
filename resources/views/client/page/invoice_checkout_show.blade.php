@@ -22,9 +22,16 @@
 <br><br><br><br>
 <div class="container">
         <form class="checkout-meta donate-page">
+                    
+ <a href="{{route('home')}}"> <button class="button" type="button">Back</button></a>
+                     
+@if (empty($contract))
+    <strong>You don't have any invoices.</strong>
+@else
+<br><br>
             <div class="row">
                 <div class="col-lg-8">
-                    <h3>Your Invoice</h3>
+                    <h3>Billing details</h3>
                         <div class="col-lg-12">
                             <label style="margin-left:10px">First Name</label>
                             <input type="text" class="input-text " name="firstname" value="{{ $customer ->firstname}}" disabled>
@@ -89,33 +96,8 @@
                             </table>
                         </div>
                 </div>
-                <div class="col-lg-6">
-                    <div class="checkout-side">
-                        <h3>Payment Method</h3>
-                        <ul>
-                            <li>
-                                <input type="radio" id="Bank_Payment" name="Bank_Payment" value="Bank_Payment">
-                                <label for="Bank_Payment">
-                                        Bank Payment
-                                </label>
-                            </li>
-                            <li>
-                                <input type="radio" id="Check_Payment" name="Bank_Payment" value="Check_Payment">
-                                <label for="Check_Payment">
-                                        Check Payment
-                                </label>
-                            </li>
-                            <li>
-                                <input type="radio" id="PayPal" name="Bank_Payment" value="Check_Payment">
-                                <label for="PayPal">
-                                        PayPal
-                                </label>
-                            </li>
-                        </ul>
-                        <a href="{{route('home')}}">Place Order</a>
-                    </div>
-                </div>
             </div>
+@endif
         </form>
     </div>
 @endsection

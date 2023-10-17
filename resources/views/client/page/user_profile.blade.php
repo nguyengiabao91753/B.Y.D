@@ -28,9 +28,9 @@
                         <a class="list-group-item list-group-item-action active"
                             href="{{ route('profile.show') }}">General</a>
                         <a class="list-group-item list-group-item-action" 
-                            href="{{ route('profile.edit',['id'=> $customer->id]) }}">Change password</a>
+                            href="{{ route('profile.edit',['id'=> Auth::user()->id]) }}">Change password</a>
                         <a class="list-group-item list-group-item-action" 
-                             href="{{ route('profile.contract') }}">Contract</a>
+                            href="{{ route('profile.edit',['id'=> $customer->id]) }}">Contract</a>
                     </div>   
                 </div>
                 <div class="col-md-9">
@@ -39,14 +39,6 @@
                             <div class="card-body media align-items-center">
                                 <img src="#" alt
                                     class="d-block ui-w-80">
-                                <div class="media-body ml-4">
-                                    <label class="btn btn-outline-primary">
-                                        Upload new photo
-                                        <input type="file" class="account-settings-fileinput">
-                                    </label> &nbsp;
-                                    <!-- <button type="button" class="btn btn-default md-btn-flat">Reset</button> -->
-                                    <div class="text-light small mt-1">Allowed JPG, GIF or PNG. Max size of 800K</div>
-                                </div>
                             </div>
                             <hr class="border-light m-0">
                             <div class="card-body">
