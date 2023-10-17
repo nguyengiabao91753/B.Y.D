@@ -57,7 +57,6 @@ class ProviderController extends Controller
     /**
      * Display the specified resource.
      */
-
     public function show(int $id)
     {
         $insurance = Insurance::with('provider', 'policy','category')->select('provider_id', 'policy_id','category_id','brand','model','value', 'rate', 'price')->where('provider_id', $id)->get();
