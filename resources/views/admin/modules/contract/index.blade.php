@@ -85,6 +85,7 @@
                     <th>Customer ID</th>
                     <th>Insurance ID</th>
                     <th>EndDate</th>
+                    <th>Show</th>
                     <th>Edit</th>
                     <th>Delete</th>
                 </tr>

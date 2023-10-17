@@ -48,7 +48,7 @@ class ContractController extends Controller
         $newenddate = $request->input('enddate');
         $contract->enddate = $newenddate ;
         $contract->save();
-        return redirect()->route('contract_user.show')->with('success','Create Contract successfully.Thank you for contacting us');
+        return redirect()->route('home')->with('success','Create Contract successfully.Thank you for contacting us');
     }
 
     /**

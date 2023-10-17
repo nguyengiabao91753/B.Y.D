@@ -7,6 +7,7 @@ use App\Http\Requests\Admin\Insurance\StoreRequest;
 use App\Http\Requests\Admin\Insurance\UpdateRequest;
 use App\Models\Admin\Insurance;
 use App\Models\Category;
+use App\Models\Contract;
 use App\Models\Policy;
 use App\Models\Provider;
 use Illuminate\Http\Request;
@@ -48,6 +49,15 @@ class InsuranceCotroller extends Controller
     public function store(StoreRequest $request)
     {
         $insurance = new Insurance();
+        $count = Insurance::where('provider_id', $request->provider_id)
+                    ->where('policy_id', $request->policy_id)
+                    ->where('brand', $request->brand)
+                     ->where('model', $request->model)
+                     ->where('value', $request->value)
+                     ->count();
+        if ( $count >=1){
+            return redirect()->route('admin.insurance.create')->with('error','This insurance already exists!');
+        }else{
         $insurance->provider_id = $request->provider_id;
         $insurance->policy_id = $request->policy_id;
         $insurance->category_id = $request->category_id;
@@ -56,8 +66,9 @@ class InsuranceCotroller extends Controller
         $insurance->value = $request->value;
         $insurance->price = $request->price;
         $insurance->rate = $request->rate;
-
+        
         $insurance->save();
+        }
         return redirect()->route('admin.insurance.index')->with('success', 'Create Successfully!');
     }
 
@@ -164,12 +175,12 @@ class InsuranceCotroller extends Controller
     public function destroy(int $id)
     {
         $insurance = Insurance::find($id);
-        if ($insurance == null) {
-            abort(404);
+        $check = Contract::where('insurance_id',$id)->count();
+        if ($check > 0) {
+            return redirect()->route('admin.insurance.index')->with('error', 'This Insurance\'s having a contract!');
         }
 
         $insurance->delete();
-
         return redirect()->route('admin.insurance.index')->with('success', 'Delete Successfully!');
     }
 }
