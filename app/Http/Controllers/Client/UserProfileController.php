@@ -49,10 +49,10 @@ class UserProfileController extends Controller
     public function showContractProfile(int $id){
 
         $customer=Auth::user();
-        $contract = Contract::with('customer')->select('id','customer_id','startdate','enddate')->where('customer_id',  $customer->id)->first();
+        $contract = Contract::with('customer')->select('id','customer_id','startdate','enddate','price')->where('customer_id',  $customer->id)->first();
         $insurances = Insurance::with('policy')->first();
         return view('client.page.contract_profile',[
-            'customers'=>$customer,
+            'customer'=>$customer,
             'insurances'=>$insurances,
             'contract'=>$contract
         ]);

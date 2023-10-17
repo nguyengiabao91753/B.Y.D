@@ -24,7 +24,7 @@
         @endforeach
     </div>
 @endif
-<form method="post" action="{{ route('profile.contract',[ 'id' =>$customers->id ]) }}">
+<form method="post" action="{{ route('profile.contract',[ 'id' =>Auth::user()->id ]) }}">
     @csrf
     <div class="container light-style flex-grow-1 container-p-y">
             <h4 class="font-weight-bold py-3 mb-4">
@@ -37,7 +37,7 @@
                             <a class="list-group-item list-group-item-action active"
                                 href="{{ route('profile.show') }}">General</a>
                             <a class="list-group-item list-group-item-action" 
-                                href="{{ route('profile.edit',['id'=> Auth::user()->id]) }}">Change password</a>
+                                href="{{ route('profile.edit',['id'=> $customer->id]) }}">Change password</a>
                             <a class="list-group-item list-group-item-action" 
                                 href="{{ route('profile.contract',['id'=>Auth::user()->id]) }}">Contract</a>
                         </div>   
@@ -47,7 +47,7 @@
 @else
     <div class="card-body">
                     <div class="card-tools">
-                    <input type="text" name="customer_id" value="{{$customers->id}}" hidden>
+                    <input type="text" name="customer_id" value="{{$customer->id}}" hidden>
                     <input type="text" name="insurance_id" value="{{$insurances->id}}" hidden>
                 </div>
             </div>
@@ -58,16 +58,16 @@
 
                     <div class="form-group">
                         <label>Name</label>
-                        <input type="text" class="form-control" placeholder="{{ $customers->firstname.' '.$customers->lastname }}">
+                        <input type="text" class="form-control" placeholder="{{ $customer->firstname.' '.$customer->lastname }}">
                     </div>
 
                     <div class="form-group">
                         <label>Email</label>
-                        <input type="text" class="form-control" placeholder="{{$customers->email }}">
+                        <input type="text" class="form-control" placeholder="{{$customer->email }}">
                     </div>
                     <div class="form-group">
                         <label>Phone</label>
-                        <input type="text" class="form-control" placeholder="{{$customers->phone }}">
+                        <input type="text" class="form-control" placeholder="{{$customer->phone }}">
                     </div>
                     <div class="form-group">
                         <label>Isnurance Name</label>
@@ -100,8 +100,8 @@
                         <a> <input type="text" id="endDate" class="form-control" name="enddate" readonly value="{{ $contract->enddate }}"></a>
                     </div>
                     <div class="form-group">
-                        <label for="totalPrice">Total Price</label>
-                        <a><input type="text" id="totalPrice" readonly style="width: 1020px; height: 40px;"> USD</a>
+                        <label for="price">Total Price</label>
+                        <a><input type="text" id="totalPrice" name="price" readonly style="width: 1020px; height: 40px;" value="{{ $contract->price }}" readonly> USD</a>
                     </div>
                 </div>
             </div>

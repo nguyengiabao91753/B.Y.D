@@ -28,9 +28,9 @@
                         <a class="list-group-item list-group-item-action active"
                             href="{{ route('profile.show') }}">General</a>
                         <a class="list-group-item list-group-item-action" 
-                            href="{{ route('profile.edit',['id'=> Auth::user()->id]) }}">Change password</a>
+                            href="{{ route('profile.edit',['id'=> $customer->id]) }}">Change password</a>
                         <a class="list-group-item list-group-item-action" 
-                            href="{{ route('profile.edit',['id'=> $customer->id]) }}">Contract</a>
+                            href="{{ route('profile.contract',['id'=> Auth::user()->id]) }}">Contract</a>
                     </div>   
                 </div>
                 <div class="col-md-9">

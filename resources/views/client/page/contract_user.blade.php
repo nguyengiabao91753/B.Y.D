@@ -18,7 +18,7 @@
 @section('content')
 
 <div class="container light-style flex-grow-1 container-p-y">
-    <form method="post" action="{{route('contract_user.store',['id'=>$customer->id])}}">
+    <form method="post" action="{{route('contract_user.store',['id'=>Auth::user()->id])}}">
         @csrf
         <div class="card">
             <div class="card-header">
@@ -78,7 +78,7 @@
                     </div>
                     <div class="form-group">
                         <label>Value</label>
-                        <input type="text" class="form-control" placeholder="{{ $insurance->model }}">
+                        <input type="text" class="form-control" placeholder="{{ $insurances->model }}">
                     </div>
                     <div class="form-group">
                         <label>Price</label><br>
@@ -86,7 +86,7 @@
                     </div>
                     <div class="form-group">
                         <label for="start-date">StratDate</label>
-                        <input type="date" id="startDate" class="form-control" min="2018-09-24" max="2025-10-20" onchange="calculateEndDate()">
+                        <input type="date" id="startDate" class="form-control" name="startdate" min="2018-09-24" max="2025-10-20" onchange="calculateEndDate()">
                     </div>
                     <div>
                         <label for="months">Select Month:</label>
@@ -102,15 +102,15 @@
                         <a> <input type="date" id="endDate" class="form-control" name="enddate" readonly></a>
                     </div>
                     <div class="form-group">
-                        <label for="totalPrice">Total Price</label>
-                        <a><input type="text" id="totalPrice" readonly style="width: 1020px; height: 40px;"> USD</a>
+                        <label for="price">Total Price</label>
+                        <a><input type="text" id="totalPrice" readonly style="width: 1020px; height: 40px;" name="price"> USD</a>
                     </div>
                     <div class="form-group">
                     </div>
                 </div>
             </div>
             <div class="btn">
-                <button href="{{route('',['id'=>$item->id])}}" type="submit">Send</button>
+                <button href="{{route('invoice.create')}}" type="submit">Send</button>
             </div>
         </div>
     </form>

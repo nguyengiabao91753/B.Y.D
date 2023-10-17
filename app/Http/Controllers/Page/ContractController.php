@@ -48,6 +48,7 @@ class ContractController extends Controller
         $newstartdate= $request->input('startdate');
         $contract->startdate=$newstartdate;
         $contract->enddate = $newenddate ;
+        $contract->price= $request->price;
         $contract->save();
         return redirect()->route('invoice.create')->with('success','Create Contract successfully.Thank you for contacting us');
     }
