@@ -28,16 +28,13 @@
                     <h3>Invoice Form</h3>
                         <div class="col-lg-12">
                             <br>
-                            <label style="margin-left:10px">Contract Number</label>
-                            <select name="contract_id" class="form-select">
-                                <option value="0"{{ old('contract_id')==0 ? 'selected' : '' }}>------- Root -------</option>
-                                @foreach($contracts as $contract)
-                                    <option value="{{$contract->id}}" {{old('contract_id')==$contract->id ? 'selected' : ''}}>{{$contract->id}}</option>
-                                @endforeach
-                            </select>
+                            <input type="text" name="contract_id" id="" value="{{$contract->id}}" hidden>
+                            <label style="margin-left:10px">Insurance Name</label>
+                            
+                            <input type="text" name="" id="" value="{{$insurance->policy->name}}" disabled>
                             <br><br>
                             <label style="margin-left:10px">Due Date</label>
-                            <input type="date" class="input-text " name="duedate" >
+                            <input type=""  name="duedate" value="{{ date('Y/m/d', strtotime($contract->enddate)) }}" >
                     </div>
                 </div>
             </div>

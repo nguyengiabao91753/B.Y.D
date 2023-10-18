@@ -24,9 +24,9 @@
         <form class="checkout-meta donate-page">
                     
  <a href="{{route('home')}}"> <button class="button" type="button">Back</button></a>
-                     
+                     <br><br>
 @if (empty($contract))
-    <strong>You don't have any invoices.</strong>
+    <h2><strong>You don't have any invoices.</strong></h2>
 @else
 <br><br>
             <div class="row">

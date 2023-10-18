@@ -19,9 +19,13 @@ class CartController extends Controller
     public function create()
     {
         //
-        $contracts =Contract::all();
+        $customer = Auth::user();  
+        $contract = Contract::with('insurance','customer')->select('id','customer_id','insurance_id','enddate')->where('customer_id',  $customer->id)->first();
+        $insurance_id = $contract->insurance_id;
+        $insurance = Insurance::with('policy','provider')->select('price','rate','value','policy_id','provider_id')->find($insurance_id)->first();
         return view('client.page.form_invoice',[
-            'contracts'=>$contracts
+            'contract'=>$contract,
+            'insurance'=>$insurance
         ]);
         
     }
@@ -35,7 +39,7 @@ class CartController extends Controller
   
         $invoice = new Invoice();
         $invoice->contract_id= $request->contract_id;
-        $invoice ->duedate = $request->duedate;
+        $invoice ->duedate = $request->input('duedate');
 
 
         $invoice->save();
@@ -52,7 +56,7 @@ class CartController extends Controller
         // $insurance_id = $contract->insurance_id;
 
         $invoice = Invoice::with('contract')->select('id','contract_id','duedate')->where('contract_id',$contract->id)->first();
-        $insurance = Insurance::with('policy')->select('price','rate','value','policy_id')->where('id',$contract->insurance_id)->first();
+        $insurance = Insurance::with('policy','provider')->select('price','rate','value','policy_id','provider_id')->where('id',$contract->insurance_id)->first();
         return view('client.page.invoice_checkout',[
             'invoice'=>$invoice,
             'customer'=>$customer,
@@ -64,6 +68,9 @@ class CartController extends Controller
     public function showCheckoutPost(int $id){
         $customer = Auth::user();  
         $contract = Contract::with('insurance','customer')->select('id','customer_id','insurance_id','enddate')->where('customer_id',  $id)->first();
+        if($contract == NULL){
+            return view('client.page.invoice_checkout_show');
+        }
         $insurance_id = $contract->insurance_id;
         $contract_id = $contract->id;
         $insurance = Insurance::with('policy','provider')->select('price','rate','value','policy_id','provider_id')->find($insurance_id)->first();
