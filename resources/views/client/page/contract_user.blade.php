@@ -53,36 +53,36 @@
 
                     <div class="form-group">
                         <label>Name</label>
-                        <input type="text" class="form-control" placeholder="{{ $customers->firstname.' '.$customers->lastname }}">
+                        <input type="text" class="form-control" placeholder="{{ $customers->firstname.' '.$customers->lastname }}" disabled>
                     </div>
 
                     <div class="form-group">
                         <label>Email</label>
-                        <input type="text" class="form-control" placeholder="{{$customers->email }}">
+                        <input type="text" class="form-control" placeholder="{{$customers->email }}" disabled>
                     </div>
                     <div class="form-group">
                         <label>Phone</label>
-                        <input type="text" class="form-control" placeholder="{{$customers->phone }}">
+                        <input type="text" class="form-control" placeholder="{{$customers->phone }}" disabled>
                     </div>
                     <div class="form-group">
                         <label>Isnurance Name</label>
-                        <input type="text" class="form-control" placeholder="{{ $insurances->policy->name }}">
+                        <input type="text" class="form-control" placeholder="{{ $insurances->policy->name }}" disabled>
                     </div>
                     <div class="form-group">
                         <label>Brand</label>
-                        <input type="text" class="form-control" placeholder="{{ $insurances->brand }}">
+                        <input type="text" class="form-control" placeholder="{{ $insurances->brand }}" disabled>
                     </div>
                     <div class="form-group">
                         <label>Model</label>
-                        <input type="text" class="form-control" placeholder="{{ $insurances->model }}">
+                        <input type="text" class="form-control" placeholder="{{ $insurances->model }}" disabled>
                     </div>
                     <div class="form-group">
                         <label>Value</label>
-                        <input type="text" class="form-control" placeholder="{{ $insurances->model }}">
+                        <input type="text" class="form-control" placeholder="{{ $insurances->value }}" disabled>
                     </div>
                     <div class="form-group">
                         <label>Price</label><br>
-                        <a><input type="text" id="price" name="price" placeholder="{{ $insurances->price}}" for="productPrice" style="width: 1020px; height: 40px;">USD</a>
+                        <a><input type="text" id="price" name="price" placeholder="{{ $insurances->price}}" for="productPrice" style="width: 1020px; height: 40px;" disabled>USD</a>
                     </div>
                     <div class="form-group">
                         <label for="start-date">StratDate</label>
@@ -91,9 +91,9 @@
                     <div>
                         <label for="months">Select Month:</label>
                         <select id="months" onchange="(calculateEndDate(),calculateTotalPrice())">
-                            <option value="1">1 tháng</option>
-                            <option value="3">3 tháng</option>
-                            <option value="6">6 tháng</option>
+                            <option value="1">1 month</option>
+                            <option value="3">3 months</option>
+                            <option value="6">6 months</option>
                             <!-- Thêm các tùy chọn khác nếu cần -->
                         </select>
                     </div>
@@ -126,7 +126,7 @@
 
         // Kiểm tra xem ngày bắt đầu có hợp lệ hay không
         if (isNaN(startDate.getTime())) {
-            alert("Ngày bắt đầu không hợp lệ. Vui lòng chọn ngày khác.");
+            alert("Invalid start date. Please choose another date .");
             return;
         }
 
@@ -157,7 +157,7 @@
 
         // Đặt giá trị tổng giá tiền vào input
         const totalPriceInput = document.getElementById("totalPrice");
-        totalPriceInput.value = totalPrice.toFixed(2); // Làm tròn đến 2 chữ số thập phân
+        totalPriceInput.value = totalPrice;
     }
 </script>
 @endsection

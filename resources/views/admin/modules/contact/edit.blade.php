@@ -12,14 +12,14 @@
                 <div class="col-md-6">
                     <div class="form-group">
                         <label>First name</label>
-                        <input type="text" class="form-control" placeholder="Enter first name" name="firstname" value="{{ old('firstname',$contact->firstname)}}">
+                        <input type="text" class="form-control" name="firstname" value="{{ old('firstname',$contact->firstname)}}">
                     </div>
                 </div>  
 
                 <div class="col-md-6">
                     <div class="form-group">
                         <label>Last name</label>
-                        <input type="text" class="form-control" placeholder="last name" name="lastname" value="{{ old('lastname',$contact->lastname)}}">
+                        <input type="text" class="form-control" name="lastname" value="{{ old('lastname',$contact->lastname)}}">
                     </div>
                 </div>
             </div>

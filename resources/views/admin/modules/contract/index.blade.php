@@ -57,11 +57,12 @@
         <table id="example1" class="table table-bordered table-striped">
             <thead>
                 <tr>
-                    <th>Contract ID</th>
+                    <th style="width: 40px;">ID</th>
                     <th>Customer</th>
                     <th>Insurance</th>
-                    <th>StartDate</th>
+                    <th>Startdate</th>
                     <th>EndDate</th>
+                    <th>Price(USD)</th>
                     <th>Show</th>
                     <th>Edit</th>
                     <th>Delete</th>
@@ -73,8 +74,9 @@
                     <td>{{$loop->iteration}}</td>
                     <td>{{$contract->customer->firstname.' '.$contract->customer->lastname}}</td>
                     <td>{{$contract->insurance->policy->name}}</td>
-                    <td>{{ date('d/m/Y', strtotime($contract->startdate)) }}</td>
+                    <td>{{ date('d/m/Y', strtotime($contract->stardate)) }}</td>
                     <td>{{ date('d/m/Y', strtotime($contract->enddate)) }}</td>
+                    <td>{{$contract->price}}</td>
                     <td><a href="{{route('admin.contract.show',['id'=> $contract->id])}}">Show</a></td>
                     <td><a href="{{route('admin.contract.edit',['id'=> $contract->id])}}">Edit</a></td>
                     <td><a onclick="return confirmDelete('contract')" href="{{route('admin.contract.destroy',['id'=> $contract->id])}}">Delete</a></td>
@@ -83,14 +85,16 @@
             </tbody>
             <tfoot>
                 <tr>
-                    <th>Contract ID</th>
-                    <th>Customer ID</th>
-                    <th>Insurance ID</th>
-                    <th>StartDate</th>
+                <th style="width: 40px;">ID</th>
+                    <th>Customer</th>
+                    <th>Insurance</th>
+                    <th>Startdate</th>
                     <th>EndDate</th>
+                    <th>Price</th>
                     <th>Show</th>
                     <th>Edit</th>
                     <th>Delete</th>
+                </tr>
                 </tr>
             </tfoot>
         </table>

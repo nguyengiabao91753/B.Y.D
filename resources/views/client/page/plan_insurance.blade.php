@@ -42,7 +42,7 @@
             <img src="{{asset('uploads/'.$image)}}" alt="">
             <p>{{$item->policy->name}}</p>
             <div class="item3">
-                
+
                 <p>Rate</p>
                 <p>Installment Plan</p>
                 <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
@@ -52,16 +52,16 @@
 
         <div class="item2">
             <p>Total</p>
-            <?php
-            $price = $item->price;
-            $sale = $price * 80/100 ;
-            $rate = $item->rate;
-            $sale_rate = round($rate*80/100,1);
-            ?>
+             <?php
+                $price = $item->price;
+                $sale = $price * 80 / 100;
+                $rate = $item->rate;
+                $sale_rate = round($rate * 80 / 100, 1);
+                ?>
             <h2>${{$sale}}</h2>
             <h4> <del>${{$item->price}}</del> </h4>
             <div class="item4">
-                <p>{{$sale_rate}}%  <del>{{$item->rate}}%</del></p>
+                <p>{{$sale_rate}}% <del>{{$item->rate}}%</del></p>
                 <p>${{$item->price}} / month</p>
                 <br>
             </div>

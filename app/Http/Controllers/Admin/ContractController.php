@@ -10,7 +10,6 @@ use App\Models\Customer;
 use App\Models\Invoice;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-
 use function League\Flysystem\delete;
 
 class ContractController extends Controller
@@ -50,9 +49,10 @@ class ContractController extends Controller
         $contract = new Contract();
         $contract->insurance_id=$request->insurance_id;
         $contract->customer_id = Auth::user()->id;
-        $contract->insurance_id = $request->insurance_id;       
-        $contract->enddate = $request->enddate;
+        $contract->insurance_id = $request->insurance_id; 
         $contract->startdate = $request->startdate;
+        $contract->enddate = $request->enddate;
+        $contract->price = $request->price;
         $contract->save();
         return redirect()->route('admin.contract.index')->with('success','success');
     }
@@ -91,20 +91,18 @@ class ContractController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateRequest $request,int $id)
+    public function update(UpdateRequest $request, $id)
     {
         $contract = Contract::find($id);
         if($contract == null){
             abort(404);
 
         }
-
-
         $contract->insurance_id=$request->insurance_id;
         $contract->customer_id = Auth::user()->id;
-        $contract->insurance_id = $request->insurance_id;  
-        $contract->startdate = $request->startdate;     
+        $contract->startdate = $request->startdate;          
         $contract->enddate = $request->enddate;
+        $contract->price = $request->price;
         $contract->save();
         return redirect()->route('admin.contract.index')->with('success','success');
     }
@@ -116,20 +114,14 @@ class ContractController extends Controller
     {
         //
         $contract= Contract::find($id);
+
         
         $check_invoice = Invoice::where('contract_id' ,$id)->count();
         if($check_invoice > 0){
             return redirect()->route('admin.contract.index')->with('error', 'You can\'t delete this contract .Because it has invoice .');
         }
+
         $contract->delete();
         return redirect()->route('admin.contract.index')->with('success', 'Deleted Successfully!');
     }
-    // public function join()
-    // {
-    //     $join=DB::table('contracts')
-    //                     ->join('customers','contracts.custormer_id','=','customers.id')
-    //                     ->select('firstname','lastname','email','phone','created_at')
-    //                     ->get();
-    //     dd($join);
-    // }
 }

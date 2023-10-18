@@ -41,10 +41,10 @@
                             <input type="email" class="input-text " name="email" value="{{ $customer ->email}}" disabled>
                             <label style="margin-left:10px">Phone</label>
                             <input type="text" class="input-text " name="phone"  value="{{ $customer ->phone}}" disabled> 
-                            <label style="margin-left:10px">Policy Name</label>
-                            <input type="text" class="input-text " name="phone"  value="{{ $insurance->policy->name}}" disabled>
+                            <label style="margin-left:10px">Provider</label>
+                            <input type="text" class="input-text " name="provider_id"  value="{{ $insurance->provider->name}}" disabled>
                             <label style="margin-left:10px">Insurance Name</label>
-                            <input type="text" class="input-text " name="phone"  value="{{ $insurance->policy->name}}" disabled>
+                            <input type="text" class="input-text " name="policy_id"  value="{{ $insurance->policy->name}}" disabled>
                             <label style="margin-left:10px">Due Date</label>
                             <input type="text" class="input-text " name="duedate"  value="{{ date('d/m/Y', strtotime($invoice->duedate)) }}" disabled>
                     </div>
@@ -74,14 +74,7 @@
                                             </span>
                                          </td>
                                     </tr>
-                                    <tr class="Shipping">
-                                        <th>Shipping:</th>
-                                        <td>
-                                            <span class="woocommerce-Price-amount amount">
-                                                free
-                                            </span>
-                                         </td>
-                                    </tr>
+                                    
                                     <tr class="Total">
                                         <th>Total:</th>
                                         <td>

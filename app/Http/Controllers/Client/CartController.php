@@ -63,9 +63,11 @@ class CartController extends Controller
 
     public function showCheckoutPost(int $id){
         $customer = Auth::user();  
-        $contract = Contract::with('insurance','customer')->select('id','customer_id','insurance_id','enddate')->where('customer_id',  $customer->id)->first();
-        $invoice = Invoice::with('contract')->select('id','contract_id','duedate')->where('contract_id',$contract->id)->first();
-        $insurance = Insurance::with('policy')->select('price','rate','value','policy_id')->where('id',$contract->insurance_id)->first();
+        $contract = Contract::with('insurance','customer')->select('id','customer_id','insurance_id','enddate')->where('customer_id',  $id)->first();
+        $insurance_id = $contract->insurance_id;
+        $contract_id = $contract->id;
+        $insurance = Insurance::with('policy','provider')->select('price','rate','value','policy_id','provider_id')->find($insurance_id)->first();
+        $invoice = Invoice::with('contract')->where('contract_id',$contract_id)->first();
         return view('client.page.invoice_checkout_show',[
             'invoice'=>$invoice,
             'customer'=>$customer,

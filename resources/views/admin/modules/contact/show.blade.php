@@ -12,14 +12,14 @@
                 <div class="col-md-6">
                     <div class="form-group">
                         <label>First name</label>
-                        <input type="text" class="form-control" placeholder="Enter first name" name="firstname" value="{{ old('firstname',$contact->firstname)}}">
+                        <input type="text" class="form-control" name="firstname"  placeholder="{{ old('firstname',$contact->firstname)}}">
                     </div>
                 </div>  
 
                 <div class="col-md-6">
                     <div class="form-group">
                         <label>Last name</label>
-                        <div type="text" class="form-control" placeholder="last name" name="lastname" value="{{ old('lastname',$contact->lastname)}}">{{$contact->lastname}}</div>
+                        <input type="text" class="form-control" name="lastname" placeholder="{{ old('lastname',$contact->lastname)}}">
                     </div>
                 </div>
             </div>
@@ -27,19 +27,19 @@
                 <div class="col-md-12">
                     <div class="form-group">
                         <label>Email</label>
-                        <div type="text" class="form-control" placeholder="Enter Email" name="email" value="{{ old('email',$contact->email)}}"></div>
+                        <input type="text" class="form-control" name="email" placeholder="{{ old('email',$contact->email)}}">
                     </div>
                 </div>
                 <div class="col-md-12">
                     <div class="form-group">
                         <label>Phone</label>
-                        <div type="text" class="form-control" placeholder="Enter Email" name="phone" value="{{ old('phone',$contact->phone)}}"></div>
+                        <input type="text" class="form-control" name="phone" placeholder="{{ old('phone',$contact->phone)}}">
                     </div>
                 </div>
                 <div class="col-md-12">
                     <div class="form-group">
                         <label>Description</label>
-                        <div type="text" class="form-control" name="description" >{{$contact->description}}</div>
+                        <textarea rows="10" type="text" class="form-control" placeholder="{{ old('description',$contact->description)}}" name="description"></textarea>
                     </div>
                 </div>
             </div>
