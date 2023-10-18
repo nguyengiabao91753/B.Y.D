@@ -7,6 +7,7 @@ use App\Http\Requests\Admin\Customer\UpdateRequest;
 use App\Models\Admin\Insurance;
 use App\Models\Contract;
 use App\Models\Customer;
+use App\Models\Invoice;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -50,11 +51,13 @@ class UserProfileController extends Controller
 
         $customer=Auth::user();
         $contract = Contract::with('customer')->select('id','customer_id','startdate','enddate','price')->where('customer_id',  $customer->id)->first();
+        $contracts= Invoice::with('contract')->find($id);
         $insurances = Insurance::with('policy')->first();
         return view('client.page.contract_profile',[
             'customer'=>$customer,
             'insurances'=>$insurances,
-            'contract'=>$contract
+            'contract'=>$contract,
+            'contracts'=>$contracts
         ]);
     }
 }

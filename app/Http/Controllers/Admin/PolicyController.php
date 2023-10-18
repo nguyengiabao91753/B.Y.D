@@ -7,6 +7,7 @@ use App\Http\Requests\Admin\Policy\UpdateRequest;
 use App\Http\Requests\Admin\Policy\StoreRequest;
 use App\Models\Policy;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class PolicyController extends Controller
 {
@@ -131,6 +132,9 @@ class PolicyController extends Controller
         // }
 
         // $policy->delete();
+
+
+        
 
         $policy->status = 1;
         $policy->save();

@@ -18,9 +18,9 @@ class LoginClientController extends Controller
     
     public function showLoginClient() {
         Session::put('previous_url', url()->previous());
-        if(Auth::check()){
-            return redirect()->back();
-        }
+        // if(Auth::check()){
+        //     return redirect()->back();
+        // }
         return view('client.page.login');
     }
 

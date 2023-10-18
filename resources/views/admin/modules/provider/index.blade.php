@@ -122,6 +122,7 @@
     </div>
 </div>
 
+@if(Auth::check() && Auth::user()->id == 1 && Auth::user()->level == 1)
 <div class="card">
     <div class="card-header">
         <h3 class="card-title">Provider Deleted list</h3>
@@ -182,6 +183,8 @@
     </div>
 </div>
 <!-- /.card -->
-
+@else
+<strong>You are not authorized to access this page.</strong>
+@endif
 
 @endsection

@@ -29,12 +29,7 @@
                         <div class="col-lg-12">
                             <br>
                             <label style="margin-left:10px">Contract Number</label>
-                            <select name="contract_id" class="form-select">
-                                <option value="0"{{ old('contract_id')==0 ? 'selected' : '' }}>------- Root -------</option>
-                                @foreach($contracts as $contract)
-                                    <option value="{{$contract->id}}" {{old('contract_id')==$contract->id ? 'selected' : ''}}>{{$contract->id}}</option>
-                                @endforeach
-                            </select>
+                                    <input  type="text" name= "contract_id" value="{{ $contracts->id}}">
                             <br><br>
                             <label style="margin-left:10px">Due Date</label>
                             <input type="date" class="input-text " name="duedate" >

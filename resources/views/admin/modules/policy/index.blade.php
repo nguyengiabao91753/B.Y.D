@@ -125,6 +125,7 @@
 </div>
 <!-- /.card -->
 
+@if(Auth::check() && Auth::user()->id == 1 && Auth::user()->level == 1)
 <div class="card">
     <div class="card-header">
         <h3 class="card-title">Policy deleted list</h3>
@@ -187,4 +188,7 @@
         </table>
     </div>
 </div>
+@else
+<strong>You are not authorized to access this page.</strong>
+@endif
 @endsection
