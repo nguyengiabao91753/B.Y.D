@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Admin\Insurance;
 use App\Models\Contract;
 use App\Models\Customer;
+use App\Models\Invoice;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -116,9 +117,9 @@ class ContractController extends Controller
         //
         $contract= Contract::find($id);
         
-        $check_insurance = Insurance::where('id',$contract->insurance_id)->count();
-        if($check_insurance > 0){
-            return redirect()->route('admin.contract.index')->with('error', 'You can\'t delete this insurance .Because insurance chidren .');
+        $check_invoice = Invoice::where('contract_id' ,$id)->count();
+        if($check_invoice > 0){
+            return redirect()->route('admin.contract.index')->with('error', 'You can\'t delete this contract .Because it has invoice .');
         }
         $contract->delete();
         return redirect()->route('admin.contract.index')->with('success', 'Deleted Successfully!');
