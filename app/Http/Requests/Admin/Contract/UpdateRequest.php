@@ -22,7 +22,7 @@ class UpdateRequest extends FormRequest
     public function rules(): array
     {
         return [
-            // 'startdate' => 'required',
+            'startdate' => 'required',
             'enddate'=>'required',
             'price' => 'required',
         ];

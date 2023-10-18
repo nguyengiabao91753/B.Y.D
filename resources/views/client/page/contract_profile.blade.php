@@ -24,7 +24,7 @@
         @endforeach
     </div>
 @endif
-<form method="post" action="">
+<form method="post" action="{{ route('profile.contract',[ 'id' =>Auth::user()->id ]) }}">
     @csrf
     <div class="container light-style flex-grow-1 container-p-y">
             <h4 class="font-weight-bold py-3 mb-4">
@@ -38,40 +38,122 @@
                                 href="{{ route('profile.show') }}">General</a>
                             <a class="list-group-item list-group-item-action" 
                                 href="{{ route('profile.edit',['id'=> $customer->id]) }}">Change password</a>
-                            <a class="list-group-item list-group-item-action"
-                                href="{{ route('profile.contract_user.') }}">Contract</a>
+                            <a class="list-group-item list-group-item-action" 
+                                href="{{ route('profile.contract',['id'=>Auth::user()->id]) }}">Contract</a>
                         </div>   
                     </div>
-                    <div class="col-md-9">
-                        <div class="tab-content">
-                            <div class="tab-pane fade active show" id="account-general">
-                                <div class="card-body media align-items-center">
-                                    <img src="#" alt
-                                        class="d-block ui-w-80">
-                                </div>
-                                <hr class="border-light m-0">
-                                <div class="card-body">
-                                    <div class="form-group">
-                                        <label class="form-label">Current password</label>
-                                        <input type="password" class="form-control" value="">
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="form-label">New password</label>
-                                        <input type="password" class="form-control" placeholder="Enter password" >
-                                    </div>
-                                    <div class="form-group">
-                                        <label>Confirm Password</label>
-                                        <input type="password" class="form-control" placeholder="Enter password" >
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+@if (empty($contract))
+    <p>You don't have any contracts.</p>
+@else
+    <div class="card-body">
+                    <div class="card-tools">
+                    <input type="text" name="customer_id" value="{{$customer->id}}" hidden>
+                    <input type="text" name="insurance_id" value="{{$insurances->id}}" hidden>
+                </div>
+            </div>
+        </div>
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-12">
+
+                    <div class="form-group">
+                        <label>Name</label>
+                        <input type="text" class="form-control" placeholder="{{ $customer->firstname.' '.$customer->lastname }}">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Email</label>
+                        <input type="text" class="form-control" placeholder="{{$customer->email }}">
+                    </div>
+                    <div class="form-group">
+                        <label>Phone</label>
+                        <input type="text" class="form-control" placeholder="{{$customer->phone }}">
+                    </div>
+                    <div class="form-group">
+                        <label>Isnurance Name</label>
+                        <input type="text" class="form-control" placeholder="{{ $insurances->policy->name }}">
+                    </div>
+                    <div class="form-group">
+                        <label>Brand</label>
+                        <input type="text" class="form-control" placeholder="{{ $insurances->brand }}">
+                    </div>
+                    <div class="form-group">
+                        <label>Model</label>
+                        <input type="text" class="form-control" placeholder="{{ $insurances->model }}">
+                    </div>
+                    <div class="form-group">
+                        <label>Value</label>
+                        <input type="text" class="form-control" placeholder="{{ $insurances->model }}">
+                    </div>
+                    <div class="form-group">
+                        <label>Price</label><br>
+                        <a><input type="text" id="price" name="price" placeholder="{{ $insurances->price}}" for="productPrice" style="width: 1020px; height: 40px;">USD</a>
+                    </div>
+                    <div class="form-group">
+                        <label for="start-date">StartDate</label>
+                        <input type="text" name="startdate" id="startDate" class="form-control"  value="{{ $contract->startdate }}" readonly>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="form-group">
+                        <label for="end-date">EndDate</label>
+                        <a> <input type="text" id="endDate" class="form-control" name="enddate" readonly value="{{ $contract->enddate }}"></a>
+                    </div>
+                    <div class="form-group">
+                        <label for="price">Total Price</label>
+                        <a><input type="text" id="totalPrice" name="price" readonly style="width: 1020px; height: 40px;" value="{{ $contract->price }}" readonly> USD</a>
                     </div>
                 </div>
             </div>
-            <div class="text-right mt-3">
-                <button type="submit" class="btn btn-primary">Save changes</button>
-            </div>
-    </div>
+@endif
+        </div>
+        </div>
+    </form>
+</div>
 </form>
+<script>
+    function calculateEndDate() {
+        // Lấy giá trị ngày bắt đầu từ input
+        const startDateInput = document.getElementById("startDate");
+        const startDate = new Date(startDateInput.value);
+
+        // Lấy số tháng được chọn
+        const months = parseInt(document.getElementById("months").value);
+
+        // Kiểm tra xem ngày bắt đầu có hợp lệ hay không
+        if (isNaN(startDate.getTime())) {
+            alert("Ngày bắt đầu không hợp lệ. Vui lòng chọn ngày khác.");
+            return;
+        }
+
+        // Tính ngày kết thúc bằng cách cộng thêm số tháng
+        const endDate = new Date(startDate);
+        endDate.setMonth(endDate.getMonth() + months);
+
+        // Đặt giá trị ngày kết thúc vào input
+        const endDateInput = document.getElementById("endDate");
+        endDateInput.value = endDate.toISOString().slice(0, 10);
+    }
+</script>
+<script>
+    function calculateTotalPrice() {
+        // Lấy giá tiền cơ bản từ thẻ span
+        const price = parseFloat(document.getElementById("price").placeholder);
+
+        // Lấy số tháng được chọn
+        const months = parseInt(document.getElementById("months").value);
+
+        // Tính giá tiền dựa trên số tháng
+        const totalPrice = price * months;
+        // Thêm đơn vị tiền tệ VND sau giá trị
+        const formattedPrice = totalPrice.toLocaleString("vi-VN", {
+            style: "currency",
+            currency: "VND"
+        });
+
+        // Đặt giá trị tổng giá tiền vào input
+        const totalPriceInput = document.getElementById("totalPrice");
+        totalPriceInput.value = totalPrice.toFixed(2); // Làm tròn đến 2 chữ số thập phân
+    }
+</script>
 @endsection

@@ -17,9 +17,8 @@ class ContractController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index( int $id)
+    public function index()
     {
-
     }
 
     /**
@@ -30,7 +29,7 @@ class ContractController extends Controller
         //
         $customers = Customer::all();
         $insurances = Insurance::all();
-        return view('client.page.contract',[
+        return view('client.page.contract_user',[
             'customers'=>$customers,
             'insurances'=>$insurances
         ]);
@@ -47,10 +46,12 @@ class ContractController extends Controller
         $contract->customer_id = Auth::user()->id;
         $contract->startdate = $request->startdate;
         $newenddate = $request->input('enddate');
+        $newstartdate= $request->input('startdate');
+        $contract->startdate=$newstartdate;
         $contract->enddate = $newenddate ;
         $contract->price = $request->price;
         $contract->save();
-        return redirect()->route('contract_user.show')->with('success','Create Contract successfully.Thank you for contacting us');
+        return redirect()->route('invoice.create')->with('success','Create Contract successfully.Thank you for contacting us');
     }
 
     /**
@@ -60,8 +61,8 @@ class ContractController extends Controller
         $customers=Auth::user();
         $insurances = Insurance::with('policy')->find($id);
         return view('client.page.contract_user',[
-            'customer'=>$customers,
-            'insurance'=>$insurances
+            'customers'=>$customers,
+            'insurances'=>$insurances,
         ]);
     }
 
@@ -88,4 +89,5 @@ class ContractController extends Controller
     {
         //
     }
+
 }

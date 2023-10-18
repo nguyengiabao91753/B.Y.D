@@ -38,7 +38,7 @@
                     <select class="form-control" name="insurance_id">
                         <option value="">----- Root -----</option>
                         @foreach($insurances as $insurance)
-                        <option value="{{$insurance->id}}" {{old( 'insurance_id', $insurance->id ) == $insurance->id ? 'selected' : '' }}>{{$insurance->id}}</option>
+                        <option value="{{$insurance->id}}" {{old( 'insurance_id', $insurance->id ) == $insurance->id ? 'selected' : '' }}>{{$insurance->policy->name}}</option>
                         @endforeach
                     </select>
                 </div>
@@ -46,7 +46,7 @@
             <div class="form-group">
                 <div class="col-md-6">
                     <label for="startdate">StartDate</label>
-                    <input type="text" id="startdate" class="form-control" value="{{old('startdate',$contract->startdate)}}">
+                    <input type="text" id="startdate" class="form-control" name="startdate" value="{{old('startdate',$contract->startdate)}}">
                 </div>
                 <div class="form-group">
                     <div class="col-md-6">

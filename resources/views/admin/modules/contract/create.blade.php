@@ -47,21 +47,23 @@
             <div class="form-group">
                 <div class="col-md-6">
                     <label for="startdate">StratDate</label>
-                    <input type="date" id="startdate" class="form-control" name="startdate"
-            <div class="form-group">
-                <div class="col-md-6">
-                    <label for="enddate">EndDate</label>
-                    <input type="date" id="enddate" class="form-control" name="enddate" min="2018-09-24" max="2025-10-20" placeholder="Enter Date" value="{{ old('enddate')}}">
+                    <input type="date" id="startdate" class="form-control" name="startdate">
                 </div>
                 <div class="form-group">
-                <div class="col-md-6">
-                    <label for="price">Price(USD)</label>
-                    <input type="text" id="price" class="form-control" name="price"placeholder="Enter Price" value="{{ old('price')}}">
+                    <div class="col-md-6">
+                        <label for="enddate">EndDate</label>
+                        <input type="date" id="enddate" class="form-control" name="enddate" min="2018-09-24" max="2025-10-20" placeholder="Enter Date" value="{{ old('enddate')}}">
+                    </div>
                 </div>
-                <div class="card-footer">
-                    <button type="submit" class="btn btn-primary">Create</button>
+                <div class="form-group">
+                    <div class="col-md-6">
+                        <label for="price">Price(USD)</label>
+                        <input type="text" id="price" class="form-control" name="price" placeholder="Enter Price" value="{{ old('price')}}">
+                    </div>
+                    <div class="card-footer">
+                        <button type="submit" class="btn btn-primary">Create</button>
+                    </div>
                 </div>
-            </div>
-            <!-- /.card -->
+                <!-- /.card -->
 </form>
 @endsection

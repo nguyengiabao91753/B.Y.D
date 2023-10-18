@@ -9,7 +9,6 @@ use App\Models\Contract;
 use App\Models\Customer;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-
 use function League\Flysystem\delete;
 
 class ContractController extends Controller
@@ -91,18 +90,16 @@ class ContractController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateRequest $request,int $id)
+    public function update(UpdateRequest $request, $id)
     {
         $contract = Contract::find($id);
         if($contract == null){
             abort(404);
 
         }
-
-
         $contract->insurance_id=$request->insurance_id;
         $contract->customer_id = Auth::user()->id;
-        $contract->stardate = $request->stardate;       
+        $contract->startdate = $request->startdate;          
         $contract->enddate = $request->enddate;
         $contract->price = $request->price;
         $contract->save();
@@ -117,19 +114,6 @@ class ContractController extends Controller
         //
         $contract= Contract::find($id);
         $contract->delete();
-        $check_insurance = Insurance::where('contract_id',$id)->count();
-        if($check_insurance > 0){
-            return redirect()->route('admin.contract.index')->with('error', 'You can\'t delete this insurance .Because insurance chidren .');
-        }
-
         return redirect()->route('admin.contract.index')->with('success', 'Deleted Successfully!');
     }
-    // public function join()
-    // {
-    //     $join=DB::table('contracts')
-    //                     ->join('customers','contracts.custormer_id','=','customers.id')
-    //                     ->select('firstname','lastname','email','phone','created_at')
-    //                     ->get();
-    //     dd($join);
-    // }
 }
