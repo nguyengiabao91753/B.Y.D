@@ -177,7 +177,7 @@ class InsuranceCotroller extends Controller
         $insurance = Insurance::find($id);
         $check = Contract::where('insurance_id',$id)->count();
         if ($check > 0) {
-            return redirect()->route('admin.insurance.index')->with('error', 'This Insurance\'s having a contract!');
+            return redirect()->route('admin.insurance.index')->with('error', 'This insurance currently has contract.!');
         }
 
         $insurance->delete();

@@ -67,14 +67,7 @@
                                             </span>
                                          </td>
                                     </tr>
-                                    <tr class="Shipping">
-                                        <th>Shipping:</th>
-                                        <td>
-                                            <span class="woocommerce-Price-amount amount">
-                                                free
-                                            </span>
-                                         </td>
-                                    </tr>
+                                    
                                     <tr class="Total">
                                         <th>Total:</th>
                                         <td>

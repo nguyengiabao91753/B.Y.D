@@ -18,7 +18,7 @@
        </div>
        <div class="text">
            <h1>SAFE CARZ</h1>
-           <p>Safe Carz Limited (SCZL) is one of the largest dedicated Motor Insurance Company in Pakistan. SCZL is a
+           <p>B.Y.D Insurance (B.Y.D) is one of the largest dedicated Motor Insurance Company in Pakistan. B.Y.D is a
                progressive and a technology-driven company providing innovative Insurance solutions. SCZL is the
                fastest growing Motor Insurance operator in the country.
                Incorporated in 2005, and beginning operations in 2006, the company is registered with, and supervised
@@ -27,15 +27,15 @@
                paid-up capital is in excess of Pak- Rs. 2.71 Billion.
                <br>
                <br>
-               <b>SCZL has a vision of providing any kind of protection through insurance to everyone.</b>
+               <b>B.Y.D has a vision of providing any kind of protection through insurance to everyone.</b>
                <br>
                <br>
-               Safe Carz Limited has largest Insurance branch networks across Pakistan (over 1200+ branches in 100+
+               B.Y.D Insurance has largest Insurance branch networks across Pakistan (over 1200+ branches in 100+
                countries).
-               Safe Carz Limited (SCZL) is currently providing need-based financial protection to more than 4000
-               corporate clients and over 670,000+ Individual Insurance members. Safe Carz Limited has around 1200+
+               B.Y.D Insurance (B.Y.D) is currently providing need-based financial protection to more than 4000
+               corporate clients and over 670,000+ Individual Insurance members. B.Y.D Insurance has around 1200+
                prominent offices across the world to provide best service to Insurance members.
-               Safe Carz Limited is recipient of several domestic and international awards and nominations including,
+               B.Y.D Insurance is recipient of several domestic and international awards and nominations including,
                ‘Best Insurance Company’ Award from FPCCI, ‘Brand of the Year’ at the FPPCI Awards in Karachi, ‘Best
                Insurance Operator’ by IFN Awards in ‘Best Insurance Operator in Pakistan’ award at the International
                Insurance Summit London and ‘Best Insurance Company in Pakistan’ for the year at ‘RTC Insurance, Banking

@@ -22,7 +22,7 @@
                 <h5>We take hasstle out of insurance and enable you to live life with<br>complete peace of mind.</h5>
             </div>
             <div class="btn1">
-                <a href="{{route('vehicle')}}">GET INSURED</a>
+                <a href="{{route('all_vehicle')}}">GET INSURED</a>
             </div>
         </div>
     </div>
@@ -75,7 +75,7 @@
                 <img src="{{asset('client/img/Car%20Insurance_E.png')}}" alt="">
             </div>
             <div class="btn">
-                <a href="car-insurance-types.html">Car Insurance</a>
+                <a href="{{ route('car_insurance')}}">Car Insurance</a>
             </div>
         </div>
         <div class="item5">
@@ -83,7 +83,7 @@
                 <img src="{{asset('client/img/motorcycle-insurance_E.png')}}" alt="">
             </div>
             <div class="btn">
-                <a href="bike-insurance-types.html">Bike Insurance</a>
+                <a href="{{ route('bike_insurance')}}">Bike Insurance</a>
             </div>
         </div>
     </div>
@@ -235,7 +235,7 @@
             </div>
             <div class="item11">
                 <div class="img">
-                    <img src="" alt="">
+                    <img src="{{asset('client/img/UIC.png')}}" alt="">
                 </div>
             </div>
             <div class="item11">

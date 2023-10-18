@@ -62,7 +62,7 @@
 
                 <li class="nav-item">
                     <a href="#" class="nav-link">
-                        <i class="nav-icon fas fa-box"></i>
+                        <i class="nav-icon far fa-file-alt	"></i>
                         <p>
                             Policy
                             <i class="right fas fa-angle-left"></i>
@@ -86,7 +86,7 @@
 
                 <li class="nav-item">
                     <a href="#" class="nav-link">
-                        <i class="nav-icon fas fa-users"></i>
+                        <i class="nav-icon fab fa-asymmetrik	"></i>
                         <p>
                             Provider
                             <i class="right fas fa-angle-left"></i>
@@ -109,7 +109,7 @@
                 </li>
                 <li class="nav-item">
                     <a href="#" class="nav-link">
-                        <i class="nav-icon fas fa-users"></i>
+                        <i class="nav-icon 	far fa-folder-open"></i>
                         <p>
                             Insurance
                             <i class="right fas fa-angle-left"></i>
@@ -132,7 +132,7 @@
                 </li>
                 <li class="nav-item">
                     <a href="#" class="nav-link">
-                        <i class="nav-icon fas fa-users"></i>
+                        <i class="nav-icon far fa-bookmark	"></i>
                         <p>
                             Contract
                             <i class="right fas fa-angle-left"></i>
@@ -155,7 +155,7 @@
                 </li>
                 <li class="nav-item">
                     <a href="#" class="nav-link">
-                        <i class="nav-icon fas fa-users"></i>
+                        <i class="nav-icon far fa-newspaper"></i>
                         <p>
                             Invoice
                             <i class="right fas fa-angle-left"></i>
@@ -205,7 +205,7 @@
 
                 <li class="nav-item">
                     <a href="#" class="nav-link">
-                        <i class="nav-icon fas fa-users"></i>
+                        <i class="nav-icon far fa-comment-alt"></i>
                         <p>
                             Contact
                             <i class="right fas fa-angle-left"></i>
